@@ -8,7 +8,6 @@
 
   <link rel="canonical" href="https://outils-tpe.fr/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="outils-tpe.fr" />
@@ -20,28 +19,22 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="outils-tpe.fr — Outils de gestion gratuits pour les TPE" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Outils de gestion gratuits pour les TPE" />
   <meta name="twitter:description" content="Trésorerie, devis, calculateurs et gestion complète. 100 % gratuit, sans inscription, données dans votre navigateur." />
   <meta name="twitter:image" content="https://outils-tpe.fr/assets/img/og-image.jpg" />
 
-  <!-- Favicon & theme -->
   <meta name="theme-color" content="#0f2d52" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
 
-  <!-- Performance : préchargement CSS critique -->
-  <link rel="preload" href="assets/css/main.css" as="style" />
-
-  <!-- Fonts : chargement non-bloquant -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
 
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- ?v=3 force le rechargement du cache navigateur -->
+  <link rel="stylesheet" href="assets/css/main.css?v=3" />
 
-  <!-- Données structurées -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,13 +71,11 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       HEADER
-       ============================================================ -->
+  <!-- HEADER -->
   <header class="header">
-    <div class="container header__inner">
+    <div class="wrap header__inner">
       <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
-        <span class="logo__text">outils-tpe<span class="logo__dot">.fr</span></span>
+        outils-tpe<span class="logo__tld">.fr</span>
       </a>
 
       <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
@@ -104,184 +95,77 @@
     </div>
   </header>
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero__inner">
+    <div class="wrap hero__inner">
 
-      <!-- Texte -->
-      <div class="hero__content">
-        <div class="hero__pills">
-          <span class="hero__pill">100 % gratuit</span>
-          <span class="hero__pill">Sans inscription</span>
-        </div>
+      <span class="hero__badge">Pour artisans &amp; TPE françaises</span>
 
-        <h1 class="hero__title">
-          Gérez votre activité,<br>
-          <span class="hero__title-accent">sans vous prendre la tête</span>
-        </h1>
+      <h1 class="hero__title">
+        Gérez votre activité<br>
+        <span class="hero__accent">sans vous prendre la tête</span>
+      </h1>
 
-        <p class="hero__sub">
-          Des outils de trésorerie, devis et calcul pensés pour les artisans et TPE françaises.
-          Tout fonctionne dans votre navigateur — en 30 secondes, sans rien installer.
-        </p>
+      <p class="hero__sub">
+        Des outils de trésorerie, devis et calcul pensés pour votre métier.
+        Gratuit, sans inscription, tout dans votre navigateur.
+      </p>
 
-        <div class="hero__actions">
-          <a href="#outils" class="btn btn--primary btn--lg">Voir les outils gratuits</a>
-          <a href="/sur-mesure" class="btn btn--ghost btn--lg">Outil sur mesure</a>
-        </div>
+      <div class="hero__actions">
+        <a href="#outils" class="btn btn-green btn-lg">Voir les outils gratuits</a>
+        <a href="/sur-mesure" class="btn btn-ghost btn-lg">Outil sur mesure</a>
+      </div>
 
-        <p class="hero__note">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Vos données restent dans votre navigateur — pas de compte, pas de cloud
-        </p>
-      </div>
-
-      <!-- Illustration mockup (desktop uniquement) -->
-      <div class="hero__mockup" aria-hidden="true">
-        <div class="mockup-card">
-          <div class="mockup-card__header">
-            <div class="mockup-card__icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-            </div>
-            <span>Trésorerie — Avr. 2025</span>
-          </div>
-
-          <div class="mockup-card__balance">
-            <span class="mockup-card__balance-label">Solde disponible</span>
-            <span class="mockup-card__balance-value">+8 450 €</span>
-          </div>
-
-          <div class="mockup-card__chart">
-            <div class="mockup-bar" style="--h:52%"></div>
-            <div class="mockup-bar" style="--h:78%"></div>
-            <div class="mockup-bar" style="--h:44%"></div>
-            <div class="mockup-bar" style="--h:91%"></div>
-            <div class="mockup-bar mockup-bar--active" style="--h:67%"></div>
-            <div class="mockup-bar mockup-bar--projected" style="--h:82%"></div>
-          </div>
-
-          <div class="mockup-card__rows">
-            <div class="mockup-card__row">
-              <span>Encaissements</span>
-              <span class="mockup-positive">+3 200 €</span>
-            </div>
-            <div class="mockup-card__row">
-              <span>Décaissements</span>
-              <span class="mockup-negative">−1 850 €</span>
-            </div>
-          </div>
-
-          <div class="mockup-card__footer">
-            <span class="mockup-chip">Activité saine</span>
-            <span class="mockup-date">Mis à jour il y a 2 min</span>
-          </div>
-        </div>
-      </div>
+          100 % gratuit, aucune carte
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Données stockées chez vous
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Prêt en 30 secondes
+        </li>
+      </ul>
 
     </div>
-    <div class="hero__bg-shape" aria-hidden="true"></div>
   </section>
 
-  <!-- ============================================================
-       BANDE DE CONFIANCE
-       ============================================================ -->
-  <div class="trust-bar">
-    <div class="container trust-bar__inner">
+  <!-- OUTILS -->
+  <section id="outils" class="outils">
+    <div class="wrap">
 
-      <div class="trust-item">
-        <span class="trust-item__icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </span>
-        <div>
-          <strong>100 % gratuit</strong>
-          <span>Aucune carte requise</span>
-        </div>
-      </div>
-
-      <div class="trust-divider" aria-hidden="true"></div>
-
-      <div class="trust-item">
-        <span class="trust-item__icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-        </span>
-        <div>
-          <strong>Données privées</strong>
-          <span>Stockées chez vous</span>
-        </div>
-      </div>
-
-      <div class="trust-divider" aria-hidden="true"></div>
-
-      <div class="trust-item">
-        <span class="trust-item__icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-        </span>
-        <div>
-          <strong>Prêt en 30 secondes</strong>
-          <span>Aucune installation</span>
-        </div>
-      </div>
-
-      <div class="trust-divider" aria-hidden="true"></div>
-
-      <div class="trust-item">
-        <span class="trust-item__icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="2"/>
-            <line x1="12" y1="18" x2="12.01" y2="18"/>
-          </svg>
-        </span>
-        <div>
-          <strong>Mobile-friendly</strong>
-          <span>Sur tous vos appareils</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ============================================================
-       OUTILS
-       ============================================================ -->
-  <section id="outils" class="outils section">
-    <div class="container">
-      <div class="section__header">
-        <h2 class="section__title">Choisissez votre outil</h2>
-        <p class="section__sub">Quatre familles d'outils pour couvrir tous vos besoins de gestion au quotidien.</p>
+      <div class="sec-head">
+        <h2>Choisissez votre outil</h2>
+        <p>Quatre outils gratuits pour couvrir tous vos besoins de gestion au quotidien.</p>
       </div>
 
       <div class="cards">
 
-        <!-- Trésorerie -->
-        <a href="/tresorerie" class="card" aria-label="Accéder aux outils Trésorerie">
+        <a href="/tresorerie" class="card" aria-label="Trésorerie">
           <div class="card__icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="5" width="20" height="14" rx="2"/>
               <line x1="2" y1="10" x2="22" y2="10"/>
             </svg>
           </div>
           <h3 class="card__title">Trésorerie</h3>
-          <p class="card__desc">Suivez vos encaissements et décaissements, anticipez vos besoins en liquidités et visualisez votre solde mois par mois.</p>
-          <span class="card__cta">Accéder <span aria-hidden="true">→</span></span>
+          <p class="card__desc">Suivez votre argent entrant et sortant. Anticipez vos fins de mois sans surprise.</p>
+          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
         </a>
 
-        <!-- Devis -->
-        <a href="/devis" class="card" aria-label="Accéder aux outils Devis">
+        <a href="/devis" class="card" aria-label="Devis">
           <div class="card__icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="16" y1="13" x2="8" y2="13"/>
@@ -290,14 +174,13 @@
             </svg>
           </div>
           <h3 class="card__title">Devis</h3>
-          <p class="card__desc">Créez des devis et factures professionnels en quelques clics, exportables en PDF, prêts à envoyer à vos clients.</p>
-          <span class="card__cta">Accéder <span aria-hidden="true">→</span></span>
+          <p class="card__desc">Créez des devis professionnels en 2 minutes, exportables en PDF.</p>
+          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
         </a>
 
-        <!-- Calculateurs -->
-        <a href="/calculateurs" class="card" aria-label="Accéder aux Calculateurs">
+        <a href="/calculateurs" class="card" aria-label="Calculateurs">
           <div class="card__icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="4" y="2" width="16" height="20" rx="2"/>
               <line x1="8" y1="6" x2="16" y2="6"/>
               <line x1="8" y1="10" x2="10" y2="10"/>
@@ -309,64 +192,58 @@
             </svg>
           </div>
           <h3 class="card__title">Calculateurs</h3>
-          <p class="card__desc">TVA, charges sociales, seuil de rentabilité, marge… Des calculateurs métier pour prendre de meilleures décisions.</p>
-          <span class="card__cta">Accéder <span aria-hidden="true">→</span></span>
+          <p class="card__desc">TVA, charges, seuil de rentabilité, marge — résultats instantanés.</p>
+          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
         </a>
 
-        <!-- Gestion complète -->
-        <a href="/gestion" class="card card--featured" aria-label="Accéder à la Gestion complète">
-          <div class="card__badge">Tout-en-un</div>
+        <a href="/gestion" class="card card--highlight" aria-label="Gestion complète">
+          <span class="card__badge">Tout-en-un</span>
           <div class="card__icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
           </div>
           <h3 class="card__title">Gestion complète</h3>
-          <p class="card__desc">Un tableau de bord unifié : clients, factures, trésorerie et indicateurs clés réunis en un seul espace de travail.</p>
-          <span class="card__cta">Accéder <span aria-hidden="true">→</span></span>
+          <p class="card__desc">Clients, factures, trésorerie et indicateurs clés réunis en un seul tableau de bord.</p>
+          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
         </a>
 
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PAR MÉTIER
-       ============================================================ -->
-  <section class="metiers section">
-    <div class="container">
-      <div class="section__header">
-        <h2 class="section__title">Fait pour votre métier</h2>
-        <p class="section__sub">Chaque outil est pensé pour votre activité — des chiffres qui parlent, pas de jargon comptable.</p>
+  <!-- MÉTIERS -->
+  <section class="metiers">
+    <div class="wrap">
+
+      <div class="sec-head">
+        <h2>Fait pour votre métier</h2>
+        <p>Des chiffres qui parlent, pas de jargon comptable.</p>
       </div>
 
-      <!-- Mettre à jour ces liens quand les pages métier seront créées -->
-      <div class="metiers__grid">
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- Liens à mettre à jour quand les pages métier seront créées -->
+      <div class="pills">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
           </svg>
           Électricien
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
           </svg>
           Plombier
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
           Maçon / BTP
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
             <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
             <line x1="6" y1="1" x2="6" y2="4"/>
@@ -375,9 +252,8 @@
           </svg>
           Restaurant
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="6" cy="6" r="3"/>
             <circle cx="6" cy="18" r="3"/>
             <line x1="20" y1="4" x2="8.12" y2="15.88"/>
@@ -386,55 +262,46 @@
           </svg>
           Coiffeur
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="7" width="20" height="14" rx="2"/>
             <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
           </svg>
           Auto-entrepreneur
         </a>
-
-        <a href="#outils" class="metier-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="#outils" class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <path d="M16 10a4 4 0 0 1-8 0"/>
           </svg>
           Commerce
         </a>
-
-        <a href="/sur-mesure" class="metier-pill metier-pill--more">
-          Votre métier n'est pas là ? →
+        <a href="/sur-mesure" class="pill pill--cta">
+          Votre métier n'est pas là ?&nbsp;→
         </a>
-
       </div>
+
     </div>
   </section>
 
-  <!-- ============================================================
-       CTA SUR MESURE
-       ============================================================ -->
-  <section class="cta-band section">
-    <div class="container cta-band__inner">
-      <div class="cta-band__text">
-        <p class="cta-band__eyebrow">Besoin de plus ?</p>
-        <h2>Un outil taillé pour votre activité</h2>
-        <p>Votre activité a des spécificités que nos outils standards ne couvrent pas ? On développe des outils sur mesure pour les TPE, au juste prix.</p>
-      </div>
-      <a href="/sur-mesure" class="btn btn--white btn--lg">Demander un devis gratuit</a>
+  <!-- CTA SUR MESURE -->
+  <section class="cta-section">
+    <div class="wrap cta-section__inner">
+      <p class="cta-section__label">Besoin de plus ?</p>
+      <h2 class="cta-section__title">Un outil taillé pour votre activité</h2>
+      <p class="cta-section__sub">Votre activité a des spécificités que nos outils standards ne couvrent pas&nbsp;? On développe des outils sur mesure pour les TPE, au juste prix.</p>
+      <a href="/sur-mesure" class="btn btn-white btn-lg">Demander un devis gratuit</a>
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer__inner">
+    <div class="wrap footer__inner">
 
       <div class="footer__brand">
-        <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
-          <span class="logo__text logo__text--light">outils-tpe<span class="logo__dot">.fr</span></span>
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
         </a>
         <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
       </div>
@@ -465,16 +332,9 @@
         <p>Recevez nos nouveautés directement dans votre boîte mail.</p>
         <form class="newsletter-form" action="#" method="post" novalidate>
           <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
-          <input
-            id="newsletter-email"
-            type="email"
-            name="email"
-            placeholder="votre@email.fr"
-            class="newsletter-form__input"
-            required
-            autocomplete="email"
-          />
-          <button type="submit" class="btn btn--primary newsletter-form__btn">S'inscrire</button>
+          <input id="newsletter-email" type="email" name="email" placeholder="votre@email.fr"
+            class="newsletter-form__input" required autocomplete="email" />
+          <button type="submit" class="btn btn-green newsletter-form__btn">S'inscrire</button>
         </form>
         <p class="newsletter-form__notice">Pas de spam. Désinscription en un clic.</p>
       </div>
@@ -482,7 +342,7 @@
     </div>
 
     <div class="footer__bottom">
-      <div class="container">
+      <div class="wrap">
         <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
       </div>
     </div>
