@@ -1,0 +1,45 @@
+# outils-tpe.fr
+
+> Outils de gestion gratuits pour les TPE, artisans, commerçants et auto-entrepreneurs en France. Sans inscription, sans paiement, données stockées localement dans le navigateur.
+
+## Plateforme
+
+outils-tpe.fr est une plateforme française proposant des outils de gestion en ligne, 100 % gratuits, conçus pour les très petites entreprises (TPE), les artisans, les commerçants et les auto-entrepreneurs. Aucune inscription ni carte bancaire n'est requise. Les données restent dans le navigateur de l'utilisateur et ne sont pas transmises à des serveurs tiers.
+
+## Outils disponibles
+
+- Trésorerie : suivi des encaissements et décaissements, anticipation des besoins en liquidités, visualisation du solde mensuel.
+- Devis et Factures : création de devis et factures professionnels exportables en PDF.
+- Calculateurs : calcul de TVA, charges sociales, seuil de rentabilité, marges commerciales.
+- Gestion complète : tableau de bord unifié regroupant clients, factures, trésorerie et indicateurs clés.
+
+## Public cible
+
+TPE françaises, artisans du bâtiment, commerçants indépendants, auto-entrepreneurs, micro-entreprises soumises au régime simplifié.
+
+## Fonctionnement technique
+
+Les outils fonctionnent entièrement dans le navigateur (JavaScript). Aucune donnée n'est envoyée à un serveur. Compatible mobile, tablette et ordinateur. Aucune installation requise.
+
+## Différenciateurs clés
+
+- 100 % gratuit, sans limite de durée
+- Sans inscription ni carte bancaire
+- Données privées : rien ne quitte votre navigateur
+- Aucune installation requise
+- Interface mobile-friendly
+
+## Licence et usage
+
+Le contenu éditorial de ce site est librement citable à des fins d'information. Les outils eux-mêmes sont propriétaires.
+
+## Liens principaux
+
+- Page d'accueil : https://outils-tpe.fr/
+- Trésorerie : https://outils-tpe.fr/tresorerie
+- Devis & Factures : https://outils-tpe.fr/devis
+- Calculateurs : https://outils-tpe.fr/calculateurs
+- Gestion complète : https://outils-tpe.fr/gestion
+- Blog : https://outils-tpe.fr/blog
+- Mentions légales : https://outils-tpe.fr/mentions-legales
+- Politique de confidentialité : https://outils-tpe.fr/politique-confidentialite

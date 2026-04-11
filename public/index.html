@@ -3,12 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Outils de gestion gratuits pour les TPE : trésorerie, devis, calculateurs et gestion complète." />
+  <meta name="description" content="Outils de gestion gratuits pour les TPE : trésorerie, devis, calculateurs et gestion complète. 100 % gratuit, sans inscription, données dans votre navigateur." />
   <title>outils-tpe.fr — Outils de gestion gratuits pour les TPE</title>
+
+  <!-- Canonical — mettre à jour vers https://outils-tpe.fr/ dès que le domaine est configuré -->
+  <link rel="canonical" href="https://outils-tpe.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Outils de gestion gratuits pour les TPE" />
+  <meta property="og:description" content="Trésorerie, devis, calculateurs et gestion complète pour artisans, commerçants et auto-entrepreneurs. 100 % gratuit, sans inscription." />
+  <meta property="og:url" content="https://outils-tpe.vercel.app/" />
+  <meta property="og:image" content="https://outils-tpe.vercel.app/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="outils-tpe.fr — Outils de gestion gratuits pour les TPE" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Outils de gestion gratuits pour les TPE" />
+  <meta name="twitter:description" content="Trésorerie, devis, calculateurs et gestion complète. 100 % gratuit, sans inscription, données dans votre navigateur." />
+  <meta name="twitter:image" content="https://outils-tpe.vercel.app/assets/img/og-image.jpg" />
+
+  <!-- Favicon & theme -->
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <!-- Performance: preload critical CSS -->
+  <link rel="preload" href="assets/css/main.css" as="style" />
+
+  <!-- Fonts: chargement non-bloquant -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://outils-tpe.fr/#organization",
+        "name": "outils-tpe.fr",
+        "url": "https://outils-tpe.fr/",
+        "description": "Outils de gestion gratuits pour les TPE, artisans, commerçants et auto-entrepreneurs en France"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://outils-tpe.fr/#website",
+        "url": "https://outils-tpe.fr/",
+        "name": "outils-tpe.fr",
+        "description": "Outils de gestion gratuits pour les TPE : trésorerie, devis, calculateurs et gestion complète",
+        "publisher": { "@id": "https://outils-tpe.fr/#organization" },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "ItemList",
+        "name": "Outils de gestion pour TPE",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trésorerie",
+            "description": "Suivez vos encaissements et décaissements, anticipez vos besoins en liquidités",
+            "url": "https://outils-tpe.fr/tresorerie"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Devis & Factures",
+            "description": "Créez des devis et factures professionnels exportables en PDF",
+            "url": "https://outils-tpe.fr/devis"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Calculateurs",
+            "description": "TVA, charges sociales, seuil de rentabilité, marge",
+            "url": "https://outils-tpe.fr/calculateurs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Gestion complète",
+            "description": "Tableau de bord unifié : clients, factures, trésorerie et indicateurs clés",
+            "url": "https://outils-tpe.fr/gestion"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -25,12 +116,12 @@
 
       <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a href="/tresorerie/" class="nav__link">Trésorerie</a></li>
-          <li><a href="/devis/" class="nav__link">Devis</a></li>
-          <li><a href="/calculateurs/" class="nav__link">Calculateurs</a></li>
-          <li><a href="/gestion/" class="nav__link">Gestion</a></li>
-          <li><a href="/blog/" class="nav__link">Blog</a></li>
-          <li><a href="/sur-mesure/" class="nav__link nav__link--cta">Sur mesure</a></li>
+          <li><a href="/tresorerie" class="nav__link">Trésorerie</a></li>
+          <li><a href="/devis" class="nav__link">Devis</a></li>
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/gestion" class="nav__link">Gestion</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
         </ul>
       </nav>
     </div>
@@ -56,7 +147,7 @@
       <div class="cards">
 
         <!-- Trésorerie -->
-        <a href="/tresorerie/" class="card" aria-label="Accéder aux outils Trésorerie">
+        <a href="/tresorerie" class="card" aria-label="Accéder aux outils Trésorerie">
           <div class="card__icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="5" width="20" height="14" rx="2"/>
