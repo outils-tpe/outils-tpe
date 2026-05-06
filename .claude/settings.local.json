@@ -39,7 +39,9 @@
       "mcp__notion__notion-fetch",
       "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/templates\")",
       "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/references\")",
-      "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/code\")"
+      "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/code\")",
+      "Bash(npm install:*)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }
