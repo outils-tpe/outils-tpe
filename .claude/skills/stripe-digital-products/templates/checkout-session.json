@@ -1,0 +1,47 @@
+{
+  "_comment": "Template Checkout Session — paramètres standardisés outils-tpe.fr",
+  "_comment2": "Remplacer les valeurs entre <> avant utilisation",
+
+  "mode": "payment",
+
+  "line_items": [
+    {
+      "price": "<STRIPE_PRICE_ID>",
+      "quantity": 1
+    }
+  ],
+
+  "customer_creation": "always",
+
+  "invoice_creation": {
+    "enabled": true,
+    "invoice_data": {
+      "footer": "TVA non applicable, art. 293 B du CGI",
+      "custom_fields": [
+        {
+          "name": "SIRET",
+          "value": "<SIRET_SOLUMATIC>"
+        }
+      ],
+      "rendering_options": {
+        "amount_tax_display": "exclude_tax"
+      }
+    }
+  },
+
+  "metadata": {
+    "product_slug": "<ex: tresorerie-electricien-v2>",
+    "version": "<ex: 2.1>",
+    "file_key": "<ex: electricien/tresorerie-v2.zip>",
+    "site": "outils-tpe.fr"
+  },
+
+  "success_url": "https://outils-tpe.fr/merci?session_id={CHECKOUT_SESSION_ID}",
+  "cancel_url": "https://outils-tpe.fr/<metier>",
+
+  "locale": "fr",
+
+  "payment_method_types": ["card"],
+
+  "_tax_note": "Stripe Tax désactivé — franchise TVA art. 293 B CGI. Ne pas activer automatic_tax."
+}
