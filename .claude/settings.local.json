@@ -26,7 +26,20 @@
       "Bash(gitleaks protect:*)",
       "Bash(cmd.exe:*)",
       "Bash(cmd:*)",
-      "Bash(bash .git/hooks/pre-commit)"
+      "Bash(bash .git/hooks/pre-commit)",
+      "WebFetch(domain:www.notion.so)",
+      "Bash(stripe --version)",
+      "Bash(gitleaks version:*)",
+      "Bash(winget --version)",
+      "Bash(scoop --version)",
+      "Bash(choco --version)",
+      "Bash(npm --version)",
+      "Bash(stripe version:*)",
+      "Bash(claude mcp:*)",
+      "mcp__notion__notion-fetch",
+      "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/templates\")",
+      "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/references\")",
+      "Bash(mkdir -p \"D:/Professionnel/Projets divers/VS Code/Outils-TPE/outils-tpe/.claude/skills/stripe-digital-products/code\")"
     ]
   }
 }

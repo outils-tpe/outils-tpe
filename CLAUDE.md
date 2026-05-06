@@ -10,54 +10,57 @@ Le site est opéré sous un nom de marque anonyme, sans lien avec Solumatic. Le 
 
 - **Site** : HTML/CSS/JS statique, hébergé sur Vercel
 - **Paiement** : Stripe (Payment Links + Checkout + Invoicing)
-- **Email** : Mailerlite (capture, séquences)
+- **Email** : Sender (gratuit jusqu'à 2 500 contacts, 15 000 emails/mois)
 - **Automatisations** : Make (phase 2)
 - **Analytics** : Plausible ou Umami (RGPD-friendly)
 - **Domaine** : outils-tpe.fr
 - **Repo** : GitHub, déploiement auto via Vercel sur chaque push
 
-## Architecture du site : modèle Hub & Spoke
+## Architecture du site : modèle centré métier
+
+### Principe fondamental
+L'entrée principale est le MÉTIER, pas le type d'outil. Un électricien arrive sur UNE page qui regroupe tout pour lui (trésorerie, devis, calculateurs, etc.). Il n'a pas à naviguer entre différentes sections par type d'outil.
 
 ### Structure des URLs
 
 ```
 outils-tpe.fr/
 ├── / (accueil)
-├── /tresorerie (hub)
-│   ├── /tresorerie/electricien (LP métier)
-│   ├── /tresorerie/plombier
-│   ├── /tresorerie/coiffeur
-│   ├── /tresorerie/restaurant
-│   └── /tresorerie/auto-entrepreneur
-├── /devis (hub)
-│   ├── /devis/electricien
-│   └── /devis/plombier
-├── /calculateurs (hub)
-│   ├── /calculateurs/charges-auto-entrepreneur
-│   ├── /calculateurs/marge-artisan
-│   └── /calculateurs/cout-revient-restaurant
-├── /gestion (hub)
-│   ├── /gestion/salon-coiffure
-│   └── /gestion/restaurant
+│   Grille de cartes par métier (pas par outil)
+│
+├── /electricien (page métier complète)
+│   ├── Suivi de trésorerie (dispo) > gratuit + payant
+│   ├── Modèle de devis (bientôt) > "me prévenir"
+│   ├── Calculateur de marge (bientôt) > "me prévenir"
+│   └── Gestion de chantier (bientôt) > "me prévenir"
+│
+├── /plombier (même structure)
+├── /auto-entrepreneur
+├── /coiffeur
+├── /restaurant
+├── /boulanger
+├── /peintre
+├── /macon
+├── /menuisier
+│
 ├── /blog
 ├── /sur-mesure
 └── /a-propos
 ```
 
-### Pages hub
-Pages de navigation, pas de vente. Elles présentent le problème + grille de cartes par métier avec un bouton "Voir l'outil".
+### Page d'accueil
+Pitch général + grille de cartes par métier. Chaque carte = nom du métier + nombre d'outils dispos + bouton "Découvrir". Les métiers pas encore disponibles apparaissent avec un badge "Bientôt".
 
-### Landing pages métier (LP)
-Pages de conversion. Chaque LP contient :
-1. Un calculateur interactif intégré (JS côté client, résultat instantané)
-2. Du contenu SEO (800-1200 mots)
-3. Des screenshots du template Excel
-4. Un CTA vers le template gratuit (contre email) et le template payant (Stripe Payment Link)
-5. Une FAQ en bas (cible les "People Also Ask" de Google)
-6. Des liens vers les métiers proches ("Vous êtes plombier ?")
-7. Une section "Autres outils pour les [métier]" (ventes croisées)
-8. Un lien retour vers le hub parent
-9. Une section "Outils recommandés" avec liens affiliés
+### Pages métier (le coeur du site, pages de conversion)
+Structure type d'une page /electricien :
+1. Titre : "Outils de gestion pour les électriciens"
+2. Sous-titre : "Trésorerie, devis, calculs : tout pour piloter votre activité d'électricien."
+3. Section par outil disponible : description, screenshots du fichier exemple, bouton télécharger gratuit, bouton acheter le complet (Stripe Payment Link)
+4. Sections outils "bientôt" : description + champ email "Me prévenir quand c'est dispo"
+5. Section sur-mesure : "Ce template ne correspond pas exactement ? Je crée votre fichier sur mesure."
+6. FAQ spécifique au métier
+7. Outils recommandés (liens affiliés)
+8. Liens vers les métiers proches ("Vous êtes plombier ? Voir les outils plombier")
 
 ## Règles de design
 
@@ -65,51 +68,49 @@ Pages de conversion. Chaque LP contient :
 - **Mobile-first** : Toutes les pages doivent être responsive, mobile en priorité
 - **Couleurs** : Bleu foncé (#1e3a5f) + blanc (#ffffff) + vert accent (#22c55e)
 - **Typographie** : Clean, sans-serif (Inter ou similaire via Google Fonts)
-- **Ton éditorial** : Simple, direct, pas de jargon technique. On s'adresse à des artisans et petits patrons, pas à des développeurs. Tutoiement ou vouvoiement formel selon le contexte.
+- **Ton éditorial** : Simple, direct, pas de jargon technique. On s'adresse à des artisans et petits patrons, pas à des développeurs.
 - **Pas de design générique "template AI"** : chaque page doit sembler professionnelle et soignée
-
-## Règles SEO (IMPORTANT)
-
-### Balises
-- Chaque page a un `<title>` unique, format : "[Sujet] [Métier] - Outil gratuit + Fichier Excel | outils-tpe.fr"
-- Chaque page a une `<meta description>` unique (150-160 caractères)
-- Chaque page a une balise `<link rel="canonical">` pointant vers elle-même
-- Structure de headings : un seul H1 par page, puis H2, H3 en hiérarchie logique
-
-### Schema markup
-- JSON-LD sur chaque LP : FAQPage schema pour la FAQ, Product schema pour le template payant
-- JSON-LD sur la page d'accueil : WebSite schema + Organization schema
-
-### Sitemap
-- Générer un sitemap.xml à la racine, mis à jour à chaque ajout de page
-- Fichier robots.txt autorisant tout le crawl
-
-### Maillage interne
-- **Vertical** : chaque hub lie vers ses LP, chaque LP lie vers son hub parent
-- **Horizontal** : chaque LP lie vers les LP du même métier (ex: /tresorerie/electricien → /devis/electricien)
-- **Blog → LP** : chaque article de blog contient 2-3 liens vers des LP pertinentes
-- **LP → Blog** : section "Articles liés" en bas de chaque LP
-
-### Performance
-- Le site est statique, donc naturellement rapide
-- Optimiser les images (WebP, lazy loading, alt text descriptif)
-- Pas de JS bloquant le rendu
 
 ## Navigation
 
 ### Header (toutes les pages)
 ```
-[Logo outils-tpe.fr]  Trésorerie  Devis  Calculateurs  Gestion  Blog  [Bouton: Sur mesure]
+[Logo outils-tpe.fr]  Métiers  Blog  Sur mesure  À propos
 ```
-5-6 liens max. Pas de méga-menu.
+Plus de menu par type d'outil. L'entrée c'est le métier.
 
 ### Footer (toutes les pages)
 ```
-Trésorerie : Électricien | Plombier | Coiffeur | Restaurant | Auto-entrepreneur
-Devis : Électricien | Plombier | ...
-Calculateurs : Charges AE | Marge artisan | Coût de revient | ...
-[Newsletter] [Sur mesure] [À propos] [Mentions légales]
+Métiers : Électricien | Plombier | Auto-entrepreneur | Coiffeur | Restaurant | ...
+[Blog] [Sur mesure] [À propos] [Mentions légales]
 ```
+
+## Règles SEO (IMPORTANT)
+
+### Balises
+- Chaque page a un `<title>` unique, format : "Outils de gestion [Métier] - Trésorerie, devis, calcul gratuit | outils-tpe.fr"
+- Chaque page a une `<meta description>` unique (150-160 caractères)
+- Chaque page a une balise `<link rel="canonical">` pointant vers elle-même
+- Structure de headings : un seul H1 par page, puis H2, H3 en hiérarchie logique
+
+### Schema markup
+- JSON-LD sur chaque page métier : FAQPage schema pour la FAQ, Product schema pour le template payant
+- JSON-LD sur la page d'accueil : WebSite schema + Organization schema
+
+### Sitemap
+- Générer un sitemap.xml à la racine, mis à jour à chaque ajout de page
+- Fichier robots.txt autorisant tout le crawl sauf /files/
+
+### Maillage interne
+- **Page métier > autres pages métier** : liens vers les métiers proches en bas de page
+- **Blog > pages métier** : chaque article contient 2-3 liens vers des pages métier pertinentes
+- **Pages métier > blog** : section "Articles liés" en bas de chaque page métier
+- **Footer** : liens vers toutes les pages métier disponibles
+
+### Performance
+- Le site est statique, donc naturellement rapide
+- Optimiser les images (WebP, lazy loading, alt text descriptif)
+- Pas de JS bloquant le rendu
 
 ## Calculateurs
 
@@ -118,21 +119,29 @@ Les calculateurs sont en JavaScript côté client (pas de backend). Ils doivent 
 - Être mobile-first
 - Utiliser des champs de formulaire clairs avec des labels en français
 - Afficher les résultats de manière visuelle (graphiques simples si pertinent)
+- Être intégrés directement dans la page métier correspondante (pas sur une page séparée)
 - Inclure un CTA en bas du résultat : "Téléchargez le fichier Excel complet pour suivre ça tous les mois"
 
 ## Monétisation
 
-### Templates Excel
-- Version light gratuite : contre email (via formulaire Mailerlite)
-- Version complète payante : via Stripe Payment Link (19-39€)
-- Bundles par métier : 59-89€
+### Templates Excel - Livraison
+Pour chaque métier, le client reçoit 2 fichiers :
+- `Suivi_Tresorerie_[Metier]_VOTRE_FICHIER.xlsx` : fichier vierge, catégories pré-paramétrées selon le métier
+- `Suivi_Tresorerie_[Metier]_EXEMPLE.xlsx` : fichier identique pré-rempli avec 12 mois de données réalistes du métier
+
+Le fichier vierge contient un onglet "Démarrage rapide" avec 5 lignes fictives pour que les récaps ne soient pas vides à l'ouverture.
+
+### Pricing
+- Version light gratuite : contre email (via formulaire Sender)
+- Version complète payante : via Stripe Payment Link (19-39 euros)
+- Bundles par métier : 59-89 euros
 
 ### Dans les fichiers Excel gratuits
 - Inclure des onglets avec des screenshots du fichier payant + lien d'achat direct
 - Dernier onglet : mention "Besoin d'un fichier adapté ?" + lien vers /sur-mesure
 
 ### Affiliation
-- Section "Outils recommandés" sur chaque LP avec liens affiliés (Qonto, Shine, Pennylane, Indy, etc.)
+- Section "Outils recommandés" sur chaque page métier avec liens affiliés (Qonto, Shine, Pennylane, Indy, etc.)
 - Intégration naturelle, pas de pub agressive
 
 ## Métiers cibles (par priorité)
@@ -147,37 +156,42 @@ Les calculateurs sont en JavaScript côté client (pas de backend). Ils doivent 
 
 ```
 outils-tpe/
-├── index.html                    (page d'accueil)
 ├── CLAUDE.md                     (ce fichier)
 ├── PLANNING.md                   (architecture et décisions)
 ├── TASK.md                       (tâches en cours)
-├── sitemap.xml                   (sitemap SEO)
-├── robots.txt
-├── css/
-│   └── style.css                 (styles globaux)
-├── js/
-│   └── calculateurs/             (JS des calculateurs)
-├── images/
-├── tresorerie/
-│   ├── index.html                (hub trésorerie)
-│   ├── electricien/index.html    (LP métier)
-│   ├── plombier/index.html
-│   └── ...
-├── devis/
-│   ├── index.html                (hub devis)
-│   └── ...
-├── calculateurs/
-│   ├── index.html                (hub calculateurs)
-│   └── ...
-├── gestion/
-│   ├── index.html                (hub gestion)
-│   └── ...
-├── blog/
-│   └── ...
-├── sur-mesure/
-│   └── index.html
-└── a-propos/
-    └── index.html
+├── README.md
+├── vercel.json
+├── public/                       (le site, déployé par Vercel)
+│   ├── index.html                (page d'accueil - grille de métiers)
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── calculateurs/
+│   ├── images/
+│   ├── electricien/
+│   │   └── index.html            (page métier complète)
+│   ├── plombier/
+│   │   └── index.html
+│   ├── auto-entrepreneur/
+│   │   └── index.html
+│   ├── coiffeur/
+│   │   └── index.html
+│   ├── restaurant/
+│   │   └── index.html
+│   ├── blog/
+│   ├── sur-mesure/
+│   │   └── index.html
+│   ├── a-propos/
+│   │   └── index.html
+│   ├── mentions-legales.html
+│   ├── politique-confidentialite.html
+│   └── files/                    (fichiers Excel téléchargeables, chemin non devinable)
+│       └── dl-ae-treso-[hash].xlsx
+└── templates-excel/              (fichiers Excel source, PAS en ligne)
+    ├── tresorerie-electricien.xlsx
+    └── ...
 ```
 
 ## Conventions de code
@@ -192,7 +206,7 @@ outils-tpe/
 ## Workflow Git
 
 - Commit après chaque changement significatif
-- Messages de commit en français, descriptifs (ex: "Ajout LP trésorerie électricien avec calculateur")
+- Messages de commit en français, descriptifs (ex: "Ajout page métier électricien avec trésorerie")
 - Push sur main, Vercel déploie automatiquement
 
 ## Règles de comportement
@@ -202,3 +216,5 @@ outils-tpe/
 - **Demander** si un choix de design ou d'architecture n'est pas clair
 - **Ne pas supprimer** de fichiers existants sans demander
 - **Toujours maintenir** le sitemap.xml à jour quand une page est ajoutée
+- **Toujours maintenir la cohérence** entre toutes les pages (header, footer, design, navigation)
+- **Vérifier le maillage interne** à chaque ajout de page (liens entre pages métier, blog, footer)
