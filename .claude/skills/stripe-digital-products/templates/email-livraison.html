@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre fichier est prêt — outils-tpe.fr</title>
+</head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:Inter,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:600px;width:100%;">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:#1e3a5f;padding:28px 40px;">
+              <p style="margin:0;color:#ffffff;font-size:20px;font-weight:700;">outils-tpe.fr</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px;">
+              <h1 style="margin:0 0 16px;font-size:22px;color:#111827;">
+                Votre fichier est prêt, {{customer_name}} !
+              </h1>
+              <p style="margin:0 0 24px;color:#374151;font-size:15px;line-height:1.6;">
+                Merci pour votre achat. Voici votre lien de téléchargement pour
+                <strong>{{product_name}}</strong>.
+              </p>
+
+              <!-- CTA -->
+              <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
+                <tr>
+                  <td style="background:#22c55e;border-radius:6px;padding:14px 28px;">
+                    <a href="{{download_url}}" style="color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;">
+                      Télécharger mon fichier
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 8px;color:#6b7280;font-size:13px;">
+                Ce lien est valable <strong>72 heures</strong>. Passé ce délai,
+                contactez-nous à <a href="mailto:contact@outils-tpe.fr" style="color:#1e3a5f;">contact@outils-tpe.fr</a>.
+              </p>
+              <p style="margin:0 0 32px;color:#6b7280;font-size:13px;">
+                Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :<br>
+                <span style="color:#1e3a5f;word-break:break-all;">{{download_url}}</span>
+              </p>
+
+              <hr style="border:none;border-top:1px solid #e5e7eb;margin:0 0 24px;">
+
+              <p style="margin:0 0 8px;color:#374151;font-size:14px;font-weight:600;">
+                Besoin d'aide pour démarrer ?
+              </p>
+              <p style="margin:0;color:#6b7280;font-size:13px;line-height:1.6;">
+                Le fichier contient un onglet "Démarrage rapide" avec des explications.
+                Des questions ? Répondez directement à cet email.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;">
+              <p style="margin:0;color:#9ca3af;font-size:12px;line-height:1.6;">
+                outils-tpe.fr — Outils de gestion pour les petites entreprises françaises<br>
+                Auto-entrepreneur — SIRET : {{siret}}<br>
+                <a href="https://outils-tpe.fr/mentions-legales" style="color:#9ca3af;">Mentions légales</a> ·
+                <a href="https://outils-tpe.fr/politique-confidentialite" style="color:#9ca3af;">Confidentialité</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
