@@ -1,6 +1,7 @@
 // Script de test — crée une Checkout Session Stripe et affiche l'URL
 // Usage : node create-test-session.mjs
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
