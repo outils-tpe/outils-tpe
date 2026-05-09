@@ -58,15 +58,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Signature invalide' });
   }
 
-  // Répondre 200 immédiatement pour éviter les retentatives Stripe
-  res.status(200).json({ received: true });
-
-  // Traitement asynchrone après la réponse
+  // Traitement avant la réponse — Vercel coupe la fonction dès que res est envoyé
   if (event.type === 'checkout.session.completed') {
-    await handleCheckoutCompleted(event.data.object).catch((err) => {
+    try {
+      await handleCheckoutCompleted(event.data.object);
+    } catch (err) {
       console.error('Erreur livraison :', err);
-    });
+      return res.status(500).json({ error: 'Erreur livraison' });
+    }
   }
+
+  return res.status(200).json({ received: true });
 }
 
 async function handleCheckoutCompleted(session) {
