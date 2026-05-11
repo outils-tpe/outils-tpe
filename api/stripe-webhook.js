@@ -135,7 +135,21 @@ function formatNomProduit(slug) {
     .join(' ');
 }
 
-function buildEmailHtml({ nom, nomProduit, downloadUrl }) {
+function buildEmailHtml({ nom, nomProduit, fichiers }) {
+  // Génère un bouton + lien texte de secours par fichier
+  const boutons = fichiers.map(({ label, url }) => `
+          <table cellpadding="0" cellspacing="0" style="margin:0 0 12px;">
+            <tr><td style="background:#22c55e;border-radius:6px;padding:14px 28px;">
+              <a href="${escapeHtml(url)}"
+                 style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;">
+                Télécharger — ${escapeHtml(label)}
+              </a>
+            </td></tr>
+          </table>
+          <p style="margin:0 0 20px;color:#6b7280;font-size:13px;word-break:break-all;">
+            Lien de secours : <span style="color:#1e3a5f;">${escapeHtml(url)}</span>
+          </p>`).join('');
+
   return `<!DOCTYPE html>
 <html lang="fr">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -150,34 +164,23 @@ function buildEmailHtml({ nom, nomProduit, downloadUrl }) {
 
         <tr><td style="padding:40px;">
           <h1 style="margin:0 0 16px;font-size:22px;color:#111827;">
-            Votre fichier est prêt, ${escapeHtml(nom)} !
+            Vos fichiers sont prêts, ${escapeHtml(nom)} !
           </h1>
           <p style="margin:0 0 24px;color:#374151;font-size:15px;line-height:1.6;">
-            Merci pour votre achat. Voici votre lien de téléchargement pour
+            Merci pour votre achat. Voici vos liens de téléchargement pour
             <strong>${escapeHtml(nomProduit)}</strong>.
           </p>
 
-          <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
-            <tr><td style="background:#22c55e;border-radius:6px;padding:14px 28px;">
-              <a href="${escapeHtml(downloadUrl)}"
-                 style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;">
-                Télécharger mon fichier
-              </a>
-            </td></tr>
-          </table>
+          ${boutons}
 
-          <p style="margin:0 0 8px;color:#6b7280;font-size:13px;">
-            Ce lien est valable <strong>72 heures</strong>. Passé ce délai,
+          <p style="margin:0 0 32px;color:#6b7280;font-size:13px;">
+            Ces liens sont valables <strong>72 heures</strong>. Passé ce délai,
             contactez-nous à <a href="mailto:contact@outils-tpe.fr" style="color:#1e3a5f;">contact@outils-tpe.fr</a>.
-          </p>
-          <p style="margin:0 0 32px;color:#6b7280;font-size:13px;word-break:break-all;">
-            Si le bouton ne fonctionne pas, copiez ce lien :<br>
-            <span style="color:#1e3a5f;">${escapeHtml(downloadUrl)}</span>
           </p>
 
           <hr style="border:none;border-top:1px solid #e5e7eb;margin:0 0 24px;">
           <p style="margin:0;color:#6b7280;font-size:13px;line-height:1.6;">
-            Le fichier contient un onglet "Démarrage rapide". Des questions ?
+            Les fichiers contiennent un onglet "Démarrage rapide". Des questions ?
             Répondez directement à cet email.
           </p>
         </td></tr>
