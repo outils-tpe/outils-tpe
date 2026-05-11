@@ -110,14 +110,14 @@ async function genererUrlSignee(fileKey) {
   return getSignedUrl(r2, commande, { expiresIn: DOWNLOAD_TTL });
 }
 
-async function envoyerEmailLivraison({ email, nom, productSlug, downloadUrl }) {
+async function envoyerEmailLivraison({ email, nom, productSlug, fichiers }) {
   const nomProduit = formatNomProduit(productSlug);
 
   const { error } = await resend.emails.send({
     from: 'outils-tpe.fr <contact@outils-tpe.fr>',
     to: email,
     subject: `Votre fichier ${nomProduit} est prêt`,
-    html: buildEmailHtml({ nom, nomProduit, downloadUrl }),
+    html: buildEmailHtml({ nom, nomProduit, fichiers }),
   });
 
   if (error) {
