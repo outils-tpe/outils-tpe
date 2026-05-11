@@ -72,22 +72,33 @@ export default async function handler(req, res) {
 }
 
 async function handleCheckoutCompleted(session) {
-  const { product_slug, file_key } = session.metadata ?? {};
+  const { product_slug, file_keys, file_labels } = session.metadata ?? {};
   const email = session.customer_details?.email;
   const nom = session.customer_details?.name ?? 'client';
 
-  if (!file_key || !email) {
-    console.error('Métadonnées manquantes dans la session :', session.id, { file_key, email });
+  if (!file_keys || !email) {
+    console.error('Métadonnées manquantes dans la session :', session.id, { file_keys, email });
     return;
   }
 
-  // Générer l'URL signée R2
-  const downloadUrl = await genererUrlSignee(file_key);
+  // Découper les listes (1 ou plusieurs fichiers séparés par des virgules)
+  const keys = file_keys.split(',').map((k) => k.trim()).filter(Boolean);
+  const labels = file_labels
+    ? file_labels.split(',').map((l) => l.trim())
+    : keys.map((_, i) => `Fichier ${i + 1}`);
+
+  // Générer une URL signée R2 par fichier
+  const fichiers = await Promise.all(
+    keys.map(async (key, i) => ({
+      label: labels[i] ?? `Fichier ${i + 1}`,
+      url: await genererUrlSignee(key),
+    }))
+  );
 
   // Envoyer l'email de livraison
-  await envoyerEmailLivraison({ email, nom, productSlug: product_slug, downloadUrl });
+  await envoyerEmailLivraison({ email, nom, productSlug: product_slug, fichiers });
 
-  console.log(`Livraison OK — ${email} — ${product_slug} — session ${session.id}`);
+  console.log(`Livraison OK — ${email} — ${product_slug} — ${keys.length} fichier(s) — session ${session.id}`);
 }
 
 async function genererUrlSignee(fileKey) {
