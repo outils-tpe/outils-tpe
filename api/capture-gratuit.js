@@ -28,9 +28,9 @@ const DOWNLOAD_TTL = 7 * 24 * 60 * 60;
 // Mapping métier → clé exacte du fichier dans le bucket R2
 // ⚠️ Mettre à jour si les noms de fichiers dans R2 changent
 const FICHIERS_GRATUITS = {
-  electricien: 'tresorerie-electricien-gratuit-v1.xlsx',
-  plombier:    'tresorerie-plombier-gratuit-v1.xlsx',
-  coiffeur:    'tresorerie-coiffeur-gratuit-v1.xlsx',
+  electricien: 'Trésorerie - Electricien - gratuit.xlsx',
+  plombier:    'Trésorerie - Plombier - gratuit.xlsx',
+  coiffeur:    'Trésorerie - Coiffeur - gratuit.xlsx',
 };
 
 const NOMS_METIERS = {
