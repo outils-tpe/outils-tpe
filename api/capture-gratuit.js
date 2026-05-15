@@ -212,7 +212,7 @@ function buildEmailHtml({ nomMetier, metier, downloadUrl }) {
 }
 
 // Webhook Make.com — fire & forget, n'interrompt jamais la livraison
-function envoyerWebhookMake({ email, fichier, libelle, prix }) {
+function envoyerWebhookMake({ email, fichier, metier, outil, type, prix }) {
   fetch(MAKE_WEBHOOK_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -220,7 +220,9 @@ function envoyerWebhookMake({ email, fichier, libelle, prix }) {
       email,
       date_heure: new Date().toISOString(),
       fichier,
-      libelle,
+      metier,
+      outil,
+      type,
       prix,
     }),
   }).catch((err) => {
