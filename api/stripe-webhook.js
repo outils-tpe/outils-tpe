@@ -100,6 +100,17 @@ async function handleCheckoutCompleted(session) {
   // Envoyer l'email de livraison
   await envoyerEmailLivraison({ email, nom, productSlug: product_slug, fichiers });
 
+  // Webhook Make.com — une entrée par fichier livré, non-bloquant
+  const prix = (session.amount_total ?? 0) / 100;
+  keys.forEach((key, i) => {
+    envoyerWebhookMake({
+      email,
+      fichier:  key,
+      libelle:  labels[i] ?? `Fichier ${i + 1}`,
+      prix,
+    });
+  });
+
   console.log(`Livraison OK — ${email} — ${product_slug} — ${keys.length} fichier(s) — session ${session.id}`);
 }
 
