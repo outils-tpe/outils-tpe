@@ -81,9 +81,11 @@ export default async function handler(req, res) {
     // Webhook Make.com — non-bloquant (la livraison ne dépend pas de Make)
     envoyerWebhookMake({
       email,
-      fichier:  fileKey,
-      libelle:  LIBELLES_GRATUITS[metier],
-      prix:     0,
+      fichier: fileKey,
+      metier:  NOMS_METIERS[metier],
+      outil:   OUTILS_GRATUITS[metier],
+      type:    'Gratuit',
+      prix:    0,
     });
 
     console.log(`Capture OK — ${email} — ${metier}`);
