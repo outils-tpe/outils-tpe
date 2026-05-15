@@ -78,6 +78,14 @@ export default async function handler(req, res) {
     const downloadUrl = await genererUrlSignee(fileKey);
     await envoyerEmailGratuit({ email, metier, downloadUrl });
 
+    // Webhook Make.com — non-bloquant (la livraison ne dépend pas de Make)
+    envoyerWebhookMake({
+      email,
+      fichier:  fileKey,
+      libelle:  LIBELLES_GRATUITS[metier],
+      prix:     0,
+    });
+
     console.log(`Capture OK — ${email} — ${metier}`);
     return res.status(200).json({ success: true });
   } catch (err) {
