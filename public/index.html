@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Outils de gestion gratuits pour les TPE : trésorerie, devis, calculateurs et gestion complète. 100 % gratuit, sans inscription, données dans votre navigateur." />
-  <title>outils-tpe.fr — Outils de gestion gratuits pour les TPE</title>
+  <meta name="description" content="Outils de gestion gratuits pour les TPE : fichiers Excel de trésorerie pré-paramétrés par métier. Électricien, plombier, coiffeur et plus. 100 % gratuit, reçu par email." />
+  <title>outils-tpe.fr, Outils de gestion gratuits pour les TPE</title>
 
   <link rel="canonical" href="https://outils-tpe.fr/" />
 
@@ -12,17 +12,8 @@
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="outils-tpe.fr" />
   <meta property="og:title" content="Outils de gestion gratuits pour les TPE" />
-  <meta property="og:description" content="Trésorerie, devis, calculateurs et gestion complète pour artisans, commerçants et auto-entrepreneurs. 100 % gratuit, sans inscription." />
+  <meta property="og:description" content="Fichiers Excel de trésorerie pré-paramétrés par métier pour artisans et TPE. Électricien, plombier, coiffeur. 100 % gratuit, reçu par email." />
   <meta property="og:url" content="https://outils-tpe.fr/" />
-  <meta property="og:image" content="https://outils-tpe.fr/assets/img/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="outils-tpe.fr — Outils de gestion gratuits pour les TPE" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Outils de gestion gratuits pour les TPE" />
-  <meta name="twitter:description" content="Trésorerie, devis, calculateurs et gestion complète. 100 % gratuit, sans inscription, données dans votre navigateur." />
-  <meta name="twitter:image" content="https://outils-tpe.fr/assets/img/og-image.jpg" />
 
   <meta name="theme-color" content="#0f2d52" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
@@ -32,8 +23,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
 
-  <!-- ?v=3 force le rechargement du cache navigateur -->
-  <link rel="stylesheet" href="assets/css/main.css?v=3" />
+  <link rel="stylesheet" href="assets/css/main.css?v=4" />
 
   <script type="application/ld+json">
   {
@@ -44,25 +34,24 @@
         "@id": "https://outils-tpe.fr/#organization",
         "name": "outils-tpe.fr",
         "url": "https://outils-tpe.fr/",
-        "description": "Outils de gestion gratuits pour les TPE, artisans, commerçants et auto-entrepreneurs en France"
+        "description": "Outils de gestion gratuits pour les TPE, artisans et auto-entrepreneurs en France"
       },
       {
         "@type": "WebSite",
         "@id": "https://outils-tpe.fr/#website",
         "url": "https://outils-tpe.fr/",
         "name": "outils-tpe.fr",
-        "description": "Outils de gestion gratuits pour les TPE : trésorerie, devis, calculateurs et gestion complète",
+        "description": "Fichiers Excel de trésorerie gratuits, pré-paramétrés par métier pour les TPE françaises",
         "publisher": { "@id": "https://outils-tpe.fr/#organization" },
         "inLanguage": "fr-FR"
       },
       {
         "@type": "ItemList",
-        "name": "Outils de gestion pour TPE",
+        "name": "Outils de gestion par métier",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Trésorerie", "url": "https://outils-tpe.fr/tresorerie" },
-          { "@type": "ListItem", "position": 2, "name": "Devis & Factures", "url": "https://outils-tpe.fr/devis" },
-          { "@type": "ListItem", "position": 3, "name": "Calculateurs", "url": "https://outils-tpe.fr/calculateurs" },
-          { "@type": "ListItem", "position": 4, "name": "Gestion complète", "url": "https://outils-tpe.fr/gestion" }
+          { "@type": "ListItem", "position": 1, "name": "Trésorerie Électricien", "url": "https://outils-tpe.fr/electricien/" },
+          { "@type": "ListItem", "position": 2, "name": "Trésorerie Plombier", "url": "https://outils-tpe.fr/plombier/" },
+          { "@type": "ListItem", "position": 3, "name": "Trésorerie Coiffeur", "url": "https://outils-tpe.fr/coiffeur/" }
         ]
       }
     ]
@@ -74,7 +63,7 @@
   <!-- HEADER -->
   <header class="header">
     <div class="wrap header__inner">
-      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
         outils-tpe<span class="logo__tld">.fr</span>
       </a>
 
@@ -84,11 +73,9 @@
 
       <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a href="/tresorerie" class="nav__link">Trésorerie</a></li>
-          <li><a href="/devis" class="nav__link">Devis</a></li>
-          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
-          <li><a href="/gestion" class="nav__link">Gestion</a></li>
-          <li><a href="/blog" class="nav__link">Blog</a></li>
+          <li><a href="/electricien" class="nav__link">Électriciens</a></li>
+          <li><a href="/plombier" class="nav__link">Plombiers</a></li>
+          <li><a href="/coiffeur" class="nav__link">Coiffeurs</a></li>
           <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
         </ul>
       </nav>
@@ -102,17 +89,17 @@
       <span class="hero__badge">Pour artisans &amp; TPE françaises</span>
 
       <h1 class="hero__title">
-        Gérez votre activité<br>
-        <span class="hero__accent">sans vous prendre la tête</span>
+        Votre métier,<br>
+        <span class="hero__accent">vos outils de gestion</span>
       </h1>
 
       <p class="hero__sub">
-        Des outils de trésorerie, devis et calcul pensés pour votre métier.
-        Gratuit, sans inscription, tout dans votre navigateur.
+        Des fichiers Excel de trésorerie pensés pour chaque métier.
+        Catégories pré-paramétrées, gratuit, reçu par email en quelques secondes.
       </p>
 
       <div class="hero__actions">
-        <a href="#outils" class="btn btn-green btn-lg">Voir les outils gratuits</a>
+        <a href="#metiers" class="btn btn-green btn-lg">Choisir mon métier</a>
         <a href="/sur-mesure" class="btn btn-ghost btn-lg">Outil sur mesure</a>
       </div>
 
@@ -127,161 +114,83 @@
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Données stockées chez vous
+          Pré-paramétré pour votre métier
         </li>
         <li>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Prêt en 30 secondes
+          Reçu par email en quelques secondes
         </li>
       </ul>
 
     </div>
   </section>
 
-  <!-- OUTILS -->
-  <section id="outils" class="outils">
+  <!-- MÉTIERS -->
+  <section id="metiers" class="outils">
     <div class="wrap">
 
       <div class="sec-head">
-        <h2>Choisissez votre outil</h2>
-        <p>Quatre outils gratuits pour couvrir tous vos besoins de gestion au quotidien.</p>
+        <h2>Choisissez votre métier</h2>
+        <p>Un fichier taillé pour votre activité, pas un tableur générique.</p>
       </div>
 
       <div class="cards">
 
-        <a href="/tresorerie" class="card" aria-label="Trésorerie">
+        <a href="/electricien" class="card" aria-label="Outils pour électricien">
           <div class="card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"/>
-              <line x1="2" y1="10" x2="22" y2="10"/>
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
-          <h3 class="card__title">Trésorerie</h3>
-          <p class="card__desc">Suivez votre argent entrant et sortant. Anticipez vos fins de mois sans surprise.</p>
-          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
+          <span class="card__badge">1 outil dispo</span>
+          <h3 class="card__title">Électricien</h3>
+          <p class="card__desc">Suivi de trésorerie avec catégories BTP pré-paramétrées : chantiers, matériaux, outillage, sous-traitance.</p>
+          <span class="card__link">Découvrir <span aria-hidden="true">→</span></span>
         </a>
 
-        <a href="/devis" class="card" aria-label="Devis">
+        <a href="/plombier" class="card" aria-label="Outils pour plombier">
           <div class="card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <line x1="10" y1="9" x2="8" y2="9"/>
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
             </svg>
           </div>
-          <h3 class="card__title">Devis</h3>
-          <p class="card__desc">Créez des devis professionnels en 2 minutes, exportables en PDF.</p>
-          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
+          <span class="card__badge">1 outil dispo</span>
+          <h3 class="card__title">Plombier</h3>
+          <p class="card__desc">Suivi de trésorerie avec catégories BTP pré-paramétrées : chantiers, dépannage, matériaux, véhicule.</p>
+          <span class="card__link">Découvrir <span aria-hidden="true">→</span></span>
         </a>
 
-        <a href="/calculateurs" class="card" aria-label="Calculateurs">
+        <a href="/coiffeur" class="card" aria-label="Outils pour coiffeur">
           <div class="card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="2" width="16" height="20" rx="2"/>
-              <line x1="8" y1="6" x2="16" y2="6"/>
-              <line x1="8" y1="10" x2="10" y2="10"/>
-              <line x1="14" y1="10" x2="16" y2="10"/>
-              <line x1="8" y1="14" x2="10" y2="14"/>
-              <line x1="14" y1="14" x2="16" y2="14"/>
-              <line x1="8" y1="18" x2="10" y2="18"/>
-              <line x1="14" y1="18" x2="16" y2="18"/>
+              <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+              <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+              <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+              <line x1="8.12" y1="8.12" x2="12" y2="12"/>
             </svg>
           </div>
-          <h3 class="card__title">Calculateurs</h3>
-          <p class="card__desc">TVA, charges, seuil de rentabilité, marge — résultats instantanés.</p>
-          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
+          <span class="card__badge">1 outil dispo</span>
+          <h3 class="card__title">Coiffeur</h3>
+          <p class="card__desc">Suivi de trésorerie avec catégories salon pré-paramétrées : coupes, colorations, produits, loyer.</p>
+          <span class="card__link">Découvrir <span aria-hidden="true">→</span></span>
         </a>
 
-        <a href="/gestion" class="card card--highlight" aria-label="Gestion complète">
-          <span class="card__badge">Tout-en-un</span>
+        <a href="/sur-mesure" class="card card--highlight" aria-label="Votre métier sur mesure">
           <div class="card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
             </svg>
           </div>
-          <h3 class="card__title">Gestion complète</h3>
-          <p class="card__desc">Clients, factures, trésorerie et indicateurs clés réunis en un seul tableau de bord.</p>
-          <span class="card__link">Accéder <span aria-hidden="true">→</span></span>
+          <h3 class="card__title">Votre métier</h3>
+          <p class="card__desc">Maçon, restaurant, boulanger, auto-entrepreneur… Votre métier n'est pas encore là ? On crée votre fichier sur mesure.</p>
+          <span class="card__link">Demander sur mesure <span aria-hidden="true">→</span></span>
         </a>
 
       </div>
-    </div>
-  </section>
-
-  <!-- MÉTIERS -->
-  <section class="metiers">
-    <div class="wrap">
-
-      <div class="sec-head">
-        <h2>Fait pour votre métier</h2>
-        <p>Des chiffres qui parlent, pas de jargon comptable.</p>
-      </div>
-
-      <!-- Liens à mettre à jour quand les pages métier seront créées -->
-      <div class="pills">
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-          </svg>
-          Électricien
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-          Plombier
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          Maçon / BTP
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-            <line x1="6" y1="1" x2="6" y2="4"/>
-            <line x1="10" y1="1" x2="10" y2="4"/>
-            <line x1="14" y1="1" x2="14" y2="4"/>
-          </svg>
-          Restaurant
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="6" cy="6" r="3"/>
-            <circle cx="6" cy="18" r="3"/>
-            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
-            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
-            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-          </svg>
-          Coiffeur
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-          </svg>
-          Auto-entrepreneur
-        </a>
-        <a href="#outils" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-          Commerce
-        </a>
-        <a href="/sur-mesure" class="pill pill--cta">
-          Votre métier n'est pas là ?&nbsp;→
-        </a>
-      </div>
-
     </div>
   </section>
 
@@ -290,7 +199,7 @@
     <div class="wrap cta-section__inner">
       <p class="cta-section__label">Besoin de plus ?</p>
       <h2 class="cta-section__title">Un outil taillé pour votre activité</h2>
-      <p class="cta-section__sub">Votre activité a des spécificités que nos outils standards ne couvrent pas&nbsp;? On développe des outils sur mesure pour les TPE, au juste prix.</p>
+      <p class="cta-section__sub">Votre activité a des spécificités que nos fichiers standards ne couvrent pas ? On développe des outils sur mesure pour les TPE, au juste prix.</p>
       <a href="/sur-mesure" class="btn btn-white btn-lg">Demander un devis gratuit</a>
     </div>
   </section>
@@ -300,7 +209,7 @@
     <div class="wrap footer__inner">
 
       <div class="footer__brand">
-        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
           outils-tpe<span class="logo__tld">.fr</span>
         </a>
         <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
@@ -308,12 +217,11 @@
 
       <nav class="footer__nav" aria-label="Navigation du pied de page">
         <div class="footer__col">
-          <h3 class="footer__heading">Outils</h3>
+          <h3 class="footer__heading">Métiers</h3>
           <ul class="footer__links">
-            <li><a href="/tresorerie">Trésorerie</a></li>
-            <li><a href="/devis">Devis &amp; Factures</a></li>
-            <li><a href="/calculateurs">Calculateurs</a></li>
-            <li><a href="/gestion">Gestion complète</a></li>
+            <li><a href="/electricien">Électricien</a></li>
+            <li><a href="/plombier">Plombier</a></li>
+            <li><a href="/coiffeur">Coiffeur</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -322,6 +230,7 @@
             <li><a href="/blog">Blog</a></li>
             <li><a href="/sur-mesure">Sur mesure</a></li>
             <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
             <li><a href="/politique-confidentialite">Confidentialité</a></li>
           </ul>
         </div>
@@ -343,7 +252,7 @@
 
     <div class="footer__bottom">
       <div class="wrap">
-        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+        <p>&copy; <span id="year"></span> outils-tpe.fr, Tous droits réservés</p>
       </div>
     </div>
   </footer>
