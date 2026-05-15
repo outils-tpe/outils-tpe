@@ -39,6 +39,14 @@ const NOMS_METIERS = {
   coiffeur:    'Coiffeur',
 };
 
+const LIBELLES_GRATUITS = {
+  electricien: 'Electricien - Trésorerie - Gratuit',
+  plombier:    'Plombier - Trésorerie - Gratuit',
+  coiffeur:    'Coiffeur - Trésorerie - Gratuit',
+};
+
+const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/sb7cefusquykoseharh23gyj6irkwiru';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Méthode non autorisée' });
