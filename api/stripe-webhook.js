@@ -214,6 +214,23 @@ function buildEmailHtml({ nom, nomProduit, fichiers }) {
 </html>`;
 }
 
+// Webhook Make.com — fire & forget, n'interrompt jamais la livraison
+function envoyerWebhookMake({ email, fichier, libelle, prix }) {
+  fetch(MAKE_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email,
+      date_heure: new Date().toISOString(),
+      fichier,
+      libelle,
+      prix,
+    }),
+  }).catch((err) => {
+    console.error('Webhook Make.com — erreur non bloquante :', err.message);
+  });
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
