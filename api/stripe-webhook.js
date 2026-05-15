@@ -210,8 +210,18 @@ function buildEmailHtml({ nom, nomProduit, fichiers }) {
 </html>`;
 }
 
+// Extrait metier + outil depuis le product_slug (ex: "tresorerie-electricien" → Trésorerie / Electricien)
+function parseSlugProduit(slug) {
+  if (!slug) return { metier: '', outil: '' };
+  const parties = slug.replace(/-v\d+(\.\d+)?$/, '').split('-');
+  const labelsOutils = { tresorerie: 'Trésorerie', devis: 'Devis', gestion: 'Gestion' };
+  const outil  = labelsOutils[parties[0]] ?? (parties[0].charAt(0).toUpperCase() + parties[0].slice(1));
+  const metier = parties.slice(1).map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join(' ');
+  return { outil, metier };
+}
+
 // Webhook Make.com — fire & forget, n'interrompt jamais la livraison
-function envoyerWebhookMake({ email, fichier, libelle, prix }) {
+function envoyerWebhookMake({ email, fichier, metier, outil, type, prix }) {
   fetch(MAKE_WEBHOOK_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -219,7 +229,9 @@ function envoyerWebhookMake({ email, fichier, libelle, prix }) {
       email,
       date_heure: new Date().toISOString(),
       fichier,
-      libelle,
+      metier,
+      outil,
+      type,
       prix,
     }),
   }).catch((err) => {
