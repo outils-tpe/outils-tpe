@@ -33,6 +33,8 @@ const r2 = new S3Client({
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/sb7cefusquykoseharh23gyj6irkwiru';
+
 // Durée de validité du lien de téléchargement : 72h
 const DOWNLOAD_TTL = 72 * 60 * 60;
 
