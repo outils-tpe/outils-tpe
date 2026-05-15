@@ -47,3 +47,39 @@ if (newsletterForm) {
     newsletterForm.querySelector('input[type="email"]').value = '';
   });
 }
+
+// Lightbox — agrandissement des screenshots au clic
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lightboxImg   = lightbox.querySelector('.lightbox__img');
+  const lightboxClose = lightbox.querySelector('.lightbox__close');
+
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('lightbox--open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('lightbox--open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  };
+
+  document.querySelectorAll('.screenshot').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('lightbox--open')) {
+      closeLightbox();
+    }
+  });
+}
