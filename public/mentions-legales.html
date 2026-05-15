@@ -10,12 +10,11 @@
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+  <link rel="stylesheet" href="/assets/css/main.css?v=3" />
   <style>
     .legal-page { padding: 4rem 0 6rem; }
-    .legal-page .container { padding-left: 2rem; padding-right: 2rem; }
     .legal-page h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 2rem; color: var(--color-navy); }
     .legal-page h2 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; color: var(--color-navy); }
     .legal-page p, .legal-page address { margin-bottom: .75rem; font-style: normal; line-height: 1.7; }
@@ -25,23 +24,30 @@
 <body>
 
   <header class="header">
-    <div class="container header__inner">
+    <div class="wrap header__inner">
       <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
-        <span class="logo__text">outils-tpe<span class="logo__dot">.fr</span></span>
+        outils-tpe<span class="logo__tld">.fr</span>
       </a>
-      <nav class="nav" role="navigation" aria-label="Navigation principale" style="display:flex">
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a href="/#metiers" class="nav__link">Métiers</a></li>
+          <li><a href="/tresorerie" class="nav__link">Trésorerie</a></li>
+          <li><a href="/devis" class="nav__link">Devis</a></li>
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/gestion" class="nav__link">Gestion</a></li>
           <li><a href="/blog" class="nav__link">Blog</a></li>
-          <li><a href="/sur-mesure" class="nav__link">Sur mesure</a></li>
-          <li><a href="/a-propos" class="nav__link">À propos</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="legal-page">
-    <div class="container" style="max-width: 760px">
+    <div class="wrap" style="max-width: 760px">
 
       <h1>Mentions légales</h1>
 
@@ -83,12 +89,57 @@
   </main>
 
   <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Métiers</h3>
+          <ul class="footer__links">
+            <li><a href="/electricien">Électricien</a></li>
+            <li><a href="/plombier">Plombier</a></li>
+            <li><a href="/auto-entrepreneur">Auto-entrepreneur</a></li>
+            <li><a href="/coiffeur">Coiffeur</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">À propos</h3>
+          <ul class="footer__links">
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer__newsletter">
+        <h3 class="footer__heading">Nouveaux outils &amp; conseils</h3>
+        <p>Recevez nos nouveautés directement dans votre boîte mail.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <label for="newsletter-email-footer" class="sr-only">Votre adresse e-mail</label>
+          <input id="newsletter-email-footer" type="email" name="email" placeholder="votre@email.fr"
+            class="newsletter-form__input" required autocomplete="email" />
+          <button type="submit" class="btn btn-green newsletter-form__btn">S'inscrire</button>
+        </form>
+        <p class="newsletter-form__notice">Pas de spam. Désinscription en un clic.</p>
+      </div>
+
+    </div>
+
     <div class="footer__bottom">
-      <div class="container">
-        <p>&copy; 2026 outils-tpe.fr — <a href="/mentions-legales" style="color:rgba(255,255,255,.6)">Mentions légales</a> · <a href="/politique-confidentialite" style="color:rgba(255,255,255,.6)">Confidentialité</a></p>
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
       </div>
     </div>
   </footer>
 
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
