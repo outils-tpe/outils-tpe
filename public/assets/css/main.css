@@ -1010,6 +1010,88 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.88);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+.lightbox--open { display: flex; }
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+  cursor: default;
+  object-fit: contain;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255,255,255,.15);
+  border: none;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--ease);
+}
+.lightbox__close:hover { background: rgba(255,255,255,.28); }
+
+/* Images cliquables */
+.screenshot {
+  cursor: zoom-in;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.screenshot:hover { transform: scale(1.015); }
+
+/* ============================================================
+   GRILLE SCREENSHOTS VERSION COMPLÈTE
+   ============================================================ */
+.complet-screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 920px;
+  margin: 1.5rem auto 2rem;
+}
+
+.complet-screenshots figure { margin: 0; }
+
+.complet-screenshots img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 2px 16px rgba(0,0,0,.3);
+}
+
+.complet-screenshots figcaption {
+  font-size: .8rem;
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  margin-top: .4rem;
+}
+
+@media (min-width: 640px) {
+  .complet-screenshots { gap: 1.25rem; }
+}
+
+/* ============================================================
    ACCESSIBILITÉ
    ============================================================ */
 :focus-visible {
