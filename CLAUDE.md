@@ -218,3 +218,12 @@ outils-tpe/
 - **Toujours maintenir** le sitemap.xml à jour quand une page est ajoutée
 - **Toujours maintenir la cohérence** entre toutes les pages (header, footer, design, navigation)
 - **Vérifier le maillage interne** à chaque ajout de page (liens entre pages métier, blog, footer)
+
+## Mémoire et continuité des sessions
+
+L'utilisateur travaille depuis VS Code et chaque conversation repart de zéro. Pour éviter de perdre le contexte :
+
+- **Après chaque réponse où du code a été modifié ou une décision prise**, mettre à jour le fichier mémoire concerné dans `C:\Users\Thomas\.claude\projects\D--Professionnel-Projets-divers-VS-Code-Outils-TPE-outils-tpe\memory\`
+- Mettre à jour en priorité `project_stripe_module.md` : section "Ce qui vient d'être fait" et "Prochaine étape immédiate"
+- **En début de session** : lire les fichiers mémoire et faire un résumé de l'état actuel sans attendre que l'utilisateur demande
+- L'utilisateur peut dire "reprends la conversation" pour déclencher ce résumé explicitement
