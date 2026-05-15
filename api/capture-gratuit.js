@@ -39,10 +39,10 @@ const NOMS_METIERS = {
   coiffeur:    'Coiffeur',
 };
 
-const LIBELLES_GRATUITS = {
-  electricien: 'Electricien - Trésorerie - Gratuit',
-  plombier:    'Plombier - Trésorerie - Gratuit',
-  coiffeur:    'Coiffeur - Trésorerie - Gratuit',
+const OUTILS_GRATUITS = {
+  electricien: 'Trésorerie',
+  plombier:    'Trésorerie',
+  coiffeur:    'Trésorerie',
 };
 
 const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/sb7cefusquykoseharh23gyj6irkwiru';
