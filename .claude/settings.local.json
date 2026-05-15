@@ -47,7 +47,12 @@
       "mcp__notion__notion-update-page",
       "mcp__notion__notion-query-database-view",
       "Bash(vercel --version)",
-      "Bash(vercel deploy:*)"
+      "Bash(vercel deploy:*)",
+      "Bash(stripe products:*)",
+      "Bash(stripe prices:*)",
+      "Bash(stripe payment_links:*)",
+      "Bash(vercel env:*)",
+      "Bash(vercel ls:*)"
     ]
   }
 }
