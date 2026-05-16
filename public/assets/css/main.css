@@ -643,14 +643,16 @@ ul { list-style: none; }
 
   /* Footer : brand à gauche, liens à droite */
   .footer__inner {
-    grid-template-columns: 200px 1fr;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 3rem;
   }
   .footer__nav {
-    grid-template-columns: auto auto;
-    gap: 3rem;
-    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
   }
 }
 
