@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fichiers Excel ou Notion sur mesure pour artisans et TPE. Je crée ou adapte vos outils de gestion selon votre activité et vos besoins spécifiques." />
+  <title>Outil de gestion sur mesure — Excel, Notion | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/sur-mesure/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Outil de gestion sur mesure — Excel, Notion" />
+  <meta property="og:description" content="Je crée ou adapte vos fichiers Excel et Notion selon vos besoins spécifiques. Décrivez votre problématique, je vous réponds sous 48h." />
+  <meta property="og:url" content="https://outils-tpe.fr/sur-mesure/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <!-- Turnstile Cloudflare (anti-bot) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <style>
+    /* --- Page Sur mesure --- */
+
+    .sm-features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .sm-feature {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .sm-feature__icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: rgba(30,58,95,.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+    }
+    .sm-feature__icon svg { width: 20px; height: 20px; }
+
+    .sm-feature__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: .375rem;
+    }
+
+    .sm-feature__desc {
+      font-size: .9375rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* Étapes */
+    .sm-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .sm-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .sm-step__num {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .875rem;
+      font-weight: 800;
+      margin-top: .1rem;
+    }
+
+    .sm-step__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: .3rem;
+    }
+
+    .sm-step__desc {
+      font-size: .9375rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* Section formulaire */
+    .sm-form {
+      background: var(--gray-50);
+      padding-block: 5rem;
+    }
+
+    .sm-form__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .sm-form__label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: .75rem;
+    }
+
+    .sm-form__title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.03em;
+      margin-bottom: .875rem;
+    }
+
+    .sm-form__sub {
+      font-size: 1rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+
+    /* Grille nom/prénom */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-capture__textarea {
+      font-family: var(--font);
+      font-size: .9375rem;
+      padding: .75rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      color: var(--gray-900);
+      background: var(--white);
+      outline: none;
+      transition: border-color var(--ease), box-shadow var(--ease);
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .form-capture__textarea::placeholder { color: var(--gray-400); }
+    .form-capture__textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,.15);
+    }
+
+    @media (min-width: 640px) {
+      .sm-features { grid-template-columns: 1fr 1fr; }
+      .sm-steps { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    @media (min-width: 860px) {
+      .sm-features { grid-template-columns: 1fr 1fr; }
+      .sm-form__inner { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/electricien" class="nav__link">Électriciens</a></li>
+          <li><a href="/plombier" class="nav__link">Plombiers</a></li>
+          <li><a href="/coiffeur" class="nav__link">Coiffeurs</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">Sur mesure</span>
+
+      <h1 class="hero__title">
+        Un outil taillé<br>
+        <span class="hero__accent">pour votre activité</span>
+      </h1>
+
+      <p class="hero__sub">
+        Je crée des fichiers Excel ou Notion adaptés à votre métier et vos besoins spécifiques. Ou je pars de ce que vous utilisez déjà et je l'améliore.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#formulaire" class="btn btn-green btn-lg">Décrire mon besoin</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CE QUE JE FAIS -->
+  <section class="outils">
+    <div class="wrap">
+
+      <div class="sec-head">
+        <h2>Ce que je peux faire pour vous</h2>
+        <p>Du fichier créé de zéro à l'adaptation de l'existant.</p>
+      </div>
+
+      <div class="sm-features">
+
+        <div class="sm-feature">
+          <div class="sm-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <div>
+            <p class="sm-feature__title">Fichiers Excel sur mesure</p>
+            <p class="sm-feature__desc">Trésorerie, suivi de chantiers, calcul de marges, gestion des stocks… avec vos catégories, votre jargon, vos formules.</p>
+          </div>
+        </div>
+
+        <div class="sm-feature">
+          <div class="sm-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="sm-feature__title">Bases Notion sur mesure</p>
+            <p class="sm-feature__desc">Tableau de bord, suivi clients, gestion de projets, pipeline commercial — structurés selon votre façon de travailler.</p>
+          </div>
+        </div>
+
+        <div class="sm-feature">
+          <div class="sm-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="sm-feature__title">Améliorer l'existant</p>
+            <p class="sm-feature__desc">Vous avez déjà un fichier qui fonctionne à moitié ? Je le reprends, je le complète, je le rends plus robuste.</p>
+          </div>
+        </div>
+
+        <div class="sm-feature">
+          <div class="sm-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="sm-feature__title">S'adapter à votre contexte</p>
+            <p class="sm-feature__desc">Activité saisonnière, multi-sites, règles métier spécifiques… Je prends en compte ce qui rend votre activité unique.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="faq-section" style="padding-block: 5rem;">
+    <div class="wrap">
+
+      <div class="sec-head">
+        <h2>Comment ça marche</h2>
+      </div>
+
+      <div class="sm-steps">
+
+        <div class="sm-step">
+          <div class="sm-step__num" aria-hidden="true">1</div>
+          <div>
+            <p class="sm-step__title">Vous décrivez votre besoin</p>
+            <p class="sm-step__desc">Via le formulaire ci-dessous : quelques lignes suffisent pour expliquer votre problématique.</p>
+          </div>
+        </div>
+
+        <div class="sm-step">
+          <div class="sm-step__num" aria-hidden="true">2</div>
+          <div>
+            <p class="sm-step__title">Je vous réponds sous 48h</p>
+            <p class="sm-step__desc">Je lis chaque demande attentivement et je reviens vers vous par email.</p>
+          </div>
+        </div>
+
+        <div class="sm-step">
+          <div class="sm-step__num" aria-hidden="true">3</div>
+          <div>
+            <p class="sm-step__title">Je vous propose un tarif</p>
+            <p class="sm-step__desc">Si je peux répondre à votre besoin, je vous soumets une proposition au juste prix.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE -->
+  <section id="formulaire" class="sm-form">
+    <div class="wrap sm-form__inner">
+
+      <div>
+        <p class="sm-form__label">Votre demande</p>
+        <h2 class="sm-form__title">Décrivez votre besoin</h2>
+        <p class="sm-form__sub">
+          Expliquez-moi votre activité et ce que vous aimeriez pouvoir faire.
+          Pas besoin d'être précis dès le départ — on clarifie ensemble par email.
+        </p>
+      </div>
+
+      <div class="tl-form-card">
+        <form id="form-sur-mesure" class="form-capture" novalidate>
+
+          <div class="form-row">
+            <div class="form-capture__group">
+              <label for="sm-prenom" class="form-capture__label">Prénom</label>
+              <input id="sm-prenom" name="prenom" type="text" class="form-capture__input"
+                placeholder="Marie" required autocomplete="given-name" />
+            </div>
+            <div class="form-capture__group">
+              <label for="sm-nom" class="form-capture__label">Nom</label>
+              <input id="sm-nom" name="nom" type="text" class="form-capture__input"
+                placeholder="Dupont" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form-capture__group">
+            <label for="sm-email" class="form-capture__label">Email</label>
+            <input id="sm-email" name="email" type="email" class="form-capture__input"
+              placeholder="marie.dupont@email.fr" required autocomplete="email" />
+          </div>
+
+          <div class="form-capture__group">
+            <label for="sm-description" class="form-capture__label">Votre problématique</label>
+            <textarea id="sm-description" name="description" class="form-capture__textarea"
+              placeholder="Je suis maçon, j'ai 3 salariés. J'aimerais un fichier pour suivre mes chantiers en cours, savoir combien je dépense sur chacun et comparer avec mon devis initial…"
+              required></textarea>
+          </div>
+
+          <!-- Widget Turnstile -->
+          <div class="cf-turnstile"
+               data-sitekey="0x4AAAAAADPRz2tJicOIYvfv"
+               data-theme="light"
+               data-language="fr"></div>
+
+          <button type="submit" class="btn btn-green btn-lg form-capture__btn">
+            Envoyer ma demande
+          </button>
+
+          <p class="form-capture__notice">
+            Aucun engagement. Je réponds personnellement sous 48h.
+          </p>
+
+          <div class="form-capture__msg" role="alert" aria-live="polite"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les artisans et TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Métiers</h3>
+          <ul class="footer__links">
+            <li><a href="/electricien">Électricien</a></li>
+            <li><a href="/plombier">Plombier</a></li>
+            <li><a href="/coiffeur">Coiffeur</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">À propos</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer__newsletter">
+        <h3 class="footer__heading">Nouveaux outils &amp; conseils</h3>
+        <p>Recevez nos nouveautés directement dans votre boîte mail.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
+          <input id="newsletter-email" type="email" name="email" placeholder="votre@email.fr"
+            class="newsletter-form__input" required autocomplete="email" />
+          <button type="submit" class="btn btn-green newsletter-form__btn">S'inscrire</button>
+        </form>
+        <p class="newsletter-form__notice">Pas de spam. Désinscription en un clic.</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr, Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+
+  <script>
+    /* Formulaire sur mesure */
+    (function () {
+      const form = document.getElementById('form-sur-mesure');
+      if (!form) return;
+
+      const btn = form.querySelector('.form-capture__btn');
+      const msg = form.querySelector('.form-capture__msg');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const prenom      = form.prenom.value.trim();
+        const nom         = form.nom.value.trim();
+        const email       = form.email.value.trim();
+        const description = form.description.value.trim();
+        const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value ?? '';
+
+        btn.disabled    = true;
+        btn.textContent = 'Envoi en cours…';
+        msg.className   = 'form-capture__msg';
+        msg.textContent = '';
+
+        try {
+          const res  = await fetch('/api/contact-sur-mesure', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ prenom, nom, email, description, turnstileToken }),
+          });
+          const data = await res.json();
+
+          if (res.ok && data.success) {
+            msg.className   = 'form-capture__msg form-capture__msg--succes';
+            msg.textContent = 'Votre demande a bien été envoyée ! Je vous réponds par email sous 48h.';
+            form.reset();
+            if (window.turnstile) window.turnstile.reset();
+          } else {
+            msg.className   = 'form-capture__msg form-capture__msg--erreur';
+            msg.textContent = data.error ?? 'Une erreur est survenue, réessayez dans quelques instants.';
+            if (window.turnstile) window.turnstile.reset();
+          }
+        } catch (_) {
+          msg.className   = 'form-capture__msg form-capture__msg--erreur';
+          msg.textContent = 'Une erreur est survenue, réessayez dans quelques instants.';
+          if (window.turnstile) window.turnstile.reset();
+        }
+
+        btn.disabled    = false;
+        btn.textContent = 'Envoyer ma demande';
+      });
+    })();
+  </script>
+
+</body>
+</html>
