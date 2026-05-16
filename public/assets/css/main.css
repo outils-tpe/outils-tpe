@@ -641,11 +641,16 @@ ul { list-style: none; }
   /* CTA bande */
   .cta-section__inner { max-width: 640px; }
 
-  /* Footer : brand + 2 colonnes de liens */
+  /* Footer : brand à gauche, liens à droite */
   .footer__inner {
     grid-template-columns: 200px 1fr;
     align-items: start;
     gap: 3rem;
+  }
+  .footer__nav {
+    grid-template-columns: auto auto;
+    gap: 3rem;
+    justify-self: end;
   }
 }
 
