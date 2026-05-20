@@ -16,5 +16,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Sitemap — mettre à jour vers https://outils-tpe.fr/sitemap.xml dès que le domaine est configuré
-Sitemap: https://outils-tpe.vercel.app/sitemap.xml
+Sitemap: https://outils-tpe.fr/sitemap.xml
