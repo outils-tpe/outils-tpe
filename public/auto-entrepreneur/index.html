@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tableau de trésorerie Excel pour auto-entrepreneurs : module URSSAF intégré, suivi des seuils TVA et micro, prévisionnel 12 mois. 39 € achat unique, à vie." />
+  <title>Trésorerie auto-entrepreneur — Excel avec module URSSAF | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/auto-entrepreneur/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Trésorerie auto-entrepreneur — Excel avec module URSSAF | outils-tpe.fr" />
+  <meta property="og:description" content="Tableau de trésorerie Excel conçu exclusivement pour les auto-entrepreneurs. Calcule vos cotisations URSSAF, surveille vos seuils TVA et micro. 39 € achat unique." />
+  <meta property="og:url" content="https://outils-tpe.fr/auto-entrepreneur/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ça marche sur Mac ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, le fichier fonctionne sur Excel pour Mac (2016 ou plus récent). Quelques détails de mise en forme peuvent varier mais toutes les formules et le module URSSAF fonctionnent identiquement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si les taux URSSAF changent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous recevez par email les fichiers mis à jour gratuitement pendant 1 an. Au-delà, vous pouvez continuer à utiliser votre version : les taux sont en cellules paramétrables, vous pouvez les modifier vous-même selon les nouveaux barèmes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour configurer le fichier ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5 minutes pour les Paramètres (activité, ACRE, rythme de déclaration…), puis 30 secondes par opération saisie au fil de l'eau. Tout est documenté dans l'onglet Démarrage rapide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence avec Indy ou Freebe ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indy et Freebe sont des SaaS avec abonnement (17 à 29 € par mois) qui font plus (connexion bancaire, génération de factures). Notre fichier coûte 39 € une fois pour la possession à vie et vos données restent chez vous."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Suis-je obligé d'avoir un compte sur autoentrepreneur.urssaf.fr ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, le fichier calcule le montant à déclarer mais c'est vous qui le saisissez ensuite sur autoentrepreneur.urssaf.fr. Il n'y a pas d'intégration automatique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Y a-t-il une garantie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si le fichier pose un problème technique ou ne correspond pas à ce qui est décrit sur cette page, remboursement immédiat sur simple email, sans justification. Pour les cas particuliers (activité mixte, besoins spécifiques), nous pouvons aussi créer une version sur mesure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je ne suis pas auto-entrepreneur, ce fichier me convient-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ce fichier est conçu spécifiquement pour la micro-entreprise. Si vous êtes en EI au réel, EURL, SARL ou SAS, consultez nos fichiers par métier (Électricien, Plombier, Coiffeur) qui conservent tout le pilotage de trésorerie sans la couche auto-entrepreneur."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Trésorerie Auto-entrepreneur — Complet (V4)",
+      "description": "Fichier Excel de trésorerie conçu exclusivement pour les auto-entrepreneurs : module URSSAF intégré, suivi des seuils TVA et micro, tableau de bord KPI, prévisionnel 12 mois, scénarios.",
+      "url": "https://outils-tpe.fr/auto-entrepreneur/",
+      "brand": {
+        "@type": "Brand",
+        "name": "outils-tpe.fr"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "39.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://outils-tpe.fr/auto-entrepreneur/"
+      }
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/electricien" class="nav__link">Électriciens</a></li>
+          <li><a href="/plombier" class="nav__link">Plombiers</a></li>
+          <li><a href="/coiffeur" class="nav__link">Coiffeurs</a></li>
+          <li><a href="/auto-entrepreneur" class="nav__link">Auto-entrepreneurs</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">Auto-entrepreneur · Micro-entreprise · V4</span>
+
+      <h1 class="hero__title">
+        Votre déclaration URSSAF,<br>
+        <span class="hero__accent">prête en 2 clics.</span>
+      </h1>
+
+      <p class="hero__sub">
+        Le seul tableau de trésorerie Excel conçu pour les auto-entrepreneurs :
+        calcule vos cotisations, vous dit quoi déclarer, et surveille vos seuils en temps réel.
+      </p>
+
+      <div class="hero__actions">
+        <!-- TODO : remplacer #STRIPE_LINK par le Payment Link Stripe réel -->
+        <a href="#STRIPE_LINK" class="btn btn-green btn-lg" target="_blank" rel="noopener">
+          Acheter pour 39 € — Téléchargement immédiat
+        </a>
+      </div>
+
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Paiement sécurisé, livraison immédiate
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Mises à jour gratuites pendant 1 an
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Excel, LibreOffice, Google Sheets
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section style="padding:4rem 0;background:var(--white);">
+    <div class="wrap" style="max-width:860px;">
+      <div class="sec-head">
+        <h2>Fait pour tous les auto-entrepreneurs</h2>
+        <p>Quelle que soit votre activité, le fichier s'adapte automatiquement à votre situation.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-top:2rem;">
+        <div style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;">
+          <div style="font-size:1.75rem;margin-bottom:.625rem;" aria-hidden="true">🏪</div>
+          <p style="font-weight:700;color:var(--gray-900);font-size:.9375rem;">Ventes de marchandises</p>
+          <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.25rem;line-height:1.5;">Commerce, négoce, artisanat — BIC ventes</p>
+        </div>
+        <div style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;">
+          <div style="font-size:1.75rem;margin-bottom:.625rem;" aria-hidden="true">💼</div>
+          <p style="font-weight:700;color:var(--gray-900);font-size:.9375rem;">Prestations de services</p>
+          <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.25rem;line-height:1.5;">Consultant, artisan, informaticien — BIC prestations</p>
+        </div>
+        <div style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;">
+          <div style="font-size:1.75rem;margin-bottom:.625rem;" aria-hidden="true">🏛️</div>
+          <p style="font-weight:700;color:var(--gray-900);font-size:.9375rem;">Libéral CIPAV</p>
+          <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.25rem;line-height:1.5;">Architecte, ingénieur, consultant — BNC CIPAV</p>
+        </div>
+        <div style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;">
+          <div style="font-size:1.75rem;margin-bottom:.625rem;" aria-hidden="true">📚</div>
+          <p style="font-weight:700;color:var(--gray-900);font-size:.9375rem;">Libéral SSI</p>
+          <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.25rem;line-height:1.5;">Formateur, coach, rédacteur — BNC SSI</p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.875rem;color:var(--gray-400);margin-top:1.5rem;line-height:1.65;">
+        Vous êtes en EI au réel, EURL, SARL ou SAS ? Ce fichier n'est pas adapté — consultez nos
+        <a href="/electricien" style="color:var(--navy);text-decoration:underline;text-underline-offset:2px;">fichiers par métier</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 BÉNÉFICES -->
+  <section style="padding:5rem 0;background:var(--gray-50);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pourquoi ce fichier et pas un autre ?</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;">
+
+        <!-- Bénéfice 1 -->
+        <div class="card" style="border-top:3px solid var(--green);cursor:default;">
+          <div class="card__icon" style="background:rgba(34,197,94,.1);color:var(--green-dark);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Déclarez votre URSSAF sans vous tromper</h3>
+          <p class="card__desc">
+            Le fichier affiche en gros, en temps réel, le montant exact à recopier sur autoentrepreneur.urssaf.fr —
+            avec la période concernée, la date limite, et le libellé exact du champ à remplir selon votre activité.
+            Fini les erreurs de ligne ou les calculs à la main.
+          </p>
+        </div>
+
+        <!-- Bénéfice 2 -->
+        <div class="card" style="border-top:3px solid var(--navy);cursor:default;">
+          <div class="card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">39 € une fois, à vie</h3>
+          <p class="card__desc">
+            Indy et Freebe coûtent 17 à 29 € par mois. Ici, vous payez une fois et c'est à vous pour toujours.
+            Vos données restent sur votre ordinateur — pas dans le cloud d'un éditeur qui peut changer ses tarifs demain.
+            Aucun abonnement à résilier.
+          </p>
+        </div>
+
+        <!-- Bénéfice 3 -->
+        <div class="card" style="border-top:3px solid var(--navy-mid);cursor:default;">
+          <div class="card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Pilotez comme un vrai chef d'entreprise</h3>
+          <p class="card__desc">
+            Tableau de bord, marge brute, EBE, prévisionnel sur 12 mois,
+            comparaison avec l'année passée, 3 scénarios (optimiste / réaliste / pessimiste).
+            Niveau professionnel, sans abonnement logiciel.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE SUIVI AE — différenciateur principal -->
+  <section class="tl-section">
+    <div class="wrap">
+
+      <div class="tl-layout">
+
+        <!-- Gauche : description -->
+        <div class="tl-desc">
+          <span class="tl-badge">Module exclusif</span>
+          <h2>Votre déclaration URSSAF, calculée automatiquement</h2>
+          <p class="tl-desc__intro">
+            L'onglet <strong>Suivi AE</strong> est unique : aucun autre template Excel grand public ne le fait.
+            Il calcule en temps réel, basé sur la date du jour et votre rythme de déclaration,
+            exactement ce que vous devez entrer sur autoentrepreneur.urssaf.fr.
+          </p>
+          <ul class="tl-features">
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              La période à déclarer (ex : "Avril 2026" ou "T1 2026")
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              La date limite, calculée selon les règles URSSAF
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Le libellé exact du champ à remplir selon votre activité
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Le montant exact, affiché en gros et en évidence
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              ACRE et versement libératoire pris en compte automatiquement
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              État de la déclaration avec code couleur : À venir / À déclarer / En retard
+            </li>
+          </ul>
+        </div>
+
+        <!-- Droite : screenshot -->
+        <div>
+          <!-- TODO : remplacer par <img> une fois /assets/img/auto-entrepreneur/suivi-ae.png disponible -->
+          <figure style="margin:0;">
+            <div style="background:var(--gray-100);border-radius:var(--radius-lg);border:2px dashed var(--gray-200);display:flex;align-items:center;justify-content:center;min-height:280px;color:var(--gray-400);font-size:.875rem;text-align:center;padding:1.5rem;line-height:1.7;">
+              Screenshot à venir<br>
+              <span style="font-size:.75rem;opacity:.7;">/assets/img/auto-entrepreneur/suivi-ae.png</span>
+            </div>
+            <figcaption style="font-size:.8rem;color:var(--gray-400);text-align:center;margin-top:.5rem;">Le montant à déclarer, affiché en temps réel</figcaption>
+          </figure>
+        </div>
+
+      </div>
+
+      <!-- Suivi des seuils -->
+      <div style="margin-top:3rem;padding:2rem;background:var(--white);border-radius:var(--radius-lg);border:1.5px solid var(--gray-200);">
+        <h3 style="font-size:1.0625rem;font-weight:700;color:var(--gray-900);margin-bottom:.625rem;">Suivi des seuils en temps réel</h3>
+        <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.7;margin-bottom:1.25rem;">
+          Le fichier compare votre CA cumulé aux 3 seuils clés avec code couleur automatique (vert / orange / rouge).
+          Vous savez toujours à quelle distance vous êtes d'un changement de régime.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.875rem;">
+          <div style="background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-200);padding:.875rem;">
+            <p style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-400);">Seuil 1</p>
+            <p style="font-weight:700;color:var(--gray-900);margin-top:.25rem;font-size:.9375rem;">Franchise TVA de base</p>
+            <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.2rem;line-height:1.5;">Alerte avant de devoir collecter la TVA</p>
+          </div>
+          <div style="background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-200);padding:.875rem;">
+            <p style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-400);">Seuil 2</p>
+            <p style="font-weight:700;color:var(--gray-900);margin-top:.25rem;font-size:.9375rem;">Franchise TVA majorée</p>
+            <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.2rem;line-height:1.5;">Alerte avant la sortie définitive du régime TVA</p>
+          </div>
+          <div style="background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-200);padding:.875rem;">
+            <p style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-400);">Seuil 3</p>
+            <p style="font-weight:700;color:var(--gray-900);margin-top:.25rem;font-size:.9375rem;">Plafond micro-entreprise</p>
+            <p style="font-size:.8125rem;color:var(--gray-600);margin-top:.2rem;line-height:1.5;">Alerte avant la sortie du régime micro</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOUR DES FONCTIONNALITÉS -->
+  <section style="padding:5rem 0;background:var(--white);">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:2.5rem;">
+        <h2>17 onglets, 4 familles d'outils</h2>
+        <p>Du journal de saisie au prévisionnel sur 12 mois, tout est dans un seul fichier.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;">
+
+        <!-- Journal -->
+        <div>
+          <h3 style="font-size:1.0625rem;font-weight:700;color:var(--gray-900);margin-bottom:.5rem;">Journal des opérations</h3>
+          <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.7;margin-bottom:1rem;">
+            Saisie des encaissements et décaissements, jusqu'à 2 000 lignes.
+            Catégories personnalisables, multi-comptes bancaires, calcul TVA automatique.
+          </p>
+          <!-- TODO : /assets/img/auto-entrepreneur/journal.png -->
+          <div class="screenshot" style="background:var(--gray-100);border-radius:var(--radius);border:1.5px dashed var(--gray-200);display:flex;align-items:center;justify-content:center;height:180px;color:var(--gray-400);font-size:.8125rem;text-align:center;padding:1rem;">
+            Screenshot à venir<br><span style="font-size:.7rem;opacity:.7;">journal.png</span>
+          </div>
+        </div>
+
+        <!-- Tableau de bord -->
+        <div>
+          <h3 style="font-size:1.0625rem;font-weight:700;color:var(--gray-900);margin-bottom:.5rem;">Tableau de bord</h3>
+          <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.7;margin-bottom:1rem;">
+            KPIs, graphiques mensuels, camemberts par catégorie.
+            Vue Acté (réalisé) et Estimé (réalisé + prévisionnel). Comparaison N&nbsp;vs&nbsp;N-1.
+          </p>
+          <!-- TODO : /assets/img/auto-entrepreneur/tdb.png -->
+          <div class="screenshot" style="background:var(--gray-100);border-radius:var(--radius);border:1.5px dashed var(--gray-200);display:flex;align-items:center;justify-content:center;height:180px;color:var(--gray-400);font-size:.8125rem;text-align:center;padding:1rem;">
+            Screenshot à venir<br><span style="font-size:.7rem;opacity:.7;">tdb.png</span>
+          </div>
+        </div>
+
+        <!-- Prévisionnel -->
+        <div>
+          <h3 style="font-size:1.0625rem;font-weight:700;color:var(--gray-900);margin-bottom:.5rem;">Prévisionnel &amp; Scénarios</h3>
+          <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.7;margin-bottom:1rem;">
+            Saisissez vos opérations futures sur 12 mois. Simulez l'impact de +/- X % sur votre CA
+            avec 3 scénarios (optimiste, réaliste, pessimiste) entièrement modifiables.
+          </p>
+          <!-- TODO : /assets/img/auto-entrepreneur/previsionnel.png -->
+          <div class="screenshot" style="background:var(--gray-100);border-radius:var(--radius);border:1.5px dashed var(--gray-200);display:flex;align-items:center;justify-content:center;height:180px;color:var(--gray-400);font-size:.8125rem;text-align:center;padding:1rem;">
+            Screenshot à venir<br><span style="font-size:.7rem;opacity:.7;">previsionnel.png</span>
+          </div>
+        </div>
+
+        <!-- Emprunts & Soldes -->
+        <div>
+          <h3 style="font-size:1.0625rem;font-weight:700;color:var(--gray-900);margin-bottom:.5rem;">Emprunts &amp; Soldes par compte</h3>
+          <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.7;margin-bottom:1rem;">
+            Jusqu'à 5 emprunts avec tableau d'amortissement automatique. Suivi du solde de chaque
+            compte bancaire mois par mois — en acté et en estimé.
+          </p>
+          <!-- TODO : /assets/img/auto-entrepreneur/soldes.png -->
+          <div class="screenshot" style="background:var(--gray-100);border-radius:var(--radius);border:1.5px dashed var(--gray-200);display:flex;align-items:center;justify-content:center;height:180px;color:var(--gray-400);font-size:.8125rem;text-align:center;padding:1rem;">
+            Screenshot à venir<br><span style="font-size:.7rem;opacity:.7;">soldes.png</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIF -->
+  <section style="padding:5rem 0;background:var(--gray-50);">
+    <div class="wrap" style="max-width:800px;">
+      <div class="sec-head">
+        <h2>Pourquoi pas un SaaS ?</h2>
+        <p>Comparez avant d'acheter — c'est fait exprès.</p>
+      </div>
+      <div style="overflow-x:auto;margin-top:1.5rem;">
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:.65rem 1rem;background:var(--navy);color:#fff;border-radius:8px 0 0 0;">Critère</th>
+              <th style="text-align:center;padding:.65rem .875rem;background:var(--green);color:#fff;">
+                Notre fichier<br>
+                <span style="font-size:.75rem;font-weight:400;opacity:.9;">39 € unique</span>
+              </th>
+              <th style="text-align:center;padding:.65rem .875rem;background:var(--gray-600);color:#fff;">
+                Templates basiques<br>
+                <span style="font-size:.75rem;font-weight:400;opacity:.9;">15–30 € unique</span>
+              </th>
+              <th style="text-align:center;padding:.65rem .875rem;background:var(--navy-mid);color:#fff;border-radius:0 8px 0 0;">
+                SaaS (Indy, Freebe)<br>
+                <span style="font-size:.75rem;font-weight:400;opacity:.9;">17–29 € / mois</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#fff;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Module URSSAF intégré</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">—</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+            </tr>
+            <tr style="background:#f9fafb;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Suivi des seuils TVA et micro</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">—</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:var(--gray-600);">Partiel</td>
+            </tr>
+            <tr style="background:#fff;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Tableau de bord (marge brute, EBE)</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:var(--gray-600);">Rare</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+            </tr>
+            <tr style="background:#f9fafb;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Prévisionnel 12 mois + scénarios</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:var(--gray-600);">Rare</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+            </tr>
+            <tr style="background:#fff;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Possession à vie</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">— (abonnement)</td>
+            </tr>
+            <tr style="background:#f9fafb;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Données hors ligne, chez vous</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">—</td>
+            </tr>
+            <tr style="background:#fff;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Mises à jour 1 an incluses</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;background:#f0fdf4;font-weight:700;color:var(--green-dark);">✅</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:var(--gray-600);">Variable</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:var(--gray-600);">Inclus</td>
+            </tr>
+            <tr style="background:#f9fafb;">
+              <td style="padding:.6rem 1rem;border-bottom:1px solid #e5e7eb;">Connexion bancaire automatique</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">—</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;color:#9ca3af;">—</td>
+              <td style="text-align:center;border-bottom:1px solid #e5e7eb;">✅</td>
+            </tr>
+            <tr style="background:#fff;">
+              <td style="padding:.6rem 1rem;">Génération de factures clients</td>
+              <td style="text-align:center;color:#9ca3af;">—</td>
+              <td style="text-align:center;color:#9ca3af;">—</td>
+              <td style="text-align:center;">✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.8125rem;color:var(--gray-400);margin-top:1rem;line-height:1.65;">
+        Pour la connexion bancaire automatique et la génération de factures, Indy reste la référence.
+        Ce fichier s'adresse à ceux qui préfèrent la possession et la maîtrise de leurs données.
+      </p>
+    </div>
+  </section>
+
+  <!-- SPECS TECHNIQUES -->
+  <section style="padding:4rem 0;background:var(--white);">
+    <div class="wrap" style="max-width:800px;">
+      <h2 style="font-size:1.25rem;font-weight:700;color:var(--gray-900);margin-bottom:1.5rem;">Caractéristiques techniques</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;">
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">Logiciel requis</strong>Excel 2016+, Mac, LibreOffice, Google Sheets</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">Aucune macro VBA</strong>100 % formules natives, pas d'alerte de sécurité à l'ouverture</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">Grande capacité</strong>2 000 lignes Journal · 2 000 lignes Prévisionnel · 5 comptes · 5 emprunts</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">100 % hors ligne</strong>Pas de connexion internet requise, vos données ne quittent pas votre ordinateur</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">17 onglets structurés</strong>Accueil, Démarrage rapide, Paramètres, Journal, Suivi AE, TDB, TVA, Prévisionnel…</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;">
+          <svg style="width:16px;height:16px;flex-shrink:0;color:var(--green-dark);margin-top:.2em;" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-size:.9rem;color:var(--gray-600);line-height:1.55;"><strong style="color:var(--gray-900);display:block;margin-bottom:.15rem;">Formules protégées</strong>Seules les cellules de saisie sont modifiables — impossible d'effacer une formule par erreur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIE + CTA -->
+  <section class="complet-section">
+    <div class="wrap">
+      <div class="complet-section__inner">
+
+        <div class="complet-badge">Achetez sans risque</div>
+
+        <h2 class="complet-section__title">Ce fichier est fait pour vous — ou on s'adapte</h2>
+
+        <p class="complet-section__sub">
+          Si le fichier pose un problème technique ou ne correspond pas à ce qui est décrit ici,
+          remboursement immédiat sur simple email, sans justification.
+        </p>
+
+        <p style="font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;text-align:center;">
+          Vous avez un cas particulier — activité mixte, catégories très spécifiques, colonnes supplémentaires ?
+          On peut créer une version sur mesure adaptée à votre situation exacte.
+          <a href="/sur-mesure" style="color:#4ade80;text-decoration:underline;text-underline-offset:2px;">Voir les tarifs sur mesure →</a>
+        </p>
+
+        <p style="font-size:.9rem;color:rgba(255,255,255,.45);max-width:400px;text-align:center;">
+          Des questions avant d'acheter ? Écrivez à
+          <a href="mailto:contact@outils-tpe.fr" style="color:#86efac;">contact@outils-tpe.fr</a>
+          — réponse sous 48h.
+        </p>
+
+        <!-- TODO : remplacer #STRIPE_LINK par le Payment Link Stripe réel -->
+        <a href="#STRIPE_LINK" class="btn btn-white btn-lg" target="_blank" rel="noopener" style="margin-top:.5rem;">
+          Acheter pour 39 € — Téléchargement immédiat
+        </a>
+
+        <p class="complet-section__note">Paiement sécurisé via Stripe · Reçu envoyé par email</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Ça marche sur Mac ?</summary>
+          <p class="faq-item__a">
+            Oui, le fichier fonctionne sur Excel pour Mac (2016 ou plus récent). Quelques détails de mise en forme
+            peuvent varier, mais toutes les formules et le module URSSAF fonctionnent identiquement.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Que se passe-t-il si les taux URSSAF changent ?</summary>
+          <p class="faq-item__a">
+            Vous recevez par email les fichiers mis à jour gratuitement pendant 1 an. Au-delà,
+            vous pouvez continuer avec votre version : les taux sont stockés dans des cellules paramétrables,
+            vous pouvez les corriger vous-même selon les nouveaux barèmes publiés par l'URSSAF.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Combien de temps pour configurer le fichier ?</summary>
+          <p class="faq-item__a">
+            5 minutes pour les Paramètres (activité, ACRE, rythme de déclaration mensuel ou trimestriel…),
+            puis 30 secondes par opération saisie au fil de l'eau.
+            L'onglet Démarrage rapide vous guide pas à pas lors de la première utilisation.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Quelle différence avec Indy ou Freebe ?</summary>
+          <p class="faq-item__a">
+            Indy et Freebe sont des SaaS avec abonnement (17 à 29 € par mois) qui font plus :
+            connexion bancaire automatique, génération de factures, télédéclarations.
+            Notre fichier coûte 39 € une fois, vos données restent chez vous, et vous n'avez
+            rien à résilier si votre situation change. À vous de choisir selon votre priorité.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Suis-je obligé d'avoir un compte sur autoentrepreneur.urssaf.fr ?</summary>
+          <p class="faq-item__a">
+            Oui. Le fichier calcule le montant à déclarer, mais c'est vous qui le saisissez ensuite sur
+            <a href="https://www.autoentrepreneur.urssaf.fr" target="_blank" rel="noopener">autoentrepreneur.urssaf.fr</a>.
+            Il n'y a pas d'intégration automatique ni de connexion au portail URSSAF.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Y a-t-il une garantie ?</summary>
+          <p class="faq-item__a">
+            Si le fichier pose un problème technique ou ne correspond pas à ce qui est décrit sur cette page,
+            envoyez un email à <a href="mailto:contact@outils-tpe.fr">contact@outils-tpe.fr</a>
+            — remboursement immédiat, sans justification.
+            Pour les cas particuliers (activité mixte, besoins très spécifiques), nous pouvons aussi
+            <a href="/sur-mesure">créer une version sur mesure</a> adaptée à votre situation.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Je ne suis pas auto-entrepreneur, ce fichier me convient-il ?</summary>
+          <p class="faq-item__a">
+            Ce fichier est conçu spécifiquement pour la micro-entreprise (auto-entrepreneur).
+            Si vous êtes en EI au réel, EURL, SARL ou SAS, consultez nos fichiers par métier
+            (<a href="/electricien">Électricien</a>, <a href="/plombier">Plombier</a>, <a href="/coiffeur">Coiffeur</a>)
+            qui conservent tout le pilotage de trésorerie sans la couche auto-entrepreneur.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTIERS PROCHES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Vous cherchez un outil pour un autre métier ?</p>
+      <div class="pills">
+        <a href="/electricien" class="pill">Électricien</a>
+        <a href="/plombier" class="pill">Plombier</a>
+        <a href="/coiffeur" class="pill">Coiffeur</a>
+        <a href="/sur-mesure" class="pill pill--cta">Votre cas n'est pas là ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Métiers</h3>
+          <ul class="footer__links">
+            <li><a href="/electricien">Électricien</a></li>
+            <li><a href="/plombier">Plombier</a></li>
+            <li><a href="/coiffeur">Coiffeur</a></li>
+            <li><a href="/auto-entrepreneur">Auto-entrepreneur</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">À propos</h3>
+          <ul class="footer__links">
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button class="lightbox__close" aria-label="Fermer">✕</button>
+    <img class="lightbox__img" src="" alt="" />
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
