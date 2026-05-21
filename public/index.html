@@ -25,6 +25,75 @@
 
   <link rel="stylesheet" href="assets/css/main.css?v=4" />
 
+  <style>
+    /* --- Bloc sur mesure (accueil) --- */
+    .smb {
+      background: var(--gray-50);
+      padding-block: 4rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    .smb__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .smb__label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: .5rem;
+    }
+    .smb__title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.03em;
+      margin-bottom: .75rem;
+    }
+    .smb__sub {
+      font-size: 1rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .smb__feats {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .smb__feats li {
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: rgba(30,58,95,.07);
+      padding: .35rem .875rem;
+      border-radius: 99px;
+    }
+    .smb__cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .smb__note {
+      font-size: .875rem;
+      color: var(--gray-500);
+    }
+    @media (min-width: 768px) {
+      .smb__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .smb__cta { flex-shrink: 0; }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
