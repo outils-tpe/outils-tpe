@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculez votre TJM freelance selon votre revenu net souhaité, vos charges et vos jours non facturables. Gratuit, à jour des taux 2026." />
+  <title>Calculateur de TJM freelance 2026 : votre taux journalier en 30 secondes | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/calculateur-tjm-freelance/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Calculateur de TJM freelance 2026 : votre taux journalier en 30 secondes" />
+  <meta property="og:description" content="Quel taux journalier facturer pour atteindre votre revenu net ? Cotisations, congés et jours non facturables compris. Gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/calculateur-tjm-freelance/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/calculateur.css?v=1" />
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur de TJM freelance",
+      "url": "https://outils-tpe.fr/calculateur-tjm-freelance/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "fr-FR",
+      "description": "Calculez le taux journalier moyen à facturer en tant que freelance ou indépendant pour atteindre un revenu net cible, cotisations, congés et jours non facturables compris. À jour des taux 2026.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "outils-tpe.fr"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le TJM d'un freelance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le TJM (taux journalier moyen) est le prix d'une journée de travail facturée à un client. Il doit couvrir vos cotisations sociales, vos frais professionnels et vos jours non facturés (congés, administratif, prospection), tout en vous laissant le revenu net visé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment calculer son TJM ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partez du revenu net annuel souhaité, ajoutez vos frais, divisez par (1 − taux de cotisations) pour obtenir le chiffre d'affaires nécessaire, puis divisez ce CA par le nombre de jours réellement facturables dans l'année. Ajoutez une marge de sécurité. C'est exactement ce que fait ce calculateur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de jours peut-on réellement facturer par an ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sur 365 jours, on retire les week-ends (104 jours), les jours fériés, les congés, puis la part de jours non facturables (administratif, prospection, formation). Un freelance facture en pratique souvent entre 180 et 220 jours par an, rarement plus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le calculateur est-il gratuit et à jour pour 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, l'outil est 100 % gratuit, sans inscription. Les taux de cotisations micro-entreprise, la CFP et les seuils de TVA sont à jour 2026. Le calcul se fait dans votre navigateur, aucune donnée n'est enregistrée."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/electricien" class="nav__link">Électriciens</a></li>
+          <li><a href="/plombier" class="nav__link">Plombiers</a></li>
+          <li><a href="/coiffeur" class="nav__link">Coiffeurs</a></li>
+          <li><a href="/auto-entrepreneur" class="nav__link">Auto-entrepreneurs</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">Freelance · Indépendant</span>
+
+      <h1 class="hero__title">
+        Calculateur de TJM<br>
+        <span class="hero__accent">freelance</span>
+      </h1>
+
+      <p class="hero__sub">
+        Quel taux journalier facturer pour atteindre le revenu net que vous visez ?
+        Cotisations, congés et jours non facturables compris. Gratuit, à jour 2026.
+      </p>
+
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100 % gratuit, sans inscription
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Taux de cotisations 2026
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Aucune donnée enregistrée
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- CALCULATEUR -->
+  <section class="calc-section" aria-label="Calculateur de TJM">
+    <div class="wrap">
+      <div class="calc-grid">
+
+        <!-- Colonne saisie -->
+        <form id="calc-tjm" class="calc-form-card" novalidate>
+          <h2 class="calc-card__title">Votre situation</h2>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="revenu-net">Revenu net mensuel souhaité</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="revenu-net" inputmode="numeric" min="0" step="50" value="2500" />
+              <span class="calc-input-wrap__unit">€ / mois</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="activite">Type d'activité</label>
+            <select class="calc-select" id="activite">
+              <option value="bnc" selected>Libéral (BNC) — consultant, dev, coach…</option>
+              <option value="servicesBIC">Prestations de services (BIC)</option>
+              <option value="venteBIC">Vente de marchandises (BIC)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="frais">Frais professionnels</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="frais" inputmode="numeric" min="0" step="10" value="150" />
+              <span class="calc-input-wrap__unit">€ / mois</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="conges">Semaines de congés par an</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="conges" inputmode="numeric" min="0" max="30" step="1" value="5" />
+              <span class="calc-input-wrap__unit">sem.</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="non-fac">
+              Part de jours non facturables
+              <span class="calc-hint" title="Temps passé en administratif, prospection, formation : non facturé à un client.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="non-fac" inputmode="numeric" min="0" max="80" step="1" value="20" />
+              <span class="calc-input-wrap__unit">%</span>
+            </div>
+          </div>
+
+          <!-- Options avancées -->
+          <details class="calc-advanced">
+            <summary>Options avancées</summary>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="feries">Jours fériés travaillés en moins / an</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="feries" inputmode="numeric" min="0" max="11" step="1" value="8" />
+                <span class="calc-input-wrap__unit">jours</span>
+              </div>
+            </div>
+
+            <label class="calc-check" for="vl">
+              <input type="checkbox" id="vl" />
+              <span class="calc-check__text">
+                <b>Versement libératoire de l'impôt</b><br>
+                L'impôt sur le revenu est prélevé en % du CA (option micro-entreprise).
+              </span>
+            </label>
+
+            <label class="calc-check" for="acre">
+              <input type="checkbox" id="acre" />
+              <span class="calc-check__text">
+                <b>ACRE (1ʳᵉ année)</b><br>
+                Exonération de 50 % des cotisations sociales la première année.
+              </span>
+            </label>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="provision">Provision retraite / prévoyance</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="provision" inputmode="numeric" min="0" step="10" value="0" />
+                <span class="calc-input-wrap__unit">€ / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field" style="margin-bottom:0;">
+              <label class="calc-field__label" for="marge">
+                Marge de sécurité
+                <span class="calc-hint" title="Coussin pour absorber les imprévus, impayés et trous d'activité.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="marge" inputmode="numeric" min="0" max="50" step="1" value="10" />
+                <span class="calc-input-wrap__unit">%</span>
+              </div>
+            </div>
+          </details>
+        </form>
+
+        <!-- Colonne résultats -->
+        <div class="calc-results-col">
+          <div class="calc-results-card">
+
+            <div class="calc-result-main">
+              <p class="calc-result-main__label">TJM recommandé</p>
+              <p class="calc-result-main__value" id="r-tjm-reco" aria-live="polite">—</p>
+              <p class="calc-result-main__sub">Marge de sécurité incluse</p>
+            </div>
+
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">TJM plancher (équilibre strict)</span>
+              <span class="calc-result-row__value" id="r-tjm-plancher">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Chiffre d'affaires annuel</span>
+              <span class="calc-result-row__value" id="r-ca-annuel">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">soit par mois</span>
+              <span class="calc-result-row__value" id="r-ca-mensuel">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Jours facturables retenus / an</span>
+              <span class="calc-result-row__value" id="r-jours-fac">—</span>
+            </div>
+
+            <!-- Décomposition d'une journée facturée -->
+            <div class="calc-breakdown">
+              <p class="calc-breakdown__title">Où va une journée facturée</p>
+              <div class="calc-bar" role="img" aria-label="Répartition d'une journée facturée">
+                <span class="calc-bar__seg calc-bar__seg--net"   id="bd-net"></span>
+                <span class="calc-bar__seg calc-bar__seg--cotis" id="bd-cotis"></span>
+                <span class="calc-bar__seg calc-bar__seg--cfp"   id="bd-cfp"></span>
+                <span class="calc-bar__seg calc-bar__seg--frais" id="bd-frais"></span>
+              </div>
+              <ul class="calc-legend">
+                <li><span class="calc-legend__dot calc-legend__dot--net"></span> Net pour vous <b id="bdv-net">—</b></li>
+                <li><span class="calc-legend__dot calc-legend__dot--cotis"></span> Cotisations <b id="bdv-cotis">—</b></li>
+                <li><span class="calc-legend__dot calc-legend__dot--cfp"></span> CFP + impôt <b id="bdv-cfp">—</b></li>
+                <li><span class="calc-legend__dot calc-legend__dot--frais"></span> Frais <b id="bdv-frais">—</b></li>
+              </ul>
+            </div>
+
+            <!-- Alertes -->
+            <div class="calc-alerts">
+              <div class="calc-alert" id="alerte-tva" hidden>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 1L15 14H1L8 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M8 6v3.5M8 11.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <span>À ce niveau de CA, vous dépassez le seuil de franchise de TVA : vous deviendrez redevable de la TVA.</span>
+              </div>
+              <div class="calc-alert" id="alerte-plafond" hidden>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 1L15 14H1L8 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M8 6v3.5M8 11.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <span>Vous dépassez le plafond du régime micro-entreprise : pensez au régime réel ou à la société.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="calc-disclaimer">
+        Estimation pédagogique, hors impôt sur le revenu (sauf option versement libératoire).
+        Ce calculateur ne remplace pas un expert-comptable. Taux et seuils à jour 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA AFFILIÉS (contextuels) -->
+  <!-- TODO affiliation : remplacer les href="#" par les liens de tracking une fois les programmes actifs
+       (base Notion « Partenaires d'affiliation » — actuellement tous au statut « À faire »).
+       Pertinents pour ce calculateur : Indy / Abby (compta), Qonto / Shine (compte pro),
+       Orus / Coover (RC pro), Legalstart / Keobiz / Dougs (passage TVA ou société). -->
+  <section class="calc-cta-section" aria-label="Outils recommandés">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pour aller plus loin</h2>
+        <p>Les outils que les freelances utilisent pour piloter leur activité.</p>
+      </div>
+
+      <div class="calc-cta-grid">
+
+        <!-- Toujours affiché : compta / déclaration -->
+        <div class="calc-cta">
+          <p class="calc-cta__title">Déclarez votre CA sans erreur</p>
+          <p class="calc-cta__desc">
+            Un outil de compta dédié micro-entreprise calcule vos cotisations,
+            suit vos seuils et pré-remplit vos déclarations URSSAF.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Découvrir Indy &amp; Abby →
+          </a>
+        </div>
+
+        <!-- Toujours affiché : compte pro -->
+        <div class="calc-cta">
+          <p class="calc-cta__title">Séparez vos finances pro et perso</p>
+          <p class="calc-cta__desc">
+            Un compte pro dédié simplifie votre comptabilité et votre suivi de
+            trésorerie. Obligatoire au-delà de 10 000 € de CA deux années de suite.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Comparer les comptes pro →
+          </a>
+        </div>
+
+        <!-- Conditionnel : activité de service → RC pro -->
+        <div class="calc-cta" id="cta-service" hidden>
+          <p class="calc-cta__title">Un client vous réclame une attestation ?</p>
+          <p class="calc-cta__desc">
+            En prestation de services, une assurance responsabilité civile
+            professionnelle (RC pro) est souvent exigée. Comparez les offres freelance.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Voir les assurances RC pro →
+          </a>
+        </div>
+
+        <!-- Conditionnel : alerte TVA ou plafond → création / juridique -->
+        <div class="calc-cta" id="cta-tva" hidden>
+          <p class="calc-cta__title">Anticipez le passage à la TVA ou en société</p>
+          <p class="calc-cta__desc">
+            Vous approchez des seuils : un accompagnement juridique ou un
+            expert-comptable sécurise le passage à la TVA ou en SASU / EURL.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Être accompagné →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="calc-cta-notice">
+        Certains liens ci-dessus sont des liens partenaires : si vous souscrivez,
+        nous pouvons percevoir une commission, sans surcoût pour vous. Cela nous
+        permet de garder ce calculateur gratuit. Nous ne recommandons que des outils
+        que nous jugeons pertinents pour les freelances.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU SEO -->
+  <section class="calc-content">
+    <div class="wrap">
+
+      <h2>Comment calculer son TJM de freelance ?</h2>
+      <p>
+        La plupart des freelances fixent leur taux journalier « au doigt mouillé »
+        et finissent par se sous-facturer. La raison est presque toujours la même :
+        on oublie les cotisations sociales, les jours non facturés et les frais.
+        Le bon réflexe est de partir de votre objectif de <strong>revenu net</strong>,
+        puis de remonter vers le TJM.
+      </p>
+      <ul class="calc-list">
+        <li>Déterminez le revenu net annuel que vous voulez vous verser.</li>
+        <li>Ajoutez vos frais professionnels (logiciels, matériel, déplacements…).</li>
+        <li>Divisez par <em>(1 − taux de cotisations)</em> pour obtenir le chiffre d'affaires nécessaire.</li>
+        <li>Divisez ce CA par le nombre de jours réellement facturables dans l'année.</li>
+        <li>Ajoutez une marge de sécurité pour absorber les imprévus.</li>
+      </ul>
+      <p>
+        Le calculateur ci-dessus applique exactement cette méthode et vous donne
+        un TJM recommandé (avec marge) et un TJM plancher (strict équilibre).
+      </p>
+
+      <h2>Combien de jours facturables par an ?</h2>
+      <p>
+        C'est le point le plus souvent négligé. Une année compte 365 jours, mais
+        un freelance ne facture jamais 365 jours. En partant de l'année complète,
+        on retire successivement les week-ends (104 jours), les jours fériés tombant
+        en semaine, les congés, puis la part de temps consacrée à l'administratif,
+        à la prospection et à la formation — qui n'est facturée à aucun client.
+      </p>
+      <p>
+        En pratique, un indépendant facture souvent entre <strong>180 et 220 jours</strong>
+        par an. Plus votre part de jours non facturables est élevée, plus votre TJM
+        doit être haut pour atteindre le même revenu net.
+      </p>
+
+      <h2>TJM et cotisations en micro-entreprise</h2>
+      <p>
+        En micro-entreprise, les cotisations sociales se calculent en pourcentage du
+        chiffre d'affaires encaissé. Les taux 2026 retenus par ce calculateur sont :
+        <strong>25,6 %</strong> pour une activité libérale (BNC, régime général),
+        <strong>21,2 %</strong> pour les prestations de services (BIC) et
+        <strong>12,3 %</strong> pour la vente de marchandises (BIC), auxquels s'ajoute
+        la contribution à la formation professionnelle (CFP).
+      </p>
+      <p>
+        Deux seuils sont à surveiller et le calculateur vous alerte automatiquement :
+        le seuil de <strong>franchise de TVA</strong> (37 500 € pour les services et
+        le libéral) et le <strong>plafond du régime micro</strong> (83 600 € pour les
+        services et BNC). Au-delà, votre statut et votre fiscalité changent.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Qu'est-ce que le TJM d'un freelance ?</summary>
+          <p class="faq-item__a">
+            Le TJM (taux journalier moyen) est le prix d'une journée de travail
+            facturée à un client. Il doit couvrir vos cotisations sociales, vos frais
+            professionnels et vos jours non facturés (congés, administratif, prospection),
+            tout en vous laissant le revenu net que vous visez.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Comment calculer son TJM ?</summary>
+          <p class="faq-item__a">
+            Partez du revenu net annuel souhaité, ajoutez vos frais, divisez par
+            (1 − taux de cotisations) pour obtenir le chiffre d'affaires nécessaire,
+            puis divisez ce CA par le nombre de jours réellement facturables dans l'année.
+            Ajoutez une marge de sécurité. C'est exactement ce que fait ce calculateur.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Combien de jours peut-on réellement facturer par an ?</summary>
+          <p class="faq-item__a">
+            Sur 365 jours, on retire les week-ends (104 jours), les jours fériés, les
+            congés, puis la part de jours non facturables (administratif, prospection,
+            formation). Un freelance facture en pratique souvent entre 180 et 220 jours
+            par an, rarement plus.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Le calculateur est-il gratuit et à jour pour 2026 ?</summary>
+          <p class="faq-item__a">
+            Oui, l'outil est 100 % gratuit, sans inscription. Les taux de cotisations
+            micro-entreprise, la CFP et les seuils de TVA sont à jour 2026. Le calcul se
+            fait dans votre navigateur, aucune donnée n'est enregistrée.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS UTILES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Vous gérez une micro-entreprise ?</p>
+      <div class="pills">
+        <a href="/auto-entrepreneur" class="pill">Outils auto-entrepreneur</a>
+        <a href="/sur-mesure" class="pill pill--cta">Besoin d'un outil sur mesure ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Métiers</h3>
+          <ul class="footer__links">
+            <li><a href="/electricien">Électricien</a></li>
+            <li><a href="/plombier">Plombier</a></li>
+            <li><a href="/coiffeur">Coiffeur</a></li>
+            <li><a href="/auto-entrepreneur">Auto-entrepreneur</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">À propos</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/calculateur-tjm.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
