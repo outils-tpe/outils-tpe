@@ -20,7 +20,10 @@
       "mcp__plugin_vercel_vercel__list_teams",
       "mcp__claude_ai_Stripe__search_stripe_resources",
       "mcp__claude_ai_Stripe__stripe_api_execute",
-      "mcp__claude_ai_Stripe__stripe_api_details"
+      "mcp__claude_ai_Stripe__stripe_api_details",
+      "mcp__claude_ai_Stripe__stripe_api_read",
+      "mcp__claude_ai_Stripe__stripe_api_write",
+      "mcp__claude_ai_Stripe__stripe_api_search"
     ]
   }
 }

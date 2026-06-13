@@ -16,51 +16,56 @@ Le site est opéré sous un nom de marque anonyme, sans lien avec Solumatic. Le 
 - **Domaine** : outils-tpe.fr
 - **Repo** : GitHub, déploiement auto via Vercel sur chaque push
 
-## Architecture du site : modèle centré métier
+## Architecture du site : modèle par type d'outil (pivot contenu + affiliation)
+
+> Source de vérité : page Notion « 🧭 Architecture cible du site (hub outils + guides + boutique) ». Le site a pivoté d'un modèle centré métier vers un hub d'outils + guides avec une petite boutique de modèles Excel. Principe : on garde le socle technique, on change le centre de gravité.
 
 ### Principe fondamental
-L'entrée principale est le MÉTIER, pas le type d'outil. Un électricien arrive sur UNE page qui regroupe tout pour lui (trésorerie, devis, calculateurs, etc.). Il n'a pas à naviguer entre différentes sections par type d'outil.
+L'entrée se fait par le TYPE d'outil, pas par le métier. Trois familles, clairement séparées dans la navigation :
+1. **Calculateurs** (gratuits) : porte d'entrée du trafic SEO, monétisée par affiliation. C'est le moteur.
+2. **Modèles Excel** (version gratuite + version complète payante) : boutique, ligne secondaire.
+3. **Guides** : contenu SEO informationnel qui alimente calculateurs et modèles.
+
+Le métier n'est PLUS une entrée de navigation. Beaucoup d'outils sont universels (ex. le calculateur de TJM). Le métier reste une couche d'agrégation SEO **secondaire**, créée au cas par cas uniquement quand il existe du contenu réellement spécifique au métier. On ne compte donc PAS sur le menu pour guider le visiteur : il arrive par le SEO sur une page profonde, qu'on rend **auto-suffisante** (bon CTA + maillage interne contextuel). Le menu sert surtout à rassurer et à donner une structure lisible à Google.
 
 ### Structure des URLs
 
 ```
 outils-tpe.fr/
-├── / (accueil)
-│   Grille de cartes par métier (pas par outil)
-│
-├── /electricien (page métier complète)
-│   ├── Suivi de trésorerie (dispo) > gratuit + payant
-│   ├── Modèle de devis (bientôt) > "me prévenir"
-│   ├── Calculateur de marge (bientôt) > "me prévenir"
-│   └── Gestion de chantier (bientôt) > "me prévenir"
-│
-├── /plombier (même structure)
-├── /auto-entrepreneur
-├── /coiffeur
-├── /restaurant
-├── /boulanger
-├── /peintre
-├── /macon
-├── /menuisier
-│
-├── /blog
+├── / (accueil) — oriente vers les 3 familles + calculateurs phares
+├── /calculateurs                (hub) liste des calculateurs
+│   └── /calculateur-[sujet]     ex. /calculateur-tjm-freelance
+├── /modeles                     (hub boutique) liste des modèles Excel
+│   ├── /electricien             page produit (suivi trésorerie) — slug conservé
+│   ├── /plombier
+│   ├── /coiffeur
+│   └── /auto-entrepreneur
+├── /guides                      (hub) liste des guides
+│   └── /guides/[slug]
 ├── /sur-mesure
-└── /a-propos
+├── /mentions-legales, /cgv, /politique-confidentialite
 ```
 
-### Page d'accueil
-Pitch général + grille de cartes par métier. Chaque carte = nom du métier + nombre d'outils dispos + bouton "Découvrir". Les métiers pas encore disponibles apparaissent avec un badge "Bientôt".
+Note : les pages métier existantes (`/electricien`, `/plombier`, `/coiffeur`, `/auto-entrepreneur`) **gardent leur slug** (elles rankent) et sont rattachées à la boutique « Modèles ». On ne les réécrit pas, on les relie à la nouvelle nav.
 
-### Pages métier (le coeur du site, pages de conversion)
-Structure type d'une page /electricien :
-1. Titre : "Outils de gestion pour les électriciens"
-2. Sous-titre : "Trésorerie, devis, calculs : tout pour piloter votre activité d'électricien."
-3. Section par outil disponible : description, screenshots du fichier exemple, bouton télécharger gratuit, bouton acheter le complet (Stripe Payment Link)
-4. Sections outils "bientôt" : description + champ email "Me prévenir quand c'est dispo"
-5. Section sur-mesure : "Ce template ne correspond pas exactement ? Je crée votre fichier sur mesure."
-6. FAQ spécifique au métier
-7. Outils recommandés (liens affiliés)
-8. Liens vers les métiers proches ("Vous êtes plombier ? Voir les outils plombier")
+### Page d'accueil
+Oriente vers les 3 familles (cartes Calculateurs / Modèles / Guides) + une section « les plus utilisés » mettant en avant 2-3 outils concrets. Pas de surcharge de CTA.
+
+### Règle d'or : un objectif par page
+Chaque page poursuit un seul objectif primaire (empiler achat Excel + liens affiliés + capture email tue les trois conversions) :
+- **Calculateur** → clic affilié (ou capture email) : 1 CTA hub comparateur compte pro + 1-2 CTA affiliés contextuels + lien vers le guide. Pas de bouton d'achat Excel.
+- **Guide** → envoyer vers l'outil/produit pertinent : 1 CTA principal (calculateur OU modèle) + affiliés contextuels.
+- **Modèle Excel (produit)** → vendre le fichier : bouton Stripe + lien vers le guide associé. Pas de liens affiliés concurrents du produit.
+- **Accueil** → orienter vers les 3 familles.
+
+### Pages produit (modèles Excel — pages de conversion)
+Structure type d'une page produit (ex. /electricien) :
+1. Titre et sous-titre orientés produit (« Suivi de trésorerie [métier] »)
+2. Section version gratuite : description, screenshots, bouton télécharger (capture email)
+3. Section version complète : screenshots, bouton acheter (Stripe Payment Link)
+4. Comparatif gratuit/complet
+5. FAQ
+6. Liens vers les métiers proches (maillage contextuel) + retour vers le hub /modeles
 
 ## Règles de design
 
@@ -75,15 +80,16 @@ Structure type d'une page /electricien :
 
 ### Header (toutes les pages)
 ```
-[Logo outils-tpe.fr]  Métiers  Blog  Sur mesure  À propos
+[Logo outils-tpe.fr]  Calculateurs  Modèles  Guides  Sur mesure
 ```
-Plus de menu par type d'outil. L'entrée c'est le métier.
+L'entrée se fait par type d'outil. « Guides » est déjà dans le menu mais pointe pour l'instant vers une page « bientôt » (premier guide en préparation).
 
 ### Footer (toutes les pages)
 ```
-Métiers : Électricien | Plombier | Auto-entrepreneur | Coiffeur | Restaurant | ...
-[Blog] [Sur mesure] [À propos] [Mentions légales]
+Outils : Calculateurs | Modèles Excel | Guides
+Le site : Sur mesure | Mentions légales | CGV | Confidentialité
 ```
+Pas encore de mention d'affiliation globale dans le footer (aucun programme partenaire actif). À ajouter quand l'affiliation sera en place.
 
 ## Règles SEO (IMPORTANT)
 
@@ -102,10 +108,11 @@ Métiers : Électricien | Plombier | Auto-entrepreneur | Coiffeur | Restaurant |
 - Fichier robots.txt autorisant tout le crawl sauf /files/
 
 ### Maillage interne
-- **Page métier > autres pages métier** : liens vers les métiers proches en bas de page
-- **Blog > pages métier** : chaque article contient 2-3 liens vers des pages métier pertinentes
-- **Pages métier > blog** : section "Articles liés" en bas de chaque page métier
-- **Footer** : liens vers toutes les pages métier disponibles
+- **Calculateur > guide + hub comparateur** : chaque calculateur renvoie vers son guide et (à terme) vers le hub comparateur de comptes pro
+- **Guide > calculateur/modèle** : chaque guide renvoie vers l'outil ou le modèle pertinent
+- **Modèle Excel > guide + calculateur** : cross-sell vers le guide et le calculateur associés
+- **Hubs (/calculateurs, /modeles, /guides)** : listent les pages de leur famille
+- **Footer** : liens vers les 3 familles + pages légales
 
 ### Performance
 - Le site est statique, donc naturellement rapide
