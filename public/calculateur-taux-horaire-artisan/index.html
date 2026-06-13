@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculez le taux horaire à facturer pour bien gagner votre vie, ou découvrez votre vrai taux horaire net. Gratuit, pour artisans et indépendants." />
+  <title>Calculateur de taux horaire artisan 2026 : combien facturer de l'heure | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/calculateur-taux-horaire-artisan/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Calculateur de taux horaire artisan : combien facturer de l'heure ?" />
+  <meta property="og:description" content="Quel taux horaire facturer pour bien gagner votre vie ? Et votre vrai taux horaire net, une fois charges et heures non facturées déduites ? Gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/calculateur-taux-horaire-artisan/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/calculateur.css?v=2" />
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur de taux horaire artisan",
+      "url": "https://outils-tpe.fr/calculateur-taux-horaire-artisan/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "fr-FR",
+      "description": "Calculez le taux horaire à facturer en tant qu'artisan ou indépendant pour atteindre votre revenu net, charges fixes et heures non facturées comprises ; ou découvrez votre vrai taux horaire net à partir de ce que vous facturez déjà. À jour des taux 2026.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "outils-tpe.fr"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment calculer son taux horaire d'artisan ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partez du revenu net mensuel souhaité, ajoutez vos charges fixes (véhicule, assurance, atelier), divisez par (1 − taux de cotisations) pour obtenir le chiffre d'affaires nécessaire, puis divisez ce CA par vos heures réellement facturables. Les heures de devis, de déplacement et d'administratif ne sont pas facturées : il faut les retirer. Ajoutez une marge de sécurité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre taux horaire facturé et vrai taux horaire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le taux facturé est ce que vous écrivez sur le devis. Le vrai taux horaire net est ce qu'il vous reste réellement, une fois retirées les cotisations sociales, vos charges fixes et toutes les heures que vous travaillez sans les facturer (devis, déplacements, administratif). L'écart entre les deux est souvent énorme : c'est lui qui explique pourquoi on travaille beaucoup sans gagner autant qu'espéré."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel taux de charges sociales prendre en compte ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En micro-entreprise 2026, une prestation de services artisanale (BIC) supporte 21,2 % de cotisations sociales, plus 0,3 % de contribution à la formation professionnelle, soit environ 21,5 % du chiffre d'affaires. Le calculateur utilise 21,5 % par défaut, mais ce taux est modifiable pour les entreprises individuelles au réel ou les sociétés."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi mon taux horaire réel est-il si bas ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce qu'on oublie deux choses : les heures non facturées (un artisan facture rarement plus de 70 % de son temps) et les charges fixes qui tournent même sans chantier. Sur 180 heures travaillées, si 30 % ne sont pas facturées et que les charges et cotisations pèsent lourd, le taux net réel peut être deux à trois fois inférieur au taux affiché sur le devis."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">Artisan · BTP · Indépendant</span>
+
+      <h1 class="hero__title">
+        Calculateur de<br>
+        <span class="hero__accent">taux horaire artisan</span>
+      </h1>
+
+      <p class="hero__sub">
+        Combien facturer de l'heure pour bien gagner votre vie ? Et votre vrai
+        taux horaire net, une fois les charges et les heures non facturées déduites ?
+        Gratuit, à jour 2026.
+      </p>
+
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100 % gratuit, sans inscription
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Charges 2026
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Aucune donnée enregistrée
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- CALCULATEUR -->
+  <section class="calc-section" aria-label="Calculateur de taux horaire artisan">
+    <div class="wrap">
+
+      <!-- Bascule de mode -->
+      <div class="calc-tabs" role="tablist" aria-label="Choisir le mode de calcul">
+        <button type="button" class="calc-tab calc-tab--active" data-mode="a" role="tab" aria-selected="true">
+          Quel taux facturer ?
+        </button>
+        <button type="button" class="calc-tab" data-mode="b" role="tab" aria-selected="false">
+          Mon vrai taux horaire
+        </button>
+      </div>
+
+      <!-- ===================== MODE A ===================== -->
+      <div class="calc-mode" data-mode="a">
+        <div class="calc-grid">
+
+          <!-- Saisie -->
+          <form id="form-a" class="calc-form-card" novalidate>
+            <h2 class="calc-card__title">Ce que vous visez</h2>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-net">Revenu net mensuel souhaité</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-net" inputmode="numeric" min="0" step="100" value="2500" />
+                <span class="calc-input-wrap__unit">€ / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-heures">Heures travaillées par mois</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-heures" inputmode="numeric" min="1" step="5" value="160" />
+                <span class="calc-input-wrap__unit">h / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-nonfac">
+                Part d'heures non facturables
+                <span class="calc-hint" title="Devis, déplacements, administratif : du temps travaillé mais facturé à aucun client.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-nonfac" inputmode="numeric" min="0" max="80" step="1" value="25" />
+                <span class="calc-input-wrap__unit">%</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-charges">
+                Charges fixes mensuelles
+                <span class="calc-hint" title="Véhicule, assurances, loyer d'atelier, téléphone, outillage : ce qui tourne tous les mois.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-charges" inputmode="numeric" min="0" step="50" value="1200" />
+                <span class="calc-input-wrap__unit">€ / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-taux">
+                Taux de charges sociales
+                <span class="calc-hint" title="Micro 2026 : ~21,5 % pour une prestation de services artisanale. Modifiable selon votre statut.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-taux" inputmode="decimal" min="0" max="60" step="0.1" value="21.5" />
+                <span class="calc-input-wrap__unit">%</span>
+              </div>
+            </div>
+
+            <!-- Options avancées -->
+            <details class="calc-advanced">
+              <summary>Options avancées</summary>
+
+              <div class="calc-field">
+                <label class="calc-field__label" for="a-marge">
+                  Marge de sécurité
+                  <span class="calc-hint" title="Coussin pour absorber les imprévus, les impayés et les périodes creuses.">?</span>
+                </label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="a-marge" inputmode="numeric" min="0" max="50" step="1" value="15" />
+                  <span class="calc-input-wrap__unit">%</span>
+                </div>
+              </div>
+
+              <div class="calc-field" style="margin-bottom:0;">
+                <label class="calc-field__label" for="a-hj">Heures par jour (pour le tarif journalier)</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="a-hj" inputmode="numeric" min="1" max="14" step="1" value="7" />
+                  <span class="calc-input-wrap__unit">h / jour</span>
+                </div>
+              </div>
+            </details>
+          </form>
+
+          <!-- Résultats -->
+          <div class="calc-results-col">
+            <div class="calc-results-card">
+
+              <div class="calc-result-main">
+                <p class="calc-result-main__label">Taux horaire recommandé</p>
+                <p class="calc-result-main__value" id="ra-reco" aria-live="polite">—</p>
+                <p class="calc-result-main__sub">Marge de sécurité incluse</p>
+              </div>
+
+              <div class="calc-result-row">
+                <span class="calc-result-row__label">Taux horaire minimum (équilibre strict)</span>
+                <span class="calc-result-row__value" id="ra-min">—</span>
+              </div>
+              <div class="calc-result-row">
+                <span class="calc-result-row__label">Tarif journalier correspondant</span>
+                <span class="calc-result-row__value" id="ra-tjm">—</span>
+              </div>
+              <div class="calc-result-row">
+                <span class="calc-result-row__label">Heures facturables retenues</span>
+                <span class="calc-result-row__value" id="ra-heuresfac">—</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== MODE B ===================== -->
+      <div class="calc-mode" data-mode="b" hidden>
+        <div class="calc-grid">
+
+          <!-- Saisie -->
+          <form id="form-b" class="calc-form-card" novalidate>
+            <h2 class="calc-card__title">Ce que vous facturez aujourd'hui</h2>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="b-ca">Chiffre d'affaires mensuel</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="b-ca" inputmode="numeric" min="0" step="100" value="6000" />
+                <span class="calc-input-wrap__unit">€ / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="b-charges">
+                Charges fixes mensuelles
+                <span class="calc-hint" title="Véhicule, assurances, loyer d'atelier, téléphone, outillage.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="b-charges" inputmode="numeric" min="0" step="50" value="1500" />
+                <span class="calc-input-wrap__unit">€ / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="b-heures">Heures travaillées par mois</label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="b-heures" inputmode="numeric" min="1" step="5" value="180" />
+                <span class="calc-input-wrap__unit">h / mois</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="b-nonfac">
+                Part d'heures non facturables
+                <span class="calc-hint" title="Devis, déplacements, administratif : du temps travaillé mais facturé à aucun client.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="b-nonfac" inputmode="numeric" min="0" max="80" step="1" value="30" />
+                <span class="calc-input-wrap__unit">%</span>
+              </div>
+            </div>
+
+            <div class="calc-field" style="margin-bottom:0;">
+              <label class="calc-field__label" for="b-taux">
+                Taux de charges sociales
+                <span class="calc-hint" title="Micro 2026 : ~21,5 % pour une prestation de services artisanale. Modifiable selon votre statut.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="b-taux" inputmode="decimal" min="0" max="60" step="0.1" value="21.5" />
+                <span class="calc-input-wrap__unit">%</span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Résultats -->
+          <div class="calc-results-col">
+            <div class="calc-results-card">
+
+              <div class="calc-duo">
+                <div class="calc-duo__cell calc-duo__cell--facture">
+                  <p class="calc-duo__label">Taux facturé apparent</p>
+                  <p class="calc-duo__value" id="rb-facture" aria-live="polite">—</p>
+                </div>
+                <div class="calc-duo__cell calc-duo__cell--reel">
+                  <p class="calc-duo__label">Votre vrai taux net</p>
+                  <p class="calc-duo__value" id="rb-reel" aria-live="polite">—</p>
+                </div>
+              </div>
+
+              <p class="calc-ecart">
+                Écart : <b id="rb-ecart">—</b>&nbsp;de moins par heure que ce que vous croyez gagner.
+              </p>
+
+              <div class="calc-alert" id="rb-alerte" hidden style="margin-bottom:1.25rem;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 1L15 14H1L8 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M8 6v3.5M8 11.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <span>À ce niveau, vos charges et cotisations absorbent tout votre chiffre d'affaires : il ne reste rien en net. Vos prix sont à revoir d'urgence.</span>
+              </div>
+
+              <p class="calc-breakdown__title">Où passe votre chiffre d'affaires</p>
+              <div class="calc-donut-wrap">
+                <svg class="calc-donut" width="132" height="132" viewBox="0 0 120 120" role="img" aria-label="Répartition de votre chiffre d'affaires">
+                  <g transform="rotate(-90 60 60)" fill="none" stroke-width="16">
+                    <circle class="calc-donut__track" cx="60" cy="60" r="54" />
+                    <circle class="calc-donut__seg calc-donut__seg--cotis"   id="donut-cotis"   cx="60" cy="60" r="54" stroke-dasharray="0 339.29" stroke-dashoffset="0" />
+                    <circle class="calc-donut__seg calc-donut__seg--charges" id="donut-charges" cx="60" cy="60" r="54" stroke-dasharray="0 339.29" stroke-dashoffset="0" />
+                    <circle class="calc-donut__seg calc-donut__seg--net"     id="donut-net"     cx="60" cy="60" r="54" stroke-dasharray="0 339.29" stroke-dashoffset="0" />
+                  </g>
+                </svg>
+                <ul class="calc-donut-legend">
+                  <li><span class="calc-donut-legend__dot calc-donut-legend__dot--cotis"></span> Cotisations <b id="rbv-cotis">—</b></li>
+                  <li><span class="calc-donut-legend__dot calc-donut-legend__dot--charges"></span> Charges fixes <b id="rbv-charges">—</b></li>
+                  <li><span class="calc-donut-legend__dot calc-donut-legend__dot--net"></span> Net pour vous <b id="rbv-net">—</b></li>
+                </ul>
+              </div>
+
+              <button type="button" class="calc-share" id="rb-share">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
+                </svg>
+                Partager mon résultat
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="calc-disclaimer">
+        Estimation indicative pour vous aider à fixer vos prix, hors impôt sur le revenu.
+        Ce calculateur ne remplace pas un expert-comptable. Charges et taux à jour 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA AFFILIÉS (contextuels) -->
+  <!-- TODO affiliation : remplacer les href="#" par les liens de tracking une fois les programmes actifs
+       (base Notion « Partenaires d'affiliation » — actuellement tous au statut « À faire »).
+       Pertinents pour ce calculateur : Qonto / Shine / Tiime (compte pro), Indy / Abby (compta),
+       Orus / Coover (RC pro et décennale, très pertinent en BTP). -->
+  <!-- MASQUÉ TEMPORAIREMENT : bloc « Pour aller plus loin » caché en attendant les liens
+       de partenariats d'affiliation. Retirer l'attribut hidden ci-dessous pour le réafficher. -->
+  <section class="calc-cta-section" aria-label="Outils recommandés" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pour aller plus loin</h2>
+        <p>Les outils que les artisans utilisent pour piloter leur activité.</p>
+      </div>
+
+      <div class="calc-cta-grid">
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Séparez vos finances pro et perso</p>
+          <p class="calc-cta__desc">
+            Un compte pro dédié simplifie votre comptabilité et votre suivi de
+            trésorerie. Obligatoire au-delà de 10 000 € de CA deux années de suite.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Comparer les comptes pro →
+          </a>
+        </div>
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Déclarez votre CA sans erreur</p>
+          <p class="calc-cta__desc">
+            Un outil de compta dédié micro-entreprise calcule vos cotisations,
+            suit vos seuils et pré-remplit vos déclarations URSSAF.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Découvrir Indy &amp; Abby →
+          </a>
+        </div>
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Assurance RC pro et décennale</p>
+          <p class="calc-cta__desc">
+            En BTP, la responsabilité civile professionnelle et la garantie décennale
+            sont incontournables. Comparez les offres adaptées aux artisans.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Voir les assurances artisan →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="calc-cta-notice">
+        Certains liens ci-dessus sont des liens partenaires : si vous souscrivez,
+        nous pouvons percevoir une commission, sans surcoût pour vous. Cela nous
+        permet de garder ce calculateur gratuit. Nous ne recommandons que des outils
+        que nous jugeons pertinents pour les artisans.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU SEO -->
+  <section class="calc-content">
+    <div class="wrap">
+
+      <h2>Comment calculer son taux horaire d'artisan ?</h2>
+      <p>
+        La plupart des artisans fixent leur tarif « au pif », en s'alignant sur le
+        voisin ou sur ce qu'ils osent demander. Résultat : on se sous-facture sans
+        s'en rendre compte. La bonne méthode part de votre <strong>revenu net</strong>
+        et remonte vers le taux horaire à afficher.
+      </p>
+      <ul class="calc-list">
+        <li>Déterminez le revenu net que vous voulez vous verser chaque mois.</li>
+        <li>Ajoutez vos charges fixes : véhicule, assurances, atelier, téléphone, outillage.</li>
+        <li>Divisez par <em>(1 − taux de cotisations)</em> pour obtenir le chiffre d'affaires nécessaire.</li>
+        <li>Divisez ce CA par vos heures <strong>réellement facturables</strong> (pas vos heures travaillées).</li>
+        <li>Ajoutez une marge de sécurité pour les imprévus et les périodes creuses.</li>
+      </ul>
+      <p>
+        Le mode « Quel taux facturer ? » du calculateur applique exactement cette
+        méthode et vous donne un taux recommandé (avec marge) et un taux plancher
+        (strict équilibre).
+      </p>
+
+      <h2>Votre vrai taux horaire : ce que vous gagnez vraiment</h2>
+      <p>
+        Vous facturez 50 € de l'heure ? Ce n'est pas ce que vous gagnez. Une fois
+        retirées les cotisations sociales, vos charges fixes et toutes les heures que
+        vous travaillez <strong>sans les facturer</strong>, votre taux horaire net réel
+        peut être deux à trois fois plus bas. C'est le calcul que personne ne fait — et
+        qui explique pourquoi on peut travailler énormément sans voir la différence sur
+        le compte en banque.
+      </p>
+      <p>
+        Le mode « Mon vrai taux horaire » part de ce que vous facturez aujourd'hui et
+        affiche côte à côte le taux apparent et le taux net réel, avec la répartition de
+        votre chiffre d'affaires entre cotisations, charges fixes et net pour vous.
+      </p>
+
+      <h2>Les heures qu'on oublie de facturer</h2>
+      <p>
+        Un artisan ne facture jamais 100 % de son temps. Les devis, les déplacements,
+        les allers-retours chez le fournisseur, la relance des impayés, la paperasse :
+        tout cela est du travail, mais aucun client ne le paie. En pratique, beaucoup
+        d'artisans ne facturent qu'<strong>entre 60 % et 75 %</strong> de leurs heures.
+      </p>
+      <p>
+        C'est le facteur le plus sous-estimé. Si vous travaillez 180 heures par mois mais
+        n'en facturez que 126, votre taux horaire affiché doit déjà être bien plus élevé
+        que votre objectif net divisé par 180. Plus votre part d'heures non facturables est
+        haute, plus votre taux doit monter pour atteindre le même revenu.
+      </p>
+      <p>
+        Vous êtes plutôt prestataire intellectuel (développeur, consultant, coach) et vous
+        facturez à la journée ? Utilisez plutôt notre
+        <a href="/calculateur-tjm-freelance">calculateur de TJM freelance</a>, pensé pour
+        le tarif journalier des activités de service.
+      </p>
+
+      <h2>Charges et cotisations en micro-entreprise</h2>
+      <p>
+        En micro-entreprise 2026, une prestation de services artisanale (BIC) supporte
+        <strong>21,2 %</strong> de cotisations sociales, plus la contribution à la formation
+        professionnelle (CFP, 0,3 %), soit environ <strong>21,5 %</strong> du chiffre
+        d'affaires. Le calculateur retient 21,5 % par défaut, mais le champ « taux de charges »
+        est modifiable pour une entreprise individuelle au réel ou une société.
+      </p>
+      <p>
+        Pour suivre votre trésorerie mois par mois et ne plus piloter à l'aveugle, nos
+        <a href="/modeles">modèles Excel par métier</a> (électricien, plombier…) reprennent
+        ces calculs dans un fichier prêt à l'emploi.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Comment calculer son taux horaire d'artisan ?</summary>
+          <p class="faq-item__a">
+            Partez du revenu net mensuel souhaité, ajoutez vos charges fixes (véhicule,
+            assurance, atelier), divisez par (1 − taux de cotisations) pour obtenir le
+            chiffre d'affaires nécessaire, puis divisez ce CA par vos heures réellement
+            facturables. Les heures de devis, de déplacement et d'administratif ne sont
+            pas facturées : il faut les retirer. Ajoutez une marge de sécurité.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Quelle différence entre taux horaire facturé et vrai taux horaire ?</summary>
+          <p class="faq-item__a">
+            Le taux facturé est ce que vous écrivez sur le devis. Le vrai taux horaire net
+            est ce qu'il vous reste réellement, une fois retirées les cotisations sociales,
+            vos charges fixes et toutes les heures travaillées sans être facturées (devis,
+            déplacements, administratif). L'écart entre les deux est souvent énorme : c'est
+            lui qui explique pourquoi on travaille beaucoup sans gagner autant qu'espéré.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Quel taux de charges sociales prendre en compte ?</summary>
+          <p class="faq-item__a">
+            En micro-entreprise 2026, une prestation de services artisanale (BIC) supporte
+            21,2 % de cotisations sociales, plus 0,3 % de CFP, soit environ 21,5 % du
+            chiffre d'affaires. Le calculateur utilise 21,5 % par défaut, mais ce taux est
+            modifiable pour les entreprises individuelles au réel ou les sociétés.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Pourquoi mon taux horaire réel est-il si bas ?</summary>
+          <p class="faq-item__a">
+            Parce qu'on oublie deux choses : les heures non facturées (un artisan facture
+            rarement plus de 70 % de son temps) et les charges fixes qui tournent même sans
+            chantier. Sur 180 heures travaillées, si 30 % ne sont pas facturées et que les
+            charges et cotisations pèsent lourd, le taux net réel peut être deux à trois fois
+            inférieur au taux affiché sur le devis.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS UTILES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Pour aller plus loin</p>
+      <div class="pills">
+        <a href="/calculateur-tjm-freelance" class="pill">Calculateur de TJM freelance</a>
+        <a href="/modeles" class="pill">Modèles de suivi par métier</a>
+        <a href="/sur-mesure" class="pill pill--cta">Besoin d'un outil sur mesure ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/calculateur-taux-horaire.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
