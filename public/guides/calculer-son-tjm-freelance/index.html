@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Apprenez à calculer votre TJM de freelance : méthode pas à pas, cotisations, jours facturables et exemples chiffrés 2026. Avec calculateur gratuit." />
+  <title>Comment calculer son TJM de freelance en 2026 (méthode + exemples) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/guides/calculer-son-tjm-freelance/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Comment calculer son TJM de freelance en 2026 (méthode + exemples)" />
+  <meta property="og:description" content="Méthode pas à pas pour calculer un TJM qui couvre vraiment vos charges : cotisations, jours facturables, marge. Exemples chiffrés 2026 et calculateur gratuit." />
+  <meta property="og:url" content="https://outils-tpe.fr/guides/calculer-son-tjm-freelance/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    /* --- En-tête du guide --- */
+    .guide-head {
+      background: var(--gray-50);
+      padding-block: 3.5rem 2rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .guide-head__breadcrumb {
+      font-size: .8rem;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+    .guide-head__breadcrumb a { color: var(--gray-600); }
+    .guide-head h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      line-height: 1.2;
+      max-width: 780px;
+    }
+    /* --- Corps de l'article --- */
+    .article {
+      padding-block: 3rem;
+    }
+    .article__body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray-700, #374151);
+    }
+    .article__body h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.5rem 0 1rem;
+    }
+    .article__body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.75rem 0 .5rem;
+    }
+    .article__body p { margin: 0 0 1rem; }
+    .article__body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    .article__body li { margin-bottom: .5rem; }
+    .article__body strong { color: var(--gray-900); }
+    .article__lead {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    .formula {
+      background: var(--gray-50);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: .98rem;
+      color: var(--gray-900);
+    }
+    /* --- Schéma de la méthode (tunnel vertical) --- */
+    .method-diagram {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .md-node {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      padding: .85rem 1.1rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    .md-node small {
+      display: block;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .2rem;
+    }
+    .md-node--result {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .md-node--result small { color: rgba(255,255,255,.7); }
+    .md-arrow {
+      text-align: center;
+      font-size: .85rem;
+      color: var(--green-dark);
+      font-weight: 600;
+      padding: .45rem 0;
+      line-height: 1.35;
+    }
+    .md-arrow::before {
+      content: "↓";
+      display: block;
+      font-size: 1.1rem;
+      color: var(--gray-400);
+    }
+    .method-diagram figcaption {
+      margin-top: 1rem;
+      font-size: .85rem;
+      color: var(--gray-500);
+      text-align: center;
+      font-style: italic;
+    }
+    /* --- Encart CTA calculateur --- */
+    .guide-cta {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .guide-cta h2 { color: #fff; margin: 0 0 .5rem; }
+    .guide-cta p { color: rgba(255,255,255,.85); margin: 0 0 1.25rem; }
+    .article__disclaimer {
+      font-size: .9rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 1.25rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Comment calculer son TJM de freelance en 2026 (méthode + exemples)",
+        "description": "Méthode pas à pas pour calculer un TJM de freelance qui couvre vraiment vos charges : cotisations, jours facturables, marge. Exemples chiffrés 2026.",
+        "inLanguage": "fr-FR",
+        "datePublished": "2026-06-13",
+        "dateModified": "2026-06-13",
+        "mainEntityOfPage": "https://outils-tpe.fr/guides/calculer-son-tjm-freelance/",
+        "author": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" },
+        "publisher": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel TJM pour gagner 2 500 € net par mois ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Environ 260 € en micro-entreprise libérale, avec des hypothèses standard (5 semaines de congés, 20 % de jours non facturables, 10 % de marge). Ajustez selon vos frais et vos jours facturables réels avec le calculateur." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment calculer son TJM en auto-entrepreneur ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Partez du revenu net souhaité, ajoutez les cotisations (25,6 % en libéral en 2026) et vos frais pour trouver le CA à facturer, divisez par vos jours réellement facturables, puis ajoutez une marge." }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien de jours facturables par an ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Entre 170 et 200 pour un freelance à plein temps, une fois retirés week-ends, jours fériés, congés et jours non facturés." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il inclure les cotisations dans le TJM ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. En micro-entreprise, elles sont prélevées sur chaque euro encaissé : un TJM qui ne les couvre pas vous fait travailler à perte." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre TJM et salaire ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le TJM doit financer ce qu'un employeur paie pour un salarié (cotisations, congés, matériel) plus vos temps non facturés. Il est donc bien supérieur à un salaire journalier équivalent." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment augmenter son TJM ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En vous spécialisant, en documentant vos résultats, en ciblant des clients qui valorisent l'expertise, et en révisant vos tarifs régulièrement." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE GUIDE -->
+  <section class="guide-head">
+    <div class="wrap">
+      <p class="guide-head__breadcrumb"><a href="/guides">Guides</a> › Calculer son TJM de freelance</p>
+      <h1>Comment calculer son TJM de freelance en 2026 (méthode + exemples)</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="wrap">
+      <div class="article__body">
+
+        <p class="article__lead">
+          La plupart des freelances fixent leur TJM en recopiant celui d'un collègue ou au feeling.
+          Résultat : ils se sous-facturent, parce qu'ils raisonnent comme un salaire et oublient les
+          cotisations, les jours non facturés et les frais. Voici une méthode simple pour calculer un
+          TJM qui couvre vraiment vos charges et vous laisse le revenu net que vous visez. Pour aller
+          vite, utilisez le <a href="/calculateur-tjm-freelance">calculateur de TJM</a> ; pour comprendre
+          le raisonnement, suivez les 4 étapes ci-dessous.
+        </p>
+
+        <h2>Qu'est-ce que le TJM et pourquoi il ne s'improvise pas</h2>
+        <p>
+          Le TJM, ou <strong>taux journalier moyen</strong>, est le montant que vous facturez par jour de
+          mission. L'erreur la plus répandue est de le calculer comme un salaire divisé par le nombre de
+          jours ouvrés. Un TJM n'est pas un salaire : il doit absorber vos cotisations sociales, vos frais
+          professionnels, vos congés, vos jours non facturables, et l'absence de filet (pas d'assurance
+          chômage, indemnités maladie très faibles en micro). Un TJM trop bas, c'est la garantie de
+          travailler plus pour gagner moins.
+        </p>
+
+        <h2>La méthode de calcul en 4 étapes</h2>
+
+        <h3>1. Partir du revenu net souhaité</h3>
+        <p>
+          Commencez par le bon bout : combien voulez-vous gagner net, chaque mois ? Disons 2 500 €. Sur
+          l'année, c'est votre objectif de départ : 30 000 €. Tout le calcul consiste à remonter de ce net
+          vers le chiffre d'affaires à facturer, puis vers le prix d'une journée.
+        </p>
+
+        <h3>2. Ajouter les cotisations et les frais (taux 2026)</h3>
+        <p>
+          En micro-entreprise, les cotisations sont calculées sur le <strong>chiffre d'affaires encaissé</strong>,
+          pas sur le bénéfice. Les taux 2026 sont de <strong>25,6 %</strong> pour une activité libérale (BNC),
+          <strong>21,2 %</strong> pour une prestation de services commerciale ou artisanale (BIC) et
+          <strong>12,3 %</strong> pour la vente. Il faut y ajouter la contribution à la formation
+          professionnelle (environ 0,2 % en libéral), et, si vous l'avez choisi, le versement libératoire de
+          l'impôt (2,2 % en BNC).
+        </p>
+        <p>
+          Ajoutez vos frais professionnels annuels : logiciels, assurance, matériel, abonnements. Le chiffre
+          d'affaires à facturer se calcule alors ainsi :
+        </p>
+        <p class="formula">
+          <strong>CA nécessaire</strong> = (revenu net souhaité + frais) ÷ (1 − taux de prélèvements sur le CA)
+        </p>
+        <p>
+          Pour un profil libéral avec 30 000 € net visés et 1 800 € de frais par an :
+          (30 000 + 1 800) ÷ (1 − 0,258) = environ <strong>42 900 € de CA à facturer</strong>.
+        </p>
+
+        <h3>3. Estimer ses jours réellement facturables</h3>
+        <p>
+          C'est l'étape que presque tout le monde rate. Partez de l'année complète et retirez ce que vous ne
+          facturez pas : 365 jours, moins 104 week-ends, moins environ 8 jours fériés, moins vos congés
+          (5 semaines, soit 25 jours). Il reste environ 228 jours travaillés. Mais sur ces jours, vous ne
+          facturez pas tout : prospection, devis, administratif, formation, périodes sans mission. Comptez
+          15 à 25 % de jours non facturables. Avec 20 %, il vous reste environ
+          <strong>182 jours réellement facturables</strong>, pas 228.
+        </p>
+
+        <h3>4. Ajouter une marge de sécurité</h3>
+        <p>
+          Ajoutez 10 à 20 % pour les imprévus, les périodes creuses et la faible retraite du régime micro.
+          Votre TJM se calcule enfin :
+        </p>
+        <p class="formula">
+          <strong>TJM</strong> = CA nécessaire ÷ jours facturables, puis on ajoute la marge
+        </p>
+        <p>
+          Sur notre exemple : 42 900 ÷ 182 = <strong>236 € de TJM plancher</strong>, soit environ
+          <strong>260 € avec une marge de 10 %</strong>. C'est le tarif qui vous assure réellement vos
+          2 500 € net par mois.
+        </p>
+
+        <figure class="method-diagram" aria-label="Schéma : du revenu net souhaité au TJM, exemple chiffré en 4 étapes">
+          <div class="md-node"><small>Étape 1 · Revenu net visé</small>2 500 € / mois (30 000 € / an)</div>
+          <div class="md-arrow">Étape 2 : + cotisations &amp; frais (≈ 25,8 %)</div>
+          <div class="md-node"><small>Chiffre d'affaires à facturer</small>≈ 42 900 € / an</div>
+          <div class="md-arrow">Étape 3 : ÷ 182 jours réellement facturables</div>
+          <div class="md-node"><small>TJM plancher</small>≈ 236 € / jour</div>
+          <div class="md-arrow">Étape 4 : + marge de sécurité (10 %)</div>
+          <div class="md-node md-node--result"><small>TJM recommandé</small>≈ 260 € / jour</div>
+          <figcaption>De votre revenu net souhaité à votre TJM, en 4 étapes (exemple : profil libéral BNC).</figcaption>
+        </figure>
+
+        <h2>Combien de jours facturables par an</h2>
+        <p>
+          Retenez un ordre de grandeur : un freelance à plein temps facture en réalité entre
+          <strong>170 et 200 jours par an</strong>, pas 220. Sous-estimer ce chiffre est la première cause
+          de sous-facturation. Si vous débutez, votre part de jours non facturables sera plus élevée
+          (beaucoup de prospection) : prenez une hypothèse prudente la première année.
+        </p>
+
+        <h2>Exemples chiffrés par profil (2026)</h2>
+        <p>
+          Hypothèses communes : activité libérale BNC (25,8 % de prélèvements sur le CA, hors impôt sur le
+          revenu), 5 semaines de congés, 182 jours facturables, marge de 10 %.
+        </p>
+        <ul>
+          <li><strong>Développeur, objectif 3 000 € net par mois</strong>, 200 € de frais mensuels : CA nécessaire d'environ 51 800 €, soit un TJM d'environ <strong>310 €</strong>.</li>
+          <li><strong>Graphiste, objectif 2 000 € net par mois</strong>, 150 € de frais mensuels : CA d'environ 34 800 €, soit un TJM d'environ <strong>210 €</strong>.</li>
+          <li><strong>Consultant, objectif 4 000 € net par mois</strong>, 250 € de frais mensuels, davantage de prospection (25 % de jours non facturables) : CA d'environ 68 700 €, soit un TJM d'environ <strong>450 €</strong>.</li>
+        </ul>
+        <p>
+          Ces montants supposent que vous restez sous les seuils. Au-delà de <strong>37 500 €</strong> de CA,
+          vous deviendrez redevable de la TVA ; au-delà de <strong>83 600 €</strong>, vous sortez du régime
+          micro. Le calculateur affiche ces alertes automatiquement.
+        </p>
+
+        <h2>Les erreurs qui font sous-facturer</h2>
+        <ul>
+          <li>Raisonner en salaire divisé par les jours ouvrés, en oubliant les jours non facturables.</li>
+          <li>Confondre chiffre d'affaires et revenu : en micro, un quart à plus d'un quart part en cotisations.</li>
+          <li>Oublier les congés et la maladie : contrairement à un salarié, personne ne vous paie quand vous ne facturez pas.</li>
+          <li>Caler son TJM sur un collègue sans connaître ses charges ni son nombre de jours facturés.</li>
+          <li>Ne jamais réviser son TJM, alors que vos compétences et vos coûts augmentent.</li>
+        </ul>
+
+        <!-- CTA principal : vers le calculateur (objectif unique de la page) -->
+        <div class="guide-cta">
+          <h2>Calculez votre TJM en 30 secondes</h2>
+          <p>
+            Plutôt que de tout calculer à la main, entrez votre revenu net souhaité et vos paramètres :
+            le calculateur applique les taux 2026 et vous donne votre tarif plancher et votre tarif recommandé.
+          </p>
+          <a href="/calculateur-tjm-freelance" class="btn btn-green btn-lg">Accéder au calculateur de TJM</a>
+        </div>
+
+        <!-- TODO affiliation : insérer ici les CTA affiliés contextuels (compte pro, logiciel de compta,
+             RC pro) une fois les programmes actifs — voir base Notion « Partenaires d'affiliation ».
+             Mention des liens affiliés obligatoire à ce moment-là. Masqué pour l'instant (aucun programme actif). -->
+
+        <h2>Questions fréquentes</h2>
+      </div>
+
+      <div class="article__body" style="margin-top:1rem;">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-item__q">Quel TJM pour gagner 2 500 € net par mois ?</summary>
+            <p class="faq-item__a">Environ 260 € en micro-entreprise libérale, avec des hypothèses standard (5 semaines de congés, 20 % de jours non facturables, 10 % de marge). Ajustez selon vos frais et vos jours facturables réels avec le <a href="/calculateur-tjm-freelance">calculateur</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment calculer son TJM en auto-entrepreneur ?</summary>
+            <p class="faq-item__a">Partez du revenu net souhaité, ajoutez les cotisations (25,6 % en libéral en 2026) et vos frais pour trouver le CA à facturer, divisez par vos jours réellement facturables, puis ajoutez une marge.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Combien de jours facturables par an ?</summary>
+            <p class="faq-item__a">Entre 170 et 200 pour un freelance à plein temps, une fois retirés week-ends, jours fériés, congés et jours non facturés.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Faut-il inclure les cotisations dans le TJM ?</summary>
+            <p class="faq-item__a">Oui. En micro-entreprise, elles sont prélevées sur chaque euro encaissé : un TJM qui ne les couvre pas vous fait travailler à perte.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Quelle différence entre TJM et salaire ?</summary>
+            <p class="faq-item__a">Le TJM doit financer ce qu'un employeur paie pour un salarié (cotisations, congés, matériel) plus vos temps non facturés. Il est donc bien supérieur à un salaire journalier équivalent.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment augmenter son TJM ?</summary>
+            <p class="faq-item__a">En vous spécialisant, en documentant vos résultats, en ciblant des clients qui valorisent l'expertise, et en révisant vos tarifs régulièrement.</p>
+          </details>
+        </div>
+
+        <p class="article__disclaimer">
+          Cet article donne une estimation pédagogique, hors impôt sur le revenu sauf option versement
+          libératoire. Il ne remplace pas l'avis d'un expert-comptable.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
