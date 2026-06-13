@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Comment fixer son taux horaire d'artisan sans se sous-payer : méthode, heures non facturées, charges, exemples par métier. Avec calculateur gratuit." />
+  <title>Quel taux horaire facturer quand on est artisan en 2026 ? | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/guides/taux-horaire-artisan/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Quel taux horaire facturer quand on est artisan en 2026 ?" />
+  <meta property="og:description" content="La méthode pour calculer un taux horaire qui vous fait vivre : heures non facturées, charges, exemples par métier et écart avec votre vrai taux net. Avec calculateur gratuit." />
+  <meta property="og:url" content="https://outils-tpe.fr/guides/taux-horaire-artisan/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    /* --- En-tête du guide --- */
+    .guide-head {
+      background: var(--gray-50);
+      padding-block: 3.5rem 2rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .guide-head__breadcrumb {
+      font-size: .8rem;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+    .guide-head__breadcrumb a { color: var(--gray-600); }
+    .guide-head h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      line-height: 1.2;
+      max-width: 780px;
+    }
+    /* --- Corps de l'article --- */
+    .article {
+      padding-block: 3rem;
+    }
+    .article__body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray-700, #374151);
+    }
+    .article__body h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.5rem 0 1rem;
+    }
+    .article__body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.75rem 0 .5rem;
+    }
+    .article__body p { margin: 0 0 1rem; }
+    .article__body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    .article__body li { margin-bottom: .5rem; }
+    .article__body strong { color: var(--gray-900); }
+    .article__lead {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    .formula {
+      background: var(--gray-50);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: .98rem;
+      color: var(--gray-900);
+    }
+    /* --- Schéma : écart taux facturé / vrai taux net --- */
+    .gap-diagram {
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: .75rem;
+    }
+    .gap-node {
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      text-align: center;
+    }
+    .gap-node small {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .35rem;
+    }
+    .gap-node b { font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; }
+    .gap-node--apparent {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-900);
+    }
+    .gap-node--apparent small { color: var(--gray-500); }
+    .gap-node--reel {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: #fff;
+    }
+    .gap-node--reel small { color: rgba(255,255,255,.7); }
+    .gap-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      color: var(--gray-400);
+    }
+    .gap-diagram figcaption {
+      grid-column: 1 / -1;
+      margin-top: .75rem;
+      font-size: .85rem;
+      color: var(--gray-500);
+      text-align: center;
+      font-style: italic;
+    }
+    @media (max-width: 560px) {
+      .gap-diagram { grid-template-columns: 1fr; }
+      .gap-arrow { justify-content: center; transform: rotate(90deg); }
+    }
+    /* --- Encart CTA calculateur --- */
+    .guide-cta {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .guide-cta h2 { color: #fff; margin: 0 0 .5rem; }
+    .guide-cta p { color: rgba(255,255,255,.85); margin: 0 0 1.25rem; }
+    .article__disclaimer {
+      font-size: .9rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 1.25rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Quel taux horaire facturer quand on est artisan en 2026 ?",
+        "description": "Comment fixer son taux horaire d'artisan sans se sous-payer : méthode, heures non facturées, charges, exemples par métier. Avec calculateur gratuit.",
+        "inLanguage": "fr-FR",
+        "datePublished": "2026-06-14",
+        "dateModified": "2026-06-14",
+        "mainEntityOfPage": "https://outils-tpe.fr/guides/taux-horaire-artisan/",
+        "author": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" },
+        "publisher": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel taux horaire pour un artisan débutant ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il n'y a pas de chiffre unique : il dépend de vos charges et de vos heures facturables. La bonne méthode est de partir de votre revenu net souhaité et de remonter, ce que fait le calculateur. Un débutant a souvent plus d'heures non facturées (prospection), donc un besoin de taux plus élevé qu'il ne le croit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment calculer son taux horaire en micro-entreprise ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Partez du revenu net visé, ajoutez vos charges fixes, divisez par 1 moins le taux de cotisations (environ 21,5 % en services artisanaux en 2026) pour trouver le CA nécessaire, puis divisez par vos heures réellement facturables. Ajoutez une marge." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi mon taux horaire réel est-il si bas ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Parce qu'entre ce que vous facturez et ce qu'il vous reste, il y a les cotisations, les charges fixes et toutes les heures non payées (devis, route, administratif). Le mode « vrai taux horaire » du calculateur chiffre cet écart." }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien d'heures sont réellement facturables par mois ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Souvent 110 à 130 heures pour un artisan à temps plein, une fois retirés devis, déplacements et administratif." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il facturer les déplacements et les devis ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Si vous ne les facturez pas séparément, ils doivent être absorbés par votre taux horaire. Sinon, vous les payez de votre poche." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment augmenter son taux horaire ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Spécialisation, vente au forfait, réduction des heures non facturées et révision annuelle des prix." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE GUIDE -->
+  <section class="guide-head">
+    <div class="wrap">
+      <p class="guide-head__breadcrumb"><a href="/guides">Guides</a> › Taux horaire artisan</p>
+      <h1>Quel taux horaire facturer quand on est artisan en 2026 ?</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="wrap">
+      <div class="article__body">
+
+        <p class="article__lead">
+          La plupart des artisans fixent leur taux horaire en regardant ce que fait le voisin, ou en
+          reprenant un chiffre entendu un jour. Le résultat, c'est qu'une grande partie se sous-paie sans
+          le savoir : ils oublient les heures qu'ils ne facturent pas, les charges sociales et les frais
+          fixes. Voici comment calculer un taux horaire qui vous fait réellement vivre — et un outil pour
+          le trouver en 30 secondes : <a href="/calculateur-taux-horaire-artisan">calculer mon taux horaire</a>.
+        </p>
+
+        <h2>Pourquoi votre taux horaire n'est pas votre salaire horaire</h2>
+        <p>
+          Quand un salarié touche 15 € de l'heure, son employeur paie en réalité bien plus : cotisations,
+          congés payés, matériel, temps de trajet, périodes creuses. En tant qu'artisan indépendant, c'est
+          vous l'employeur et le salarié à la fois. Votre taux horaire doit donc couvrir vos cotisations
+          sociales, vos frais fixes (véhicule, assurance décennale, outillage, téléphone), vos heures non
+          facturées, vos congés et l'absence de filet en cas de coup dur. Un taux horaire calé sur un
+          salaire horaire vous condamne à travailler beaucoup pour gagner peu.
+        </p>
+
+        <h2>La méthode pour fixer son taux horaire</h2>
+        <p>Quatre éléments suffisent.</p>
+        <p>
+          D'abord, votre <strong>revenu net mensuel souhaité</strong> : ce que vous voulez vous verser pour
+          vivre, par exemple 2 500 €.
+        </p>
+        <p>
+          Ensuite, vos <strong>charges sociales</strong>. En micro-entreprise, pour une activité de services
+          artisanale, comptez environ 21,5 % du chiffre d'affaires encaissé en 2026 (cotisations plus
+          contribution à la formation). C'est un pourcentage du CA, pas du bénéfice.
+        </p>
+        <p>
+          Puis vos <strong>charges fixes mensuelles</strong> : véhicule, assurance responsabilité civile et
+          décennale, outillage, téléphone, comptabilité, local. Elles tombent que vous ayez des chantiers ou
+          non, donc votre taux doit les absorber.
+        </p>
+        <p>
+          Enfin, vos <strong>heures réellement facturables</strong>. C'est l'étape que tout le monde rate.
+          Sur un mois, vous travaillez peut-être 160 heures, mais vous n'en facturez pas autant : les devis,
+          les déplacements, les achats de matériel et l'administratif ne sont payés par aucun client. En
+          retirant 25 à 35 % d'heures non facturables, il vous reste souvent 110 à 130 heures facturables par
+          mois, pas 160.
+        </p>
+        <p class="formula">
+          <strong>Taux horaire plancher</strong> = (revenu net + charges fixes) ÷ (1 − taux de charges) ÷ heures facturables
+        </p>
+        <p>
+          Le calcul devient simple : on cherche le chiffre d'affaires qui, une fois les charges sociales et
+          les frais fixes retirés, laisse votre revenu net, puis on le divise par les heures facturables.
+          Avec 2 500 € net visés, 1 200 € de charges fixes et 120 heures facturables, il faut environ
+          4 700 € de CA mensuel, soit un <strong>taux plancher d'environ 39 € de l'heure</strong>. On ajoute
+          une marge de sécurité de 15 à 20 % pour les imprévus et les périodes creuses, ce qui donne un
+          <strong>taux recommandé autour de 47 € de l'heure</strong>, soit un tarif journalier d'environ
+          330 €.
+        </p>
+
+        <h2>Les heures qu'on oublie de facturer</h2>
+        <p>
+          C'est le nerf du calcul. Deux artisans qui visent le même revenu net peuvent avoir des taux
+          horaires très différents selon leur part d'heures non facturées. Celui qui passe ses soirées sur
+          les devis et fait deux heures de route par chantier facture beaucoup moins d'heures qu'il n'en
+          travaille, donc son taux doit être plus élevé pour atteindre le même net. Réduire ce temps perdu
+          (devis plus rapides, meilleure organisation des tournées) revient mécaniquement à augmenter votre
+          rémunération sans toucher au tarif affiché.
+        </p>
+
+        <h2>Votre vrai taux horaire : ce que vous gagnez réellement</h2>
+        <p>
+          C'est là que beaucoup d'artisans tombent de leur chaise. Prenez un artisan qui facture 6 000 € par
+          mois, avec 1 500 € de charges fixes, qui travaille 180 heures dont environ 30 % non facturées
+          (126 heures facturées). Il a l'impression de gagner autour de 48 € de l'heure : 6 000 € divisés par
+          ses 126 heures facturées. Mais une fois retirées ses cotisations (environ 1 290 €) et ses charges
+          fixes (1 500 €), il lui reste environ 3 210 € net. Rapporté à toutes les heures réellement
+          travaillées, soit 180, son vrai taux horaire net tombe à environ 18 € de l'heure. L'écart entre les
+          48 € qu'il croit gagner et les 18 € réels, c'est tout ce qui part en charges et en temps non payé.
+        </p>
+
+        <figure class="gap-diagram" aria-label="Schéma : écart entre le taux horaire facturé apparent (48 € / h) et le vrai taux horaire net (18 € / h)">
+          <div class="gap-node gap-node--apparent">
+            <small>Taux facturé apparent</small>
+            <b>≈ 48 €/h</b>
+          </div>
+          <div class="gap-arrow" aria-hidden="true">→</div>
+          <div class="gap-node gap-node--reel">
+            <small>Votre vrai taux net</small>
+            <b>≈ 18 €/h</b>
+          </div>
+          <figcaption>Exemple : 6 000 € de CA, 1 500 € de charges fixes, 180 h travaillées dont 30 % non facturées. L'écart part en cotisations, charges fixes et heures non payées.</figcaption>
+        </figure>
+
+        <p>
+          Le mode « votre vrai taux horaire » du
+          <a href="/calculateur-taux-horaire-artisan">calculateur</a> fait ce calcul à l'envers et affiche le
+          résultat sans détour, avec la répartition de votre chiffre d'affaires entre cotisations, charges
+          fixes et net pour vous.
+        </p>
+
+        <h2>Exemples par métier</h2>
+        <p>
+          La méthode est la même pour tous, seuls les frais fixes et la part d'heures non facturées changent.
+          À titre indicatif, avec un objectif de revenu net correct et des charges fixes typiques :
+        </p>
+        <ul>
+          <li><strong>Électricien</strong> : véhicule, outillage et décennale pèsent lourd, et les déplacements sont fréquents. Taux recommandé souvent autour de 50 à 55 € de l'heure.</li>
+          <li><strong>Plombier</strong> : profil de charges proche, déplacements et urgences nombreux. Taux recommandé souvent autour de 48 à 52 € de l'heure.</li>
+          <li><strong>Peintre</strong> : frais de véhicule et d'outillage un peu plus légers, mais beaucoup de préparation non facturée. Taux recommandé souvent autour de 38 à 45 € de l'heure.</li>
+        </ul>
+        <p>
+          Ces fourchettes sont des illustrations de la méthode, pas des prix de marché à recopier : votre
+          taux dépend de vos propres charges, de votre région et de votre part d'heures non facturées. C'est
+          tout l'intérêt de le calculer pour votre cas plutôt que de copier un chiffre.
+        </p>
+
+        <h2>Comment augmenter son taux horaire sans perdre de clients</h2>
+        <p>
+          Augmenter ses prix fait peur, mais plusieurs leviers limitent le risque. Spécialisez-vous sur des
+          prestations où vous êtes rare ou très bon, là où le client compare moins. Vendez le résultat et la
+          tranquillité plutôt que des heures (un chantier propre, dans les délais, garanti). Passez au forfait
+          quand c'est possible : le client retient le prix global, pas le taux horaire. Réduisez vos heures
+          non facturées pour gagner plus sans rien changer au tarif. Et révisez vos prix régulièrement, au
+          moins une fois par an, car vos charges, elles, augmentent.
+        </p>
+
+        <!-- CTA principal : vers le calculateur (objectif unique de la page) -->
+        <div class="guide-cta">
+          <h2>Calculez votre taux horaire en 30 secondes</h2>
+          <p>
+            Entrez votre revenu net souhaité, vos charges et vos heures : le calculateur vous donne votre
+            taux plancher et votre taux recommandé. Et en mode inversé, il vous montre votre vrai taux
+            horaire net à partir de ce que vous facturez déjà.
+          </p>
+          <a href="/calculateur-taux-horaire-artisan" class="btn btn-green btn-lg">Accéder au calculateur de taux horaire</a>
+        </div>
+
+        <p>
+          Vous êtes plutôt prestataire intellectuel (développeur, consultant, coach) et vous facturez à la
+          journée ? Voyez plutôt le guide
+          <a href="/guides/calculer-son-tjm-freelance">comment calculer son TJM de freelance</a>. Pour suivre
+          votre trésorerie mois par mois, nos <a href="/modeles">modèles Excel par métier</a> reprennent ces
+          calculs dans un fichier prêt à l'emploi.
+        </p>
+
+        <!-- TODO affiliation : insérer ici les CTA affiliés contextuels (compte pro, logiciel de compta,
+             RC pro / décennale) une fois les programmes actifs — voir base Notion « Partenaires d'affiliation ».
+             Mention des liens affiliés obligatoire à ce moment-là. Masqué pour l'instant (aucun programme actif). -->
+
+        <h2>Questions fréquentes</h2>
+      </div>
+
+      <div class="article__body" style="margin-top:1rem;">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-item__q">Quel taux horaire pour un artisan débutant ?</summary>
+            <p class="faq-item__a">Il n'y a pas de chiffre unique : il dépend de vos charges et de vos heures facturables. La bonne méthode est de partir de votre revenu net souhaité et de remonter, ce que fait le <a href="/calculateur-taux-horaire-artisan">calculateur</a>. Un débutant a souvent plus d'heures non facturées (prospection), donc un besoin de taux plus élevé qu'il ne le croit.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment calculer son taux horaire en micro-entreprise ?</summary>
+            <p class="faq-item__a">Partez du revenu net visé, ajoutez vos charges fixes, divisez par 1 moins le taux de cotisations (environ 21,5 % en services artisanaux en 2026) pour trouver le CA nécessaire, puis divisez par vos heures réellement facturables. Ajoutez une marge.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Pourquoi mon taux horaire réel est-il si bas ?</summary>
+            <p class="faq-item__a">Parce qu'entre ce que vous facturez et ce qu'il vous reste, il y a les cotisations, les charges fixes et toutes les heures non payées (devis, route, administratif). Le mode « vrai taux horaire » du calculateur chiffre cet écart.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Combien d'heures sont réellement facturables par mois ?</summary>
+            <p class="faq-item__a">Souvent 110 à 130 heures pour un artisan à temps plein, une fois retirés devis, déplacements et administratif.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Faut-il facturer les déplacements et les devis ?</summary>
+            <p class="faq-item__a">Si vous ne les facturez pas séparément, ils doivent être absorbés par votre taux horaire. Sinon, vous les payez de votre poche.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment augmenter son taux horaire ?</summary>
+            <p class="faq-item__a">Spécialisation, vente au forfait, réduction des heures non facturées et révision annuelle des prix.</p>
+          </details>
+        </div>
+
+        <p class="article__disclaimer">
+          Cet article est une aide pour fixer vos prix. Il ne remplace pas l'avis d'un expert-comptable.
+          Charges et taux à jour 2026.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
