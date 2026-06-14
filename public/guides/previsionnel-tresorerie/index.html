@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Construire un prévisionnel de trésorerie simple pour anticiper les trous de tréso : méthode, exemple chiffré et calculateur gratuit. Pour TPE et artisans." />
+  <title>Faire son prévisionnel de trésorerie en 2026 (méthode + modèle) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/guides/previsionnel-tresorerie/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Faire son prévisionnel de trésorerie en 2026 (méthode + modèle)" />
+  <meta property="og:description" content="La méthode pas à pas pour anticiper vos trous de trésorerie : solde, encaissements, charges trimestrielles, exemple chiffré et calculateur gratuit." />
+  <meta property="og:url" content="https://outils-tpe.fr/guides/previsionnel-tresorerie/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    /* --- En-tête du guide --- */
+    .guide-head {
+      background: var(--gray-50);
+      padding-block: 3.5rem 2rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .guide-head__breadcrumb {
+      font-size: .8rem;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+    .guide-head__breadcrumb a { color: var(--gray-600); }
+    .guide-head h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      line-height: 1.2;
+      max-width: 780px;
+    }
+    /* --- Corps de l'article --- */
+    .article { padding-block: 3rem; }
+    .article__body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray-700, #374151);
+    }
+    .article__body h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.5rem 0 1rem;
+    }
+    .article__body p { margin: 0 0 1rem; }
+    .article__body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    .article__body li { margin-bottom: .5rem; }
+    .article__body strong { color: var(--gray-900); }
+    .article__lead {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    /* --- Tableau d'exemple chiffré --- */
+    .treso-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .treso-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .95rem;
+      min-width: 460px;
+    }
+    .treso-table th, .treso-table td {
+      padding: .6rem .7rem;
+      text-align: right;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .treso-table th:first-child, .treso-table td:first-child { text-align: left; }
+    .treso-table thead th {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .treso-table tbody tr:last-child td {
+      font-weight: 700;
+      color: var(--gray-900);
+      border-bottom: 2px solid var(--gray-300, #cbd5e1);
+    }
+    .treso-table .is-neg { color: #b91c1c; font-weight: 700; }
+    .treso-table caption {
+      caption-side: bottom;
+      font-size: .85rem;
+      color: var(--gray-500);
+      font-style: italic;
+      margin-top: .75rem;
+      text-align: left;
+    }
+    /* --- Encart CTA calculateur --- */
+    .guide-cta {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .guide-cta h2 { color: #fff; margin: 0 0 .5rem; }
+    .guide-cta p { color: rgba(255,255,255,.85); margin: 0 0 1.25rem; }
+    .article__disclaimer {
+      font-size: .9rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 1.25rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Faire son prévisionnel de trésorerie en 2026 (méthode + modèle)",
+        "description": "Méthode pas à pas pour construire un prévisionnel de trésorerie de TPE : solde de départ, encaissements, décaissements, charges trimestrielles et exemple chiffré sur 6 mois.",
+        "inLanguage": "fr-FR",
+        "datePublished": "2026-06-14",
+        "dateModified": "2026-06-14",
+        "mainEntityOfPage": "https://outils-tpe.fr/guides/previsionnel-tresorerie/",
+        "author": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" },
+        "publisher": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "C'est quoi un prévisionnel de trésorerie ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "C'est une projection de votre solde bancaire mois par mois, qui additionne au solde de départ vos encaissements prévus et soustrait vos décaissements, échéances ponctuelles comprises." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment anticiper un trou de trésorerie ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En projetant vos soldes sur plusieurs mois et en y intégrant les charges qui ne tombent pas tous les mois (URSSAF, TVA, CFE). Le mois où le solde devient négatif apparaît alors à l'avance." }
+          },
+          {
+            "@type": "Question",
+            "name": "Sur combien de mois faire son prévisionnel ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Six mois est un bon horizon pour une TPE : assez long pour voir passer deux échéances trimestrielles, assez court pour rester réaliste." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi je me retrouve à sec au moment des charges URSSAF ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Parce que les cotisations trimestrielles tombent d'un coup alors que vous avez souvent dépensé la trésorerie des mois précédents. Provisionner chaque mois ou déclarer mensuellement règle le problème." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre trésorerie et bénéfice ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le bénéfice est ce que vous gagnez sur une période ; la trésorerie est ce que vous avez en banque à un instant donné. Un décalage de paiement peut vous mettre à sec tout en étant bénéficiaire." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment combler un manque de trésorerie ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En accélérant les encaissements (relances, acomptes), en décalant des sorties, en lissant les charges, ou via une facilité de caisse négociée à l'avance." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE GUIDE -->
+  <section class="guide-head">
+    <div class="wrap">
+      <p class="guide-head__breadcrumb"><a href="/guides">Guides</a> › Faire son prévisionnel de trésorerie</p>
+      <h1>Faire son prévisionnel de trésorerie en 2026 (méthode + modèle)</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="wrap">
+      <div class="article__body">
+
+        <p class="article__lead">
+          Beaucoup de TPE ne ferment pas parce qu'elles manquent de clients, mais parce qu'elles
+          manquent de trésorerie au mauvais moment. On peut être rentable sur le papier et se
+          retrouver à sec le jour où tombe la grosse échéance URSSAF. Le prévisionnel de trésorerie
+          sert exactement à voir venir ce moment. Voici comment le construire simplement, et un
+          calculateur pour le visualiser en 30 secondes :
+          <a href="/calculateur-tresorerie-previsionnelle">estimer ma trésorerie sur 6 mois</a>.
+        </p>
+
+        <h2>Qu'est-ce qu'un prévisionnel de trésorerie</h2>
+        <p>
+          Le prévisionnel de trésorerie est une projection de ce qu'il y aura réellement sur votre
+          compte bancaire, mois par mois. Il ne faut pas le confondre avec le bénéfice. Le bénéfice
+          mesure ce que vous gagnez sur une période (recettes moins charges) ; la trésorerie mesure
+          ce que vous avez en banque à un instant donné. Les deux ne bougent pas au même rythme :
+          un client qui paie à 60 jours, une grosse facture fournisseur à régler tout de suite, une
+          charge trimestrielle qui tombe d'un coup, et votre trésorerie peut plonger alors que votre
+          activité est saine. C'est ce décalage de timing que le prévisionnel rend visible.
+        </p>
+
+        <h2>La méthode en 4 étapes</h2>
+        <p>Construire un prévisionnel tient en quatre éléments.</p>
+        <p>
+          D'abord, votre <strong>solde de départ</strong> : ce que vous avez en banque aujourd'hui.
+          C'est le point de départ de la courbe.
+        </p>
+        <p>
+          Ensuite, vos <strong>encaissements</strong> mois par mois : le chiffre d'affaires que vous
+          prévoyez réellement d'encaisser, pas de facturer. Si vos clients paient à 30 ou 60 jours,
+          décalez les montants en conséquence.
+        </p>
+        <p>
+          Puis vos <strong>décaissements réguliers</strong> : les dépenses fixes (loyer, assurance,
+          abonnements, salaires) et les dépenses variables (achats, matières, carburant). Ce sont
+          les sorties de chaque mois.
+        </p>
+        <p>
+          Enfin, les <strong>échéances ponctuelles</strong> : les sorties qui ne tombent pas tous les
+          mois mais qui font mal quand elles arrivent. La principale, pour un indépendant, ce sont les
+          cotisations URSSAF trimestrielles. Il faut aussi penser à la TVA, à la CFE en fin d'année,
+          aux primes d'assurance annuelles.
+        </p>
+        <p>
+          Le solde de chaque mois se calcule simplement : solde du mois précédent, plus les
+          encaissements, moins tous les décaissements du mois. En enchaînant les six mois, vous
+          obtenez votre courbe.
+        </p>
+
+        <h2>Le piège des charges trimestrielles</h2>
+        <p>
+          C'est le scénario classique. Pendant deux mois, tout va bien : vous encaissez plus que vous
+          ne dépensez, le solde monte, vous avez l'impression que la trésorerie est confortable. Le
+          troisième mois, la cotisation URSSAF tombe d'un coup, et le solde décroche. Beaucoup
+          d'indépendants dépensent la trésorerie des deux premiers mois en croyant qu'elle est
+          acquise, puis se retrouvent juste avant l'échéance sans pouvoir la payer.
+        </p>
+        <p>
+          Deux réflexes évitent ce piège. Le premier : provisionner chaque mois une part de votre
+          chiffre d'affaires pour la prochaine échéance, au lieu de la subir d'un coup. Le second,
+          encore plus simple : passer en déclaration URSSAF mensuelle plutôt que trimestrielle, pour
+          lisser la sortie. Le prévisionnel sert justement à repérer ces à-coups avant qu'ils ne vous
+          surprennent.
+        </p>
+
+        <h2>Exemple chiffré sur 6 mois</h2>
+        <p>
+          Prenons un cas concret. Vous avez 3 000 € en banque, vous encaissez en moyenne 4 000 € par
+          mois, vous avez 2 500 € de dépenses fixes et 800 € de dépenses variables. Votre cotisation
+          URSSAF trimestrielle est d'environ 2 640 € et tombe aux mois 3 et 6.
+        </p>
+        <p>
+          Hors échéance, chaque mois vous dégagez 4 000 moins 2 500 moins 800, soit 700 € de plus.
+          Votre courbe ressemble à ceci :
+        </p>
+
+        <div class="treso-table-wrap">
+          <table class="treso-table">
+            <caption>Exemple : solde de trésorerie projeté mois par mois (URSSAF aux mois 3 et 6).</caption>
+            <thead>
+              <tr>
+                <th>Mois</th>
+                <th>Flux du mois</th>
+                <th>Solde de fin de mois</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Départ</td><td>—</td><td>3 000 €</td></tr>
+              <tr><td>Mois 1</td><td>+700 €</td><td>3 700 €</td></tr>
+              <tr><td>Mois 2</td><td>+700 €</td><td>4 400 €</td></tr>
+              <tr><td>Mois 3</td><td>−1 940 € (URSSAF)</td><td>2 460 €</td></tr>
+              <tr><td>Mois 4</td><td>+700 €</td><td>3 160 €</td></tr>
+              <tr><td>Mois 5</td><td>+700 €</td><td>3 860 €</td></tr>
+              <tr><td>Mois 6</td><td>−1 940 € (URSSAF)</td><td>1 920 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Votre trésorerie reste positive, avec un solde moyen d'environ 3 250 €. Verdict : trésorerie
+          saine. Changez un seul paramètre et tout bascule. Si vos encaissements tombent à 3 000 € par
+          mois, vous perdez 300 € chaque mois au lieu d'en gagner. Dès le mois 3, l'arrivée de l'URSSAF
+          fait passer le solde sous zéro. C'est précisément ce que le calculateur surligne en rouge,
+          pour que vous le voyiez à l'avance.
+        </p>
+
+        <!-- CTA principal : vers le calculateur (objectif unique de la page) -->
+        <div class="guide-cta">
+          <h2>Visualisez votre trésorerie en 30 secondes</h2>
+          <p>
+            Entrez votre solde, vos recettes et vos dépenses : le simulateur trace votre courbe sur
+            6 mois et repère le mois où votre solde passe dans le rouge.
+          </p>
+          <a href="/calculateur-tresorerie-previsionnelle" class="btn btn-green btn-lg">Accéder au simulateur de trésorerie</a>
+        </div>
+
+        <!-- TODO affiliation : insérer ici les CTA affiliés contextuels (compte pro, logiciel de compta)
+             une fois les programmes actifs — voir base Notion « Partenaires d'affiliation ».
+             Mention des liens affiliés obligatoire à ce moment-là. Masqué pour l'instant (aucun programme actif). -->
+
+        <h2>Que faire si la courbe passe dans le rouge</h2>
+        <p>
+          Voir le rouge à l'avance, c'est déjà gagner. Plusieurs leviers existent, du plus simple au
+          plus lourd. Côté encaissements : relancer les factures impayées sans attendre, demander un
+          acompte à la commande, raccourcir vos délais de paiement. Côté sorties : étaler ou décaler un
+          achat non urgent, lisser les charges en passant en déclaration mensuelle, négocier un
+          échéancier avec l'URSSAF en cas de difficulté réelle. En dernier recours, une facilité de
+          caisse ou un découvert autorisé négocié à l'avance coûte beaucoup moins cher qu'un découvert
+          subi. L'important est d'agir pendant que la courbe annonce le creux, pas une fois dedans.
+        </p>
+
+        <h2>Du prévisionnel au suivi réel</h2>
+        <p>
+          Le prévisionnel anticipe ; le suivi constate. Une fois votre projection faite, l'étape
+          suivante est de suivre votre trésorerie réelle mois après mois pour ajuster vos prévisions.
+          C'est le rôle d'un tableau de trésorerie, où vous enregistrez vos vraies entrées et sorties
+          et comparez au prévu. <a href="/modeles">Nos modèles Excel de suivi de trésorerie</a>,
+          pré-paramétrés par métier (électricien, plombier, coiffeur, auto-entrepreneur), vous
+          permettent de passer du prévisionnel au pilotage réel.
+        </p>
+
+        <h2>Questions fréquentes</h2>
+      </div>
+
+      <div class="article__body" style="margin-top:1rem;">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-item__q">C'est quoi un prévisionnel de trésorerie ?</summary>
+            <p class="faq-item__a">C'est une projection de votre solde bancaire mois par mois, qui additionne au solde de départ vos encaissements prévus et soustrait vos décaissements, échéances ponctuelles comprises. Le <a href="/calculateur-tresorerie-previsionnelle">simulateur</a> le trace pour vous.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment anticiper un trou de trésorerie ?</summary>
+            <p class="faq-item__a">En projetant vos soldes sur plusieurs mois et en y intégrant les charges qui ne tombent pas tous les mois (URSSAF, TVA, CFE). Le mois où le solde devient négatif apparaît alors à l'avance.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Sur combien de mois faire son prévisionnel ?</summary>
+            <p class="faq-item__a">Six mois est un bon horizon pour une TPE : assez long pour voir passer deux échéances trimestrielles, assez court pour rester réaliste.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Pourquoi je me retrouve à sec au moment des charges URSSAF ?</summary>
+            <p class="faq-item__a">Parce que les cotisations trimestrielles tombent d'un coup alors que vous avez souvent dépensé la trésorerie des mois précédents. Provisionner chaque mois ou déclarer mensuellement règle le problème.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Quelle différence entre trésorerie et bénéfice ?</summary>
+            <p class="faq-item__a">Le bénéfice est ce que vous gagnez sur une période ; la trésorerie est ce que vous avez en banque à un instant donné. Un décalage de paiement peut vous mettre à sec tout en étant bénéficiaire.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment combler un manque de trésorerie ?</summary>
+            <p class="faq-item__a">En accélérant les encaissements (relances, acomptes), en décalant des sorties, en lissant les charges, ou via une facilité de caisse négociée à l'avance.</p>
+          </details>
+        </div>
+
+        <p>
+          Vous facturez à la journée ou à l'heure et vous voulez d'abord fixer vos prix ? Voyez le
+          <a href="/guides/calculer-son-tjm-freelance">guide pour calculer son TJM</a> et le
+          <a href="/calculateur-taux-horaire-artisan">calculateur de taux horaire artisan</a>.
+        </p>
+
+        <p class="article__disclaimer">
+          Ce guide est une aide pédagogique pour anticiper. Il ne remplace pas un suivi comptable ni
+          l'avis d'un expert-comptable.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
