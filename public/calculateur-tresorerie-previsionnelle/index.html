@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visualisez votre trésorerie sur 6 mois et repérez le mois à risque. Gratuit, instantané, avec courbe prévisionnelle. Pour artisans et TPE." />
+  <title>Simulateur de trésorerie prévisionnelle 2026 : votre solde sur 6 mois | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/calculateur-tresorerie-previsionnelle/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Simulateur de trésorerie prévisionnelle : votre solde sur 6 mois" />
+  <meta property="og:description" content="Visualisez votre courbe de trésorerie sur 6 mois et repérez le mois où votre solde passe dans le rouge. Gratuit, instantané, sans inscription." />
+  <meta property="og:url" content="https://outils-tpe.fr/calculateur-tresorerie-previsionnelle/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/calculateur.css?v=2" />
+
+  <style>
+    /* --- Spécifique au prévisionnel de trésorerie (courbe + verdict) --- */
+    /* La colonne résultats n'est pas le bandeau navy ici : la courbe se lit mieux sur fond clair */
+    .tp-verdict {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      font-size: .95rem;
+      line-height: 1.5;
+      border: 1px solid transparent;
+    }
+    .tp-verdict svg { flex-shrink: 0; margin-top: .15em; }
+    .tp-verdict b { font-weight: 800; }
+    .tp-verdict--ok {
+      background: rgba(34,197,94,.1);
+      border-color: rgba(34,197,94,.35);
+      color: var(--green-dark);
+    }
+    .tp-verdict--ok b { color: var(--green-dark); }
+    .tp-verdict--alert {
+      background: rgba(239,68,68,.08);
+      border-color: rgba(239,68,68,.35);
+      color: #b91c1c;
+    }
+    .tp-verdict--alert b { color: #b91c1c; }
+
+    .tp-chart-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem 1rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    }
+    .tp-chart-card__title {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: .5rem;
+    }
+    .tp-chart { width: 100%; height: auto; display: block; }
+
+    /* Éléments de la courbe (pilotés par le JS) */
+    .tp-zero { stroke: var(--gray-300, #cbd5e1); stroke-width: 1; stroke-dasharray: 4 4; }
+    .tp-marker { stroke: #ef4444; stroke-width: 1.5; stroke-dasharray: 3 3; opacity: .7; }
+    .tp-area { fill: rgba(34,197,94,.12); stroke: none; }
+    .tp-line { fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .tp-dot { fill: var(--green-dark); }
+    .tp-dot--neg { fill: #ef4444; }
+    .tp-axis-label { fill: var(--gray-400); font-size: 11px; font-family: var(--font); }
+
+    /* Statistiques sous la courbe */
+    .tp-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    .tp-stat {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: .75rem .5rem;
+      text-align: center;
+    }
+    .tp-stat__label {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      display: block;
+      margin-bottom: .3rem;
+      line-height: 1.3;
+    }
+    .tp-stat__value {
+      font-size: clamp(1.05rem, 4vw, 1.35rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.02em;
+    }
+    .tp-stat__sub { display: block; font-size: .68rem; font-weight: 600; color: var(--gray-400); margin-top: .15rem; }
+
+    /* Saisonnalité (champs mensuels repliables) */
+    .tp-season { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+    .tp-season-field[hidden] { display: none; }
+    .tp-season-field .calc-field__label { font-size: .8rem; }
+    .tp-season-hint { font-size: .8rem; color: var(--gray-500); margin: 0 0 .9rem; line-height: 1.5; }
+  </style>
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulateur de trésorerie prévisionnelle",
+      "url": "https://outils-tpe.fr/calculateur-tresorerie-previsionnelle/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "fr-FR",
+      "description": "Projetez votre trésorerie sur 6 mois à partir de votre solde, de vos recettes et de vos dépenses. La courbe repère le mois où votre solde passe dans le rouge et prend en compte les échéances trimestrielles (URSSAF). Gratuit, instantané, sans inscription.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "publisher": { "@type": "Organization", "name": "outils-tpe.fr" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un prévisionnel de trésorerie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est une projection de votre solde bancaire mois par mois : on part du solde actuel, on ajoute les recettes prévues et on retire toutes les dépenses, y compris les échéances ponctuelles comme l'URSSAF trimestrielle. Elle sert à voir venir un trou de trésorerie avant qu'il n'arrive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sur combien de mois faire son prévisionnel de trésorerie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Six mois est un bon horizon pour une TPE : c'est assez long pour voir passer deux échéances trimestrielles et anticiper, et assez court pour rester réaliste. Le simulateur permet aussi de projeter sur 3 ou 12 mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment anticiper un trou de trésorerie au moment des charges URSSAF ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les cotisations trimestrielles tombent d'un coup alors qu'on a souvent dépensé la trésorerie des mois précédents. Renseignez le montant de l'échéance trimestrielle dans le simulateur : la courbe montre le décrochage aux mois 3 et 6. Pour lisser, provisionnez chaque mois ou passez en déclaration mensuelle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce simulateur remplace-t-il un suivi comptable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. C'est une estimation indicative pour anticiper, fondée sur des moyennes que vous saisissez. Il ne tient pas compte des délais de paiement clients ni des impayés et ne remplace ni un suivi comptable réel ni l'avis d'un expert-comptable."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">TPE · Artisan · Indépendant</span>
+
+      <h1 class="hero__title">
+        Simulateur de<br>
+        <span class="hero__accent">trésorerie prévisionnelle</span>
+      </h1>
+
+      <p class="hero__sub">
+        Visualisez votre solde bancaire sur 6 mois et repérez le mois où il passe
+        dans le rouge. Gratuit, instantané, échéances URSSAF comprises.
+      </p>
+
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100 % gratuit, sans inscription
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Courbe sur 6 mois
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Aucune donnée enregistrée
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- CALCULATEUR -->
+  <section class="calc-section" aria-label="Simulateur de trésorerie prévisionnelle">
+    <div class="wrap">
+      <div class="calc-grid">
+
+        <!-- Saisie -->
+        <form id="form-treso" class="calc-form-card" novalidate>
+          <h2 class="calc-card__title">Votre situation</h2>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="t-solde">Solde bancaire actuel</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="t-solde" inputmode="numeric" step="100" value="3000" />
+              <span class="calc-input-wrap__unit">€</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="t-recettes">Recettes mensuelles moyennes</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="t-recettes" inputmode="numeric" min="0" step="100" value="4000" />
+              <span class="calc-input-wrap__unit">€ / mois</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="t-fixes">
+              Dépenses fixes mensuelles
+              <span class="calc-hint" title="Loyer, assurances, abonnements, salaires : ce qui tombe tous les mois.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="t-fixes" inputmode="numeric" min="0" step="50" value="2500" />
+              <span class="calc-input-wrap__unit">€ / mois</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="t-variables">
+              Dépenses variables mensuelles
+              <span class="calc-hint" title="Achats, matières, carburant : les dépenses qui varient avec l'activité.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="t-variables" inputmode="numeric" min="0" step="50" value="800" />
+              <span class="calc-input-wrap__unit">€ / mois</span>
+            </div>
+          </div>
+
+          <!-- Options avancées -->
+          <details class="calc-advanced">
+            <summary>Options avancées</summary>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="t-echeance">
+                Échéance trimestrielle
+                <span class="calc-hint" title="Cotisations URSSAF ou TVA payées tous les 3 mois. Appliquée aux mois 3, 6, 9 et 12.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="t-echeance" inputmode="numeric" min="0" step="50" value="0" />
+                <span class="calc-input-wrap__unit">€ / trim.</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="t-horizon">Horizon de projection</label>
+              <select class="calc-select" id="t-horizon">
+                <option value="3">3 mois</option>
+                <option value="6" selected>6 mois</option>
+                <option value="12">12 mois</option>
+              </select>
+            </div>
+
+            <details class="calc-advanced" style="border-top:none;padding-top:0;margin-top:1.25rem;">
+              <summary>Saisonnalité (recettes mois par mois)</summary>
+              <p class="tp-season-hint">
+                Laissez vide pour utiliser la moyenne. Renseignez uniquement les mois
+                qui s'écartent de la moyenne (saison creuse, pic d'activité…).
+              </p>
+              <div class="tp-season">
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m1">Mois 1</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m1" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m2">Mois 2</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m2" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m3">Mois 3</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m3" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m4">Mois 4</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m4" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m5">Mois 5</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m5" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m6">Mois 6</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m6" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m7">Mois 7</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m7" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m8">Mois 8</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m8" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m9">Mois 9</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m9" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m10">Mois 10</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m10" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m11">Mois 11</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m11" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+                <div class="calc-field tp-season-field" hidden style="margin-bottom:0;">
+                  <label class="calc-field__label" for="t-m12">Mois 12</label>
+                  <div class="calc-input-wrap"><input class="calc-input" type="number" id="t-m12" inputmode="numeric" min="0" step="100" placeholder="moyenne" /><span class="calc-input-wrap__unit">€</span></div>
+                </div>
+              </div>
+            </details>
+          </details>
+        </form>
+
+        <!-- Résultats -->
+        <div class="calc-results-col">
+
+          <!-- Verdict -->
+          <div id="t-verdict" class="tp-verdict tp-verdict--ok" role="status" aria-live="polite">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="t-verdict-text">—</span>
+          </div>
+
+          <!-- Courbe -->
+          <div class="tp-chart-card">
+            <p class="tp-chart-card__title">Votre trésorerie prévisionnelle</p>
+            <svg class="tp-chart" viewBox="0 0 640 300" role="img" aria-label="Courbe de trésorerie prévisionnelle sur la période choisie">
+              <g id="t-plot"></g>
+            </svg>
+
+            <div class="tp-stats">
+              <div class="tp-stat">
+                <span class="tp-stat__label">Solde de fin</span>
+                <span class="tp-stat__value" id="t-fin">—</span>
+              </div>
+              <div class="tp-stat">
+                <span class="tp-stat__label">Solde moyen</span>
+                <span class="tp-stat__value" id="t-moyen">—</span>
+              </div>
+              <div class="tp-stat">
+                <span class="tp-stat__label">Solde le plus bas</span>
+                <span class="tp-stat__value" id="t-bas">—</span>
+                <span class="tp-stat__sub" id="t-bas-mois">—</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="calc-disclaimer">
+        Estimation indicative pour anticiper votre trésorerie. Elle se fonde sur des moyennes
+        que vous saisissez et ne tient pas compte des délais de paiement ni des impayés.
+        Ce simulateur ne remplace pas un suivi comptable ni un expert-comptable.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA AFFILIÉS (contextuels) -->
+  <!-- TODO affiliation : remplacer les href="#" par les liens de tracking une fois les programmes actifs
+       (base Notion « Partenaires d'affiliation » — actuellement tous au statut « À faire »).
+       Pertinents pour ce calculateur : Qonto / Shine / Tiime (compte pro), Indy / Abby (compta). -->
+  <!-- MASQUÉ TEMPORAIREMENT : bloc « Pour aller plus loin » caché en attendant les liens
+       de partenariats d'affiliation. Retirer l'attribut hidden ci-dessous pour le réafficher. -->
+  <section class="calc-cta-section" aria-label="Outils recommandés" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pour aller plus loin</h2>
+        <p>Les outils qui aident à piloter sa trésorerie au quotidien.</p>
+      </div>
+
+      <div class="calc-cta-grid">
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Suivez votre trésorerie en temps réel</p>
+          <p class="calc-cta__desc">
+            Un compte pro dédié vous donne une vision claire de vos entrées et sorties,
+            et facilite vos provisions pour les échéances URSSAF.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Comparer les comptes pro →
+          </a>
+        </div>
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Pilotez votre compta et vos charges</p>
+          <p class="calc-cta__desc">
+            Un outil de compta dédié micro-entreprise calcule vos cotisations, anticipe
+            vos échéances et vous évite les mauvaises surprises de trésorerie.
+          </p>
+          <a class="calc-cta__link" href="#" rel="sponsored nofollow noopener" target="_blank">
+            Découvrir Indy &amp; Abby →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="calc-cta-notice">
+        Certains liens ci-dessus sont des liens partenaires : si vous souscrivez,
+        nous pouvons percevoir une commission, sans surcoût pour vous. Cela nous permet
+        de garder ce simulateur gratuit. Nous ne recommandons que des outils que nous
+        jugeons pertinents pour les TPE.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU SEO -->
+  <section class="calc-content">
+    <div class="wrap">
+
+      <h2>Comment lire votre courbe de trésorerie</h2>
+      <p>
+        La courbe affiche votre solde bancaire projeté, mois après mois, à partir de votre
+        solde actuel. Chaque mois, on ajoute vos recettes et on retire vos dépenses fixes,
+        vos dépenses variables et, le cas échéant, l'échéance trimestrielle. Tant que la
+        courbe reste au-dessus de la ligne du zéro, votre trésorerie tient. Dès qu'un point
+        passe sous cette ligne, il s'affiche en <strong>rouge</strong> : c'est le mois où
+        votre compte passe dans le négatif.
+      </p>
+      <ul class="calc-list">
+        <li>Le <strong>solde de fin</strong> indique ce qu'il vous restera au terme de la période.</li>
+        <li>Le <strong>solde moyen</strong> donne le niveau habituel de votre trésorerie.</li>
+        <li>Le <strong>solde le plus bas</strong> est le moment le plus tendu : c'est lui qu'il faut surveiller.</li>
+      </ul>
+
+      <h2>Anticiper un trou de trésorerie</h2>
+      <p>
+        Beaucoup de TPE ne ferment pas par manque de clients, mais parce qu'elles manquent
+        de trésorerie au mauvais moment. On peut être rentable sur le papier et se retrouver
+        à sec le jour où tombe une grosse échéance. Voir le creux arriver à l'avance, c'est
+        déjà gagner : vous pouvez relancer vos impayés, demander un acompte, décaler un achat
+        non urgent ou négocier un échéancier <em>avant</em> d'être dans le rouge, pas une fois
+        dedans. Pour la méthode complète, lisez notre guide :
+        <a href="/guides/previsionnel-tresorerie">faire son prévisionnel de trésorerie</a>.
+      </p>
+
+      <h2>Les charges qui plombent la tréso (URSSAF trimestrielle)</h2>
+      <p>
+        C'est le scénario classique. Pendant deux mois, tout va bien : le solde monte, la
+        trésorerie semble confortable. Le troisième mois, la cotisation URSSAF tombe d'un coup
+        et le solde décroche. Renseignez le montant de votre <strong>échéance trimestrielle</strong>
+        dans les options avancées : la courbe matérialise le décrochage aux mois 3 et 6. Deux
+        réflexes évitent le piège : provisionner chaque mois une part de votre chiffre d'affaires,
+        ou passer en déclaration URSSAF mensuelle pour lisser la sortie.
+      </p>
+      <p>
+        Le prévisionnel anticipe ; le suivi constate. Une fois votre projection faite, l'étape
+        suivante est de suivre votre trésorerie réelle mois après mois avec nos
+        <a href="/modeles">modèles Excel de suivi de trésorerie</a>, pré-paramétrés par métier
+        (électricien, plombier, coiffeur, auto-entrepreneur). Et si vous fixez encore vos prix,
+        voyez le <a href="/calculateur-taux-horaire-artisan">calculateur de taux horaire artisan</a>
+        ou le <a href="/calculateur-tjm-freelance">calculateur de TJM freelance</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Qu'est-ce qu'un prévisionnel de trésorerie ?</summary>
+          <p class="faq-item__a">
+            C'est une projection de votre solde bancaire mois par mois : on part du solde
+            actuel, on ajoute les recettes prévues et on retire toutes les dépenses, y compris
+            les échéances ponctuelles comme l'URSSAF trimestrielle. Elle sert à voir venir un
+            trou de trésorerie avant qu'il n'arrive.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Sur combien de mois faire son prévisionnel de trésorerie ?</summary>
+          <p class="faq-item__a">
+            Six mois est un bon horizon pour une TPE : assez long pour voir passer deux
+            échéances trimestrielles et anticiper, assez court pour rester réaliste. Le
+            simulateur permet aussi de projeter sur 3 ou 12 mois.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Comment anticiper un trou de trésorerie au moment des charges URSSAF ?</summary>
+          <p class="faq-item__a">
+            Les cotisations trimestrielles tombent d'un coup alors qu'on a souvent dépensé la
+            trésorerie des mois précédents. Renseignez le montant de l'échéance trimestrielle :
+            la courbe montre le décrochage aux mois 3 et 6. Pour lisser, provisionnez chaque
+            mois ou passez en déclaration mensuelle.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Ce simulateur remplace-t-il un suivi comptable ?</summary>
+          <p class="faq-item__a">
+            Non. C'est une estimation indicative pour anticiper, fondée sur des moyennes que
+            vous saisissez. Il ne tient pas compte des délais de paiement clients ni des impayés
+            et ne remplace ni un suivi comptable réel ni l'avis d'un expert-comptable.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS UTILES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Pour aller plus loin</p>
+      <div class="pills">
+        <a href="/guides/previsionnel-tresorerie" class="pill">Guide : faire son prévisionnel de trésorerie</a>
+        <a href="/modeles" class="pill">Modèles de suivi de trésorerie</a>
+        <a href="/calculateur-taux-horaire-artisan" class="pill">Calculateur de taux horaire</a>
+        <a href="/sur-mesure" class="pill pill--cta">Besoin d'un outil sur mesure ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/calculateur-tresorerie.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
