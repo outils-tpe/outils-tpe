@@ -79,20 +79,28 @@
       font-size: .95rem;
     }
     .cmp-table th, .cmp-table td {
-      padding: .8rem .9rem;
-      text-align: left;
-      vertical-align: top;
+      padding: .85rem 1rem;
+      text-align: center;
+      vertical-align: middle;
       border-bottom: 1px solid var(--gray-200);
-    }
-    .cmp-table tbody tr:last-child th,
-    .cmp-table tbody tr:last-child td { border-bottom: 0; }
-    .cmp-table thead th {
-      background: var(--gray-50);
-      font-weight: 700;
-      color: var(--gray-800);
       white-space: nowrap;
     }
-    .cmp-table tbody th { font-weight: 700; color: var(--gray-900); white-space: nowrap; }
+    /* 1re colonne (nom du compte) alignée à gauche */
+    .cmp-table th:first-child, .cmp-table td:first-child { text-align: left; }
+    .cmp-table tbody tr:last-child th,
+    .cmp-table tbody tr:last-child td { border-bottom: 0; }
+    .cmp-table tbody tr:nth-child(even) td,
+    .cmp-table tbody tr:nth-child(even) th[scope="row"] { background: var(--gray-50); }
+    .cmp-table thead th {
+      background: var(--gray-100, #f1f5f9);
+      font-weight: 700;
+      color: var(--gray-800);
+      font-size: .9rem;
+    }
+    .cmp-table tbody th { font-weight: 700; color: var(--gray-900); }
+    .cmp-table .ico-yes { color: #16a34a; font-weight: 700; font-size: 1.05rem; }
+    .cmp-table .ico-no { color: var(--gray-400); font-weight: 700; }
+    .cmp-table .price { font-weight: 600; color: var(--gray-900); }
     .cmp-table tbody th .badge-aff {
       display: inline-block;
       font-size: .68rem;
