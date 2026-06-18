@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Comparatif des logiciels de facturation conformes à la facturation électronique 2026 : Indy, Tiime, Abby, Henrri, Freebe, Evoliz. Offres gratuites, prix, plateforme agréée. Pour TPE et indépendants." />
+  <title>Comparatif des logiciels de facturation électronique 2026 | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/comparateur-logiciels-facturation/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Comparatif des logiciels de facturation électronique 2026" />
+  <meta property="og:description" content="Comparez les logiciels de facturation conformes à la réforme 2026 : offres gratuites, prix, plateforme agréée. Pour TPE, freelances et auto-entrepreneurs." />
+  <meta property="og:url" content="https://outils-tpe.fr/comparateur-logiciels-facturation/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    .hub-head {
+      background: var(--gray-50);
+      padding-block: 3.5rem 2rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .hub-head h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      margin-bottom: .75rem;
+    }
+    .hub-head p {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+    .cmp { padding-block: 2.5rem; }
+    .cmp .wrap { max-width: 920px; }
+    .cmp h2 {
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.5rem 0 .9rem;
+    }
+    .cmp p, .cmp li { color: var(--gray-700); line-height: 1.75; }
+    .cmp ul { padding-left: 1.2rem; }
+    .cmp li { margin-bottom: .4rem; }
+    .cmp__intro { font-size: 1.05rem; }
+    .cmp-update { font-size: .85rem; color: var(--gray-500); margin: .25rem 0 0; }
+    /* Tableaux */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.25rem 0 .5rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+    }
+    .cmp-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .95rem; }
+    .cmp-table th, .cmp-table td {
+      padding: .85rem 1rem;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .cmp-table th:first-child, .cmp-table td:first-child { text-align: left; }
+    .cmp-table tbody tr:last-child th, .cmp-table tbody tr:last-child td { border-bottom: 0; }
+    .cmp-table tbody tr:nth-child(even) td,
+    .cmp-table tbody tr:nth-child(even) th[scope="row"] { background: var(--gray-50); }
+    .cmp-table thead th {
+      background: var(--gray-100, #f1f5f9);
+      font-weight: 700; color: var(--gray-800); font-size: .9rem;
+    }
+    .cmp-table tbody th { font-weight: 700; color: var(--gray-900); white-space: nowrap; }
+    .cmp-table tbody th .badge-aff {
+      display: inline-block; font-size: .68rem; font-weight: 600;
+      color: #15803d; background: #dcfce7; border-radius: 6px;
+      padding: .1rem .4rem; margin-left: .35rem; vertical-align: middle;
+    }
+    .cmp-table .ico-yes { color: #16a34a; font-weight: 700; font-size: 1.05rem; }
+    .cmp-table .ico-no { color: var(--gray-400); font-weight: 700; }
+    .cmp-table .price { font-weight: 600; color: var(--gray-900); white-space: nowrap; }
+    .cmp-table .pa { font-size: .85rem; }
+    .cmp-prov { color: var(--navy, #1e3a5f); text-decoration: none; font-weight: 700; }
+    .cmp-prov:hover { text-decoration: underline; }
+    .scroll-hint { font-size: .8rem; color: var(--gray-500); margin: 0 0 1.5rem; }
+    /* Section info réforme */
+    .info-cal { width: 100%; min-width: 420px; border-collapse: collapse; font-size: .95rem; }
+    .info-cal th, .info-cal td { padding: .75rem 1rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+    .info-cal tbody tr:last-child td { border-bottom: 0; }
+    .info-cal thead th { background: var(--gray-100, #f1f5f9); font-weight: 700; color: var(--gray-800); }
+    .info-cal .date { font-weight: 700; color: var(--green-dark, #15803d); white-space: nowrap; }
+    /* Détail par éditeur */
+    .prov { margin: 0; padding: 2.25rem 0; border-top: 1px solid var(--gray-200); }
+    .prov:first-of-type { border-top: 0; padding-top: .75rem; }
+    .prov h3 { font-size: 1.2rem; color: var(--gray-900); margin: 0 0 .85rem; }
+    .prov p { margin: 0 0 1rem; line-height: 1.85; }
+    .prov p:last-child { margin-bottom: 0; }
+    .prov__tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .9rem; }
+    .prov__tag {
+      font-size: .75rem; font-weight: 600; color: var(--gray-700);
+      background: var(--gray-100, #f1f5f9); border-radius: 999px; padding: .2rem .65rem;
+    }
+    .prov__tag--aff { color: #15803d; background: #dcfce7; }
+    .prov__cta { font-weight: 600; text-decoration: none; color: var(--green, #16a34a); }
+    .prov__cta:hover { text-decoration: underline; }
+    /* Cartes recommandation */
+    .reco-grid {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 1.5rem 0;
+    }
+    .reco-card {
+      border: 1px solid var(--gray-200); border-radius: 14px; padding: 1.5rem;
+      background: #fff; display: flex; flex-direction: column;
+    }
+    .reco-card h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--gray-900); }
+    .reco-card p { color: var(--gray-600); line-height: 1.6; margin: 0 0 1.25rem; font-size: .95rem; flex-grow: 1; }
+    .reco-card .btn { white-space: normal; text-align: center; }
+    /* FAQ */
+    .faq { margin-top: 1rem; }
+    .faq details { border-bottom: 1px solid var(--gray-200); padding: 1rem 0; }
+    .faq summary { font-weight: 600; color: var(--gray-900); cursor: pointer; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; float: right; color: var(--gray-400); font-weight: 700; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: .75rem 0 0; }
+    /* Divulgation */
+    .cmp-disclosure {
+      font-size: .85rem; color: var(--gray-500); line-height: 1.6;
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1.5rem;
+    }
+    /* Maillage */
+    .tools-grid {
+      display: grid; gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 1.25rem;
+    }
+    .tool-card {
+      display: block; border: 1px solid var(--gray-200); border-radius: 12px;
+      padding: 1.1rem 1.25rem; text-decoration: none; background: #fff;
+      transition: border-color .15s, box-shadow .15s, transform .15s;
+    }
+    .tool-card:hover { border-color: var(--gray-300); box-shadow: 0 6px 20px rgba(15,45,82,.08); transform: translateY(-2px); }
+    .tool-card strong { display: block; color: var(--gray-900); margin-bottom: .2rem; }
+    .tool-card span { color: var(--gray-600); font-size: .9rem; line-height: 1.5; }
+    .tool-card .tool-card__arrow { color: var(--green, #16a34a); font-weight: 700; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qui est concerné par la facturation électronique obligatoire ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Toutes les entreprises assujetties à la TVA établies en France, y compris les auto-entrepreneurs et les entreprises en franchise en base de TVA. La réception de factures électroniques devient obligatoire pour tous au 1er septembre 2026. L'émission devient obligatoire au 1er septembre 2026 pour les grandes entreprises et ETI, et au 1er septembre 2027 pour les PME, TPE et micro-entreprises."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle différence entre un logiciel de facturation et une plateforme agréée (PA) ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le logiciel de facturation sert à créer et gérer vos devis et factures. La plateforme agréée (PA), nouveau terme officiel qui remplace « plateforme de dématérialisation partenaire » (PDP), est une entreprise immatriculée par l'État qui transmet officiellement vos factures dans le circuit. Certains logiciels sont eux-mêmes plateforme agréée (Indy, Tiime, Abby) ; d'autres sont des solutions compatibles connectées à une PA partenaire (Henrri via Pennylane, Evoliz via Chaintrust)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Un logiciel de facturation gratuit peut-il être conforme à la réforme ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. La conformité dépend du raccordement à une plateforme agréée et du respect du format (Factur-X notamment), pas du prix. Plusieurs solutions gratuites sont conformes : Indy, Tiime et Abby sont elles-mêmes des plateformes agréées et incluent la facturation électronique sans surcoût ; Henrri est gratuit via une PA partenaire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "J'ai déjà un logiciel de facturation, dois-je en changer ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pas forcément. Vérifiez simplement que votre logiciel est, ou sera, soit une plateforme agréée, soit une solution compatible connectée à une plateforme agréée. La plupart des éditeurs se mettent en conformité — vérifiez qu'ils l'annoncent clairement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "En micro-entreprise ou en franchise de TVA, suis-je concerné ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. La réforme s'applique à tous les assujettis à la TVA, qu'ils soient redevables ou non. Les micro-entrepreneurs et les entreprises en franchise en base de TVA doivent pouvoir recevoir des factures électroniques au 1er septembre 2026, et en émettre au 1er septembre 2027."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que risque-t-on si on ne se met pas en conformité ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Des sanctions sont prévues : défaut d'émission d'une facture électronique 50 € par facture, défaut de transmission des données (e-reporting) 500 € par transmission, chacune plafonnée à 15 000 € par an ; et en cas de non-recours à une plateforme agréée pour recevoir, 500 € après mise en demeure puis 1 000 € par trimestre. Une tolérance est prévue pour une première erreur régularisée."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/comparateurs" class="nav__link">Comparateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE HUB -->
+  <section class="hub-head">
+    <div class="wrap">
+      <h1>Comparatif des logiciels de facturation</h1>
+      <p>
+        Quel logiciel choisir pour facturer et être conforme à la facturation électronique
+        obligatoire ? On compare les offres gratuites, les prix et le statut de plateforme
+        agréée des principaux outils pour les TPE, freelances et auto-entrepreneurs.
+      </p>
+      <p class="cmp-update">Données vérifiées le 18 juin 2026 — réglementation et offres susceptibles d'évoluer.</p>
+    </div>
+  </section>
+
+  <section class="cmp">
+    <div class="wrap">
+
+      <p class="cmp__intro">
+        La facturation électronique devient progressivement obligatoire en France. Bonne nouvelle :
+        plusieurs logiciels sont déjà conformes, et certains sont <strong>gratuits</strong>. Tout l'enjeu
+        est de choisir un outil qui soit soit une <strong>plateforme agréée</strong>, soit connecté à une
+        plateforme agréée — on vous explique tout ci-dessous, puis on compare six solutions adaptées
+        aux petites structures : Indy, Tiime, Abby, Henrri, Freebe et Evoliz.
+      </p>
+
+      <!-- RÉFORME -->
+      <h2>Facturation électronique : ce qui change en 2026-2027</h2>
+      <p>
+        La réforme impose aux entreprises assujetties à la TVA d'<strong>émettre et recevoir leurs
+        factures entre professionnels au format électronique</strong> (e-invoicing), et de transmettre
+        à l'administration certaines données de transactions et de paiement (e-reporting). Le calendrier
+        dépend de la taille de l'entreprise :
+      </p>
+      <div class="table-scroll">
+        <table class="info-cal">
+          <thead>
+            <tr><th scope="col">Échéance</th><th scope="col">Qui est concerné</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="date">1<sup>er</sup> septembre 2026</td><td><strong>Réception</strong> de factures électroniques : <strong>toutes</strong> les entreprises. <strong>Émission</strong> : grandes entreprises et ETI.</td></tr>
+            <tr><td class="date">1<sup>er</sup> septembre 2027</td><td><strong>Émission</strong> de factures électroniques et e-reporting : <strong>PME, TPE et micro-entreprises</strong>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>Auto-entrepreneurs et franchise en base de TVA inclus :</strong> la réforme s'applique à
+        tous les assujettis à la TVA, qu'ils soient redevables ou non. Vous devrez donc pouvoir recevoir
+        des factures électroniques dès septembre 2026.
+      </p>
+      <p>
+        Point de vocabulaire important : ce qu'on appelait jusqu'à récemment une <strong>« PDP »
+        (plateforme de dématérialisation partenaire)</strong> s'appelle désormais officiellement une
+        <strong>« plateforme agréée » (PA)</strong> — une entreprise privée immatriculée par l'État pour
+        transmettre les factures. Le portail public de facturation (PPF) ne joue plus le rôle de
+        plateforme gratuite : il faut passer par une plateforme agréée, soit directement, soit via votre
+        logiciel s'il y est connecté.
+      </p>
+
+      <!-- TABLEAU -->
+      <h2>Le comparatif en un coup d'œil</h2>
+      <div class="table-scroll">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th scope="col">Logiciel</th>
+              <th scope="col">À partir de<br><span style="font-weight:500;color:var(--gray-500);font-size:.78rem;">HT/mois</span></th>
+              <th scope="col">Offre<br>gratuite</th>
+              <th scope="col">Plateforme<br>agréée</th>
+              <th scope="col">Idéal pour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://urlr.me/Q7gRjE" rel="sponsored nofollow noopener" target="_blank">Indy</a><span class="badge-aff">partenaire</span></th>
+              <td class="price">Gratuit</td>
+              <td><span class="ico-yes" role="img" aria-label="oui">✓</span></td>
+              <td class="pa">En propre</td>
+              <td>AE &amp; libéraux (compta incluse)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Tiime</a><span class="badge-aff">partenaire</span></th>
+              <td class="price">Gratuit</td>
+              <td><span class="ico-yes" role="img" aria-label="oui">✓</span></td>
+              <td class="pa">En propre</td>
+              <td>Facturer gratuitement + compte pro</td>
+            </tr>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://c3po.link/QB7BppSwzc" rel="sponsored nofollow noopener" target="_blank">Abby</a><span class="badge-aff">partenaire</span></th>
+              <td class="price">Gratuit</td>
+              <td><span class="ico-yes" role="img" aria-label="oui">✓</span></td>
+              <td class="pa">En propre</td>
+              <td>Auto-entrepreneurs (URSSAF intégrée)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://www.henrri.com" rel="nofollow noopener" target="_blank">Henrri</a></th>
+              <td class="price">Gratuit</td>
+              <td><span class="ico-yes" role="img" aria-label="oui">✓</span></td>
+              <td class="pa">Via Pennylane</td>
+              <td>TPE qui veulent du 100 % gratuit</td>
+            </tr>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://www.freebe.me" rel="nofollow noopener" target="_blank">Freebe</a></th>
+              <td class="price">12,50 €</td>
+              <td><span class="ico-no" role="img" aria-label="non">—</span></td>
+              <td class="pa">Via partenaire</td>
+              <td>Freelances (suivi du temps)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a class="cmp-prov" href="https://www.evoliz.com" rel="nofollow noopener" target="_blank">Evoliz</a></th>
+              <td class="price">29 €</td>
+              <td><span class="ico-no" role="img" aria-label="non">—</span></td>
+              <td class="pa">Via Chaintrust</td>
+              <td>TPE/PME avec expert-comptable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scroll-hint">Prix d'entrée hors taxes. « Plateforme agréée : en propre » = le logiciel est lui-même immatriculé PA ; « via … » = solution compatible connectée à une PA partenaire (les deux permettent d'être conforme). Tous incluent la facturation électronique. Détail par éditeur ci-dessous.</p>
+
+      <!-- DÉTAIL -->
+      <h2>Les logiciels en détail</h2>
+
+      <div class="prov">
+        <h3>Indy — facturation gratuite et plateforme agréée</h3>
+        <div class="prov__tags">
+          <span class="prov__tag prov__tag--aff">Partenaire</span>
+          <span class="prov__tag">Gratuit</span>
+          <span class="prov__tag">Plateforme agréée</span>
+          <span class="prov__tag">Compta intégrée</span>
+        </div>
+        <p>
+          Indy propose des <strong>devis et factures gratuits et illimités</strong>, au format Factur-X,
+          avec la facturation électronique incluse sans surcoût. Surtout, Indy est <strong>immatriculée
+          plateforme agréée (PA, ex-PDP) directement par la DGFiP</strong> : vous n'avez pas besoin de
+          passer par un intermédiaire. La comptabilité automatisée et les déclarations (TVA, URSSAF)
+          relèvent des offres payantes (Plus dès 9 €, Premium dès 15 € HT/mois selon le statut).
+        </p>
+        <p>
+          Idéal pour un <strong>auto-entrepreneur, un libéral ou une petite société</strong> qui veut
+          facturer gratuitement en étant conforme, et éventuellement tenir sa compta au même endroit. Sa
+          limite : un écosystème franco-centré, sans multidevise.
+          <a class="prov__cta" href="https://urlr.me/Q7gRjE" rel="sponsored nofollow noopener" target="_blank">Découvrir Indy →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Tiime — facturer gratuitement, avec un compte pro en option</h3>
+        <div class="prov__tags">
+          <span class="prov__tag prov__tag--aff">Partenaire</span>
+          <span class="prov__tag">Gratuit (facturation)</span>
+          <span class="prov__tag">Plateforme agréée</span>
+        </div>
+        <p>
+          L'offre <strong>Free de Tiime permet de créer devis et factures en illimité gratuitement</strong>,
+          facturation électronique comprise. Tiime est <strong>immatriculée plateforme agréée par la
+          DGFiP</strong> (avec un haut niveau de sécurité : ISO 27001, SecNumCloud, interopérabilité
+          Peppol). Le compte pro, la synchronisation bancaire et la pré-compta — avec lien direct vers
+          l'expert-comptable — arrivent sur les offres payantes (Smart 17,99 €, Business 24,99 € HT/mois).
+        </p>
+        <p>
+          Le bon choix si vous voulez <strong>facturer gratuitement en étant conforme</strong>, avec la
+          possibilité d'ajouter ensuite un compte pro et des outils de gestion. Sa limite : la gratuité
+          couvre la facturation, pas le compte pro ni la compta.
+          <a class="prov__cta" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Découvrir Tiime →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Abby — pensé pour les auto-entrepreneurs</h3>
+        <div class="prov__tags">
+          <span class="prov__tag prov__tag--aff">Partenaire</span>
+          <span class="prov__tag">Offre gratuite</span>
+          <span class="prov__tag">Plateforme agréée</span>
+          <span class="prov__tag">URSSAF</span>
+        </div>
+        <p>
+          Abby propose un <strong>plan gratuit (Basique, 0 €)</strong> avec devis et factures illimités et
+          la facturation électronique conforme. Abby est <strong>plateforme agréée certifiée par la
+          DGFiP</strong> (référencée sur le réseau Peppol). Au-delà, les formules Start (9 €), Pro (15 €,
+          relances et signature électronique) et Business (33 €) ajoutent des fonctions de gestion. Atout
+          spécifique micro : Abby est <strong>partenaire officiel de l'URSSAF</strong> et permet de
+          télédéclarer son chiffre d'affaires.
+        </p>
+        <p>
+          Idéal pour un <strong>auto-entrepreneur</strong> qui veut facturer, déclarer son URSSAF et être
+          conforme, gratuitement pour démarrer. Sa limite : l'outil est pensé pour la micro-entreprise et
+          l'indépendant solo ; les fonctions avancées sont sur l'offre Business.
+          <a class="prov__cta" href="https://c3po.link/QB7BppSwzc" rel="sponsored nofollow noopener" target="_blank">Découvrir Abby →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Henrri — du 100 % gratuit, via une plateforme agréée partenaire</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Gratuit</span>
+          <span class="prov__tag">Solution compatible</span>
+        </div>
+        <p>
+          Henrri propose une formule <strong>gratuite et illimitée</strong> (devis, factures, clients), avec
+          la facturation électronique 2026 incluse. Attention toutefois : Henrri <strong>n'est pas une
+          plateforme agréée lui-même</strong> — c'est une « solution compatible » connectée à la
+          <strong>plateforme agréée Pennylane</strong>, qui se charge de la transmission officielle. Les
+          formules payantes (Expert 17 €, Smart 25 €, VIP 49 € HT/mois) ajoutent des fonctions avancées
+          (relances sur plusieurs niveaux, etc.).
+        </p>
+        <p>
+          Parfait pour une <strong>TPE ou un indépendant</strong> qui veut un outil 100 % gratuit et
+          conforme sans budget logiciel. Ses limites : la transmission dépend d'un partenaire (Pennylane),
+          et il n'y a pas de gestion de stock.
+          <a class="prov__cta" href="https://www.henrri.com" rel="nofollow noopener" target="_blank">Voir Henrri →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Freebe — le spécialiste des freelances</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Dès 12,50 € HT/mois</span>
+          <span class="prov__tag">Solution compatible</span>
+          <span class="prov__tag">Freelances</span>
+        </div>
+        <p>
+          Freebe est un outil <strong>spécialisé pour les freelances et indépendants</strong> : facturation,
+          CRM, mais aussi <strong>suivi du temps et de la rentabilité</strong> par mission et préparation de
+          la déclaration URSSAF. Pas d'offre gratuite permanente (essai de 30 jours), puis un tarif unique
+          tout inclus à partir de <strong>12,50 € HT/mois</strong> (15 € TTC) en micro-entreprise. Côté
+          réforme, Freebe est une <strong>solution compatible adossée à une plateforme agréée</strong>.
+        </p>
+        <p>
+          Idéal pour un <strong>freelance</strong> qui veut un outil simple, complet et orienté gestion du
+          temps. Ses limites : c'est payant, et Freebe n'est pas plateforme agréée en propre (il dépend
+          d'une PA partenaire).
+          <a class="prov__cta" href="https://www.freebe.me" rel="nofollow noopener" target="_blank">Voir Freebe →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Evoliz — pour les TPE/PME proches de leur expert-comptable</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Dès 29 € HT/mois</span>
+          <span class="prov__tag">Solution compatible</span>
+          <span class="prov__tag">TPE/PME</span>
+        </div>
+        <p>
+          Evoliz vise les <strong>TPE/PME et les experts-comptables</strong>, avec une facturation complète
+          (formats Factur-X, UBL et CII, certification anti-fraude NF203) et des fonctions de gestion
+          (achats, stock simplifié, relances automatiques sur l'offre Avancée). Pas d'offre gratuite (essai
+          de 15 jours), puis Essentielle 29 € et Avancée 49 € HT/mois. Evoliz est une <strong>solution
+          compatible intégrant la plateforme agréée Chaintrust</strong> (groupe Visma, sa maison mère).
+        </p>
+        <p>
+          Bon choix pour une <strong>TPE/PME</strong> qui a des besoins de gestion et travaille avec un
+          expert-comptable. Ses limites : pas de comptabilité complète intégrée (export/collaboration), et
+          la conformité repose sur un tiers (Chaintrust).
+          <a class="prov__cta" href="https://www.evoliz.com" rel="nofollow noopener" target="_blank">Voir Evoliz →</a>
+        </p>
+      </div>
+
+      <!-- RECOMMANDATIONS -->
+      <h2>Quel logiciel selon votre profil</h2>
+      <div class="reco-grid">
+        <div class="reco-card">
+          <h3>Vous débutez, budget zéro</h3>
+          <p>
+            <strong>Indy</strong> offre une facturation gratuite et illimitée, est plateforme agréée en
+            propre, et permet de tenir sa compta. Alternatives gratuites tout aussi conformes : Tiime,
+            Abby et Henrri.
+          </p>
+          <a class="btn btn-green" href="https://urlr.me/Q7gRjE" rel="sponsored nofollow noopener" target="_blank">Découvrir Indy</a>
+        </div>
+        <div class="reco-card">
+          <h3>Vous voulez facturer + un compte pro</h3>
+          <p>
+            <strong>Tiime</strong> facture gratuitement (plateforme agréée), puis ajoute compte pro,
+            synchronisation bancaire et lien direct avec votre expert-comptable sur ses offres payantes.
+          </p>
+          <a class="btn btn-green" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Découvrir Tiime</a>
+        </div>
+        <div class="reco-card">
+          <h3>Auto-entrepreneur, gérer l'URSSAF</h3>
+          <p>
+            <strong>Abby</strong> combine facturation gratuite et conforme, estimation et télédéclaration
+            URSSAF (partenaire officiel), idéal pour piloter sa micro-entreprise au même endroit.
+          </p>
+          <a class="btn btn-green" href="https://c3po.link/QB7BppSwzc" rel="sponsored nofollow noopener" target="_blank">Découvrir Abby</a>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Qui est concerné par la facturation électronique obligatoire ?</summary>
+          <p>
+            Toutes les entreprises assujetties à la TVA établies en France, auto-entrepreneurs et franchise
+            en base de TVA compris. La <strong>réception</strong> devient obligatoire pour tous au
+            <strong>1<sup>er</sup> septembre 2026</strong>. L'<strong>émission</strong> est obligatoire au
+            1<sup>er</sup> septembre 2026 pour les grandes entreprises et ETI, et au
+            <strong>1<sup>er</sup> septembre 2027</strong> pour les PME, TPE et micro-entreprises.
+          </p>
+        </details>
+        <details>
+          <summary>Quelle différence entre un logiciel de facturation et une plateforme agréée (PA) ?</summary>
+          <p>
+            Le logiciel crée et gère vos factures ; la <strong>plateforme agréée (PA)</strong> — nouveau
+            terme officiel qui remplace « PDP » — est immatriculée par l'État pour transmettre
+            officiellement les factures. Certains logiciels sont eux-mêmes PA (Indy, Tiime, Abby) ;
+            d'autres sont des solutions compatibles connectées à une PA partenaire (Henrri via Pennylane,
+            Evoliz via Chaintrust).
+          </p>
+        </details>
+        <details>
+          <summary>Un logiciel de facturation gratuit peut-il être conforme ?</summary>
+          <p>
+            Oui : la conformité dépend du raccordement à une plateforme agréée et du format (Factur-X),
+            pas du prix. Indy, Tiime et Abby sont des plateformes agréées et incluent la facturation
+            électronique gratuitement ; Henrri est gratuit via une PA partenaire.
+          </p>
+        </details>
+        <details>
+          <summary>J'ai déjà un logiciel, dois-je en changer ?</summary>
+          <p>
+            Pas forcément. Vérifiez qu'il est (ou sera) soit une plateforme agréée, soit une solution
+            compatible connectée à une PA. La plupart des éditeurs se mettent en conformité — assurez-vous
+            qu'ils l'annoncent.
+          </p>
+        </details>
+        <details>
+          <summary>En micro-entreprise ou en franchise de TVA, suis-je concerné ?</summary>
+          <p>
+            Oui. La réforme s'applique à tous les assujettis à la TVA, redevables ou non. Vous devrez
+            pouvoir recevoir des factures électroniques dès septembre 2026, et en émettre à partir de
+            septembre 2027.
+          </p>
+        </details>
+        <details>
+          <summary>Que risque-t-on si on ne se met pas en conformité ?</summary>
+          <p>
+            Des sanctions sont prévues : 50 € par facture non émise au format électronique, 500 € par
+            transmission de données manquante (e-reporting), chacune plafonnée à 15 000 € par an ; et en
+            cas de non-recours à une plateforme agréée pour recevoir, 500 € après mise en demeure puis
+            1 000 € par trimestre. Une tolérance existe pour une première erreur régularisée.
+          </p>
+        </details>
+      </div>
+
+      <!-- DIVULGATION -->
+      <p class="cmp-disclosure">
+        Certains liens de cette page sont des liens partenaires (Indy, Tiime, Abby) : si vous souscrivez,
+        nous pouvons percevoir une commission, sans surcoût pour vous. Cela nous permet de garder nos outils
+        gratuits et n'influence pas notre comparatif. Les autres liens renvoient vers les sites officiels.
+        Informations vérifiées le 18 juin 2026 ; la réglementation et les offres évoluent — vérifiez les
+        conditions à jour sur le site de l'éditeur et sur impots.gouv.fr avant de vous décider.
+      </p>
+
+      <!-- MAILLAGE -->
+      <h2>Pour aller plus loin</h2>
+      <p>
+        Une fois votre logiciel choisi, pensez aussi à votre compte bancaire pro et à vos outils de
+        pilotage :
+      </p>
+      <div class="tools-grid">
+        <a class="tool-card" href="/comparateur-comptes-pro">
+          <strong>Comparatif des comptes pro</strong>
+          <span>Qonto, Shine, Indy, Tiime… le bon compte pro pour votre activité. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/calculateur-tjm-freelance">
+          <strong>Calculateur de TJM freelance</strong>
+          <span>Le taux journalier à facturer pour atteindre votre revenu net. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/calculateur-tresorerie-previsionnelle">
+          <strong>Simulateur de trésorerie</strong>
+          <span>Anticipez le mois où votre solde passe dans le rouge. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/guides/creer-son-auto-entreprise">
+          <strong>Guide : créer son auto-entreprise</strong>
+          <span>Toutes les étapes sur le guichet unique de l'INPI. <span class="tool-card__arrow">→</span></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/comparateurs">Comparateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
