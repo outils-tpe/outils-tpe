@@ -90,7 +90,7 @@ L'entrée se fait par type d'outil. « Guides » est déjà dans le menu mais po
 
 ### Footer (toutes les pages)
 ```
-Outils : Calculateurs | Modèles Excel | Guides
+Outils : Calculateurs | Comparateurs | Modèles Excel | Guides
 Le site : Sur mesure | Mentions légales | CGV | Confidentialité
 ```
 Pas encore de mention d'affiliation globale dans le footer (aucun programme partenaire actif). À ajouter quand l'affiliation sera en place.
