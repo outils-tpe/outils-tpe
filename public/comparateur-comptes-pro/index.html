@@ -53,9 +53,8 @@
       font-weight: 800;
       letter-spacing: -.02em;
       color: var(--gray-900);
-      margin: 2.25rem 0 .9rem;
+      margin: 2.5rem 0 .9rem;
     }
-    .cmp h3 { color: var(--gray-900); }
     .cmp p, .cmp li { color: var(--gray-700); line-height: 1.75; }
     .cmp ul { padding-left: 1.2rem; }
     .cmp li { margin-bottom: .4rem; }
@@ -107,9 +106,38 @@
     }
     .cmp-table .yes { color: #16a34a; font-weight: 600; }
     .cmp-table .no  { color: #dc2626; font-weight: 600; }
-    .cmp-prov { color: var(--brand, #1e3a5f); text-decoration: none; font-weight: 700; }
+    .cmp-prov { color: var(--navy, #1e3a5f); text-decoration: none; font-weight: 700; }
     .cmp-prov:hover { text-decoration: underline; }
     .scroll-hint { font-size: .8rem; color: var(--gray-500); margin: 0 0 1.5rem; }
+    /* --- Détail par acteur --- */
+    .prov { margin: 0 0 1.75rem; }
+    .prov h3 {
+      font-size: 1.15rem;
+      color: var(--gray-900);
+      margin: 0 0 .5rem;
+    }
+    .prov__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin: 0 0 .6rem;
+    }
+    .prov__tag {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      background: var(--gray-100, #f1f5f9);
+      border-radius: 999px;
+      padding: .2rem .65rem;
+    }
+    .prov__tag--aff { color: #15803d; background: #dcfce7; }
+    .prov p { margin: 0 0 .6rem; }
+    .prov__cta {
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--green, #16a34a);
+    }
+    .prov__cta:hover { text-decoration: underline; }
     /* --- Cartes recommandation --- */
     .reco-grid {
       display: grid;
@@ -125,20 +153,10 @@
       display: flex;
       flex-direction: column;
     }
-    .reco-card h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+    .reco-card h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--gray-900); }
     .reco-card p { color: var(--gray-600); line-height: 1.6; margin: 0 0 1.25rem; font-size: .95rem; flex-grow: 1; }
-    .btn-outline {
-      display: inline-block;
-      padding: .7rem 1.1rem;
-      border: 1.5px solid var(--gray-300);
-      border-radius: 10px;
-      color: var(--gray-800);
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: border-color .15s, background .15s;
-    }
-    .btn-outline:hover { border-color: var(--gray-400); background: var(--gray-50); }
+    /* le bouton global a white-space:nowrap : on autorise le retour à la ligne dans les cartes */
+    .reco-card .btn { white-space: normal; text-align: center; }
     /* --- FAQ --- */
     .faq { margin-top: 1rem; }
     .faq details {
@@ -166,9 +184,30 @@
       padding: 1rem 1.25rem;
       margin-top: 1.5rem;
     }
-    /* --- Maillage --- */
-    .cmp-links { margin-top: 1rem; }
-    .cmp-links a { font-weight: 600; }
+    /* --- Maillage : cartes outils --- */
+    .tools-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin-top: 1.25rem;
+    }
+    .tool-card {
+      display: block;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      text-decoration: none;
+      background: #fff;
+      transition: border-color .15s, box-shadow .15s, transform .15s;
+    }
+    .tool-card:hover {
+      border-color: var(--gray-300);
+      box-shadow: 0 6px 20px rgba(15,45,82,.08);
+      transform: translateY(-2px);
+    }
+    .tool-card strong { display: block; color: var(--gray-900); margin-bottom: .2rem; }
+    .tool-card span { color: var(--gray-600); font-size: .9rem; line-height: 1.5; }
+    .tool-card .tool-card__arrow { color: var(--green, #16a34a); font-weight: 700; }
   </style>
 
   <script type="application/ld+json">
@@ -261,10 +300,12 @@
     <div class="wrap">
 
       <p class="cmp__intro">
-        Tous les comptes comparés ci-dessous proposent un <strong>IBAN français</strong> et une
+        Tous les comptes pro comparés ci-dessous proposent un <strong>IBAN français</strong> et une
         <strong>carte physique</strong>. Ils se distinguent surtout par leur prix, la présence ou non
         d'une offre gratuite, la possibilité de déposer son capital pour créer une société, et les
-        outils de gestion intégrés (facturation, compta, déclaration URSSAF).
+        outils de gestion intégrés (facturation, comptabilité, déclaration URSSAF). Nous avons retenu
+        <strong>sept acteurs</strong> représentatifs du marché français : Qonto, Shine, Finom, Indy,
+        Tiime, Blank et Propulse by CA.
       </p>
 
       <!-- FAUT-IL UN COMPTE PRO -->
@@ -273,15 +314,16 @@
         En auto-entreprise, l'ouverture d'un compte bancaire <strong>dédié</strong> à votre activité
         n'est obligatoire qu'à partir du moment où votre chiffre d'affaires dépasse
         <strong>10 000 € deux années civiles consécutives</strong>. En dessous, ce n'est pas une
-        obligation — mais séparer ses finances pro et perso reste vivement conseillé dès le départ.
+        obligation — mais séparer ses finances pro et perso reste vivement conseillé dès le départ
+        pour y voir clair et faciliter vos déclarations.
       </p>
       <p>
         Attention à une confusion fréquente : la loi impose un compte <em>dédié</em>, pas forcément un
         « compte pro » payant. Un simple compte courant séparé peut suffire. Les comptes pro des
         néobanques se justifient par les <strong>services</strong> qu'ils ajoutent (facturation,
-        encaissement, compta, estimation des cotisations). Si vous créez une <strong>société</strong>
+        encaissement, comptabilité, estimation des cotisations). Si vous créez une <strong>société</strong>
         (SASU, EURL…), en revanche, un compte pro et un <strong>dépôt de capital</strong> sont
-        nécessaires.
+        nécessaires dès l'immatriculation.
       </p>
 
       <!-- TABLEAU -->
@@ -306,7 +348,7 @@
               </th>
               <td>Gratuit</td>
               <td><span class="yes">Oui</span> (compte pro)</td>
-              <td><span class="yes">Oui</span> (59 €, offert avec l'abonnement Premium)</td>
+              <td><span class="yes">Oui</span> (59 €, offert avec Premium)</td>
               <td><span class="yes">Oui</span></td>
               <td>Faire sa compta soi-même (AE, libéraux)</td>
             </tr>
@@ -347,7 +389,7 @@
               </th>
               <td>9 € HT/mois</td>
               <td><span class="no">Non</span> (essai 30 j)</td>
-              <td><span class="yes">Oui</span> (69 €, offert avec l'abonnement)</td>
+              <td><span class="yes">Oui</span> (69 €, offert avec abo)</td>
               <td><span class="yes">Oui</span></td>
               <td>Créer et gérer une société</td>
             </tr>
@@ -376,6 +418,175 @@
       </div>
       <p class="scroll-hint">Prix indiqués hors taxes (HT). Les offres « gratuites » comportent des limites ; les formules payantes débloquent plus de services. Faites défiler le tableau horizontalement sur mobile.</p>
 
+      <!-- DÉTAIL PAR ACTEUR -->
+      <h2>Les 7 comptes pro en détail</h2>
+
+      <div class="prov">
+        <h3>Indy — le compte pro gratuit avec comptabilité intégrée</h3>
+        <div class="prov__tags">
+          <span class="prov__tag prov__tag--aff">Partenaire</span>
+          <span class="prov__tag">Compte pro gratuit</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Compta automatisée</span>
+        </div>
+        <p>
+          Indy est avant tout un logiciel de comptabilité pour indépendants, qui inclut un
+          <strong>compte pro 100 % gratuit</strong> : IBAN français (via Swan), carte Mastercard
+          physique et virtuelle, Apple Pay et Google Pay. Sa vraie force, c'est la comptabilité
+          automatisée : catégorisation des opérations, et selon la formule payante (à partir de
+          ~9 €, déclarations TVA/URSSAF/liasse incluses dès l'offre Premium dès 15 € HT/mois selon
+          le statut), de quoi tenir sa compta sans expert-comptable.
+        </p>
+        <p>
+          C'est le meilleur choix pour un <strong>auto-entrepreneur, un libéral ou une petite société
+          à l'IS</strong> qui veut piloter sa comptabilité lui-même et garder un compte pro gratuit.
+          Le dépôt de capital pour créer une société coûte 59 € (offert avec l'abonnement Premium).
+          Sa limite : c'est d'abord un outil de gestion, moins riche en services purement bancaires
+          (pas de dépôt d'espèces ni de chèques).
+          <a class="prov__cta" href="https://urlr.me/6j3JDs" rel="sponsored nofollow noopener" target="_blank">Ouvrir un compte Indy →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Shine — le tout-en-un avec accompagnement administratif</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Offre gratuite</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Groupe Société Générale</span>
+        </div>
+        <p>
+          Shine (groupe Société Générale) propose une véritable <strong>offre gratuite</strong>
+          (Shine Free, 0 €) avec IBAN français, carte Mastercard et facturation illimitée, puis des
+          formules Start (9 €), Plus (20 €) et Business (60 € HT/mois). Apple Pay et Google Pay sont
+          pris en charge. Au-delà du compte, Shine soigne l'<strong>accompagnement administratif</strong> :
+          estimation des cotisations, relances de factures, dépôt de capital (dès 69 €) et création
+          d'entreprise.
+        </p>
+        <p>
+          Idéal pour un <strong>indépendant ou une petite société</strong> qui veut gérer compte,
+          facturation et démarches au même endroit, avec une offre gratuite pour démarrer. Sa limite :
+          la comptabilité se fait par export et intégrations (pas de compta complète automatisée comme
+          Indy), et l'offre vise des structures de petite taille.
+          <a class="prov__cta" href="https://www.shine.fr" rel="nofollow noopener" target="_blank">Voir Shine →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Finom — l'offre gratuite avec cashback et IBAN français</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Offre gratuite</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Cashback</span>
+        </div>
+        <p>
+          Finom mise sur une <strong>offre Solo gratuite</strong> avec IBAN français (via Treezor,
+          groupe Société Générale, fonds garantis jusqu'à 100 000 €), facturation intégrée et
+          <strong>cashback</strong> (jusqu'à 3 % selon la formule). Les formules payantes démarrent
+          autour de 17 € HT/mois (facturation annuelle), et le dépôt de capital coûte 60 €. Apple Pay
+          et Google Pay sont compatibles.
+        </p>
+        <p>
+          Un bon choix pour un <strong>indépendant ou une petite société</strong> qui cherche une
+          offre gratuite (ou peu chère) avec IBAN français et un peu de cashback sur ses dépenses. Sa
+          limite : pas de chéquier ni d'encaissement de chèques, et pas de terminal de paiement en
+          propre.
+          <a class="prov__cta" href="https://finom.co/fr-fr/" rel="nofollow noopener" target="_blank">Voir Finom →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Tiime — pensé pour travailler avec son expert-comptable</h3>
+        <div class="prov__tags">
+          <span class="prov__tag prov__tag--aff">Partenaire</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Lien expert-comptable</span>
+        </div>
+        <p>
+          Tiime est né d'outils conçus pour les experts-comptables, et ça reste son point fort :
+          un <strong>accès collaboratif natif</strong> pour votre comptable. L'offre Free permet déjà
+          de faire sa facturation et sa pré-compta, mais le <strong>compte pro</strong> (IBAN français,
+          carte Mastercard physique et virtuelle, Apple/Google Pay) arrive à partir de l'offre Smart
+          (17,99 € HT/mois), puis Business (24,99 €). Le dépôt de capital pour créer une société est
+          inclus dans l'abonnement.
+        </p>
+        <p>
+          C'est le meilleur choix pour un entrepreneur (auto-entrepreneur comme société) qui
+          <strong>délègue sa comptabilité</strong> et veut centraliser facturation, pré-compta et banque
+          tout en travaillant avec son comptable. Sa limite : le compte pro n'est pas dans l'offre
+          gratuite, et l'encaissement par carte passe par un terminal partenaire (SumUp).
+          <a class="prov__cta" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Découvrir Tiime →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Qonto — le plus complet pour créer et gérer une société</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Dépôt de capital</span>
+          <span class="prov__tag">Sociétés &amp; équipes</span>
+        </div>
+        <p>
+          Qonto est l'un des leaders européens du compte pro, orienté <strong>création et gestion de
+          société</strong>. Pas d'offre gratuite (essai de 30 jours), mais des formules dès 9 € HT/mois
+          (Basic), Smart (19 €), Premium (39 €), puis des offres pour les équipes. IBAN français dès
+          l'entrée de gamme, facturation intégrée (à partir de Smart), gestion des dépenses, Apple Pay
+          et Google Pay. Le <strong>dépôt de capital</strong> en ligne (69 €, offert avec un abonnement)
+          délivre une attestation rapide.
+        </p>
+        <p>
+          Le bon choix pour les <strong>créateurs de SASU/EURL et les TPE/PME</strong> qui veulent
+          centraliser compte, dépenses et facturation, avec un service solide. Sa limite : pas d'offre
+          gratuite, et la comptabilité se fait par export (pas de compta intégrée).
+          <a class="prov__cta" href="https://qonto.com/fr" rel="nofollow noopener" target="_blank">Voir Qonto →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Blank — le compte pro simple et pas cher pour auto-entrepreneur</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Dès 6 € HT/mois</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Groupe Crédit Agricole</span>
+        </div>
+        <p>
+          Blank (groupe Crédit Agricole) vise l'<strong>auto-entrepreneur solo</strong> avec un tarif
+          d'entrée bas : Simple (6 €), Confort (17 €), Complète (39 € HT/mois), 1<sup>er</sup> mois
+          offert. On y retrouve l'essentiel : IBAN français, carte Visa Business, facturation,
+          <strong>déclaration URSSAF automatisée</strong>, et l'encaissement par carte via un terminal
+          partenaire (Zettle). La solidité du groupe Crédit Agricole rassure (dépôts garantis jusqu'à
+          100 000 €).
+        </p>
+        <p>
+          Parfait pour un indépendant seul au <strong>petit budget</strong> qui veut un outil simple.
+          Ses limites sont nettes : pas de sous-comptes ni de cartes virtuelles, <strong>pas d'Apple Pay
+          ni de Google Pay</strong>, et plus de dépôt de capital (service suspendu depuis 2025) — il ne
+          suivra pas si votre activité grossit.
+          <a class="prov__cta" href="https://www.blank.app" rel="nofollow noopener" target="_blank">Voir Blank →</a>
+        </p>
+      </div>
+
+      <div class="prov">
+        <h3>Propulse by CA — le compte pro adossé au Crédit Agricole</h3>
+        <div class="prov__tags">
+          <span class="prov__tag">Dès 8 € HT/mois</span>
+          <span class="prov__tag">IBAN français</span>
+          <span class="prov__tag">Groupe Crédit Agricole</span>
+        </div>
+        <p>
+          Propulse by CA (Crédit Agricole, via l'établissement Okali) s'adresse surtout aux
+          <strong>auto-entrepreneurs</strong> qui veulent la réassurance d'un grand groupe bancaire.
+          Deux formules : Start (8 €) et Start+ (17 € HT/mois), 1<sup>er</sup> mois offert. IBAN
+          français, carte Visa Business, facturation, déclaration URSSAF automatisée, et dépôt de
+          capital en ligne pour créer une société.
+        </p>
+        <p>
+          Un bon choix pour qui privilégie la <strong>solidité d'un acteur bancaire historique</strong>.
+          Ses limites : pas d'Apple Pay ni Google Pay, pas de cartes virtuelles, pas de terminal de
+          paiement, et pas de chéquier ni de dépôt d'espèces (renvoi en agence Crédit Agricole).
+          <a class="prov__cta" href="https://propulsebyca.fr" rel="nofollow noopener" target="_blank">Voir Propulse by CA →</a>
+        </p>
+      </div>
+
       <!-- RECOMMANDATIONS PAR PROFIL -->
       <h2>Quel compte pro selon votre profil</h2>
 
@@ -401,11 +612,11 @@
         <div class="reco-card">
           <h3>Vous créez une société</h3>
           <p>
-            Pour une SASU ou une EURL, le <strong>dépôt de capital en ligne</strong> est un vrai
-            gain de temps. Tiime et Indy l'incluent dans l'abonnement ; Qonto et Shine le proposent
-            aussi (souvent offert avec un abonnement).
+            Pour une SASU ou une EURL, le <strong>dépôt de capital en ligne</strong> fait gagner du
+            temps. Tiime et Indy l'incluent dans l'abonnement ; Qonto et Shine le proposent aussi
+            (souvent offert avec un abonnement).
           </p>
-          <a class="btn btn-outline" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Déposer mon capital avec Tiime</a>
+          <a class="btn btn-green" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Déposer mon capital</a>
         </div>
       </div>
 
@@ -467,16 +678,28 @@
 
       <!-- MAILLAGE -->
       <h2>Avant d'ouvrir un compte, pilotez vos chiffres</h2>
-      <p class="cmp-links">
+      <p>
         Un compte pro vous aide à séparer vos finances, mais le plus important reste de bien fixer vos
-        prix et d'anticiper votre trésorerie. Nos calculateurs gratuits sont là pour ça :
+        prix et d'anticiper votre trésorerie. Nos calculateurs et guides gratuits sont là pour ça :
       </p>
-      <ul>
-        <li><a href="/calculateur-tjm-freelance">Calculateur de TJM freelance</a> — votre taux journalier à facturer</li>
-        <li><a href="/calculateur-taux-horaire-artisan">Calculateur de taux horaire artisan</a> — combien facturer de l'heure</li>
-        <li><a href="/calculateur-tresorerie-previsionnelle">Simulateur de trésorerie prévisionnelle</a> — anticipez les mois difficiles</li>
-        <li><a href="/guides/creer-son-auto-entreprise">Guide : créer son auto-entreprise</a> — toutes les étapes</li>
-      </ul>
+      <div class="tools-grid">
+        <a class="tool-card" href="/calculateur-tjm-freelance">
+          <strong>Calculateur de TJM freelance</strong>
+          <span>Votre taux journalier à facturer pour atteindre votre revenu net. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/calculateur-taux-horaire-artisan">
+          <strong>Calculateur de taux horaire artisan</strong>
+          <span>Combien facturer de l'heure, et votre vrai taux horaire net. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/calculateur-tresorerie-previsionnelle">
+          <strong>Simulateur de trésorerie prévisionnelle</strong>
+          <span>Anticipez le mois où votre solde passe dans le rouge. <span class="tool-card__arrow">→</span></span>
+        </a>
+        <a class="tool-card" href="/guides/creer-son-auto-entreprise">
+          <strong>Guide : créer son auto-entreprise</strong>
+          <span>Toutes les étapes sur le guichet unique de l'INPI. <span class="tool-card__arrow">→</span></span>
+        </a>
+      </div>
 
     </div>
   </section>
