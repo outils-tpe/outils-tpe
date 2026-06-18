@@ -118,10 +118,12 @@
     toggle('alerte-tva', r.caAlerteTVA);
     toggle('alerte-plafond', r.caAlertePlafond);
 
-    // CTA contextuels (liens d'affiliation à brancher — voir HTML)
-    const estService = r.activite === 'servicesBIC' || r.activite === 'bnc';
-    toggle('cta-service', estService);
-    toggle('cta-tva', r.caAlerteTVA || r.caAlertePlafond);
+    // CTA contextuels RC pro et juridique/TVA : masqués tant qu'aucun lien d'affiliation
+    // n'est disponible pour ces thèmes. Réactiver ces lignes quand les programmes
+    // RC pro / juridique seront actifs (les cartes existent déjà dans le HTML, en hidden).
+    // const estService = r.activite === 'servicesBIC' || r.activite === 'bnc';
+    // toggle('cta-service', estService);
+    // toggle('cta-tva', r.caAlerteTVA || r.caAlertePlafond);
   }
 
   function setWidth(id, w) {
