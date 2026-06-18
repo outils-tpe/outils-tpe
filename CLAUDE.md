@@ -57,9 +57,10 @@ Oriente vers les 4 familles (cartes Calculateurs / Comparateurs / Modèles / Gui
 ### Règle d'or : un objectif par page
 Chaque page poursuit un seul objectif primaire (empiler achat Excel + liens affiliés + capture email tue les trois conversions) :
 - **Calculateur** → clic affilié (ou capture email) : 1 CTA hub comparateur compte pro + 1-2 CTA affiliés contextuels + lien vers le guide. Pas de bouton d'achat Excel.
+- **Comparateur** → clic affilié : liens affiliés vers les services comparés (compte pro, etc.) + maillage vers calculateurs/guides. Pas de bouton d'achat Excel.
 - **Guide** → envoyer vers l'outil/produit pertinent : 1 CTA principal (calculateur OU modèle) + affiliés contextuels.
 - **Modèle Excel (produit)** → vendre le fichier : bouton Stripe + lien vers le guide associé. Pas de liens affiliés concurrents du produit.
-- **Accueil** → orienter vers les 3 familles.
+- **Accueil** → orienter vers les 4 familles.
 
 ### Pages produit (modèles Excel — pages de conversion)
 Structure type d'une page produit (ex. /electricien) :
