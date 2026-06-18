@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Comparatif des comptes pro pour TPE, auto-entrepreneurs et indépendants : frais, services, dépôt de capital. Comparatif en cours de préparation." />
-  <title>Comparateur de comptes pro pour TPE et indépendants | outils-tpe.fr</title>
+  <meta name="description" content="Comparatif des comptes pro pour auto-entrepreneurs, freelances et TPE : offres gratuites, prix, dépôt de capital, IBAN français. Trouvez le compte adapté à votre activité." />
+  <title>Comparatif des comptes pro 2026 : lequel choisir | outils-tpe.fr</title>
 
   <link rel="canonical" href="https://outils-tpe.fr/comparateur-comptes-pro/" />
-
-  <!-- TEMPORAIRE : page en préparation, contenu à générer ensuite.
-       Retirer la balise robots noindex ci-dessous et ajouter l'URL au sitemap
-       une fois le comparatif rédigé. -->
-  <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="outils-tpe.fr" />
-  <meta property="og:title" content="Comparateur de comptes pro pour TPE et indépendants" />
-  <meta property="og:description" content="Comparatif des comptes pro pour TPE et indépendants. En cours de préparation." />
+  <meta property="og:title" content="Comparatif des comptes pro 2026 : lequel choisir" />
+  <meta property="og:description" content="Comparez les comptes pro pour auto-entrepreneurs, freelances et TPE : offres gratuites, prix, dépôt de capital, IBAN français." />
   <meta property="og:url" content="https://outils-tpe.fr/comparateur-comptes-pro/" />
 
   <meta name="theme-color" content="#0f2d52" />
@@ -48,22 +43,182 @@
       font-size: 1.05rem;
       color: var(--gray-600);
       line-height: 1.7;
-      max-width: 640px;
+      max-width: 680px;
     }
-    /* --- Bloc « en préparation » --- */
-    .soon-block {
-      max-width: 640px;
-      margin: 3rem auto;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      border: 1px dashed var(--gray-300);
+    /* --- Corps --- */
+    .cmp { padding-block: 2.5rem; }
+    .cmp .wrap { max-width: 920px; }
+    .cmp h2 {
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.25rem 0 .9rem;
+    }
+    .cmp h3 { color: var(--gray-900); }
+    .cmp p, .cmp li { color: var(--gray-700); line-height: 1.75; }
+    .cmp ul { padding-left: 1.2rem; }
+    .cmp li { margin-bottom: .4rem; }
+    .cmp__intro { font-size: 1.05rem; }
+    .cmp-update {
+      font-size: .85rem;
+      color: var(--gray-500);
+      margin: .25rem 0 0;
+    }
+    /* --- Tableau comparatif --- */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.25rem 0 .5rem;
+      border: 1px solid var(--gray-200);
       border-radius: 14px;
-      background: var(--gray-50);
     }
-    .soon-block h2 { color: var(--gray-900); margin: 0 0 .75rem; font-size: 1.25rem; }
-    .soon-block p { color: var(--gray-600); line-height: 1.7; margin: 0 0 1rem; }
-    .soon-block .btn { margin-top: .5rem; }
+    .cmp-table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: .95rem;
+    }
+    .cmp-table th, .cmp-table td {
+      padding: .8rem .9rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .cmp-table tbody tr:last-child th,
+    .cmp-table tbody tr:last-child td { border-bottom: 0; }
+    .cmp-table thead th {
+      background: var(--gray-50);
+      font-weight: 700;
+      color: var(--gray-800);
+      white-space: nowrap;
+    }
+    .cmp-table tbody th { font-weight: 700; color: var(--gray-900); white-space: nowrap; }
+    .cmp-table tbody th .badge-aff {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 600;
+      color: #15803d;
+      background: #dcfce7;
+      border-radius: 6px;
+      padding: .1rem .4rem;
+      margin-left: .35rem;
+      vertical-align: middle;
+    }
+    .cmp-table .yes { color: #16a34a; font-weight: 600; }
+    .cmp-table .no  { color: #dc2626; font-weight: 600; }
+    .cmp-prov { color: var(--brand, #1e3a5f); text-decoration: none; font-weight: 700; }
+    .cmp-prov:hover { text-decoration: underline; }
+    .scroll-hint { font-size: .8rem; color: var(--gray-500); margin: 0 0 1.5rem; }
+    /* --- Cartes recommandation --- */
+    .reco-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin: 1.5rem 0;
+    }
+    .reco-card {
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 1.5rem;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .reco-card h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+    .reco-card p { color: var(--gray-600); line-height: 1.6; margin: 0 0 1.25rem; font-size: .95rem; flex-grow: 1; }
+    .btn-outline {
+      display: inline-block;
+      padding: .7rem 1.1rem;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 10px;
+      color: var(--gray-800);
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: border-color .15s, background .15s;
+    }
+    .btn-outline:hover { border-color: var(--gray-400); background: var(--gray-50); }
+    /* --- FAQ --- */
+    .faq { margin-top: 1rem; }
+    .faq details {
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1rem 0;
+    }
+    .faq summary {
+      font-weight: 600;
+      color: var(--gray-900);
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; float: right; color: var(--gray-400); font-weight: 700; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: .75rem 0 0; }
+    /* --- Divulgation affiliation --- */
+    .cmp-disclosure {
+      font-size: .85rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+    }
+    /* --- Maillage --- */
+    .cmp-links { margin-top: 1rem; }
+    .cmp-links a { font-weight: 600; }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Un auto-entrepreneur est-il obligé d'avoir un compte pro ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'ouverture d'un compte bancaire dédié à l'activité devient obligatoire pour un auto-entrepreneur seulement lorsque son chiffre d'affaires annuel dépasse 10 000 € pendant deux années civiles consécutives. En dessous de ce seuil, ce n'est pas obligatoire, mais reste conseillé pour séparer ses finances. Par ailleurs, un simple compte séparé suffit légalement : rien n'oblige à souscrire un compte professionnel payant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle différence entre un compte pro et un compte courant dédié ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Légalement, un compte courant séparé suffit pour la plupart des auto-entrepreneurs. Un compte pro (souvent proposé par les néobanques) ajoute des services pensés pour l'activité : facturation et devis, encaissement par carte, estimation des cotisations, export comptable, sous-comptes. C'est ce qui justifie son coût par rapport à un compte courant classique."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe-t-il des comptes pro gratuits ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Indy propose un compte pro gratuit (avec IBAN français et carte Mastercard), et Shine comme Finom proposent une offre d'entrée gratuite (Shine Free et Finom Solo). Ces offres gratuites comportent des limites (nombre de virements, services réduits) ; les formules payantes débloquent davantage de fonctionnalités."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment déposer son capital pour créer une société ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Plusieurs comptes pro permettent de déposer le capital social en ligne pour créer une SASU, EURL, SAS ou SARL : Qonto, Shine, Finom, Tiime, Indy ou Propulse by CA. Vous obtenez une attestation de dépôt sous quelques jours, nécessaire à l'immatriculation. Le coût varie de gratuit (souvent inclus avec un abonnement) à environ 60-69 €."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ces comptes pro ont-ils un IBAN français ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, les sept comptes comparés ici (Qonto, Shine, Finom, Indy, Tiime, Blank, Propulse by CA) proposent un IBAN français. C'est un point utile pour être accepté sans friction par les clients, l'URSSAF et les organismes de prélèvement."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -92,24 +247,237 @@
   <!-- EN-TÊTE HUB -->
   <section class="hub-head">
     <div class="wrap">
-      <h1>Comparateur de comptes pro</h1>
+      <h1>Comparatif des comptes pro</h1>
       <p>
-        Quel compte pro choisir quand on est auto-entrepreneur, artisan ou indépendant ?
-        Frais, services inclus, dépôt de capital, facilité de gestion : nous préparons
-        un comparatif clair pour vous aider à décider.
+        Quel compte pro choisir quand on est auto-entrepreneur, freelance ou que l'on
+        crée sa société ? On compare les offres gratuites, les prix, le dépôt de capital
+        et les services inclus pour vous aider à décider sans y passer la journée.
       </p>
+      <p class="cmp-update">Données vérifiées le 18 juin 2026 — tarifs et offres susceptibles d'évoluer.</p>
     </div>
   </section>
 
-  <!-- EN PRÉPARATION -->
-  <section class="wrap">
-    <div class="soon-block">
-      <h2>Comparatif en cours de préparation</h2>
-      <p>
-        Notre comparatif détaillé des comptes pro arrive bientôt. En attendant,
-        retrouvez nos calculateurs gratuits pour piloter votre activité.
+  <section class="cmp">
+    <div class="wrap">
+
+      <p class="cmp__intro">
+        Tous les comptes comparés ci-dessous proposent un <strong>IBAN français</strong> et une
+        <strong>carte physique</strong>. Ils se distinguent surtout par leur prix, la présence ou non
+        d'une offre gratuite, la possibilité de déposer son capital pour créer une société, et les
+        outils de gestion intégrés (facturation, compta, déclaration URSSAF).
       </p>
-      <a href="/calculateurs" class="btn btn-green">Voir les calculateurs</a>
+
+      <!-- FAUT-IL UN COMPTE PRO -->
+      <h2>Faut-il vraiment un compte pro ?</h2>
+      <p>
+        En auto-entreprise, l'ouverture d'un compte bancaire <strong>dédié</strong> à votre activité
+        n'est obligatoire qu'à partir du moment où votre chiffre d'affaires dépasse
+        <strong>10 000 € deux années civiles consécutives</strong>. En dessous, ce n'est pas une
+        obligation — mais séparer ses finances pro et perso reste vivement conseillé dès le départ.
+      </p>
+      <p>
+        Attention à une confusion fréquente : la loi impose un compte <em>dédié</em>, pas forcément un
+        « compte pro » payant. Un simple compte courant séparé peut suffire. Les comptes pro des
+        néobanques se justifient par les <strong>services</strong> qu'ils ajoutent (facturation,
+        encaissement, compta, estimation des cotisations). Si vous créez une <strong>société</strong>
+        (SASU, EURL…), en revanche, un compte pro et un <strong>dépôt de capital</strong> sont
+        nécessaires.
+      </p>
+
+      <!-- TABLEAU -->
+      <h2>Le comparatif en un coup d'œil</h2>
+      <div class="table-scroll">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th scope="col">Compte pro</th>
+              <th scope="col">À partir de</th>
+              <th scope="col">Offre gratuite</th>
+              <th scope="col">Dépôt de capital</th>
+              <th scope="col">Apple&nbsp;/ Google Pay</th>
+              <th scope="col">Idéal pour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://urlr.me/6j3JDs" rel="sponsored nofollow noopener" target="_blank">Indy</a>
+                <span class="badge-aff">partenaire</span>
+              </th>
+              <td>Gratuit</td>
+              <td><span class="yes">Oui</span> (compte pro)</td>
+              <td><span class="yes">Oui</span> (59 €, offert avec l'abonnement Premium)</td>
+              <td><span class="yes">Oui</span></td>
+              <td>Faire sa compta soi-même (AE, libéraux)</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://www.shine.fr" rel="nofollow noopener" target="_blank">Shine</a>
+              </th>
+              <td>Gratuit</td>
+              <td><span class="yes">Oui</span> (offre Free)</td>
+              <td><span class="yes">Oui</span> (dès 69 €)</td>
+              <td><span class="yes">Oui</span></td>
+              <td>Tout-en-un avec accompagnement administratif</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://finom.co/fr-fr/" rel="nofollow noopener" target="_blank">Finom</a>
+              </th>
+              <td>Gratuit</td>
+              <td><span class="yes">Oui</span> (offre Solo)</td>
+              <td><span class="yes">Oui</span> (60 €)</td>
+              <td><span class="yes">Oui</span></td>
+              <td>Offre gratuite avec cashback</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Tiime</a>
+                <span class="badge-aff">partenaire</span>
+              </th>
+              <td>17,99 € HT/mois</td>
+              <td><span class="no">Non</span> (compte pro sur offre payante)</td>
+              <td><span class="yes">Oui</span> (inclus dans l'abonnement)</td>
+              <td><span class="yes">Oui</span></td>
+              <td>Travailler main dans la main avec son comptable</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://qonto.com/fr" rel="nofollow noopener" target="_blank">Qonto</a>
+              </th>
+              <td>9 € HT/mois</td>
+              <td><span class="no">Non</span> (essai 30 j)</td>
+              <td><span class="yes">Oui</span> (69 €, offert avec l'abonnement)</td>
+              <td><span class="yes">Oui</span></td>
+              <td>Créer et gérer une société</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://www.blank.app" rel="nofollow noopener" target="_blank">Blank</a>
+              </th>
+              <td>6 € HT/mois</td>
+              <td><span class="no">Non</span> (1<sup>er</sup> mois offert)</td>
+              <td><span class="no">Non</span></td>
+              <td><span class="no">Non</span></td>
+              <td>L'auto-entrepreneur solo au petit budget</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a class="cmp-prov" href="https://propulsebyca.fr" rel="nofollow noopener" target="_blank">Propulse by CA</a>
+              </th>
+              <td>8 € HT/mois</td>
+              <td><span class="no">Non</span> (1<sup>er</sup> mois offert)</td>
+              <td><span class="yes">Oui</span></td>
+              <td><span class="no">Non</span></td>
+              <td>Être rassuré par un grand groupe bancaire</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scroll-hint">Prix indiqués hors taxes (HT). Les offres « gratuites » comportent des limites ; les formules payantes débloquent plus de services. Faites défiler le tableau horizontalement sur mobile.</p>
+
+      <!-- RECOMMANDATIONS PAR PROFIL -->
+      <h2>Quel compte pro selon votre profil</h2>
+
+      <div class="reco-grid">
+        <div class="reco-card">
+          <h3>Vous débutez, petit budget</h3>
+          <p>
+            Pour démarrer sans frais, <strong>Indy</strong> propose un compte pro 100 % gratuit
+            (IBAN français + carte Mastercard) doublé d'une compta automatisée — idéal pour tenir
+            votre comptabilité vous-même. Alternatives gratuites : Shine (Free) et Finom (Solo).
+          </p>
+          <a class="btn btn-green" href="https://urlr.me/6j3JDs" rel="sponsored nofollow noopener" target="_blank">Ouvrir un compte Indy</a>
+        </div>
+        <div class="reco-card">
+          <h3>Vous gérez avec un comptable</h3>
+          <p>
+            <strong>Tiime</strong> est né d'outils pensés pour les experts-comptables : compte pro,
+            facturation et pré-compta centralisés, avec un accès collaboratif natif pour votre
+            comptable. Parfait si vous déléguez votre comptabilité.
+          </p>
+          <a class="btn btn-green" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Découvrir Tiime</a>
+        </div>
+        <div class="reco-card">
+          <h3>Vous créez une société</h3>
+          <p>
+            Pour une SASU ou une EURL, le <strong>dépôt de capital en ligne</strong> est un vrai
+            gain de temps. Tiime et Indy l'incluent dans l'abonnement ; Qonto et Shine le proposent
+            aussi (souvent offert avec un abonnement).
+          </p>
+          <a class="btn btn-outline" href="https://c3po.link/QsgE6qhJAj" rel="sponsored nofollow noopener" target="_blank">Déposer mon capital avec Tiime</a>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Un auto-entrepreneur est-il obligé d'avoir un compte pro ?</summary>
+          <p>
+            L'ouverture d'un compte bancaire dédié à l'activité devient obligatoire seulement lorsque
+            votre chiffre d'affaires dépasse <strong>10 000 € pendant deux années civiles
+            consécutives</strong>. En dessous, ce n'est pas obligatoire mais conseillé. Et un simple
+            compte séparé suffit légalement : rien n'oblige à souscrire un compte professionnel payant.
+          </p>
+        </details>
+        <details>
+          <summary>Quelle différence entre un compte pro et un compte courant dédié ?</summary>
+          <p>
+            Légalement, un compte courant séparé suffit pour la plupart des auto-entrepreneurs. Un
+            compte pro ajoute des services pensés pour l'activité : facturation et devis, encaissement
+            par carte, estimation des cotisations, export comptable, sous-comptes. C'est ce qui
+            justifie son coût.
+          </p>
+        </details>
+        <details>
+          <summary>Existe-t-il des comptes pro gratuits ?</summary>
+          <p>
+            Oui. Indy propose un compte pro gratuit, et Shine comme Finom proposent une offre d'entrée
+            gratuite (Shine Free, Finom Solo). Ces offres comportent des limites ; les formules payantes
+            débloquent plus de fonctionnalités.
+          </p>
+        </details>
+        <details>
+          <summary>Comment déposer son capital pour créer une société ?</summary>
+          <p>
+            Plusieurs comptes pro permettent de déposer le capital social en ligne (Qonto, Shine,
+            Finom, Tiime, Indy, Propulse by CA). Vous obtenez une attestation de dépôt sous quelques
+            jours, nécessaire à l'immatriculation. Le coût va de gratuit (souvent inclus avec un
+            abonnement) à environ 60-69 €.
+          </p>
+        </details>
+        <details>
+          <summary>Ces comptes pro ont-ils un IBAN français ?</summary>
+          <p>
+            Oui, les sept comptes comparés ici proposent un IBAN français — utile pour être accepté
+            sans friction par vos clients, l'URSSAF et les organismes de prélèvement.
+          </p>
+        </details>
+      </div>
+
+      <!-- DIVULGATION -->
+      <p class="cmp-disclosure">
+        Certains liens de cette page sont des liens partenaires (Indy, Tiime) : si vous souscrivez,
+        nous pouvons percevoir une commission, sans surcoût pour vous. Cela nous permet de garder nos
+        outils gratuits et n'influence pas notre comparatif. Les autres liens renvoient simplement vers
+        les sites officiels. Informations vérifiées le 18 juin 2026 et susceptibles d'évoluer :
+        vérifiez les conditions à jour sur le site du fournisseur avant de souscrire.
+      </p>
+
+      <!-- MAILLAGE -->
+      <h2>Avant d'ouvrir un compte, pilotez vos chiffres</h2>
+      <p class="cmp-links">
+        Un compte pro vous aide à séparer vos finances, mais le plus important reste de bien fixer vos
+        prix et d'anticiper votre trésorerie. Nos calculateurs gratuits sont là pour ça :
+      </p>
+      <ul>
+        <li><a href="/calculateur-tjm-freelance">Calculateur de TJM freelance</a> — votre taux journalier à facturer</li>
+        <li><a href="/calculateur-taux-horaire-artisan">Calculateur de taux horaire artisan</a> — combien facturer de l'heure</li>
+        <li><a href="/calculateur-tresorerie-previsionnelle">Simulateur de trésorerie prévisionnelle</a> — anticipez les mois difficiles</li>
+        <li><a href="/guides/creer-son-auto-entreprise">Guide : créer son auto-entreprise</a> — toutes les étapes</li>
+      </ul>
+
     </div>
   </section>
 
