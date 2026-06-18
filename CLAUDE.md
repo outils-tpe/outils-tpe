@@ -52,7 +52,7 @@ outils-tpe.fr/
 Note : les pages métier existantes (`/electricien`, `/plombier`, `/coiffeur`, `/auto-entrepreneur`) **gardent leur slug** (elles rankent) et sont rattachées à la boutique « Modèles ». On ne les réécrit pas, on les relie à la nouvelle nav.
 
 ### Page d'accueil
-Oriente vers les 3 familles (cartes Calculateurs / Modèles / Guides) + une section « les plus utilisés » mettant en avant 2-3 outils concrets. Pas de surcharge de CTA.
+Oriente vers les 4 familles (cartes Calculateurs / Comparateurs / Modèles / Guides) + une section « les plus utilisés » mettant en avant 2-3 outils concrets. Pas de surcharge de CTA.
 
 ### Règle d'or : un objectif par page
 Chaque page poursuit un seul objectif primaire (empiler achat Excel + liens affiliés + capture email tue les trois conversions) :
