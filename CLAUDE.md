@@ -33,9 +33,11 @@ Le métier n'est PLUS une entrée de navigation. Beaucoup d'outils sont universe
 
 ```
 outils-tpe.fr/
-├── / (accueil) — oriente vers les 3 familles + calculateurs phares
+├── / (accueil) — oriente vers les 4 familles + outils phares
 ├── /calculateurs                (hub) liste des calculateurs
 │   └── /calculateur-[sujet]     ex. /calculateur-tjm-freelance
+├── /comparateurs                (hub) liste des comparatifs
+│   └── /comparateur-[sujet]     ex. /comparateur-comptes-pro
 ├── /modeles                     (hub boutique) liste des modèles Excel
 │   ├── /electricien             page produit (suivi trésorerie) — slug conservé
 │   ├── /plombier
