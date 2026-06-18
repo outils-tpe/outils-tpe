@@ -21,10 +21,11 @@ Le site est opéré sous un nom de marque anonyme, sans lien avec Solumatic. Le 
 > Source de vérité : page Notion « 🧭 Architecture cible du site (hub outils + guides + boutique) ». Le site a pivoté d'un modèle centré métier vers un hub d'outils + guides avec une petite boutique de modèles Excel. Principe : on garde le socle technique, on change le centre de gravité.
 
 ### Principe fondamental
-L'entrée se fait par le TYPE d'outil, pas par le métier. Trois familles, clairement séparées dans la navigation :
+L'entrée se fait par le TYPE d'outil, pas par le métier. Quatre familles, clairement séparées dans la navigation :
 1. **Calculateurs** (gratuits) : porte d'entrée du trafic SEO, monétisée par affiliation. C'est le moteur.
-2. **Modèles Excel** (version gratuite + version complète payante) : boutique, ligne secondaire.
-3. **Guides** : contenu SEO informationnel qui alimente calculateurs et modèles.
+2. **Comparateurs** (gratuits) : comparatifs de services (comptes pro, outils de gestion), à forte intention transactionnelle, monétisés par affiliation.
+3. **Modèles Excel** (version gratuite + version complète payante) : boutique, ligne secondaire.
+4. **Guides** : contenu SEO informationnel qui alimente calculateurs, comparateurs et modèles.
 
 Le métier n'est PLUS une entrée de navigation. Beaucoup d'outils sont universels (ex. le calculateur de TJM). Le métier reste une couche d'agrégation SEO **secondaire**, créée au cas par cas uniquement quand il existe du contenu réellement spécifique au métier. On ne compte donc PAS sur le menu pour guider le visiteur : il arrive par le SEO sur une page profonde, qu'on rend **auto-suffisante** (bon CTA + maillage interne contextuel). Le menu sert surtout à rassurer et à donner une structure lisible à Google.
 
