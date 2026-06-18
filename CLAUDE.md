@@ -84,7 +84,7 @@ Structure type d'une page produit (ex. /electricien) :
 
 ### Header (toutes les pages)
 ```
-[Logo outils-tpe.fr]  Calculateurs  Modèles  Guides  Sur mesure
+[Logo outils-tpe.fr]  Calculateurs  Comparateurs  Modèles  Guides  Sur mesure
 ```
 L'entrée se fait par type d'outil. « Guides » est déjà dans le menu mais pointe pour l'instant vers une page « bientôt » (premier guide en préparation).
 
