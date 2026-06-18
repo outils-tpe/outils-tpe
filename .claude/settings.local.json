@@ -23,7 +23,8 @@
       "mcp__claude_ai_Stripe__stripe_api_details",
       "mcp__claude_ai_Stripe__stripe_api_read",
       "mcp__claude_ai_Stripe__stripe_api_write",
-      "mcp__claude_ai_Stripe__stripe_api_search"
+      "mcp__claude_ai_Stripe__stripe_api_search",
+      "mcp__notion__notion-update-data-source"
     ]
   }
 }
