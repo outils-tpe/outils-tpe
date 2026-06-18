@@ -118,17 +118,24 @@
     .cmp-prov:hover { text-decoration: underline; }
     .scroll-hint { font-size: .8rem; color: var(--gray-500); margin: 0 0 1.5rem; }
     /* --- Détail par acteur --- */
-    .prov { margin: 0 0 1.75rem; }
-    .prov h3 {
-      font-size: 1.15rem;
-      color: var(--gray-900);
-      margin: 0 0 .5rem;
+    .prov {
+      margin: 0;
+      padding: 2.25rem 0;
+      border-top: 1px solid var(--gray-200);
     }
+    .prov:first-of-type { border-top: 0; padding-top: .75rem; }
+    .prov h3 {
+      font-size: 1.2rem;
+      color: var(--gray-900);
+      margin: 0 0 .85rem;
+    }
+    .prov p { margin: 0 0 1rem; line-height: 1.85; }
+    .prov p:last-child { margin-bottom: 0; }
     .prov__tags {
       display: flex;
       flex-wrap: wrap;
       gap: .4rem;
-      margin: 0 0 .6rem;
+      margin: 0 0 .9rem;
     }
     .prov__tag {
       font-size: .75rem;
