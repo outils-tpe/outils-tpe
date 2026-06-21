@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Analytics Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3c09131a-c990-4672-96be-42be7b61f8cd"></script>
+  <meta name="description" content="Comparez l'ARCE (capital) et le maintien de l'ARE selon vos revenus prévisionnels. Calculateur gratuit, à jour 2026, pour bien choisir son aide à la création." />
+  <title>ARE ou ARCE : le calculateur pour choisir (2026) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/calculateur-are-arce" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="ARE ou ARCE : le calculateur pour choisir (2026)" />
+  <meta property="og:description" content="Comparez l'ARCE (capital) et le maintien de l'ARE selon vos revenus prévisionnels. Calculateur gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/calculateur-are-arce" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/calculateur.css?v=2" />
+
+  <style>
+    /* --- Spécifique ARE/ARCE --- */
+    /* Bandeau recommandation (dans la carte résultats navy) */
+    .aa-reco {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      margin-bottom: 1.25rem;
+      font-size: .92rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,.88);
+    }
+    .aa-reco b { color: #fff; font-weight: 700; }
+    .aa-reco strong { color: #86efac; font-weight: 800; }
+    /* Cellule recommandée du duo */
+    .calc-duo__cell--reco { outline: 2px solid #4ade80; outline-offset: 1px; }
+    .calc-duo__cell { position: relative; }
+    .calc-duo__tag {
+      position: absolute;
+      top: -.6rem; left: 50%; transform: translateX(-50%);
+      font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+      color: #052e16; background: #4ade80; border-radius: 9999px;
+      padding: .12rem .55rem; white-space: nowrap; opacity: 0; transition: opacity var(--ease);
+    }
+    .calc-duo__cell--reco .calc-duo__tag { opacity: 1; }
+    .calc-duo__value--arce { color: #fff; }
+    .calc-duo__value--maintien { color: #fff; }
+    .calc-duo__sub { font-size: .68rem; color: rgba(255,255,255,.5); margin-top: .35rem; }
+
+    /* Tableau 3 scénarios */
+    .aa-scenarios { margin-top: 1.5rem; }
+    .aa-scenarios[hidden] { display: none; }
+    .aa-scenarios__title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: .5rem;
+    }
+    .aa-table { width: 100%; border-collapse: collapse; font-size: .82rem; color: rgba(255,255,255,.8); }
+    .aa-table th, .aa-table td { padding: .5rem .4rem; text-align: right; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .aa-table th:first-child, .aa-table td:first-child { text-align: left; }
+    .aa-table thead th { color: rgba(255,255,255,.55); font-weight: 700; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; }
+    .aa-table td b { color: #fff; }
+
+    /* Aide sous label */
+    .calc-field__hint-text { font-size: .78rem; color: var(--gray-500); margin-top: .15rem; line-height: 1.4; }
+    .aa-group[hidden] { display: none; }
+    .aa-inline { display: flex; gap: .5rem; }
+    .aa-inline .calc-input-wrap { flex: 1; }
+    .aa-inline .calc-select { width: auto; flex-shrink: 0; }
+  </style>
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur ARE ou ARCE",
+      "url": "https://outils-tpe.fr/calculateur-are-arce",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "fr-FR",
+      "description": "Comparez l'ARCE (aide versée en capital, 60 % de vos droits restants) et le maintien de l'ARE (allocation mensuelle réduite, plafonnée à 60 % du reliquat depuis avril 2025) selon vos revenus prévisionnels de créateur d'entreprise. Gratuit, instantané, sans inscription.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "publisher": { "@type": "Organization", "name": "outils-tpe.fr" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'ARCE et comment se calcule-t-elle ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'ARCE (aide à la reprise ou à la création d'entreprise) verse, sous forme de capital, 60 % de vos droits à l'ARE restants à la date de création, pour les droits ouverts depuis le 1er juillet 2023. Un prélèvement de 3 % au titre des retraites complémentaires est déduit de ce capital. Elle est versée en deux fois : 50 % au démarrage de l'activité, puis 50 % six mois plus tard si vous exercez toujours. L'ACRE est obligatoire pour en bénéficier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne le maintien de l'ARE quand on crée une entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous continuez à percevoir une allocation mensuelle réduite : on retire 70 % de vos revenus d'activité de votre ARE mensuelle. Les jours non indemnisés ne sont pas perdus, ils repoussent d'autant la fin de vos droits. Depuis le 1er avril 2025, le total perçu en cumul est toutefois plafonné à 60 % de vos droits restants à la date de création ; les 40 % restants ne sont mobilisables que sur demande exceptionnelle à l'instance paritaire régionale (IPR)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ARE ou ARCE : laquelle rapporte le plus ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend de vos revenus prévisionnels et de votre horizon. Si vos revenus sont élevés, l'allocation mensuelle est fortement réduite : l'ARCE, qui verse le capital immédiatement, rapporte souvent plus sur la période. Si vos revenus sont bas, le maintien verse davantage chaque mois, peut atteindre la même enveloppe de 60 % et préserve un filet de sécurité. L'ARCE et le maintien puisent dans la même enveloppe de 60 % de vos droits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pour un micro-entrepreneur, quel revenu est pris en compte ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "France Travail retient le revenu pris en compte pour l'impôt sur le revenu, c'est-à-dire le chiffre d'affaires après abattement forfaitaire : 71 % pour la vente de marchandises, 50 % pour les prestations de services BIC, 34 % pour les activités libérales (BNC). C'est ce revenu après abattement, et non le chiffre d'affaires brut, qui sert au calcul du maintien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'ARCE est-elle imposable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le capital versé au titre de l'ARCE est imposable à l'impôt sur le revenu, dans la catégorie des traitements et salaires, au titre de l'année de perception."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on changer d'avis après avoir choisi l'ARCE ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le choix de l'ARCE est quasi définitif : vous percevez votre capital et vous ne recevez plus d'allocation mensuelle. Les droits non consommés restent toutefois disponibles pendant un délai (trois ans à compter de l'ouverture des droits, augmenté de leur durée) et peuvent être récupérés en cas de cessation d'activité. Réfléchissez bien avant de choisir : le maintien, lui, reste réversible et préserve vos droits plus longtemps."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/comparateurs" class="nav__link">Comparateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+
+      <span class="hero__badge">Demandeur d'emploi · Créateur d'entreprise</span>
+
+      <h1 class="hero__title">
+        ARE ou ARCE :<br>
+        <span class="hero__accent">le calculateur pour choisir</span>
+      </h1>
+
+      <p class="hero__sub">
+        Capital immédiat (ARCE) ou allocation mensuelle maintenue (ARE) ? Comparez les
+        deux aides de France Travail selon vos revenus prévisionnels. Gratuit, instantané,
+        à jour 2026.
+      </p>
+
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100 % gratuit, sans inscription
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Règles France Travail 2026
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Aucune donnée enregistrée
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- CALCULATEUR -->
+  <section class="calc-section" aria-label="Calculateur ARE ou ARCE">
+    <div class="wrap">
+      <div class="calc-grid">
+
+        <!-- Saisie -->
+        <form id="form-arce" class="calc-form-card" novalidate>
+          <h2 class="calc-card__title">Votre situation</h2>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="a-are">
+              Allocation journalière (ARE)
+              <span class="calc-hint" title="Le montant net par jour affiché dans votre espace France Travail. À ne pas confondre avec l'ARE mensuelle.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="a-are" inputmode="decimal" min="0" step="0.1" value="40" />
+              <span class="calc-input-wrap__unit">€ / jour</span>
+            </div>
+            <p class="calc-field__hint-text">Indiqué dans votre espace France Travail (« allocation journalière »).</p>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="a-reliquat">
+              Reliquat de droits restant
+              <span class="calc-hint" title="Le nombre de jours d'indemnisation qu'il vous reste à la date de création. Visible dans votre espace France Travail.">?</span>
+            </label>
+            <div class="aa-inline">
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-reliquat" inputmode="numeric" min="0" step="1" value="500" />
+                <span class="calc-input-wrap__unit"></span>
+              </div>
+              <select class="calc-select" id="a-reliquat-unit" aria-label="Unité du reliquat">
+                <option value="jours" selected>jours</option>
+                <option value="mois">mois</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="a-statut">Statut envisagé</label>
+            <select class="calc-select" id="a-statut">
+              <option value="micro" selected>Micro-entreprise</option>
+              <option value="societe">Société (gérant rémunéré)</option>
+            </select>
+          </div>
+
+          <div id="a-grp-revenu">
+            <!-- Micro : CA + type d'activité -->
+            <div class="aa-group" id="a-grp-micro">
+              <div class="calc-field">
+                <label class="calc-field__label" for="a-ca">
+                  Chiffre d'affaires mensuel prévu
+                  <span class="calc-hint" title="Votre CA encaissé prévisionnel. L'abattement forfaitaire est appliqué automatiquement pour obtenir le revenu pris en compte par France Travail.">?</span>
+                </label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="a-ca" inputmode="numeric" min="0" step="100" value="2000" />
+                  <span class="calc-input-wrap__unit">€ / mois</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label class="calc-field__label" for="a-activite">Type d'activité (abattement)</label>
+                <select class="calc-select" id="a-activite">
+                  <option value="vente">Vente de marchandises (abattement 71 %)</option>
+                  <option value="servicesBIC" selected>Prestations de services BIC (50 %)</option>
+                  <option value="liberalBNC">Activité libérale BNC (34 %)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Société : rémunération brute -->
+            <div class="aa-group" id="a-grp-societe" hidden>
+              <div class="calc-field">
+                <label class="calc-field__label" for="a-remu">
+                  Rémunération brute mensuelle
+                  <span class="calc-hint" title="La rémunération brute que vous vous verserez en tant que dirigeant. Les dividendes ne sont pas concernés.">?</span>
+                </label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="a-remu" inputmode="numeric" min="0" step="100" value="0" />
+                  <span class="calc-input-wrap__unit">€ / mois</span>
+                </div>
+              </div>
+            </div>
+
+            <label class="calc-check" for="a-unknown">
+              <input type="checkbox" id="a-unknown" />
+              <span class="calc-check__text"><b>Je ne connais pas encore mon revenu.</b> Afficher trois scénarios (bas / moyen / élevé).</span>
+            </label>
+          </div>
+
+          <!-- Options avancées -->
+          <details class="calc-advanced">
+            <summary>Options avancées</summary>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="a-horizon">
+                Horizon de comparaison
+                <span class="calc-hint" title="Sur combien de mois comparer. Par défaut, la durée de votre reliquat de droits.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="a-horizon" inputmode="numeric" min="1" step="1" value="16" />
+                <span class="calc-input-wrap__unit">mois</span>
+              </div>
+            </div>
+          </details>
+        </form>
+
+        <!-- Résultats -->
+        <div class="calc-results-col">
+          <div class="calc-results-card">
+            <h2 class="calc-card__title">Comparaison</h2>
+
+            <!-- Recommandation -->
+            <p id="a-reco" class="aa-reco" role="status" aria-live="polite">—</p>
+
+            <!-- Les deux aides côte à côte -->
+            <div class="calc-duo">
+              <div class="calc-duo__cell" id="a-cell-arce">
+                <span class="calc-duo__tag">Plus avantageux</span>
+                <div class="calc-duo__label">ARCE (capital)</div>
+                <div class="calc-duo__value calc-duo__value--arce" id="a-arce-val">—</div>
+                <div class="calc-duo__sub">net, versé en 2 fois</div>
+              </div>
+              <div class="calc-duo__cell" id="a-cell-maintien">
+                <span class="calc-duo__tag">Plus avantageux</span>
+                <div class="calc-duo__label" id="a-maintien-label">Maintien sur 16 mois</div>
+                <div class="calc-duo__value calc-duo__value--maintien" id="a-maintien-val">—</div>
+                <div class="calc-duo__sub">+ droits préservés</div>
+              </div>
+            </div>
+
+            <!-- Détails -->
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Reliquat de droits total</span>
+              <span class="calc-result-row__value" id="a-r-reliquat">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Enveloppe maximale (60 %)</span>
+              <span class="calc-result-row__value" id="a-r-enveloppe">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">ARE mensuelle pleine</span>
+              <span class="calc-result-row__value" id="a-r-are-mens">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">ARE versée en maintien</span>
+              <span class="calc-result-row__value" id="a-r-maintien-mens">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Versements ARCE</span>
+              <span class="calc-result-row__value" id="a-r-arce-v">—</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-row__label">Plafond 60 % du maintien</span>
+              <span class="calc-result-row__value" id="a-r-duree">—</span>
+            </div>
+
+            <!-- Tableau scénarios (revenu inconnu) -->
+            <div class="aa-scenarios" id="a-scenarios" hidden>
+              <p class="aa-scenarios__title">Selon vos revenus prévisionnels</p>
+              <table class="aa-table">
+                <thead>
+                  <tr><th>Scénario</th><th>Maintien total</th><th>Le mieux</th></tr>
+                </thead>
+                <tbody id="a-scenarios-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Alertes -->
+            <div class="calc-alerts">
+              <div class="calc-alert" id="a-alert-bas" hidden>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 1l7 13H1L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M8 6v4M8 12h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Revenus prévisionnels bas : le maintien est souvent plus avantageux <b>et plus sécurisant</b>, car il préserve vos droits et un revenu mensuel.</span>
+              </div>
+              <div class="calc-alert" id="a-alert-haut" hidden>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 1l7 13H1L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M8 6v4M8 12h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Besoin de trésorerie pour démarrer ? L'ARCE verse un capital immédiat — mais vous <b>perdez le filet mensuel</b> et le choix est quasi définitif.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="calc-disclaimer">
+        Estimation pédagogique fondée sur les règles France Travail 2026 (ARCE : 60 % du reliquat
+        moins 3 % ; maintien : ARE mensuelle moins 70 % du revenu, plafonné à 60 % du reliquat depuis
+        le 1<sup>er</sup> avril 2025). Le calcul réel arrondit les jours par mois et tient compte de
+        cas particuliers (plafond lié à l'ancien salaire, situations mixtes). Ce simulateur ne remplace
+        pas une simulation officielle France Travail ni l'avis d'un conseiller.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA AFFILIÉS (contextuels) -->
+  <section class="calc-cta-section" aria-label="Outils recommandés">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pour aller plus loin</h2>
+        <p>Les outils qui aident à lancer puis piloter son activité.</p>
+      </div>
+
+      <div class="calc-cta-grid">
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Lancez votre création sereinement</p>
+          <p class="calc-cta__desc">
+            Créez votre entreprise gratuitement et sécurisez votre dossier (l'ACRE est obligatoire
+            pour l'ARCE : ne l'oubliez pas à la création).
+          </p>
+          <a class="calc-cta__link" href="https://urlr.me/EbRFtz" rel="sponsored nofollow noopener" target="_blank">
+            Créer avec Indy →
+          </a>
+        </div>
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Ouvrez un compte pro</p>
+          <p class="calc-cta__desc">
+            Souvent gratuit à la création, pour séparer votre activité de vos comptes personnels
+            dès le premier euro.
+          </p>
+          <a class="calc-cta__link" href="/comparateur-comptes-pro">
+            Comparer les comptes pro →
+          </a>
+        </div>
+
+        <div class="calc-cta">
+          <p class="calc-cta__title">Pilotez votre compta</p>
+          <p class="calc-cta__desc">
+            Un outil de compta dédié calcule vos cotisations, suit votre chiffre d'affaires et vos
+            déclarations URSSAF dès le 1<sup>er</sup> jour.
+          </p>
+          <a class="calc-cta__link" href="https://www.indy.fr/?ae=1657" rel="sponsored nofollow noopener" target="_blank">
+            Découvrir Indy →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="calc-cta-notice">
+        Certains liens ci-dessus sont des liens partenaires : si vous souscrivez, nous pouvons
+        percevoir une commission, sans surcoût pour vous. Cela nous permet de garder ce simulateur
+        gratuit. Nous ne recommandons que des outils que nous jugeons pertinents pour les TPE.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU SEO -->
+  <section class="calc-content">
+    <div class="wrap">
+
+      <h2>ARE ou ARCE : quelle différence ?</h2>
+      <p>
+        Quand vous êtes indemnisé par France Travail (ARE) et que vous créez ou reprenez une
+        entreprise, vous avez deux options, et il faut en choisir une :
+      </p>
+      <ul class="calc-list">
+        <li><strong>Le maintien de l'ARE</strong> : vous continuez à toucher une allocation mensuelle, réduite en fonction de vos revenus d'activité. C'est un filet de sécurité dans la durée.</li>
+        <li><strong>L'ARCE</strong> : vous touchez une partie de vos droits restants sous forme de <strong>capital</strong>, en deux versements. C'est un coup de pouce de trésorerie immédiat, mais vous renoncez à l'allocation mensuelle.</li>
+      </ul>
+      <p>
+        Les deux dispositifs puisent désormais dans la même enveloppe : <strong>60 % de vos droits
+        restants</strong>. La vraie question n'est donc pas « lequel rapporte le plus dans l'absolu »,
+        mais « lequel correspond à ma situation » : ai-je besoin de cash maintenant, ou d'un revenu
+        régulier et de garder mes droits le plus longtemps possible&nbsp;?
+      </p>
+
+      <h2>Comment se calcule l'ARCE</h2>
+      <p>
+        L'ARCE correspond à <strong>60 % du reliquat de vos droits ARE</strong> restant au jour de la
+        création (pour les droits ouverts depuis le 1<sup>er</sup> juillet 2023). Un
+        <strong>prélèvement de 3 %</strong> au titre du financement des retraites complémentaires est
+        déduit de ce capital. Le montant obtenu est versé en <strong>deux fois</strong> : la moitié au
+        démarrage de l'activité, l'autre moitié six mois plus tard si vous êtes toujours en activité.
+      </p>
+      <p>
+        Condition essentielle : vous devez avoir obtenu l'<strong>ACRE</strong> (aide aux créateurs et
+        repreneurs d'entreprise). Depuis 2026, la demande d'ACRE pour les micro-entrepreneurs n'est plus
+        automatique : elle doit être déposée auprès de l'URSSAF dans les 60 jours suivant la création.
+        Le capital ARCE est par ailleurs <strong>imposable</strong> (catégorie traitements et salaires).
+      </p>
+
+      <h2>Comment fonctionne le maintien de l'ARE</h2>
+      <p>
+        Avec le maintien, votre allocation mensuelle est <strong>réduite de 70 % de vos revenus
+        d'activité</strong>. Concrètement, France Travail calcule un nombre de jours indemnisés dans le
+        mois&nbsp;:
+      </p>
+      <p style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.1rem;font-size:.95rem;">
+        Jours indemnisés = (ARE mensuelle − 70 % du revenu mensuel) ÷ allocation journalière
+      </p>
+      <p>
+        Les jours <strong>non</strong> indemnisés ne sont pas perdus : ils repoussent d'autant la fin de
+        vos droits. Plus vos revenus d'activité sont élevés, moins vous touchez d'allocation chaque mois
+        — mais plus vos droits durent longtemps.
+      </p>
+      <p>
+        <strong>Nouveauté importante (depuis le 1<sup>er</sup> avril 2025)</strong> : le total que vous
+        pouvez percevoir en cumul est <strong>plafonné à 60 % de vos droits restants</strong> à la date
+        de création. Une fois ces 60 % consommés, le versement s'arrête ; les 40 % restants ne peuvent
+        être débloqués que sur demande exceptionnelle à l'instance paritaire régionale (IPR), si vous
+        justifiez poursuivre l'activité sans en tirer de rémunération.
+      </p>
+      <p>
+        Pour un <strong>micro-entrepreneur</strong>, le revenu pris en compte n'est pas votre chiffre
+        d'affaires brut, mais votre CA <strong>après abattement forfaitaire</strong> (71 % en vente,
+        50 % en services BIC, 34 % en libéral BNC) — c'est le revenu retenu pour l'impôt. Notre
+        calculateur applique cet abattement automatiquement.
+      </p>
+
+      <h2>Lequel choisir selon votre situation</h2>
+      <p>
+        Il n'y a pas de bonne réponse universelle. Quelques repères, à confronter avec le résultat du
+        calculateur ci-dessus&nbsp;:
+      </p>
+      <ul class="calc-list">
+        <li><strong>Revenus prévisionnels bas ou incertains</strong> : le maintien verse souvent plus chaque mois, atteint la même enveloppe de 60 % et garde un filet de sécurité. Il reste réversible.</li>
+        <li><strong>Besoin de trésorerie pour investir au démarrage</strong> (matériel, stock, local) : l'ARCE apporte un capital immédiat, utile quand le cash manque au lancement.</li>
+        <li><strong>Revenus prévisionnels élevés rapidement</strong> : l'allocation mensuelle serait fortement réduite, voire nulle. L'ARCE, qui verse le capital quoi qu'il arrive, est alors souvent plus intéressante.</li>
+      </ul>
+      <p>
+        Avant de vous lancer, vous pouvez aussi estimer ce que votre activité vous rapportera avec notre
+        <a href="/calculateur-tjm-freelance">calculateur de TJM freelance</a> ou notre
+        <a href="/calculateur-taux-horaire-artisan">calculateur de taux horaire artisan</a>, et suivre
+        toutes les démarches dans notre guide
+        <a href="/guides/creer-son-auto-entreprise">créer son auto-entreprise en 2026</a>. Vous êtes
+        encore salarié&nbsp;? Voyez aussi le guide
+        <a href="/guides/cumul-salarie-auto-entreprise">salarié et auto-entrepreneur, peut-on cumuler</a>.
+      </p>
+
+      <h2>Le piège à éviter</h2>
+      <p>
+        Le choix de l'ARCE est <strong>quasi irréversible</strong> : une fois le capital demandé, vous
+        ne touchez plus d'allocation mensuelle. Vos droits non consommés restent récupérables un certain
+        temps en cas de cessation d'activité, mais vous perdez la souplesse du maintien. Prenez le temps
+        de comparer les deux scénarios sur votre horizon réel avant de décider — et, en cas de doute,
+        faites valider votre calcul par un conseiller France Travail.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Qu'est-ce que l'ARCE et comment se calcule-t-elle ?</summary>
+          <p class="faq-item__a">
+            L'ARCE verse, sous forme de capital, 60 % de vos droits à l'ARE restants à la date de
+            création (droits ouverts depuis le 1<sup>er</sup> juillet 2023), moins un prélèvement de 3 %
+            au titre des retraites complémentaires. Elle est versée en deux fois : 50 % au démarrage,
+            50 % six mois plus tard si vous exercez toujours. L'ACRE est obligatoire pour en bénéficier.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Comment fonctionne le maintien de l'ARE quand on crée une entreprise ?</summary>
+          <p class="faq-item__a">
+            Vous percevez une allocation mensuelle réduite : on retire 70 % de vos revenus d'activité de
+            votre ARE mensuelle. Les jours non indemnisés repoussent la fin de vos droits. Depuis le
+            1<sup>er</sup> avril 2025, le cumul est plafonné à 60 % de vos droits restants à la date de
+            création ; les 40 % restants ne sont mobilisables que sur demande exceptionnelle à l'IPR.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">ARE ou ARCE : laquelle rapporte le plus ?</summary>
+          <p class="faq-item__a">
+            Cela dépend de vos revenus prévisionnels et de votre horizon. Revenus élevés : l'allocation
+            mensuelle est fortement réduite, l'ARCE (capital immédiat) rapporte souvent plus sur la
+            période. Revenus bas : le maintien verse davantage chaque mois, peut atteindre la même
+            enveloppe de 60 % et préserve un filet de sécurité. Les deux puisent dans la même enveloppe
+            de 60 % de vos droits.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Pour un micro-entrepreneur, quel revenu est pris en compte ?</summary>
+          <p class="faq-item__a">
+            France Travail retient le revenu pris en compte pour l'impôt, c'est-à-dire le chiffre
+            d'affaires après abattement forfaitaire : 71 % pour la vente, 50 % pour les services BIC,
+            34 % pour les activités libérales (BNC). C'est ce revenu après abattement, et non le CA brut,
+            qui sert au calcul du maintien.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">L'ARCE est-elle imposable ?</summary>
+          <p class="faq-item__a">
+            Oui. Le capital versé au titre de l'ARCE est imposable à l'impôt sur le revenu, dans la
+            catégorie des traitements et salaires, au titre de l'année de perception.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Peut-on changer d'avis après avoir choisi l'ARCE ?</summary>
+          <p class="faq-item__a">
+            Le choix de l'ARCE est quasi définitif : vous percevez votre capital et ne touchez plus
+            d'allocation mensuelle. Les droits non consommés restent disponibles un certain temps (trois
+            ans à compter de l'ouverture des droits, augmentés de leur durée) et récupérables en cas de
+            cessation d'activité. Le maintien, lui, reste réversible et préserve vos droits plus
+            longtemps.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS UTILES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Pour aller plus loin</p>
+      <div class="pills">
+        <a href="/guides/creer-son-auto-entreprise" class="pill">Guide : créer son auto-entreprise</a>
+        <a href="/guides/cumul-salarie-auto-entreprise" class="pill">Guide : cumul salarié + auto-entreprise</a>
+        <a href="/calculateur-tjm-freelance" class="pill">Calculateur de TJM</a>
+        <a href="/sur-mesure" class="pill pill--cta">Besoin d'un outil sur mesure ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/comparateurs">Comparateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/calculateur-are-arce.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
