@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Analytics Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3c09131a-c990-4672-96be-42be7b61f8cd"></script>
+  <meta name="description" content="Cumuler un emploi salarié et une auto-entreprise : conditions, clause d'exclusivité, cas du fonctionnaire, cotisations et impôts. Guide pratique gratuit, à jour 2026." />
+  <title>Salarié et auto-entrepreneur : peut-on cumuler en 2026 (privé et public) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Salarié et auto-entrepreneur : peut-on cumuler en 2026 (privé et public)" />
+  <meta property="og:description" content="Cumuler un emploi salarié et une auto-entreprise : conditions, clause d'exclusivité, cas du fonctionnaire, cotisations et impôts. Guide pratique gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    /* --- En-tête du guide --- */
+    .guide-head {
+      background: var(--gray-50);
+      padding-block: 3.5rem 2rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .guide-head__breadcrumb {
+      font-size: .8rem;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+    .guide-head__breadcrumb a { color: var(--gray-600); }
+    .guide-head h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      line-height: 1.2;
+      max-width: 820px;
+    }
+    /* --- Corps de l'article --- */
+    .article {
+      padding-block: 3rem;
+    }
+    .article__body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray-700, #374151);
+    }
+    .article__body h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin: 2.5rem 0 1rem;
+      scroll-margin-top: 1.5rem;
+    }
+    .article__body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.75rem 0 .5rem;
+    }
+    .article__body p { margin: 0 0 1rem; }
+    .article__body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    .article__body li { margin-bottom: .5rem; }
+    .article__body strong { color: var(--gray-900); }
+    .article__lead {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    /* --- Sommaire ancré --- */
+    .toc {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .toc__title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--gray-500);
+      margin: 0 0 .75rem;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: .98rem;
+      line-height: 1.6;
+    }
+    .toc li { margin-bottom: .35rem; }
+    .toc a { color: var(--navy); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    /* --- Encart info / disclaimer réglementaire --- */
+    .callout {
+      background: #eff6ff;
+      border-left: 3px solid var(--navy);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: .98rem;
+      color: var(--gray-700);
+    }
+    .callout strong { color: var(--navy); }
+    /* Variante "attention" pour le cas fonction publique (source d'erreurs) */
+    .callout--warn {
+      background: #fff7ed;
+      border-left-color: #c2410c;
+    }
+    .callout--warn strong { color: #c2410c; }
+    /* --- Check-list (cartes numérotées, support HowTo) --- */
+    .steps { counter-reset: step; margin: 1.5rem 0 1.25rem; padding: 0; list-style: none; }
+    .steps__item {
+      position: relative;
+      padding: 1.1rem 1.25rem 1.1rem 3.5rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      margin-bottom: .9rem;
+      background: #fff;
+    }
+    .steps__item::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1.1rem;
+      width: 1.9rem;
+      height: 1.9rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .95rem;
+    }
+    .steps__item h3 { margin: 0 0 .35rem; color: var(--gray-900); }
+    .steps__item p { margin: 0; font-size: 1rem; line-height: 1.65; }
+    /* --- Encart CTA calculateur --- */
+    .guide-cta {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .guide-cta h2 { color: #fff; margin: 0 0 .5rem; }
+    .guide-cta p { color: rgba(255,255,255,.85); margin: 0 0 1.25rem; }
+    /* --- Bloc CTA affiliés --- */
+    .reco {
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+      background: var(--gray-50);
+    }
+    .reco h2 { margin: 0 0 .5rem; font-size: 1.4rem; }
+    .reco__intro { font-size: .98rem; color: var(--gray-600); margin: 0 0 1.25rem; }
+    .reco__grid { display: grid; gap: .9rem; }
+    @media (min-width: 560px) { .reco__grid { grid-template-columns: 1fr 1fr; } }
+    .reco__item {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+    .reco__item h3 { margin: 0 0 .35rem; font-size: 1rem; color: var(--gray-900); }
+    .reco__item p { margin: 0 0 .75rem; font-size: .92rem; color: var(--gray-600); line-height: 1.5; }
+    /* Bouton secondaire bordé marine (fond clair) — variante locale au bloc reco */
+    .reco .btn-outline {
+      background: #fff;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .reco .btn-outline:hover {
+      background: var(--navy);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .reco__disclosure { font-size: .82rem; color: var(--gray-500); margin: 1.25rem 0 0; font-style: italic; }
+    .article__disclaimer {
+      font-size: .9rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 1.25rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Salarié et auto-entrepreneur : peut-on cumuler en 2026 (privé et public)",
+        "description": "Cumuler un emploi salarié et une auto-entreprise : conditions, clause d'exclusivité, cas du fonctionnaire, cotisations et impôts.",
+        "inLanguage": "fr-FR",
+        "datePublished": "2026-06-21",
+        "dateModified": "2026-06-21",
+        "mainEntityOfPage": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/",
+        "author": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" },
+        "publisher": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "La check-list avant de cumuler un emploi salarié et une auto-entreprise",
+        "description": "Les 7 vérifications à faire avant de lancer une auto-entreprise en parallèle d'un emploi salarié ou d'un poste dans la fonction publique.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Relire son contrat et sa convention collective",
+            "text": "Vérifiez la présence d'une clause d'exclusivité ou de non-concurrence dans votre contrat de travail et votre convention collective.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Pour un fonctionnaire : identifier sa quotité et la voie applicable",
+            "text": "Déterminez votre quotité de travail et la procédure applicable : déclaration, activité accessoire autorisée ou temps partiel pour création.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Obtenir l'autorisation ou faire la déclaration nécessaire",
+            "text": "Effectuez l'autorisation ou la déclaration requise auprès de votre employeur avant de démarrer l'activité.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Vérifier l'absence de concurrence et le respect de la loyauté",
+            "text": "Assurez-vous que votre activité indépendante ne concurrence pas votre employeur et respecte votre obligation de loyauté.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Créer la micro-entreprise sur le guichet unique de l'INPI",
+            "text": "Déclarez votre auto-entreprise en ligne sur le guichet unique de l'INPI.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Choisir ses options à la création",
+            "text": "Demandez l'ACRE si vous y êtes éligible et décidez du versement libératoire selon votre situation fiscale.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Ouvrir un compte dédié et suivre son chiffre d'affaires",
+            "text": "Ouvrez un compte bancaire dédié à l'activité et mettez en place un suivi régulier de votre chiffre d'affaires.",
+            "url": "https://outils-tpe.fr/guides/cumul-salarie-auto-entreprise/#checklist"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Un salarié en CDI peut-il être auto-entrepreneur ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, sauf clause d'exclusivité encore opposable, et à condition de respecter son obligation de loyauté (ne pas concurrencer l'employeur, ne pas travailler pendant ses heures salariées)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Mon employeur peut-il me l'interdire ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pas en présence d'une simple clause d'exclusivité lors d'une création d'entreprise : elle est neutralisée pendant un an (jusqu'à deux ans avec congé ou temps partiel pour création). En revanche, il peut agir si votre activité lui fait concurrence ou nuit à l'entreprise." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un fonctionnaire à temps plein peut-il créer une micro-entreprise ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pas librement. Il doit soit exercer une activité accessoire figurant sur la liste autorisée (sur autorisation), soit demander un temps partiel pour création ou reprise d'entreprise." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il déclarer son auto-entreprise aux impôts et à l'URSSAF ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, comme toute auto-entreprise : déclaration de chiffre d'affaires à l'URSSAF (mensuelle ou trimestrielle) et report des revenus sur la déclaration d'impôt." }
+          },
+          {
+            "@type": "Question",
+            "name": "Est-ce que je cotise deux fois pour la retraite ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous cotisez au titre des deux activités. Vous accumulez donc des droits sur chacune, dans la limite des règles de validation des trimestres." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/comparateurs" class="nav__link">Comparateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE GUIDE -->
+  <section class="guide-head">
+    <div class="wrap">
+      <p class="guide-head__breadcrumb"><a href="/guides">Guides</a> › Salarié et auto-entrepreneur</p>
+      <h1>Salarié et auto-entrepreneur : peut-on cumuler en 2026 ?</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="wrap">
+      <div class="article__body">
+
+        <p class="article__lead">
+          Oui, dans la très grande majorité des cas. Cumuler un emploi salarié et une auto-entreprise est
+          <strong>légal par défaut</strong> en France. Mais les règles ne sont pas les mêmes selon que vous
+          êtes salarié du privé ou agent public, et quelques pièges peuvent vous coûter cher si vous les
+          ignorez (clause d'exclusivité, obligation de loyauté, autorisation pour les fonctionnaires). Voici
+          ce que vous avez le droit de faire, à quelles conditions, et comment vous y prendre sereinement.
+        </p>
+
+        <p>
+          Si après lecture vous décidez de vous lancer, notre guide
+          <a href="/guides/creer-son-auto-entreprise">créer son auto-entreprise en 2026, pas à pas</a> reprend
+          toutes les démarches sur le guichet unique de l'INPI.
+        </p>
+
+        <!-- SOMMAIRE ANCRÉ -->
+        <nav class="toc" aria-label="Sommaire">
+          <p class="toc__title">Sommaire</p>
+          <ol>
+            <li><a href="#droit">A-t-on le droit de cumuler un emploi et une auto-entreprise</a></li>
+            <li><a href="#prive">Salarié du privé : clause d'exclusivité et loyauté</a></li>
+            <li><a href="#fonctionnaire">Fonctionnaire : les règles spécifiques</a></li>
+            <li><a href="#cotisations">Cotisations et protection sociale</a></li>
+            <li><a href="#impots">Impôts et déclaration</a></li>
+            <li><a href="#plafonds">Plafonds et points de vigilance</a></li>
+            <li><a href="#checklist">La check-list avant de se lancer</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="droit">A-t-on le droit de cumuler un emploi et une auto-entreprise ?</h2>
+        <p>
+          Le principe est simple : rien n'interdit à un salarié d'exercer une activité indépendante en
+          parallèle de son contrat de travail. Le statut de micro-entrepreneur est même conçu pour ça, avec
+          des démarches légères et une comptabilité simplifiée.
+        </p>
+        <p>Deux familles de situations obéissent toutefois à des règles différentes :</p>
+        <ul>
+          <li>les <strong>salariés du privé</strong>, soumis au Code du travail et à leur contrat ;</li>
+          <li>les <strong>agents publics</strong> (fonctionnaires et contractuels), soumis au Code général de la fonction publique, beaucoup plus encadré.</li>
+        </ul>
+        <p>
+          Nous traitons les deux cas séparément, car c'est la principale source de confusion.
+        </p>
+
+        <h2 id="prive">Salarié du privé : clause d'exclusivité et obligation de loyauté</h2>
+
+        <h3>La clause d'exclusivité ne tient pas la première année</h3>
+        <p>
+          Si votre contrat de travail contient une clause d'exclusivité (qui vous interdit toute autre
+          activité professionnelle), sachez qu'elle est neutralisée quand vous créez une entreprise.
+          L'article <strong>L1222-5 du Code du travail</strong> prévoit que l'employeur ne peut opposer aucune
+          clause d'exclusivité pendant un an au salarié qui crée ou reprend une entreprise, même si le contrat
+          ou la convention collective prévoit le contraire.
+        </p>
+        <p>Quelques précisions utiles :</p>
+        <ul>
+          <li>Ce délai d'un an démarre à la date de déclaration de début d'activité (ou d'immatriculation).</li>
+          <li>Il peut aller jusqu'à <strong>deux ans</strong> si vous bénéficiez d'un congé ou d'un passage à temps partiel pour création ou reprise d'entreprise.</li>
+          <li>Une seule exception : les VRP (voyageurs, représentants, placiers).</li>
+          <li>Au terme de cette période, la clause d'exclusivité redevient applicable. Si vous voulez continuer votre activité, il faudra alors négocier sa levée avec votre employeur, sous peine de devoir y renoncer.</li>
+        </ul>
+        <p>
+          En l'absence de clause d'exclusivité, vous pouvez vous lancer immédiatement, sans cette contrainte
+          de durée.
+        </p>
+
+        <h3>L'obligation de loyauté, elle, reste permanente</h3>
+        <p>
+          Même quand la clause d'exclusivité est neutralisée, vous restez tenu par une
+          <strong>obligation de loyauté</strong> envers votre employeur, pendant toute la durée du contrat.
+          Concrètement, vous ne devez pas :
+        </p>
+        <ul>
+          <li>concurrencer directement votre employeur ni démarcher sa clientèle ;</li>
+          <li>travailler pour votre auto-entreprise pendant vos heures de travail salarié ;</li>
+          <li>débaucher ses salariés ou utiliser ses moyens (matériel, fichiers, informations confidentielles).</li>
+        </ul>
+        <p>
+          C'est le point le plus important en pratique : la plupart des litiges ne viennent pas de la création
+          elle-même, mais d'une activité jugée déloyale ou concurrente.
+        </p>
+
+        <h3>Faut-il prévenir son employeur ?</h3>
+        <p>
+          Vous n'avez pas d'obligation générale d'informer votre employeur, sauf si votre contrat ou votre
+          convention collective l'exige, ou si vous demandez la levée d'une clause. Dans le doute, relisez
+          votre contrat et votre convention collective avant de vous lancer. Une démarche transparente évite
+          bien des tensions.
+        </p>
+
+        <h2 id="fonctionnaire">Fonctionnaire et agent public : des règles beaucoup plus strictes</h2>
+
+        <div class="callout callout--warn">
+          <strong>À lire attentivement :</strong> c'est le cas le plus mal compris. Contrairement au privé,
+          un agent public ne peut pas créer librement une auto-entreprise. Vérifiez votre situation avant
+          toute démarche, sous peine de sanction.
+        </div>
+
+        <h3>Le principe : l'exclusivité du service public</h3>
+        <p>
+          Un agent public doit en principe consacrer l'intégralité de son activité professionnelle à ses
+          fonctions. Le cumul avec une activité privée lucrative est donc l'exception, pas la règle. Le cadre
+          actuel découle surtout de la <strong>loi Déontologie du 20 avril 2016</strong> et du
+          <strong>décret n°2017-105</strong>, complété par le <strong>décret n°2020-69 du 30 janvier 2020</strong>
+          qui liste les activités accessoires autorisées.
+        </p>
+        <p>
+          Les contractuels de droit public sont soumis aux mêmes obligations que les titulaires.
+        </p>
+
+        <h3>Agent à temps non complet ou incomplet (au plus 70 % de la durée légale)</h3>
+        <p>
+          C'est le cas le plus simple. Si votre quotité de travail est inférieure ou égale à
+          <strong>70 % de la durée légale</strong>, vous pouvez exercer une activité privée lucrative, y
+          compris en auto-entreprise, sur <strong>simple déclaration préalable</strong> à votre autorité
+          hiérarchique.
+        </p>
+
+        <h3>Agent à temps complet : deux voies possibles</h3>
+        <p>Un agent à temps complet ne peut pas créer librement une micro-entreprise. Deux portes existent :</p>
+        <ol class="article__ol">
+          <li>
+            <strong>L'activité accessoire autorisée.</strong> Le décret 2020-69 dresse une liste limitative
+            d'activités qui peuvent être exercées en plus de l'emploi public, sur autorisation préalable de la
+            hiérarchie : enseignement et formation, services à la personne, vente de biens fabriqués
+            personnellement, certaines activités sportives ou culturelles, etc. L'activité doit rester
+            accessoire (votre emploi public demeure votre activité principale) et ne pas porter atteinte au
+            fonctionnement, à la neutralité ou à l'indépendance du service. Exemple classique : un enseignant
+            qui donne des cours particuliers.
+          </li>
+          <li>
+            <strong>Le temps partiel pour création ou reprise d'entreprise.</strong> Pour une vraie création
+            d'entreprise hors liste accessoire, l'agent à temps plein doit demander un passage à temps partiel
+            pour création ou reprise d'entreprise. Cette autorisation est temporaire : en général jusqu'à 3
+            ans, renouvelable 1 an (la demande de renouvellement se fait au moins un mois avant l'échéance).
+          </li>
+        </ol>
+
+        <h3>La procédure et le référent déontologue</h3>
+        <p>
+          Dans tous les cas, vous adressez une demande écrite à votre autorité hiérarchique. Selon la
+          situation, l'administration peut saisir le <strong>référent déontologue</strong>, voire la Haute
+          Autorité pour la transparence de la vie publique, pour vérifier la compatibilité de l'activité avec
+          vos fonctions. En cas de doute sur la compatibilité, vous pouvez vous-même solliciter le référent
+          déontologue de votre administration.
+        </p>
+        <p>
+          Le risque en cas de cumul non autorisé est réel : <strong>reversement des sommes perçues et
+          sanction disciplinaire</strong>. Mieux vaut donc sécuriser l'autorisation avant de démarrer.
+        </p>
+
+        <h2 id="cotisations">Cotisations et protection sociale : vous cotisez deux fois</h2>
+        <p>Quand vous cumulez les deux statuts, vous cotisez sur chaque activité séparément :</p>
+        <ul>
+          <li>sur votre salaire, via les cotisations salariales habituelles ;</li>
+          <li>sur le chiffre d'affaires de votre auto-entreprise, au taux micro correspondant à votre activité.</li>
+        </ul>
+        <p>
+          Il n'y a pas de double couverture pour autant : c'est en général votre régime salarié qui reste
+          votre régime principal pour l'assurance maladie. Vous payez donc deux fois des cotisations, sans
+          cumuler deux fois les mêmes prestations. La <strong>retraite</strong>, en revanche, se construit au
+          titre des deux activités.
+        </p>
+
+        <h2 id="impots">Impôts et déclaration</h2>
+        <p>Les deux revenus se déclarent séparément mais s'additionnent au sein de votre foyer fiscal :</p>
+        <ul>
+          <li>vos salaires dans la catégorie traitements et salaires ;</li>
+          <li>votre activité micro avec l'abattement forfaitaire propre à votre activité (71 % en vente, 50 % en services BIC, 34 % en libéral BNC), sauf si vous avez opté pour le versement libératoire.</li>
+        </ul>
+        <p>
+          L'ensemble est soumis au barème progressif de l'impôt sur le revenu, sauf pour la part
+          éventuellement traitée au versement libératoire.
+        </p>
+
+        <h2 id="plafonds">Plafonds et points de vigilance</h2>
+        <ul>
+          <li>
+            <strong>Plafonds micro 2026-2028 :</strong> revalorisés cette année. Le plafond est de
+            <strong>83 600 €</strong> pour les prestations de services et activités libérales (contre 77 700 €
+            auparavant), et de <strong>203 100 €</strong> pour la vente de marchandises (contre 188 700 €).
+            Ils s'apprécient sur le chiffre d'affaires encaissé.
+          </li>
+          <li>
+            <strong>Franchise de TVA :</strong> seuils maintenus en 2026 (la réforme du seuil unique à
+            25 000 € a été abandonnée). Vous facturez la TVA dès le dépassement des seuils majorés : 37 500 €
+            (services) et 85 000 € (vente).
+          </li>
+          <li>
+            <strong>Si vous perdez votre emploi salarié :</strong> votre auto-entreprise peut interagir avec
+            vos allocations chômage. Avant de décider, renseignez-vous sur l'articulation entre l'ARE
+            (maintien partiel de l'allocation, qui dépend de votre chiffre d'affaires) et l'ARCE (versement
+            d'une partie de vos droits en capital pour financer le lancement).
+          </li>
+        </ul>
+
+        <!-- ENCART CTA CALCULATEUR (objectif principal de la page : envoyer vers nos outils) -->
+        <div class="guide-cta">
+          <h2>Estimez vos revenus avant de vous lancer</h2>
+          <p>
+            Combien votre activité en parallèle peut-elle vous rapporter ? Si vous facturez à la journée,
+            notre calculateur gratuit vous donne votre tarif plancher et votre revenu net réel, charges 2026
+            incluses.
+          </p>
+          <a href="/calculateur-tjm-freelance" class="btn btn-green btn-lg">Calculer mon TJM</a>
+        </div>
+
+        <h2 id="checklist">La check-list avant de se lancer</h2>
+        <ol class="steps">
+          <li class="steps__item">
+            <h3>Relire son contrat et sa convention collective</h3>
+            <p>Vérifiez la présence d'une clause d'exclusivité ou de non-concurrence.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Fonctionnaire : identifier sa quotité et la voie applicable</h3>
+            <p>Déclaration, activité accessoire autorisée ou temps partiel pour création, selon votre quotité de travail.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Obtenir l'autorisation ou faire la déclaration nécessaire</h3>
+            <p>Effectuez la démarche requise auprès de votre employeur <strong>avant</strong> de démarrer.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Vérifier l'absence de concurrence et le respect de la loyauté</h3>
+            <p>Votre activité ne doit pas concurrencer votre employeur ni utiliser ses moyens.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Créer la micro-entreprise sur le guichet unique de l'INPI</h3>
+            <p>La déclaration est gratuite et 100 % en ligne. Voir notre <a href="/guides/creer-son-auto-entreprise">guide pas à pas</a>.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Choisir ses options à la création</h3>
+            <p>ACRE si vous êtes éligible, et versement libératoire selon votre situation fiscale.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Ouvrir un compte dédié et suivre son chiffre d'affaires</h3>
+            <p>Un compte séparé et un suivi régulier vous évitent de mélanger activité et vie privée.</p>
+          </li>
+        </ol>
+
+        <!-- ============================================================================
+             BLOC CTA AFFILIÉS — liens partenaires actifs (Indy). La carte « assurance »
+             reste masquée tant qu'aucun programme RC pro n'est disponible : retirer hidden
+             et remplacer href="#" quand un programme sera actif. La mention des liens
+             affiliés (.reco__disclosure) doit rester visible.
+             ============================================================================ -->
+        <section class="reco" aria-label="Outils et services recommandés">
+          <h2>Pour aller plus loin</h2>
+          <p class="reco__intro">
+            Quelques services utiles pour lancer puis gérer votre auto-entreprise en parallèle de votre
+            emploi, sereinement.
+          </p>
+          <div class="reco__grid">
+            <div class="reco__item">
+              <h3>Lancer votre auto-entreprise</h3>
+              <p>Créez votre micro-entreprise gratuitement et sécurisez votre dossier.</p>
+              <a href="https://urlr.me/EbRFtz" class="btn btn-green" rel="sponsored nofollow noopener" target="_blank">Créer avec Indy</a>
+            </div>
+            <div class="reco__item">
+              <h3>Ouvrir un compte pro</h3>
+              <p>Souvent gratuit à la création, pour séparer votre activité de vos comptes perso.</p>
+              <a href="/comparateur-comptes-pro" class="btn btn-outline">Comparer les comptes pro</a>
+            </div>
+            <div class="reco__item">
+              <h3>Piloter votre compta</h3>
+              <p>Un outil pour suivre votre CA, vos déclarations URSSAF et vos seuils dès le 1<sup>er</sup> jour.</p>
+              <a href="https://www.indy.fr/?ae=1657" class="btn btn-outline" rel="sponsored nofollow noopener" target="_blank">Découvrir Indy</a>
+            </div>
+            <!-- Carte masquée : aucun lien d'affiliation assurance disponible pour l'instant.
+                 Retirer hidden + remplacer href quand un programme RC pro sera actif. -->
+            <div class="reco__item" hidden>
+              <h3>Vous assurer (RC pro)</h3>
+              <p>Une responsabilité civile professionnelle adaptée à votre activité.</p>
+              <a href="#" class="btn btn-outline" rel="sponsored nofollow">Voir les assurances</a>
+            </div>
+          </div>
+          <p class="reco__disclosure">
+            Certains liens de cette section sont des liens partenaires : si vous souscrivez, nous pouvons
+            percevoir une commission, sans surcoût pour vous. Cela n'influence pas le contenu de ce guide.
+          </p>
+        </section>
+
+        <p>
+          Une fois lancé, l'étape suivante est de fixer vos prix correctement. Si vous facturez à la journée,
+          suivez notre guide <a href="/guides/calculer-son-tjm-freelance">comment calculer son TJM de
+          freelance</a> ; si vous facturez à l'heure, voyez
+          <a href="/guides/taux-horaire-artisan">quel taux horaire facturer quand on est artisan</a>.
+        </p>
+
+        <h2 id="faq">Questions fréquentes</h2>
+      </div>
+
+      <div class="article__body" style="margin-top:1rem;">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-item__q">Un salarié en CDI peut-il être auto-entrepreneur ?</summary>
+            <p class="faq-item__a">Oui, sauf clause d'exclusivité encore opposable, et à condition de respecter son obligation de loyauté (ne pas concurrencer l'employeur, ne pas travailler pendant ses heures salariées).</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Mon employeur peut-il me l'interdire ?</summary>
+            <p class="faq-item__a">Pas en présence d'une simple clause d'exclusivité lors d'une création d'entreprise : elle est neutralisée pendant un an (jusqu'à deux ans avec congé ou temps partiel pour création). En revanche, il peut agir si votre activité lui fait concurrence ou nuit à l'entreprise.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Un fonctionnaire à temps plein peut-il créer une micro-entreprise ?</summary>
+            <p class="faq-item__a">Pas librement. Il doit soit exercer une activité accessoire figurant sur la liste autorisée (sur autorisation), soit demander un temps partiel pour création ou reprise d'entreprise.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Faut-il déclarer son auto-entreprise aux impôts et à l'URSSAF ?</summary>
+            <p class="faq-item__a">Oui, comme toute auto-entreprise : déclaration de chiffre d'affaires à l'URSSAF (mensuelle ou trimestrielle) et report des revenus sur la déclaration d'impôt.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Est-ce que je cotise deux fois pour la retraite ?</summary>
+            <p class="faq-item__a">Vous cotisez au titre des deux activités. Vous accumulez donc des droits sur chacune, dans la limite des règles de validation des trimestres.</p>
+          </details>
+        </div>
+
+        <p class="article__disclaimer">
+          Guide pédagogique à jour en 2026. La réglementation évolue, en particulier pour la fonction
+          publique : vérifiez votre situation auprès de votre employeur ou d'un conseiller. Ce guide ne
+          remplace pas la lecture de votre contrat ni un conseil personnalisé.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/comparateurs">Comparateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
