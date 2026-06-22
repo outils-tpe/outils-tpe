@@ -1,4 +1,4 @@
-/* outils-tpe.fr — Formulaire de téléchargement fichier gratuit
+/* outils-tpe.fr – Formulaire de téléchargement fichier gratuit
    Appelle POST /api/capture-gratuit avec email + métier + token Turnstile */
 
 (function () {

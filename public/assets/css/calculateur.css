@@ -1,5 +1,5 @@
 /* ============================================================
-   outils-tpe.fr — Calculateur (styles spécifiques)
+   outils-tpe.fr – Calculateur (styles spécifiques)
    Réutilise les tokens (--navy, --green…) définis dans main.css
    ============================================================ */
 
@@ -511,7 +511,7 @@
 }
 
 /* ============================================================
-   RESPONSIVE — 860px+
+   RESPONSIVE – 860px+
    ============================================================ */
 @media (min-width: 860px) {
   .calc-grid { grid-template-columns: 1.05fr .95fr; gap: 2rem; }

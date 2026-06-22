@@ -1,4 +1,4 @@
-/* outils-tpe.fr — Calculateur de TJM freelance
+/* outils-tpe.fr – Calculateur de TJM freelance
    Calcul 100 % côté client, aucune donnée envoyée.
    Les taux sont isolés par année dans `rates2026` (maintenance ~5 min/an). */
 

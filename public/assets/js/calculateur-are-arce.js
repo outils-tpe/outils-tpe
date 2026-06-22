@@ -1,5 +1,5 @@
 /* ============================================================
-   outils-tpe.fr — Calculateur ARE vs ARCE (créateur d'entreprise)
+   outils-tpe.fr – Calculateur ARE vs ARCE (créateur d'entreprise)
    Vanilla JS, zéro backend, calcul instantané.
 
    RÈGLES VÉRIFIÉES SUR SOURCES OFFICIELLES (juin 2026) :
@@ -34,7 +34,7 @@
     tauxCumul: 0.70,         // 70 % du revenu déduit de l'ARE mensuelle
     plafondMaintien: 0.60,   // maintien plafonné à 60 % du reliquat (depuis 01/04/2025)
     joursMois: 30,           // convention « mois plein » pour l'ARE mensuelle
-    joursParMois: 30.42,     // 365/12 — conversion reliquat mois <-> jours et horizon
+    joursParMois: 30.42,     // 365/12 – conversion reliquat mois <-> jours et horizon
     abattement: {            // abattement forfaitaire micro (part NON prise en compte)
       vente: 0.71,
       servicesBIC: 0.50,
@@ -165,9 +165,9 @@
     // Garde-fou : entrées insuffisantes
     if (e.are <= 0 || e.reliquatJours <= 0) {
       els.reco.innerHTML = 'Renseignez votre <b>allocation journalière</b> et votre <b>reliquat de droits</b> pour comparer les deux aides.';
-      els.arceVal.textContent = '—';
-      els.maintienVal.textContent = '—';
-      [els.rReliquat, els.rEnveloppe, els.rAreMens, els.rMaintienMens, els.rArceV, els.rDuree].forEach((x) => { x.textContent = '—'; });
+      els.arceVal.textContent = '–';
+      els.maintienVal.textContent = '–';
+      [els.rReliquat, els.rEnveloppe, els.rAreMens, els.rMaintienMens, els.rArceV, els.rDuree].forEach((x) => { x.textContent = '–'; });
       els.cellArce.classList.remove('calc-duo__cell--reco');
       els.cellMaintien.classList.remove('calc-duo__cell--reco');
       els.alertBas.hidden = true;
@@ -214,7 +214,7 @@
       ? '≈ ' + fmt(maintien.mensuel) + ' (' + maintien.jours + ' j/mois)'
       : '0 € (revenus trop élevés)';
     els.rDuree.textContent = (maintien.mensuel <= 0)
-      ? '—'
+      ? '–'
       : (maintien.plafondAtteint
         ? 'plafond 60 % atteint vers ' + Math.round(maintien.moisEnveloppe) + ' mois'
         : 'enveloppe non épuisée sur l\'horizon');

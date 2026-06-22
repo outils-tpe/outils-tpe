@@ -1,4 +1,4 @@
-/* outils-tpe.fr — Script principal */
+/* outils-tpe.fr – Script principal */
 
 // Année courante dans le footer
 const yearEl = document.getElementById('year');
@@ -32,7 +32,7 @@ if (toggle && nav) {
   });
 }
 
-// Newsletter — soumission basique (à brancher sur un service comme Brevo, Mailchimp…)
+// Newsletter – soumission basique (à brancher sur un service comme Brevo, Mailchimp…)
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
   newsletterForm.addEventListener('submit', (e) => {
@@ -48,7 +48,7 @@ if (newsletterForm) {
   });
 }
 
-// Lightbox — agrandissement des screenshots au clic
+// Lightbox – agrandissement des screenshots au clic
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
   const lightboxImg   = lightbox.querySelector('.lightbox__img');

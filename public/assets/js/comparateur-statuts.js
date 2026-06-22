@@ -1,9 +1,9 @@
 /* ============================================================
-   outils-tpe.fr — Comparateur micro / EURL / SASU (net en poche)
+   outils-tpe.fr – Comparateur micro / EURL / SASU (net en poche)
    Vanilla JS, zéro backend, calcul instantané.
 
    RÈGLES VÉRIFIÉES SUR SOURCES OFFICIELLES (juin 2026) :
-   - Micro : cotisations sociales sur le CA — vente BIC 12,3 %,
+   - Micro : cotisations sociales sur le CA – vente BIC 12,3 %,
      services BIC 21,2 %, libéral BNC (régime général) 25,6 %
      (hausse +1 pt au 01/01/2026), CIPAV 23,2 %. Abattement IR
      71 % (vente) / 50 % (services BIC) / 34 % (BNC). Charges réelles
@@ -12,7 +12,7 @@
      37 500 € (services). Sources : URSSAF, bpifrance, economie.gouv.
    - IS : 15 % jusqu'à 42 500 € de bénéfice (sous conditions),
      25 % au-delà. Dividendes : PFU 30 % (12,8 % IR + 17,2 % PS).
-   - IMPORTANT — modélisation des charges sociales société :
+   - IMPORTANT – modélisation des charges sociales société :
      les cotisations TNS (EURL) et assimilé-salarié (SASU) ne sont
      PAS des pourcentages fixes. Comme tout simulateur grand public,
      on les ESTIME par des coefficients (ci-dessous). C'est une
@@ -179,7 +179,7 @@
     els.netMicro.textContent = r.micro.horsPlafond ? 'indispo.' : fmt(r.micro.net);
     els.netEurl.textContent = fmt(r.eurl.net);
     els.netSasu.textContent = fmt(r.sasu.net);
-    els.prMicro.textContent = r.micro.horsPlafond ? '—' : fmt(r.micro.prelevements);
+    els.prMicro.textContent = r.micro.horsPlafond ? '–' : fmt(r.micro.prelevements);
     els.prEurl.textContent = fmt(r.eurl.prelevements);
     els.prSasu.textContent = fmt(r.sasu.prelevements);
 

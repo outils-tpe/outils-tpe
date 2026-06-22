@@ -1,4 +1,4 @@
-/* outils-tpe.fr — Calculateur de taux horaire artisan
+/* outils-tpe.fr – Calculateur de taux horaire artisan
    Deux modes : (A) quel taux facturer, (B) votre vrai taux horaire net.
    Calcul 100 % côté client, aucune donnée envoyée.
    Hypothèses de taux isolées dans `defauts2026` (maintenance ~5 min/an). */
@@ -56,9 +56,9 @@
     var tauxReco = tauxMin * (1 + marge / 100);
     var tjm      = tauxReco * hj;
 
-    setText('ra-reco', heuresFac > 0 ? tauxH(tauxReco) : '—');
-    setText('ra-min', heuresFac > 0 ? tauxH(tauxMin) : '—');
-    setText('ra-tjm', heuresFac > 0 ? euros(tjm) : '—');
+    setText('ra-reco', heuresFac > 0 ? tauxH(tauxReco) : '–');
+    setText('ra-min', heuresFac > 0 ? tauxH(tauxMin) : '–');
+    setText('ra-tjm', heuresFac > 0 ? euros(tjm) : '–');
     setText('ra-heuresfac', Math.round(heuresFac) + ' h / mois');
   }
 
@@ -81,8 +81,8 @@
     var tauxReelNet = heures > 0 ? netReel / heures : 0;      // vrai taux (sur TOUTES les heures)
     var ecart       = tauxFacture - tauxReelNet;
 
-    setText('rb-facture', heuresFac > 0 ? tauxH(tauxFacture) : '—');
-    setText('rb-reel', heures > 0 ? tauxH(Math.max(0, tauxReelNet)) : '—');
+    setText('rb-facture', heuresFac > 0 ? tauxH(tauxFacture) : '–');
+    setText('rb-reel', heures > 0 ? tauxH(Math.max(0, tauxReelNet)) : '–');
     setText('rb-ecart', tauxH(Math.max(0, ecart)));
 
     // Camembert « où passe votre argent » (parts du CA)
@@ -143,7 +143,7 @@
   }
 
   // ============================================================
-  // Partage du résultat (mode B — potentiel viral)
+  // Partage du résultat (mode B – potentiel viral)
   // ============================================================
   var shareBtn = document.getElementById('rb-share');
   if (shareBtn) {

@@ -1,4 +1,4 @@
-/* outils-tpe.fr — Estimateur de trésorerie prévisionnelle (6 mois)
+/* outils-tpe.fr – Estimateur de trésorerie prévisionnelle (6 mois)
    Projette le solde bancaire mois par mois à partir d'entrées simples,
    trace la courbe en SVG et repère le mois de passage en négatif.
    Calcul 100 % côté client, aucune donnée envoyée ni stockée. */
