@@ -219,7 +219,7 @@
   // --- Courbe SVG (3 lignes : micro / EURL / SASU) ---
   function dessinerCourbe(act, charges, remun, tmi, capital) {
     const { pts, caMax } = courbe(act, charges, remun, tmi, capital);
-    const W = 640, H = 280, padL = 8, padR = 8, padT = 16, padB = 28;
+    const W = 640, H = 280, padL = 64, padR = 12, padT = 16, padB = 28;
     const innerW = W - padL - padR, innerH = H - padT - padB;
     const vals = [];
     pts.forEach((p) => { [p.micro, p.eurl, p.sasu].forEach((v) => { if (v != null) vals.push(v); }); });
@@ -238,10 +238,16 @@
       return d;
     }
 
-    // Graduation 0
-    const y0 = y(0);
     let svg = '';
-    svg += '<line class="sc-zero" x1="' + padL + '" y1="' + y0.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + y0.toFixed(1) + '"/>';
+    // Lignes de repère horizontales + étiquettes en € (axe des ordonnées)
+    const steps = 4;
+    for (let i = 0; i <= steps; i++) {
+      const val = minV + ((maxV - minV) * i) / steps;
+      const yy = y(val);
+      const cls = Math.abs(val) < 1 ? 'sc-zero' : 'sc-grid';
+      svg += '<line class="' + cls + '" x1="' + padL + '" y1="' + yy.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + yy.toFixed(1) + '"/>';
+      svg += '<text class="sc-grid-label" x="' + (padL - 6) + '" y="' + (yy + 3).toFixed(1) + '" text-anchor="end">' + fmt(val) + '</text>';
+    }
     svg += '<path class="sc-line sc-line--micro" d="' + path('micro') + '"/>';
     svg += '<path class="sc-line sc-line--eurl" d="' + path('eurl') + '"/>';
     svg += '<path class="sc-line sc-line--sasu" d="' + path('sasu') + '"/>';
@@ -249,6 +255,58 @@
     svg += '<text class="sc-axis" x="' + padL + '" y="' + (H - 8) + '">0 €</text>';
     svg += '<text class="sc-axis" x="' + (W - padR) + '" y="' + (H - 8) + '" text-anchor="end">' + fmt(caMax) + ' de CA</text>';
     els.plot.innerHTML = svg;
+
+    chartState = { pts, caMax, padL, padR, innerW, x, y, W };
+    masquerMarqueur();
+  }
+
+  // --- Survol : marqueur vertical + points + infobulle ---
+  function masquerMarqueur() {
+    if (els.marker) els.marker.innerHTML = '';
+    if (els.tip) { els.tip.hidden = true; }
+  }
+
+  function surMouvement(clientX) {
+    if (!chartState || !els.svg) return;
+    const cs = chartState;
+    const rect = els.svg.getBoundingClientRect();
+    if (rect.width === 0) return;
+    // position pointeur -> coordonnées viewBox -> CA
+    const vbX = ((clientX - rect.left) / rect.width) * cs.W;
+    let ca = ((vbX - cs.padL) / cs.innerW) * cs.caMax;
+    ca = Math.max(0, Math.min(cs.caMax, ca));
+    // point le plus proche
+    let best = cs.pts[0], dmin = Infinity;
+    cs.pts.forEach((p) => { const d = Math.abs(p.CA - ca); if (d < dmin) { dmin = d; best = p; } });
+
+    // marqueur vertical + points
+    const mx = cs.x(best.CA);
+    let mk = '<line class="sc-marker-line" x1="' + mx.toFixed(1) + '" y1="' + 16 + '" x2="' + mx.toFixed(1) + '" y2="' + (280 - 28) + '"/>';
+    let topY = Infinity;
+    [['micro', best.micro], ['eurl', best.eurl], ['sasu', best.sasu]].forEach(([k, v]) => {
+      if (v == null) return;
+      const cy = cs.y(v);
+      if (cy < topY) topY = cy;
+      mk += '<circle class="sc-dot sc-dot--' + k + '" cx="' + mx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="4"/>';
+    });
+    els.marker.innerHTML = mk;
+
+    // infobulle (positionnée en pixels, relative à la carte)
+    const rowMicro = best.micro == null
+      ? '<div class="sc-tip__row"><span class="sc-tip__dot sc-tip__dot--micro"></span>Micro<span>indispo.</span></div>'
+      : '<div class="sc-tip__row"><span class="sc-tip__dot sc-tip__dot--micro"></span>Micro<span>' + fmt(best.micro) + '</span></div>';
+    els.tip.innerHTML =
+      '<div class="sc-tip__ca">' + fmt(best.CA) + ' de CA</div>' +
+      rowMicro +
+      '<div class="sc-tip__row"><span class="sc-tip__dot sc-tip__dot--eurl"></span>EURL<span>' + fmt(best.eurl) + '</span></div>' +
+      '<div class="sc-tip__row"><span class="sc-tip__dot sc-tip__dot--sasu"></span>SASU<span>' + fmt(best.sasu) + '</span></div>';
+
+    const cardRect = els.chartCard.getBoundingClientRect();
+    const pxX = (rect.left - cardRect.left) + (mx / cs.W) * rect.width;
+    const pxY = (rect.top - cardRect.top) + (topY / 280) * rect.height;
+    els.tip.style.left = pxX.toFixed(1) + 'px';
+    els.tip.style.top = pxY.toFixed(1) + 'px';
+    els.tip.hidden = false;
   }
 
   function bind() {
