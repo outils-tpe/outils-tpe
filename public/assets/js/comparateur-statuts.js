@@ -160,8 +160,11 @@
     // bascule + alertes
     bascule: $('s-bascule'),
     alertTVA: $('s-alert-tva'), alertPlafond: $('s-alert-plafond'), alertCharges: $('s-alert-charges'),
-    plot: $('s-plot')
+    plot: $('s-plot'), svg: $('s-svg'), marker: $('s-marker'), tip: $('s-tip'), chartCard: $('s-chart-card')
   };
+
+  // Géométrie + données du dernier rendu de courbe (pour le survol)
+  let chartState = null;
 
   function render() {
     const CA = Math.max(0, parseFloat(els.ca.value) || 0);
