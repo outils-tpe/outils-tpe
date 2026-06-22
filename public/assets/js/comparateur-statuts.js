@@ -314,6 +314,12 @@
       el.addEventListener('input', render);
       el.addEventListener('change', render);
     });
+    // Survol du graphique (souris + tactile)
+    if (els.svg) {
+      els.svg.addEventListener('pointermove', (e) => surMouvement(e.clientX));
+      els.svg.addEventListener('pointerdown', (e) => surMouvement(e.clientX));
+      els.svg.addEventListener('pointerleave', masquerMarqueur);
+    }
     render();
   }
 
