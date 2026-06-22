@@ -308,11 +308,13 @@
       </div>
 
       <!-- Graphique 3 courbes -->
-      <div class="sc-chart-card">
+      <div class="sc-chart-card" id="s-chart-card">
         <p class="sc-chart-card__title">Net en poche selon le chiffre d'affaires</p>
-        <svg class="sc-chart" viewBox="0 0 640 280" role="img" aria-label="Courbes du net en poche en micro, EURL et SASU selon le chiffre d'affaires">
+        <svg class="sc-chart" id="s-svg" viewBox="0 0 640 280" role="img" aria-label="Courbes du net en poche en micro, EURL et SASU selon le chiffre d'affaires" tabindex="0">
           <g id="s-plot"></g>
+          <g id="s-marker"></g>
         </svg>
+        <div id="s-tip" class="sc-tip" hidden aria-hidden="true"></div>
         <ul class="sc-legend">
           <li><span class="sc-legend__dot sc-legend__dot--micro"></span> Micro</li>
           <li><span class="sc-legend__dot sc-legend__dot--eurl"></span> EURL</li>
