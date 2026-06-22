@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Analytics Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3c09131a-c990-4672-96be-42be7b61f8cd"></script>
+  <meta name="description" content="Micro, EURL ou SASU : différences de cotisations, fiscalité et protection sociale, le rôle des charges réelles, le point de bascule et comment changer de statut. Guide 2026." />
+  <title>Micro, EURL ou SASU : comment choisir et quand changer de statut (2026) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/guides/micro-eurl-sasu" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Micro, EURL ou SASU : comment choisir et quand changer de statut (2026)" />
+  <meta property="og:description" content="Différences de cotisations, fiscalité et protection sociale, le rôle des charges réelles, le point de bascule et comment changer de statut. Guide gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/guides/micro-eurl-sasu" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+
+  <style>
+    .guide-head { background: var(--gray-50); padding-block: 3.5rem 2rem; border-bottom: 1px solid var(--gray-200); }
+    .guide-head__breadcrumb { font-size: .8rem; color: var(--gray-500); margin-bottom: 1rem; }
+    .guide-head__breadcrumb a { color: var(--gray-600); }
+    .guide-head h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.03em; color: var(--gray-900); line-height: 1.2; max-width: 820px; }
+    .article { padding-block: 3rem; }
+    .article__body { max-width: 720px; margin: 0 auto; font-size: 1.05rem; line-height: 1.8; color: var(--gray-700, #374151); }
+    .article__body h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 800; letter-spacing: -.02em; color: var(--gray-900); margin: 2.5rem 0 1rem; scroll-margin-top: 1.5rem; }
+    .article__body h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 1.75rem 0 .5rem; }
+    .article__body p { margin: 0 0 1rem; }
+    .article__body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    .article__body li { margin-bottom: .5rem; }
+    .article__body strong { color: var(--gray-900); }
+    .article__lead { font-size: 1.15rem; color: var(--gray-600); line-height: 1.75; }
+    .toc { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+    .toc__title { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--gray-500); margin: 0 0 .75rem; }
+    .toc ol { margin: 0; padding-left: 1.2rem; font-size: .98rem; line-height: 1.6; }
+    .toc li { margin-bottom: .35rem; }
+    .toc a { color: var(--navy); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .callout { background: #eff6ff; border-left: 3px solid var(--navy); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: .98rem; color: var(--gray-700); }
+    .callout strong { color: var(--navy); }
+    .callout--warn { background: #fff7ed; border-left-color: #c2410c; }
+    .callout--warn strong { color: #c2410c; }
+    .cmp-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .cmp { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 540px; }
+    .cmp th, .cmp td { padding: .65rem .8rem; text-align: left; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    .cmp thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gray-500); }
+    .cmp th:first-child { color: var(--gray-900); }
+    .cmp tbody th { font-weight: 600; color: var(--gray-700); }
+    .guide-cta { background: var(--navy); color: #fff; border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+    .guide-cta h2 { color: #fff; margin: 0 0 .5rem; }
+    .guide-cta p { color: rgba(255,255,255,.85); margin: 0 0 1.25rem; }
+    .reco { border: 1px solid var(--gray-200); border-radius: 14px; padding: 1.5rem; margin: 2.5rem 0; background: var(--gray-50); }
+    .reco h2 { margin: 0 0 .5rem; font-size: 1.4rem; }
+    .reco__intro { font-size: .98rem; color: var(--gray-600); margin: 0 0 1.25rem; }
+    .reco__grid { display: grid; gap: .9rem; }
+    @media (min-width: 560px) { .reco__grid { grid-template-columns: 1fr 1fr; } }
+    .reco__item { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 1rem 1.1rem; }
+    .reco__item h3 { margin: 0 0 .35rem; font-size: 1rem; color: var(--gray-900); }
+    .reco__item p { margin: 0 0 .75rem; font-size: .92rem; color: var(--gray-600); line-height: 1.5; }
+    .reco .btn-outline { background: #fff; color: var(--navy); border-color: var(--navy); }
+    .reco .btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+    .reco__disclosure { font-size: .82rem; color: var(--gray-500); margin: 1.25rem 0 0; font-style: italic; }
+    .article__disclaimer { font-size: .9rem; color: var(--gray-500); border-top: 1px solid var(--gray-200); padding-top: 1.25rem; margin-top: 2.5rem; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Micro, EURL ou SASU : comment choisir et quand changer de statut (2026)",
+        "description": "Différences de cotisations, fiscalité et protection sociale entre micro, EURL et SASU, le rôle des charges réelles, le point de bascule et comment changer de statut.",
+        "inLanguage": "fr-FR",
+        "datePublished": "2026-06-22",
+        "dateModified": "2026-06-22",
+        "mainEntityOfPage": "https://outils-tpe.fr/guides/micro-eurl-sasu",
+        "author": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" },
+        "publisher": { "@type": "Organization", "name": "outils-tpe.fr", "url": "https://outils-tpe.fr/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Micro, EURL ou SASU : quel statut paie le moins de charges ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Aucun dans l'absolu. La micro a des cotisations simples (12,3 % à 25,6 % du chiffre d'affaires) et reste imbattable tant que vous avez peu de charges réelles, car vous ne déduisez rien. Dès que vos charges deviennent importantes, l'EURL ou la SASU les déduisent avant impôt et deviennent plus avantageuses. Le bon statut dépend de votre CA, de vos charges et de la part que vous voulez vous verser." }
+          },
+          {
+            "@type": "Question",
+            "name": "À partir de quel chiffre d'affaires quitter la micro ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il n'y a pas de seuil unique. Avec peu de charges, la micro reste avantageuse jusqu'à son plafond (83 600 € en services et professions libérales, 203 100 € en vente). Avec des charges élevées, la société peut l'emporter bien avant. Au-delà des plafonds, le passage en société est obligatoire." }
+          },
+          {
+            "@type": "Question",
+            "name": "EURL ou SASU : laquelle choisir ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En EURL, le gérant est travailleur non salarié (TNS) : cotisations plus légères (environ 45 % du net) mais protection sociale plus basique. En SASU, le président est assimilé salarié : charges plus élevées (le net représente environ 55 % du coût total) mais meilleure couverture. Aucun des deux n'ouvre droit au chômage. En SASU, les dividendes ne supportent que le PFU ; en EURL, la part au-delà de 10 % du capital social supporte aussi des cotisations TNS." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment passer de la micro à la société ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous créez la société (rédaction des statuts, dépôt du capital, immatriculation) puis vous cessez la micro-entreprise auprès de l'URSSAF. Il n'y a pas de transformation automatique : ce sont deux structures distinctes. Anticipez la TVA, la nouvelle comptabilité (bilan, liasse fiscale) et l'arbitrage rémunération/dividendes. Un expert-comptable sécurise la transition." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il un expert-comptable en EURL ou SASU ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ce n'est pas une obligation légale, mais une société à l'IS implique une comptabilité d'engagement, des comptes annuels et une liasse fiscale : la plupart des dirigeants se font accompagner. En micro, la comptabilité est allégée (livre des recettes) et l'expert-comptable est rarement nécessaire." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr, accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/comparateurs" class="nav__link">Comparateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TÊTE GUIDE -->
+  <section class="guide-head">
+    <div class="wrap">
+      <p class="guide-head__breadcrumb"><a href="/guides">Guides</a> › Micro, EURL ou SASU</p>
+      <h1>Micro, EURL ou SASU : quel statut choisir et quand changer ?</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="wrap">
+      <div class="article__body">
+
+        <p class="article__lead">
+          C'est la question qui revient sans cesse dès que l'activité décolle : faut-il rester en
+          micro-entreprise, ou passer en société (EURL ou SASU) ? La réponse ne tient pas au prestige du
+          statut, mais à trois chiffres : votre <strong>chiffre d'affaires</strong>, vos
+          <strong>charges réelles</strong>, et ce que vous voulez <strong>vous verser</strong>. Ce guide
+          vous donne les critères concrets, et vous renvoie vers notre comparateur pour chiffrer votre cas.
+        </p>
+
+        <p>
+          Pour voir tout de suite votre net en poche dans les trois statuts et votre point de bascule,
+          utilisez notre <a href="/comparateur-micro-eurl-sasu">comparateur micro / EURL / SASU</a>.
+        </p>
+
+        <nav class="toc" aria-label="Sommaire">
+          <p class="toc__title">Sommaire</p>
+          <ol>
+            <li><a href="#trois-statuts">Les trois statuts en bref</a></li>
+            <li><a href="#charges">Pourquoi les charges réelles changent tout</a></li>
+            <li><a href="#bascule">À partir de quel CA quitter la micro</a></li>
+            <li><a href="#remu-div">Rémunération vs dividendes (EURL vs SASU)</a></li>
+            <li><a href="#changer">Comment changer de statut sans tout casser</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="trois-statuts">Les trois statuts en bref</h2>
+        <p>
+          Ces statuts se distinguent par la façon dont vous payez vos <strong>cotisations sociales</strong>,
+          votre <strong>impôt</strong>, et par votre <strong>protection sociale</strong>.
+        </p>
+        <div class="cmp-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>&nbsp;</th><th>Micro-entreprise</th><th>EURL</th><th>SASU</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Cotisations</th><td>% du CA (12,3 à 25,6 %)</td><td>TNS (≈ 45 % du net)</td><td>Assimilé salarié (net ≈ 55 % du coût)</td></tr>
+              <tr><th>Charges réelles</th><td>Non déductibles</td><td>Déductibles</td><td>Déductibles</td></tr>
+              <tr><th>Impôt</th><td>IR (CA après abattement)</td><td>IR par défaut, option IS</td><td>IS (rémun. déductible)</td></tr>
+              <tr><th>Protection sociale</th><td>Basique (TNS)</td><td>Basique (TNS)</td><td>Étendue (régime général)</td></tr>
+              <tr><th>Chômage</th><td>Non</td><td>Non</td><td>Non</td></tr>
+              <tr><th>Dividendes</th><td>—</td><td>Cotisés &gt; 10 % du capital</td><td>PFU seul (30 %)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Retenez l'idée : la micro est <strong>simple et légère quand on a peu de frais</strong> ; la
+          société devient intéressante quand on a des charges à déduire ou qu'on veut optimiser l'arbitrage
+          rémunération/dividendes — au prix de plus de formalisme.
+        </p>
+
+        <h2 id="charges">Pourquoi les charges réelles changent tout</h2>
+        <p>
+          C'est le point le plus mal compris, et le plus décisif. En micro, vos cotisations et votre impôt
+          sont calculés sur <strong>tout votre chiffre d'affaires</strong> — y compris la partie qui sert à
+          payer vos frais. Si vous dépensez 20 000 € de matériel, de stock ou de sous-traitance, vous êtes
+          quand même taxé dessus.
+        </p>
+        <p>
+          En société, ces <strong>charges réelles sont déduites</strong> avant de calculer l'impôt sur les
+          sociétés. Conséquence : plus vos charges sont élevées, plus la micro vous coûte cher en comparaison,
+          et plus la société rattrape son surcoût de gestion. C'est pour cela que, dans notre comparateur, le
+          champ « charges réelles » fait souvent basculer le résultat à lui seul.
+        </p>
+        <div class="callout">
+          <strong>Règle simple :</strong> l'abattement forfaitaire de la micro (71 % en vente, 50 % en
+          services BIC, 34 % en libéral) n'est avantageux que si vos charges réelles sont
+          <em>inférieures</em> à cet abattement. Au-delà, vous payez de l'impôt sur des frais que vous avez
+          réellement engagés.
+        </div>
+
+        <h2 id="bascule">À partir de quel CA quitter la micro</h2>
+        <p>
+          Il n'existe pas de seuil magique valable pour tout le monde. Le point de bascule dépend surtout de
+          vos charges et de ce que vous vous versez. Deux repères concrets :
+        </p>
+        <ul>
+          <li>
+            <strong>Les plafonds de la micro</strong> : 83 600 € de CA en prestations de services et
+            professions libérales, 203 100 € en vente de marchandises (montants 2026-2028). Au-delà, la
+            société est obligatoire.
+          </li>
+          <li>
+            <strong>Le niveau de charges</strong> : avec peu de frais, la micro reste souvent gagnante
+            jusqu'à son plafond ; avec des charges lourdes, la société peut l'emporter bien plus tôt.
+          </li>
+        </ul>
+        <p>
+          Pensez aussi à la <strong>franchise de TVA</strong> : au-delà de 85 000 € (vente) ou 37 500 €
+          (services) de CA, vous devez facturer la TVA, quel que soit votre statut. Ces seuils font
+          actuellement l'objet d'une réforme : vérifiez-les au moment de décider.
+        </p>
+
+        <!-- CTA COMPARATEUR -->
+        <div class="guide-cta">
+          <h2>Trouvez votre point de bascule</h2>
+          <p>
+            Entrez votre CA, vos charges et le revenu que vous voulez vous verser : le comparateur affiche
+            votre net en poche en micro, EURL et SASU, et la courbe qui montre où la société dépasse la micro.
+          </p>
+          <a href="/comparateur-micro-eurl-sasu" class="btn btn-green btn-lg">Comparer mes statuts</a>
+        </div>
+
+        <h2 id="remu-div">Rémunération vs dividendes (EURL vs SASU)</h2>
+        <p>
+          En société à l'IS, vous pouvez vous payer en <strong>rémunération</strong> (soumise à cotisations,
+          mais qui ouvre des droits) ou en <strong>dividendes</strong> (prélevés sur le bénéfice après impôt
+          sur les sociétés). L'arbitrage n'est pas le même selon le statut :
+        </p>
+        <h3>SASU : dividendes efficaces</h3>
+        <p>
+          En SASU, les dividendes ne supportent que le <strong>PFU de 30 %</strong> (12,8 % d'impôt + 17,2 %
+          de prélèvements sociaux), sans cotisations sociales. Beaucoup de présidents de SASU se versent une
+          rémunération modeste et le reste en dividendes pour optimiser le net immédiat.
+        </p>
+        <h3>EURL : dividendes vite cotisés</h3>
+        <p>
+          En EURL, la part de dividendes supérieure à <strong>10 % du capital social</strong> est soumise
+          aux cotisations TNS. Avec un petit capital (1 000 €, par exemple), l'essentiel des dividendes est
+          donc cotisé : l'avantage des dividendes est bien plus faible qu'en SASU.
+        </p>
+        <div class="callout callout--warn">
+          <strong>Attention au tout-dividendes :</strong> se verser surtout des dividendes réduit vos droits
+          sociaux (retraite, indemnités journalières). Le bon arbitrage ne se résume pas au net en poche de
+          l'année : il engage aussi votre protection sur le long terme.
+        </div>
+
+        <h2 id="changer">Comment changer de statut sans tout casser</h2>
+        <p>
+          On ne « transforme » pas une micro en société : ce sont deux structures distinctes. Concrètement,
+          vous <strong>créez la société</strong> (statuts, dépôt de capital, immatriculation au guichet
+          unique de l'INPI), vous y basculez votre activité, puis vous <strong>cessez la
+          micro-entreprise</strong> auprès de l'URSSAF.
+        </p>
+        <p>Quelques points à anticiper pour une transition propre :</p>
+        <ul>
+          <li>La <strong>TVA</strong> : en société, vous la facturez et la récupérez ; adaptez vos prix et votre comptabilité.</li>
+          <li>La <strong>comptabilité</strong> : une société à l'IS impose comptes annuels et liasse fiscale — prévoyez un outil de compta ou un expert-comptable.</li>
+          <li>Les <strong>contrats clients</strong> et le compte bancaire : ils doivent passer au nom de la nouvelle structure.</li>
+          <li>L'<strong>ACRE</strong> : si vous y avez déjà eu droit, vous ne pouvez pas en rebénéficier avant trois ans (et l'exonération micro passe de 50 % à 25 % pour les activités créées à partir du 1<sup>er</sup> juillet 2026).</li>
+        </ul>
+        <p>
+          Si vous débutez et que vous hésitez encore à vous lancer, commencez par notre guide
+          <a href="/guides/creer-son-auto-entreprise">créer son auto-entreprise en 2026</a>. Et pour fixer vos
+          tarifs au bon niveau, voyez le <a href="/calculateur-tjm-freelance">calculateur de TJM</a>.
+        </p>
+
+        <!-- ============================================================================
+             BLOC CTA AFFILIÉS — liens partenaires actifs (Indy). Carte expert-comptable
+             laissée masquée tant qu'aucun programme d'affiliation n'est disponible.
+             ============================================================================ -->
+        <section class="reco" aria-label="Outils et services recommandés">
+          <h2>Pour aller plus loin</h2>
+          <p class="reco__intro">Quelques services utiles pour créer puis gérer votre structure.</p>
+          <div class="reco__grid">
+            <div class="reco__item">
+              <h3>Créer votre société</h3>
+              <p>Statuts, formalités, immatriculation : lancez votre EURL, SASU ou micro sans vous perdre.</p>
+              <a href="https://urlr.me/EbRFtz" class="btn btn-green" rel="sponsored nofollow noopener" target="_blank">Créer avec Indy</a>
+            </div>
+            <div class="reco__item">
+              <h3>Piloter votre compta</h3>
+              <p>Cotisations, IS, déclarations : un outil de compta adapté à votre statut.</p>
+              <a href="https://www.indy.fr/?ae=1657" class="btn btn-outline" rel="sponsored nofollow noopener" target="_blank">Découvrir Indy</a>
+            </div>
+            <div class="reco__item">
+              <h3>Ouvrir un compte pro</h3>
+              <p>Obligatoire en société, conseillé en micro : comparez les comptes pro.</p>
+              <a href="/comparateur-comptes-pro" class="btn btn-outline">Comparer les comptes pro</a>
+            </div>
+            <!-- Carte masquée : aucun lien d'affiliation expert-comptable disponible pour l'instant. -->
+            <div class="reco__item" hidden>
+              <h3>Faire valider par un expert-comptable</h3>
+              <p>Un avis professionnel pour sécuriser votre choix de statut.</p>
+              <a href="#" class="btn btn-outline" rel="sponsored nofollow">Trouver un expert-comptable</a>
+            </div>
+          </div>
+          <p class="reco__disclosure">
+            Certains liens de cette section sont des liens partenaires : si vous souscrivez, nous pouvons
+            percevoir une commission, sans surcoût pour vous. Cela n'influence pas le contenu de ce guide.
+          </p>
+        </section>
+
+        <h2 id="faq">Questions fréquentes</h2>
+      </div>
+
+      <div class="article__body" style="margin-top:1rem;">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-item__q">Micro, EURL ou SASU : quel statut paie le moins de charges ?</summary>
+            <p class="faq-item__a">Aucun dans l'absolu. La micro a des cotisations simples (12,3 % à 25,6 % du CA) et reste imbattable tant que vous avez peu de charges réelles, car vous ne déduisez rien. Dès que vos charges deviennent importantes, l'EURL ou la SASU les déduisent avant impôt et deviennent plus avantageuses. Tout dépend de votre CA, de vos charges et de ce que vous vous versez.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">À partir de quel chiffre d'affaires quitter la micro ?</summary>
+            <p class="faq-item__a">Il n'y a pas de seuil unique. Avec peu de charges, la micro reste avantageuse jusqu'à son plafond (83 600 € en services et professions libérales, 203 100 € en vente). Avec des charges élevées, la société peut l'emporter bien avant. Au-delà des plafonds, le passage en société est obligatoire.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">EURL ou SASU : laquelle choisir ?</summary>
+            <p class="faq-item__a">En EURL, le gérant est TNS : cotisations plus légères (≈ 45 % du net) mais protection plus basique. En SASU, le président est assimilé salarié : charges plus élevées (net ≈ 55 % du coût total) mais meilleure couverture. Aucun des deux n'ouvre droit au chômage. En SASU les dividendes ne supportent que le PFU ; en EURL, la part au-delà de 10 % du capital supporte aussi des cotisations TNS.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Comment passer de la micro à la société ?</summary>
+            <p class="faq-item__a">Vous créez la société (statuts, capital, immatriculation) puis vous cessez la micro auprès de l'URSSAF : il n'y a pas de transformation automatique. Anticipez la TVA, la nouvelle comptabilité (bilan, liasse fiscale) et l'arbitrage rémunération/dividendes. Un expert-comptable sécurise la transition.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Faut-il un expert-comptable en EURL ou SASU ?</summary>
+            <p class="faq-item__a">Ce n'est pas une obligation légale, mais une société à l'IS implique une comptabilité d'engagement, des comptes annuels et une liasse fiscale : la plupart des dirigeants se font accompagner. En micro, la comptabilité est allégée (livre des recettes) et l'expert-comptable est rarement nécessaire.</p>
+          </details>
+        </div>
+
+        <p class="article__disclaimer">
+          Guide pédagogique à jour des règles 2026. Les cotisations, seuils, taux d'IS et règles de TVA
+          évoluent (réforme de la franchise de TVA et de l'assiette sociale des indépendants en cours) :
+          vérifiez votre situation et, pour un choix engageant comme le statut, faites-vous accompagner par
+          un expert-comptable. Ce guide ne remplace pas un conseil personnalisé.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr, accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/comparateurs">Comparateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
