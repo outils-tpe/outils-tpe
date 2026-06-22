@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Analytics Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3c09131a-c990-4672-96be-42be7b61f8cd"></script>
+  <meta name="description" content="Comparez votre net en poche en micro, EURL et SASU pour votre CA, et trouvez à partir de quand la société devient plus avantageuse. Gratuit, à jour 2026." />
+  <title>Micro, EURL ou SASU : le comparateur de net en poche (2026) | outils-tpe.fr</title>
+
+  <link rel="canonical" href="https://outils-tpe.fr/comparateur-micro-eurl-sasu" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="outils-tpe.fr" />
+  <meta property="og:title" content="Micro, EURL ou SASU : le comparateur de net en poche (2026)" />
+  <meta property="og:description" content="Comparez votre net en poche en micro, EURL et SASU pour votre CA, et trouvez le point de bascule vers la société. Gratuit, à jour 2026." />
+  <meta property="og:url" content="https://outils-tpe.fr/comparateur-micro-eurl-sasu" />
+
+  <meta name="theme-color" content="#0f2d52" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/calculateur.css?v=3" />
+
+  <style>
+    /* --- Trois colonnes comparatives (dans la carte résultats navy) --- */
+    .stat-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1.25rem; }
+    .stat-col {
+      position: relative; text-align: center;
+      background: rgba(255,255,255,.06); border: 1px solid transparent;
+      border-radius: var(--radius); padding: 1rem .4rem .8rem;
+      transition: background var(--ease), border-color var(--ease);
+    }
+    .stat-col__name { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: rgba(255,255,255,.65); margin-bottom: .45rem; }
+    .stat-col__net { font-size: clamp(1.1rem, 4.5vw, 1.55rem); font-weight: 800; letter-spacing: -.02em; color: #fff; line-height: 1.05; }
+    .stat-col__pr { font-size: .66rem; color: rgba(255,255,255,.5); margin-top: .35rem; line-height: 1.3; }
+    .stat-col--win { background: rgba(74,222,128,.14); border-color: #4ade80; }
+    .stat-col__tag {
+      position: absolute; top: -.55rem; left: 50%; transform: translateX(-50%);
+      font-size: .54rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+      color: #052e16; background: #4ade80; border-radius: 9999px; padding: .1rem .45rem;
+      white-space: nowrap; opacity: 0; transition: opacity var(--ease);
+    }
+    .stat-col--win .stat-col__tag { opacity: 1; }
+
+    /* --- Bandeau point de bascule --- */
+    .sc-bascule {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-lg); padding: .9rem 1rem; margin-bottom: 1.25rem;
+      font-size: .9rem; line-height: 1.5; color: rgba(255,255,255,.88);
+    }
+    .sc-bascule b { color: #86efac; font-weight: 800; }
+
+    /* --- Graphique 3 courbes --- */
+    .sc-chart-card {
+      background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem 1rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-top: 1.5rem;
+    }
+    .sc-chart-card__title { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-500); margin-bottom: .5rem; }
+    .sc-chart { width: 100%; height: auto; display: block; }
+    .sc-zero { stroke: var(--gray-300, #cbd5e1); stroke-width: 1; stroke-dasharray: 4 4; }
+    .sc-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .sc-line--micro { stroke: #0ea5e9; }
+    .sc-line--eurl  { stroke: #f59e0b; }
+    .sc-line--sasu  { stroke: #22c55e; }
+    .sc-axis { fill: var(--gray-400); font-size: 11px; font-family: var(--font); }
+    .sc-legend { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: .85rem; justify-content: center; }
+    .sc-legend li { display: flex; align-items: center; gap: .45rem; font-size: .82rem; color: var(--gray-600); }
+    .sc-legend__dot { width: 14px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+    .sc-legend__dot--micro { background: #0ea5e9; }
+    .sc-legend__dot--eurl  { background: #f59e0b; }
+    .sc-legend__dot--sasu  { background: #22c55e; }
+  </style>
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Comparateur micro / EURL / SASU",
+      "url": "https://outils-tpe.fr/comparateur-micro-eurl-sasu",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "fr-FR",
+      "description": "Comparez votre net en poche en micro-entreprise, EURL et SASU pour un chiffre d'affaires donné, et identifiez le point de bascule à partir duquel la société devient plus avantageuse que la micro. Gratuit, instantané, à jour 2026.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "publisher": { "@type": "Organization", "name": "outils-tpe.fr" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Micro, EURL ou SASU : lequel laisse le plus de net en poche ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il n'y a pas de réponse universelle. La micro est imbattable quand vous avez peu de charges réelles : ses cotisations (12,3 % à 25,6 % du CA) sont simples et vous ne déduisez rien. Dès que vos charges réelles deviennent importantes, la société (EURL ou SASU) prend l'avantage car elle les déduit avant impôt. Le bon statut dépend de votre CA, de vos charges et de la part que vous voulez vous verser." }
+        },
+        {
+          "@type": "Question",
+          "name": "À partir de quel chiffre d'affaires faut-il quitter la micro ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il n'existe pas de seuil unique : le point de bascule dépend surtout de vos charges réelles. Avec peu de charges, la micro reste avantageuse jusqu'à son plafond (83 600 € en services/BNC, 203 100 € en vente). Avec des charges élevées, la société peut devenir plus intéressante bien avant. Au-delà des plafonds micro, le passage en société est de toute façon obligatoire." }
+        },
+        {
+          "@type": "Question",
+          "name": "EURL ou SASU : quelle différence ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En EURL, le gérant associé unique est travailleur non salarié (TNS) : cotisations plus légères (environ 45 % du revenu net) mais protection sociale plus basique et pas d'assurance chômage. En SASU, le président est assimilé salarié : charges sociales plus élevées (le net représente environ 55 % du coût total) mais meilleure protection ; pas de chômage non plus. Autre écart clé : en SASU les dividendes ne supportent que les prélèvements (PFU 30 %), alors qu'en EURL la part de dividendes supérieure à 10 % du capital social supporte aussi des cotisations TNS." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vaut-il mieux se verser une rémunération ou des dividendes ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En SASU, les dividendes échappent aux cotisations sociales (seul le PFU de 30 % s'applique), ce qui les rend souvent plus efficaces que la rémunération. En EURL, l'avantage est limité : la part de dividendes dépassant 10 % du capital social est soumise aux cotisations TNS. La rémunération, elle, ouvre des droits sociaux (retraite, maladie) que les dividendes n'apportent pas : l'arbitrage n'est pas qu'une question de net immédiat." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce comparateur est-il exact au centime près ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, c'est une estimation pédagogique. Les cotisations micro, l'impôt sur les sociétés et le PFU sont calculés précisément, mais les charges sociales TNS (EURL) et assimilé salarié (SASU) sont modélisées par des coefficients standards, comme dans tous les simulateurs grand public. Le résultat ne tient pas compte de tous les cas particuliers (CFE, TVA, situation familiale, autres revenus, ACRE de la 1re année). Faites valider votre choix par un expert-comptable." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo" aria-label="outils-tpe.fr — accueil">
+        outils-tpe<span class="logo__tld">.fr</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="/calculateurs" class="nav__link">Calculateurs</a></li>
+          <li><a href="/comparateurs" class="nav__link">Comparateurs</a></li>
+          <li><a href="/modeles" class="nav__link">Modèles</a></li>
+          <li><a href="/guides" class="nav__link">Guides</a></li>
+          <li><a href="/sur-mesure" class="nav__link nav__link--cta">Sur mesure</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <span class="hero__badge">Indépendant · Choix de statut</span>
+      <h1 class="hero__title">
+        Micro, EURL ou SASU :<br>
+        <span class="hero__accent">votre net en poche comparé</span>
+      </h1>
+      <p class="hero__sub">
+        Pour votre chiffre d'affaires, voyez ce qui vous reste vraiment en poche dans chaque statut,
+        et à partir de quel CA la société dépasse la micro. Gratuit, instantané, à jour 2026.
+      </p>
+      <ul class="hero__trust" aria-label="Garanties">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          100 % gratuit, sans inscription
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Barèmes 2026
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Comparateur neutre
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CALCULATEUR -->
+  <section class="calc-section" aria-label="Comparateur micro EURL SASU">
+    <div class="wrap">
+      <div class="calc-grid">
+
+        <!-- Saisie -->
+        <form id="form-statuts" class="calc-form-card" novalidate>
+          <h2 class="calc-card__title">Votre situation</h2>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="s-ca">Chiffre d'affaires annuel HT</label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="s-ca" inputmode="numeric" min="0" step="1000" value="70000" />
+              <span class="calc-input-wrap__unit">€ / an</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="s-act">Type d'activité</label>
+            <select class="calc-select" id="s-act">
+              <option value="venteBIC">Vente de marchandises (BIC)</option>
+              <option value="servicesBIC" selected>Prestations de services (BIC)</option>
+              <option value="liberalBNC">Activité libérale (BNC, régime général)</option>
+              <option value="cipav">Profession libérale CIPAV</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="s-charges">
+              Charges réelles annuelles
+              <span class="calc-hint" title="Vos frais professionnels hors rémunération (matériel, sous-traitance, loyer, logiciels…). Déductibles en société, PAS en micro : c'est le champ qui fait souvent basculer le résultat.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="s-charges" inputmode="numeric" min="0" step="500" value="5000" />
+              <span class="calc-input-wrap__unit">€ / an</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label class="calc-field__label" for="s-remun">
+              Revenu net que vous voulez vous verser
+              <span class="calc-hint" title="En société, ce que vous vous versez en rémunération nette. Le reste du bénéfice est supposé distribué en dividendes.">?</span>
+            </label>
+            <div class="calc-input-wrap">
+              <input class="calc-input" type="number" id="s-remun" inputmode="numeric" min="0" step="1000" value="30000" />
+              <span class="calc-input-wrap__unit">€ / an</span>
+            </div>
+          </div>
+
+          <!-- Options avancées -->
+          <details class="calc-advanced">
+            <summary>Options avancées</summary>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="s-tmi">
+                Tranche marginale d'imposition (TMI)
+                <span class="calc-hint" title="Votre taux d'imposition sur le revenu le plus élevé. Appliqué de la même façon aux 3 statuts pour une comparaison équitable.">?</span>
+              </label>
+              <select class="calc-select" id="s-tmi">
+                <option value="0">0 % (non imposable)</option>
+                <option value="0.11">11 %</option>
+                <option value="0.30" selected>30 %</option>
+                <option value="0.41">41 %</option>
+                <option value="0.45">45 %</option>
+              </select>
+            </div>
+
+            <div class="calc-field">
+              <label class="calc-field__label" for="s-capital">
+                Capital social (EURL)
+                <span class="calc-hint" title="Sert au seuil des 10 % : en EURL, la part de dividendes supérieure à 10 % du capital social supporte des cotisations TNS.">?</span>
+              </label>
+              <div class="calc-input-wrap">
+                <input class="calc-input" type="number" id="s-capital" inputmode="numeric" min="0" step="100" value="1000" />
+                <span class="calc-input-wrap__unit">€</span>
+              </div>
+            </div>
+          </details>
+        </form>
+
+        <!-- Résultats -->
+        <div class="calc-results-col">
+          <div class="calc-results-card">
+            <h2 class="calc-card__title">Net en poche annuel</h2>
+
+            <div class="stat-cols">
+              <div class="stat-col" id="s-col-micro">
+                <span class="stat-col__tag">Le mieux</span>
+                <div class="stat-col__name">Micro</div>
+                <div class="stat-col__net" id="s-net-micro">—</div>
+                <div class="stat-col__pr">prélèvements<br><span id="s-pr-micro">—</span></div>
+              </div>
+              <div class="stat-col" id="s-col-eurl">
+                <span class="stat-col__tag">Le mieux</span>
+                <div class="stat-col__name">EURL</div>
+                <div class="stat-col__net" id="s-net-eurl">—</div>
+                <div class="stat-col__pr">prélèvements<br><span id="s-pr-eurl">—</span></div>
+              </div>
+              <div class="stat-col" id="s-col-sasu">
+                <span class="stat-col__tag">Le mieux</span>
+                <div class="stat-col__name">SASU</div>
+                <div class="stat-col__net" id="s-net-sasu">—</div>
+                <div class="stat-col__pr">prélèvements<br><span id="s-pr-sasu">—</span></div>
+              </div>
+            </div>
+
+            <p id="s-bascule" class="sc-bascule" role="status" aria-live="polite">—</p>
+
+            <div class="calc-alerts">
+              <div class="calc-alert" id="s-alert-plafond" hidden>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l7 13H1L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v4M8 12h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span>Votre CA dépasse le <b>plafond de la micro</b> : ce régime n'est plus possible, seule la société reste envisageable.</span>
+              </div>
+              <div class="calc-alert" id="s-alert-tva" hidden>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l7 13H1L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v4M8 12h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span>Au-delà du seuil de <b>franchise de TVA</b>, vous devez facturer la TVA (quel que soit le statut). Pensez-y dans vos prix.</span>
+              </div>
+              <div class="calc-alert" id="s-alert-charges" hidden>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l7 13H1L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v4M8 12h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span>Vos charges réelles sont importantes : la micro devient pénalisante car elle ne permet <b>aucune déduction</b>.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Graphique 3 courbes -->
+      <div class="sc-chart-card">
+        <p class="sc-chart-card__title">Net en poche selon le chiffre d'affaires</p>
+        <svg class="sc-chart" viewBox="0 0 640 280" role="img" aria-label="Courbes du net en poche en micro, EURL et SASU selon le chiffre d'affaires">
+          <g id="s-plot"></g>
+        </svg>
+        <ul class="sc-legend">
+          <li><span class="sc-legend__dot sc-legend__dot--micro"></span> Micro</li>
+          <li><span class="sc-legend__dot sc-legend__dot--eurl"></span> EURL</li>
+          <li><span class="sc-legend__dot sc-legend__dot--sasu"></span> SASU</li>
+        </ul>
+      </div>
+
+      <p class="calc-disclaimer">
+        Estimation pédagogique, à jour des barèmes 2026. Les cotisations micro, l'impôt sur les sociétés
+        (15 % jusqu'à 42 500 €, 25 % au-delà) et le PFU (30 %) sont calculés précisément. En revanche, les
+        charges sociales TNS (EURL) et assimilé salarié (SASU) sont <strong>estimées par des coefficients
+        standards</strong> (net SASU ≈ 55 % du coût total ; cotisations TNS ≈ 45 % du net) : comme tout
+        simulateur grand public, le résultat n'est pas un calcul comptable. Hors CFE, TVA, situation
+        familiale, autres revenus et ACRE de la 1<sup>re</sup> année. Ce comparateur ne remplace pas un
+        expert-comptable.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA AFFILIÉS -->
+  <section class="calc-cta-section" aria-label="Outils recommandés">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pour aller plus loin</h2>
+        <p>Les services utiles une fois votre statut choisi.</p>
+      </div>
+
+      <div class="calc-cta-grid">
+        <div class="calc-cta">
+          <p class="calc-cta__title">Créer votre société (ou votre micro)</p>
+          <p class="calc-cta__desc">
+            Statuts, formalités et immatriculation : lancez votre EURL, SASU ou micro-entreprise sans
+            vous perdre dans les démarches.
+          </p>
+          <a class="calc-cta__link" href="https://urlr.me/EbRFtz" rel="sponsored nofollow noopener" target="_blank">
+            Créer avec Indy →
+          </a>
+        </div>
+        <div class="calc-cta">
+          <p class="calc-cta__title">Piloter votre compta</p>
+          <p class="calc-cta__desc">
+            Un outil de compta adapté à votre statut calcule vos cotisations, votre IS et vos déclarations
+            sans expertise comptable préalable.
+          </p>
+          <a class="calc-cta__link" href="https://www.indy.fr/?ae=1657" rel="sponsored nofollow noopener" target="_blank">
+            Découvrir Indy →
+          </a>
+        </div>
+        <div class="calc-cta">
+          <p class="calc-cta__title">Ouvrir un compte pro</p>
+          <p class="calc-cta__desc">
+            Obligatoire en société, conseillé en micro : comparez les comptes pro adaptés à votre statut.
+          </p>
+          <a class="calc-cta__link" href="/comparateur-comptes-pro">
+            Comparer les comptes pro →
+          </a>
+        </div>
+      </div>
+
+      <p class="calc-cta-notice">
+        Certains liens ci-dessus sont des liens partenaires : si vous souscrivez, nous pouvons percevoir
+        une commission, sans surcoût pour vous. Cela nous permet de garder ce comparateur gratuit et neutre.
+        Nous ne recommandons que des outils que nous jugeons pertinents pour les TPE.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU SEO -->
+  <section class="calc-content">
+    <div class="wrap">
+
+      <h2>Micro, EURL, SASU : les différences clés</h2>
+      <p>
+        Ces trois statuts ne se distinguent pas par le métier que vous exercez, mais par la façon dont vous
+        êtes <strong>imposé</strong> et dont vous payez vos <strong>cotisations sociales</strong> :
+      </p>
+      <ul class="calc-list">
+        <li><strong>Micro-entreprise</strong> : cotisations calculées en pourcentage du chiffre d'affaires (12,3 % en vente, 21,2 % en services BIC, 25,6 % en libéral BNC, 23,2 % en CIPAV), sans aucune déduction de charges. Simple, mais pénalisant si vous avez beaucoup de frais.</li>
+        <li><strong>EURL</strong> : société à associé unique. Le gérant est <strong>travailleur non salarié (TNS)</strong> : cotisations plus légères, protection sociale plus basique. Par défaut à l'IR, option possible à l'IS.</li>
+        <li><strong>SASU</strong> : société par actions à associé unique. Le président est <strong>assimilé salarié</strong> : charges sociales élevées mais meilleure protection. À l'IS. Aucune assurance chômage, comme en EURL.</li>
+      </ul>
+
+      <h2>Pourquoi les charges réelles changent tout</h2>
+      <p>
+        C'est le point le plus mal compris. En micro, vous payez vos cotisations sur <strong>tout votre
+        chiffre d'affaires</strong>, même la partie qui sert à couvrir vos frais. Si vous achetez pour
+        20 000 € de matériel ou de sous-traitance, vous êtes quand même taxé dessus.
+      </p>
+      <p>
+        En société (EURL ou SASU), ces <strong>charges réelles sont déduites</strong> avant de calculer
+        l'impôt et les cotisations. Plus vos charges sont élevées, plus la micro devient désavantageuse —
+        et plus la société rattrape son surcoût administratif. C'est pour cela que le champ « charges
+        réelles » du comparateur fait souvent basculer le résultat.
+      </p>
+
+      <h2>À partir de quel CA quitter la micro</h2>
+      <p>
+        Il n'y a pas de seuil magique. Le point de bascule dépend surtout de vos charges et de ce que vous
+        voulez vous verser. Deux repères tout de même :
+      </p>
+      <ul class="calc-list">
+        <li>Les <strong>plafonds de la micro</strong> : 83 600 € de CA en prestations de services et professions libérales, 203 100 € en vente de marchandises. Au-delà, la société est obligatoire.</li>
+        <li>Le <strong>niveau de charges</strong> : avec peu de frais, la micro reste souvent gagnante jusqu'à son plafond. Avec des charges lourdes, la société peut l'emporter bien avant.</li>
+      </ul>
+      <p>
+        Faites varier le CA dans le comparateur : la courbe montre où les lignes se croisent. Pour estimer
+        votre tarif cible avant de vous lancer, voyez aussi notre
+        <a href="/calculateur-tjm-freelance">calculateur de TJM</a> et, si vous venez du chômage, notre
+        <a href="/calculateur-are-arce">calculateur ARE ou ARCE</a>.
+      </p>
+
+      <h2>Rémunération vs dividendes (EURL TNS vs SASU assimilé salarié)</h2>
+      <p>
+        En société à l'IS, vous pouvez vous payer en <strong>rémunération</strong> (soumise aux cotisations
+        sociales, mais qui ouvre des droits) ou en <strong>dividendes</strong> (après impôt sur les
+        sociétés). L'arbitrage diffère selon le statut :
+      </p>
+      <ul class="calc-list">
+        <li><strong>SASU</strong> : les dividendes ne supportent que le PFU de 30 % (12,8 % d'impôt + 17,2 % de prélèvements sociaux), sans cotisations sociales. Ils sont donc souvent plus efficaces que la rémunération sur le plan du net immédiat.</li>
+        <li><strong>EURL</strong> : la part de dividendes supérieure à <strong>10 % du capital social</strong> supporte en plus les cotisations TNS. Avec un petit capital, l'essentiel des dividendes est donc cotisé : l'avantage des dividendes est bien moindre qu'en SASU.</li>
+      </ul>
+      <p>
+        Attention : se verser surtout des dividendes réduit vos droits sociaux (retraite, indemnités). Le
+        choix ne se résume pas au net en poche immédiat.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sec-head"><h2>Questions fréquentes</h2></div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Micro, EURL ou SASU : lequel laisse le plus de net en poche ?</summary>
+          <p class="faq-item__a">Pas de réponse universelle. La micro est imbattable quand vous avez peu de charges réelles : cotisations simples (12,3 % à 25,6 % du CA), aucune déduction. Dès que vos charges deviennent importantes, la société (EURL ou SASU) prend l'avantage car elle les déduit avant impôt. Tout dépend de votre CA, de vos charges et de ce que vous vous versez.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__q">À partir de quel chiffre d'affaires faut-il quitter la micro ?</summary>
+          <p class="faq-item__a">Il n'existe pas de seuil unique : le point de bascule dépend surtout de vos charges réelles. Avec peu de charges, la micro reste avantageuse jusqu'à son plafond (83 600 € en services/BNC, 203 100 € en vente). Avec des charges élevées, la société peut devenir plus intéressante bien avant. Au-delà des plafonds, la société est de toute façon obligatoire.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__q">EURL ou SASU : quelle différence ?</summary>
+          <p class="faq-item__a">En EURL, le gérant est travailleur non salarié (TNS) : cotisations plus légères (≈ 45 % du net) mais protection plus basique. En SASU, le président est assimilé salarié : charges plus élevées (le net ≈ 55 % du coût total) mais meilleure protection. Aucun des deux n'ouvre de droit au chômage. Autre écart : en SASU les dividendes ne supportent que le PFU ; en EURL, la part au-delà de 10 % du capital social supporte aussi des cotisations TNS.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__q">Vaut-il mieux se verser une rémunération ou des dividendes ?</summary>
+          <p class="faq-item__a">En SASU, les dividendes échappent aux cotisations sociales (PFU 30 % seulement), souvent plus efficaces que la rémunération. En EURL, l'avantage est limité : la part de dividendes au-delà de 10 % du capital est soumise aux cotisations TNS. Mais la rémunération ouvre des droits (retraite, maladie) que les dividendes n'apportent pas : l'arbitrage n'est pas qu'une question de net immédiat.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__q">Ce comparateur est-il exact au centime près ?</summary>
+          <p class="faq-item__a">Non, c'est une estimation pédagogique. Les cotisations micro, l'IS et le PFU sont calculés précisément, mais les charges sociales TNS (EURL) et assimilé salarié (SASU) sont modélisées par des coefficients standards, comme dans tous les simulateurs grand public. Hors CFE, TVA, situation familiale, autres revenus et ACRE de la 1re année. Faites valider votre choix par un expert-comptable.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS UTILES -->
+  <section class="metiers-proches">
+    <div class="wrap">
+      <p class="metiers-proches__label">Pour aller plus loin</p>
+      <div class="pills">
+        <a href="/guides/creer-son-auto-entreprise" class="pill">Guide : créer son auto-entreprise</a>
+        <a href="/calculateur-tjm-freelance" class="pill">Calculateur de TJM</a>
+        <a href="/calculateur-are-arce" class="pill">Calculateur ARE ou ARCE</a>
+        <a href="/sur-mesure" class="pill pill--cta">Besoin d'un outil sur mesure ?&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo logo--light" aria-label="outils-tpe.fr — accueil">
+          outils-tpe<span class="logo__tld">.fr</span>
+        </a>
+        <p class="footer__tagline">Outils de gestion gratuits<br>pour les TPE françaises</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation du pied de page">
+        <div class="footer__col">
+          <h3 class="footer__heading">Outils</h3>
+          <ul class="footer__links">
+            <li><a href="/calculateurs">Calculateurs</a></li>
+            <li><a href="/comparateurs">Comparateurs</a></li>
+            <li><a href="/modeles">Modèles Excel</a></li>
+            <li><a href="/guides">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Le site</h3>
+          <ul class="footer__links">
+            <li><a href="/sur-mesure">Sur mesure</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/politique-confidentialite">Confidentialité</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap">
+        <p>&copy; <span id="year"></span> outils-tpe.fr — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/comparateur-statuts.js"></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92ba1d054069456593218d00c3c09377"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
